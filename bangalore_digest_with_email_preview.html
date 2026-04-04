@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; position: relative; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .clock-col{text-align:right;flex-shrink:0}
+  .ist-clock{font-size:22px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
+  .countdown-lbl{font-size:11px;color:var(--color-text-tertiary);margin-top:2px}
+  .email-config{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:1rem}
+  .email-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .email-label{font-size:13px;color:var(--color-text-secondary);white-space:nowrap}
+  .email-input{flex:1;min-width:180px;font-size:13px;height:34px;padding:0 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);outline:none}
+  .email-input:focus{box-shadow:0 0 0 2px var(--color-border-info)}
+  .toggle-row{display:flex;align-items:center;gap:8px;margin-top:10px}
+  .toggle{position:relative;width:36px;height:20px;flex-shrink:0}
+  .toggle input{opacity:0;width:0;height:0}
+  .slider-t{position:absolute;inset:0;border-radius:20px;background:var(--color-border-secondary);cursor:pointer;transition:background .2s}
+  .slider-t:before{content:'';position:absolute;height:14px;width:14px;left:3px;top:3px;border-radius:50%;background:white;transition:transform .2s}
+  .toggle input:checked+.slider-t{background:var(--color-text-info)}
+  .toggle input:checked+.slider-t:before{transform:translateX(16px)}
+  .toggle-lbl{font-size:13px;color:var(--color-text-secondary)}
+  .status-bar{display:flex;align-items:center;justify-content:space-between;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;flex-wrap:wrap;gap:8px}
+  .status-left{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-text-secondary);min-width:0;flex:1}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--color-border-secondary);flex-shrink:0}
+  .dot.live{background:#639922}
+  .dot.spin{background:#BA7517;animation:blink 1s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  .btn-row{display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0}
+  .btn{font-size:13px;padding:6px 14px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-primary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .btn:hover{background:var(--color-background-secondary)}
+  .btn:active{transform:scale(0.98)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .btn.primary{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+  .btn.primary:hover{opacity:.85}
+  .btn.accent{background:var(--color-background-success);color:var(--color-text-success);border-color:transparent}
+  .btn.accent:hover{opacity:.85}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .schedule-strip{display:flex;align-items:center;justify-content:space-between;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 14px;margin-bottom:1rem;flex-wrap:wrap;gap:6px}
+  .sch-info{font-size:12px;color:var(--color-text-secondary)}
+  .sch-badge{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--color-background-success);color:var(--color-text-success);font-weight:500}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .news-col{display:flex;flex-direction:column;gap:10px}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .skel{background:var(--color-background-secondary);border-radius:4px;animation:sh 1.4s infinite}
+  @keyframes sh{0%,100%{opacity:.5}50%{opacity:1}}
+  .sl{height:12px;margin-bottom:8px}
+  .empty{text-align:center;padding:2.5rem 1rem;color:var(--color-text-tertiary);font-size:13px;line-height:1.7}
+  .alert{border-radius:var(--border-radius-md);padding:10px 14px;font-size:13px;margin-bottom:10px;display:flex;align-items:flex-start;gap:8px}
+  .alert.danger{background:var(--color-background-danger);color:var(--color-text-danger);border:0.5px solid var(--color-border-danger)}
+  .alert.success{background:var(--color-background-success);color:var(--color-text-success);border:0.5px solid var(--color-border-success)}
+  .alert.warn{background:var(--color-background-warning);color:var(--color-text-warning);border:0.5px solid var(--color-border-warning)}
+
+  .preview-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.42);z-index:100;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto}
+  .preview-overlay.open{display:flex}
+  .preview-modal{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);width:100%;max-width:620px;display:flex;flex-direction:column;margin:auto}
+  .preview-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:0.5px solid var(--color-border-tertiary);flex-shrink:0}
+  .preview-title{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+  .preview-close{font-size:18px;cursor:pointer;color:var(--color-text-secondary);background:none;border:none;padding:0 4px;line-height:1;font-family:var(--font-sans)}
+  .preview-meta{padding:12px 16px;border-bottom:0.5px solid var(--color-border-tertiary);flex-shrink:0;background:var(--color-background-secondary)}
+  .pmeta-row{display:flex;gap:8px;font-size:12px;margin-bottom:4px;align-items:baseline}
+  .pmeta-row:last-child{margin-bottom:0}
+  .pmeta-key{color:var(--color-text-tertiary);min-width:52px;flex-shrink:0}
+  .pmeta-val{color:var(--color-text-primary)}
+  .preview-body{padding:20px;max-height:60vh;overflow-y:auto}
+  .preview-footer{padding:12px 16px;border-top:0.5px solid var(--color-border-tertiary);display:flex;justify-content:flex-end;gap:8px;flex-shrink:0}
+
+  .email-nl{font-family:Georgia,serif;color:#1a1a1a}
+  .nl-header{border-bottom:2px solid #185FA5;padding-bottom:12px;margin-bottom:16px}
+  .nl-title{font-size:20px;font-weight:500;color:#0C447C;margin-bottom:2px}
+  .nl-date{font-size:12px;color:#888}
+  .nl-cat-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#185FA5;margin:16px 0 8px;padding-bottom:4px;border-bottom:0.5px solid #B5D4F4}
+  .nl-item{margin-bottom:12px;padding-left:10px;border-left:2px solid #E6F1FB}
+  .nl-src{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+  .nl-head{font-size:13px;font-weight:500;color:#1a1a1a;line-height:1.45;margin-bottom:3px}
+  .nl-sum{font-size:12px;color:#555;line-height:1.55}
+  .nl-footer{margin-top:20px;padding-top:12px;border-top:0.5px solid #ddd;font-size:11px;color:#aaa;text-align:center}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">In-app + Gmail · 3 headlines · Daily 9:00 AM IST</div>
+        </div>
+      </div>
+    </div>
+    <div class="clock-col">
+      <div class="ist-clock" id="clk">--:--:--</div>
+      <div class="countdown-lbl" id="cdlbl">IST · calculating...</div>
+    </div>
+  </div>
+
+  <div class="email-config">
+    <div class="email-row">
+      <span class="email-label">Deliver digest to</span>
+      <input class="email-input" id="email-inp" type="email" placeholder="your@gmail.com" />
+      <button class="btn" onclick="saveEmail()">Save</button>
+    </div>
+    <div class="toggle-row">
+      <label class="toggle"><input type="checkbox" id="email-toggle" checked /><span class="slider-t"></span></label>
+      <span class="toggle-lbl">Send Gmail digest at 9 AM IST daily</span>
+    </div>
+  </div>
+
+  <div class="schedule-strip">
+    <span class="sch-info">Auto-digest: <strong>9:00 AM IST</strong> · in-app + email</span>
+    <span class="sch-badge" id="sch-badge">Scheduled</span>
+  </div>
+
+  <div id="alerts"></div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="status-left">
+      <div class="dot" id="sdot"></div>
+      <span id="stxt">Ready — click Fetch Now for today's digest</span>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="fbtn" onclick="fetchDigest()">Fetch Now</button>
+      <button class="btn accent" id="pvbtn" onclick="openPreview()" disabled>Preview Email</button>
+      <button class="btn primary" id="ebtn" onclick="sendEmailDigest()" disabled>Send Email</button>
+    </div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+  <div class="news-col" id="grid">
+    <div class="empty">Your morning digest will appear here.<br>Click <strong>Fetch Now</strong> to load today's top 3 headlines per category.</div>
+  </div>
+
+  <div class="preview-overlay" id="overlay" onclick="handleOverlayClick(event)">
+    <div class="preview-modal" id="pmodal">
+      <div class="preview-header">
+        <span class="preview-title">Email preview</span>
+        <button class="preview-close" onclick="closePreview()">&#x2715;</button>
+      </div>
+      <div class="preview-meta">
+        <div class="pmeta-row"><span class="pmeta-key">To</span><span class="pmeta-val" id="pv-to">—</span></div>
+        <div class="pmeta-row"><span class="pmeta-key">From</span><span class="pmeta-val">Morning Digest · Bangalore</span></div>
+        <div class="pmeta-row"><span class="pmeta-key">Subject</span><span class="pmeta-val" id="pv-subj">—</span></div>
+        <div class="pmeta-row"><span class="pmeta-key">Time</span><span class="pmeta-val" id="pv-time">9:00 AM IST</span></div>
+      </div>
+      <div class="preview-body" id="pv-body">
+        <div class="empty">Fetch the digest first to preview the email.</div>
+      </div>
+      <div class="preview-footer">
+        <button class="btn" onclick="closePreview()">Close</button>
+        <button class="btn primary" onclick="closePreview();sendEmailDigest()">Send Now</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const CATS=[
+  {id:'local',label:'Local Bangalore'},
+  {id:'national',label:'National India'},
+  {id:'business',label:'Business & Finance'},
+  {id:'tech',label:'Technology'},
+  {id:'intl',label:'International'}
+];
+let allNews={}, active='local', savedEmail='', lastFetchDate='';
+
+function getIST(){return new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kolkata'}))}
+function pad(n){return String(n).padStart(2,'0')}
+
+function updateClock(){
+  const now=getIST();
+  document.getElementById('clk').textContent=`${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  const next=new Date(now);next.setHours(9,0,0,0);
+  if(now>=next)next.setDate(next.getDate()+1);
+  const d=next-now,h=Math.floor(d/3600000),m=Math.floor((d%3600000)/60000),s=Math.floor((d%60000)/1000);
+  document.getElementById('cdlbl').textContent=`IST · next digest in ${h}h ${m}m ${s}s`;
+  if(now.getHours()===9&&now.getMinutes()===0&&now.getSeconds()<5&&lastFetchDate!==now.toDateString()) fetchDigest();
+}
+
+function saveEmail(){
+  const v=document.getElementById('email-inp').value.trim();
+  if(!v||!v.includes('@')){showAlert('danger','Please enter a valid email address.');return;}
+  savedEmail=v;
+  showAlert('success',`Email saved: ${v}. Digest will be sent at 9 AM IST.`);
+}
+
+function setStatus(state,txt){
+  const d=document.getElementById('sdot');
+  d.className='dot'+(state==='live'?' live':state==='spin'?' spin':'');
+  document.getElementById('stxt').textContent=txt;
+}
+
+function showAlert(type,msg,dur=5500){
+  const box=document.getElementById('alerts');
+  const a=document.createElement('div');
+  a.className=`alert ${type}`;
+  const ico=type==='success'?'✓':type==='danger'?'✕':'!';
+  a.innerHTML=`<span style="font-weight:500;flex-shrink:0">${ico}</span><span>${msg}</span>`;
+  box.prepend(a);
+  if(dur)setTimeout(()=>a.remove(),dur);
+}
+
+function renderTabs(){
+  document.getElementById('tabs').innerHTML=CATS.map(c=>
+    `<button class="tab${active===c.id?' active':''}" onclick="switchTab('${c.id}')">${c.label}</button>`
+  ).join('');
+}
+function switchTab(id){active=id;renderTabs();renderNews();}
+
+function renderSkels(){
+  document.getElementById('grid').innerHTML=Array(3).fill(0).map(()=>`
+    <div class="ncard">
+      <div class="skel sl" style="width:28%;margin-bottom:10px"></div>
+      <div class="skel sl" style="width:92%"></div>
+      <div class="skel sl" style="width:76%"></div>
+      <div class="skel sl" style="width:58%;margin-top:6px"></div>
+    </div>`).join('');
+}
+
+function renderNews(){
+  const items=allNews[active]||[];
+  if(!items.length){document.getElementById('grid').innerHTML='<div class="empty">No headlines for this category.</div>';return;}
+  const now=getIST(),t=now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true});
+  document.getElementById('grid').innerHTML=items.map(n=>`
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">${n.source}</span><span class="ntime">Today · ${t} IST</span></div>
+      <div class="nhead">${n.headline}</div>
+      <div class="nsum">${n.summary}</div>
+    </div>`).join('');
+}
+
+function buildNewsletterHTML(){
+  const now=getIST();
+  const dateStr=now.toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const catNames={local:'Local Bangalore',national:'National India',business:'Business & Finance',tech:'Technology',intl:'International'};
+  let html=`<div class="email-nl">
+    <div class="nl-header">
+      <div class="nl-title">Bangalore Morning Digest</div>
+      <div class="nl-date">${dateStr} &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; 3 headlines per category</div>
+    </div>`;
+  CATS.forEach(c=>{
+    const items=allNews[c.id]||[];
+    if(!items.length)return;
+    html+=`<div class="nl-cat-label">${catNames[c.id]}</div>`;
+    items.forEach(n=>{
+      html+=`<div class="nl-item">
+        <div class="nl-src">${n.source}</div>
+        <div class="nl-head">${n.headline}</div>
+        <div class="nl-sum">${n.summary}</div>
+      </div>`;
+    });
+  });
+  html+=`<div class="nl-footer">Bangalore Morning Digest &nbsp;·&nbsp; Delivered at 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div></div>`;
+  return html;
+}
+
+function openPreview(){
+  if(!Object.keys(allNews).length){showAlert('warn','Fetch the digest first to see the email preview.');return;}
+  const now=getIST();
+  const dateStr=now.toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const subj=`Morning Digest · Bangalore · ${dateStr}`;
+  document.getElementById('pv-to').textContent=savedEmail||'(no email saved — enter above)';
+  document.getElementById('pv-subj').textContent=subj;
+  document.getElementById('pv-time').textContent=`${now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true})} IST (scheduled: 9:00 AM IST)`;
+  document.getElementById('pv-body').innerHTML=buildNewsletterHTML();
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closePreview(){document.getElementById('overlay').classList.remove('open');}
+function handleOverlayClick(e){if(e.target===document.getElementById('overlay'))closePreview();}
+
+async function sendEmailDigest(){
+  if(!savedEmail){showAlert('danger','Please enter and save your Gmail address first.');return;}
+  if(!Object.keys(allNews).length){showAlert('danger','Fetch the digest first before sending email.');return;}
+  const ebtn=document.getElementById('ebtn');
+  ebtn.disabled=true;ebtn.textContent='Sending...';
+  const now=getIST();
+  const dateStr=now.toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const subj=`Morning Digest · Bangalore · ${dateStr}`;
+  const catNames={local:'Local Bangalore',national:'National India',business:'Business & Finance',tech:'Technology',intl:'International'};
+  let plain='BANGALORE MORNING DIGEST\n'+dateStr+'\n\n';
+  CATS.forEach(c=>{
+    const items=allNews[c.id]||[];
+    if(!items.length)return;
+    plain+=catNames[c.id].toUpperCase()+'\n'+'—'.repeat(20)+'\n';
+    items.forEach((n,i)=>{plain+=`${i+1}. [${n.source}] ${n.headline}\n   ${n.summary}\n\n`;});
+  });
+  plain+='Delivered by Bangalore Morning Digest · 9:00 AM IST daily';
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        mcp_servers:[{type:'url',url:'https://gmail.mcp.claude.com/mcp',name:'gmail'}],
+        messages:[{role:'user',content:`Send an email via Gmail with these details:\nTo: ${savedEmail}\nSubject: ${subj}\nBody: ${plain}\nUse the Gmail send tool. Confirm when sent.`}]
+      })
+    });
+    const data=await res.json();
+    const txt=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join(' ');
+    if(txt.toLowerCase().includes('sent')||txt.toLowerCase().includes('draft')||txt.toLowerCase().includes('creat')){
+      showAlert('success',`Digest emailed to ${savedEmail}. Check your inbox!`);
+    } else {
+      showAlert('warn','Email may have been queued — check your Gmail inbox or Drafts.');
+    }
+  }catch(e){
+    showAlert('danger','Gmail send failed: '+e.message);
+  }
+  ebtn.disabled=false;ebtn.textContent='Send Email';
+}
+
+async function fetchDigest(){
+  const fbtn=document.getElementById('fbtn'),ebtn=document.getElementById('ebtn'),pvbtn=document.getElementById('pvbtn');
+  fbtn.disabled=true;ebtn.disabled=true;pvbtn.disabled=true;
+  document.getElementById('alerts').innerHTML='';
+  setStatus('spin','Fetching headlines via web search...');
+  renderSkels();renderTabs();
+  const now=getIST();
+  const date=now.toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric',timeZone:'Asia/Kolkata'});
+  const prompt=`You are a news aggregator for Bangalore, India. Today is ${date}, IST.\n\nUsing web search, fetch the 3 most important current headlines for each category. Focus on Indian sources: Times of India, The Hindu, Deccan Herald, InShorts, NDTV, Economic Times, MSN India.\n\nCategories:\n1. local — Bangalore city news (traffic, civic, local govt, infrastructure, events)\n2. national — India national news (central govt, major domestic events, policy)\n3. business — Business & Finance (markets, startups, economy, RBI, corporate)\n4. tech — Technology (AI, Indian tech, startups, global tech affecting India)\n5. intl — International (world events, geopolitics, global economy)\n\nReturn ONLY valid JSON, no markdown, no preamble:\n{"local":[{"source":"Name","headline":"text","summary":"2 sentence summary"}],"national":[...],"business":[...],"tech":[...],"intl":[...]}\nEach array must have exactly 3 items. Headlines must be factual and from today or last 24 hours.`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:3000,
+        tools:[{type:'web_search_20250305',name:'web_search'}],
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    if(!res.ok)throw new Error(`HTTP ${res.status}`);
+    const data=await res.json();
+    let raw='';
+    (data.content||[]).forEach(b=>{if(b.type==='text')raw+=b.text;});
+    const m=raw.match(/\{[\s\S]*\}/);
+    if(!m)throw new Error('No JSON in response');
+    allNews=JSON.parse(m[0]);
+    lastFetchDate=now.toDateString();
+    setStatus('live',`Digest loaded · ${date}`);
+    ebtn.disabled=false;pvbtn.disabled=false;
+    document.getElementById('sch-badge').textContent='Active';
+    renderNews();renderTabs();
+    if(document.getElementById('email-toggle').checked&&savedEmail) sendEmailDigest();
+  }catch(e){
+    setStatus('','Fetch failed — try again');
+    showAlert('danger','Could not load headlines: '+e.message);
+    document.getElementById('grid').innerHTML='<div class="empty">Failed to load. Please try again.</div>';
+  }
+  fbtn.disabled=false;
+}
+
+setInterval(updateClock,1000);
+updateClock();
+renderTabs();
+</script>
+</body>
+</html>
