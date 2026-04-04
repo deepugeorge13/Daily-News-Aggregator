@@ -1,0 +1,90 @@
+{
+  "date": "2026-04-04T12:18:52.437748+05:30",
+  "news": {
+    "local": [
+      {
+        "source": "The Hans India",
+        "headline": "Bengaluru North Corporation tops social welfare allocation in civic budget",
+        "summary": "<cite index=\"59-1\">The Bengaluru North Corporation has allocated the highest amount for social welfare programs in its civic budget</cite>. The budget allocation demonstrates the corporation's focus on social development initiatives for the upcoming fiscal year."
+      },
+      {
+        "source": "Bangalore Mirror",
+        "headline": "Bengaluru City Corporations directed to prepare for monsoon season",
+        "summary": "<cite index=\"59-1\">Bengaluru City Corporations have been instructed to undertake preparation works ahead of the monsoon season</cite>. This early directive aims to ensure the city's infrastructure is ready to handle upcoming rainfall and potential flooding."
+      },
+      {
+        "source": "The Times of India",
+        "headline": "Road maintenance issues plague city as waste burning damages infrastructure",
+        "summary": "<cite index=\"59-1\">A report highlights how improper waste disposal and burning is damaging Bengaluru roads</cite>. The practice involves placing trash on roads and setting it on fire, causing significant damage to city infrastructure."
+      }
+    ],
+    "national": [
+      {
+        "source": "PMI",
+        "headline": "Parliament passes landmark Jan Vishwas Bill to decriminalize minor offences",
+        "summary": "<cite index=\"11-1,12-2\">Prime Minister Modi expressed delight at Parliament's passage of the Jan Vishwas Bill 2026, which amends 784 provisions across 79 central laws to decriminalise minor offences</cite>. <cite index=\"12-3\">Home Minister Amit Shah called it a 'giant step' towards improving ease of living and business in line with Modi's vision of New India</cite>."
+      },
+      {
+        "source": "The Hindu",
+        "headline": "Assembly elections heat up as PM Modi campaigns in multiple states",
+        "summary": "<cite index=\"13-2\">Prime Minister Modi held a grand roadshow in Puducherry seeking support for the AINRC-BJP alliance in the April 9 territorial Assembly election</cite>. <cite index=\"16-1,16-2\">The BJP has ramped up its Assam campaign with senior leaders including Amit Shah, deploying around 40 star campaigners for the April 9 polls</cite>."
+      },
+      {
+        "source": "OneIndia",
+        "headline": "Government launches National Quantum Computing Mission with \u20b96,000 crore funding",
+        "summary": "<cite index=\"17-1,17-9\">India announced a National Quantum Computing Mission with funding of \u20b96,000 crore</cite>. <cite index=\"17-2,17-10\">The plan aims to support advanced research, build local expertise, and develop quantum-based technologies for security, communication, and computing</cite>."
+      }
+    ],
+    "business": [
+      {
+        "source": "Business Today",
+        "headline": "RBI faces inflation pressure as West Asia war drives oil prices above $100",
+        "summary": "<cite index=\"21-4,21-5\">The RBI's Monetary Policy Committee will meet April 6-8 for the first bi-monthly review of FY27, amid crude oil prices exceeding $100 per barrel due to the ongoing US-Israel-Iran war</cite>. <cite index=\"21-15,21-16\">Retail inflation rose to a 10-month high of 3.21% in February 2026 with the government retaining the 4% target until 2031</cite>."
+      },
+      {
+        "source": "Business Today",
+        "headline": "RBI tightens forex controls as rupee faces renewed pressure amid crisis",
+        "summary": "<cite index=\"28-13,28-14\">The rupee slipped below 95 to the dollar forcing RBI intervention, following a 4% depreciation against the dollar in March</cite>. <cite index=\"28-15\">The rupee tumbled close to 10% in 2025-26, its worst annual drop in over a decade</cite>."
+      },
+      {
+        "source": "Economic Times",
+        "headline": "Bank of Baroda reports strong Q4 business growth with 14% YoY increase",
+        "summary": "<cite index=\"27-13,27-14\">State-owned Bank of Baroda reported a 14% year-on-year rise in global business to Rs 30.78 lakh crore in Q4FY26, with global deposits increasing 12% and domestic deposits rising 13%</cite>. <cite index=\"27-15\">The figures are provisional with final audited numbers to be announced alongside earnings release</cite>."
+      }
+    ],
+    "tech": [
+      {
+        "source": "New Kerala",
+        "headline": "Google opens 2026 AI Startup Accelerator applications for Indian companies",
+        "summary": "<cite index=\"31-2,31-3\">The program is open to AI-first startups from Seed to Series A stages building solutions for India-specific challenges, offering equity-free support including access to Google's advanced AI models like Gemini and Gemma</cite>. <cite index=\"31-7\">Applications close April 19 for this three-month accelerator program</cite>."
+      },
+      {
+        "source": "TechStartups",
+        "headline": "Oracle begins massive layoffs of 20,000-30,000 workers amid AI infrastructure push",
+        "summary": "<cite index=\"33-1,33-10\">Oracle has begun laying off an estimated 20,000-30,000 workers in the U.S. and India while continuing to aggressively invest in AI infrastructure</cite>. <cite index=\"35-4,35-5\">The cuts reflect a broader pattern of big tech companies asking employees to absorb near-term pain for long-term AI positioning</cite>."
+      },
+      {
+        "source": "TechStartups",
+        "headline": "Microsoft invests $10 billion in Japan for AI infrastructure and cybersecurity cooperation",
+        "summary": "<cite index=\"34-15,34-16\">Microsoft announced it will invest 1.6 trillion yen ($10 billion) in Japan between 2026-2029 to expand AI infrastructure and deepen cybersecurity cooperation with the Japanese government</cite>. <cite index=\"34-16\">The announcement came during a Tokyo meeting involving Microsoft President Brad Smith and Prime Minister Sanae Takaichi</cite>."
+      }
+    ],
+    "intl": [
+      {
+        "source": "NPR",
+        "headline": "Israel invades Lebanon as West Asia war expands, creating humanitarian crisis",
+        "summary": "<cite index=\"42-2,42-3\">Israel has invaded Lebanon as the war in Iran expands in the region, pursuing Iran-backed Hezbollah fighters who began firing rockets at Israel last month in support of Iran</cite>. <cite index=\"42-4,42-5\">The invasion has caused a humanitarian crisis with over a million civilians displaced and more than 1,300 killed including 53 paramedics</cite>."
+      },
+      {
+        "source": "NPR",
+        "headline": "Venezuela sees political transformation three months after Maduro's capture",
+        "summary": "<cite index=\"42-9,42-10\">Three months after President Nicol\u00e1s Maduro's capture, ordinary Venezuelans reflect on the dramatic changes in their country</cite>. <cite index=\"42-11,42-12\">Citizens say they're now able to openly talk politics and demonstrate in the streets, though the most difficult transformation challenges may lie ahead</cite>."
+      },
+      {
+        "source": "World Economic Forum",
+        "headline": "Geoeconomic confrontation emerges as top global risk for 2026",
+        "summary": "<cite index=\"50-18,50-25\">The World Economic Forum's Global Risks Report 2026 finds geoeconomic confrontation as the top risk, with 18% of respondents viewing it as most likely to trigger a global crisis</cite>. <cite index=\"50-20,50-22\">Economic risks show the largest collective increase with downturn and inflation both surging eight positions year-on-year, while half of experts expect a turbulent global outlook</cite>."
+      }
+    ]
+  }
+}
