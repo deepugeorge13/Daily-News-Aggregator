@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 6, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 6 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 6 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Approves Rs 1,200 Crore Flyover on Kanakapura Road to Ease Chronic Traffic Congestion</div>
+      <div class="nsum">The BBMP has greenlit a Rs 1,200 crore flyover project along Kanakapura Road to address one of Bengaluru's most congested arterial routes. The project is part of a broader push by the city administration under the newly formed Greater Bengaluru Authority to tackle infrastructure deficits.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Greater Bengaluru Authority Accelerates Lake Revival Drive Across Hebbal, Nagwara and Halasuru</div>
+      <div class="nsum">The Greater Bengaluru Authority (GBA), which officially replaced BBMP in September 2025, is ramping up efforts to drain, desilt and restore polluted waterbodies across the city. Works are currently underway in Hebbal, Nagwara and Halasuru as part of a comprehensive urban water body rejuvenation plan.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Targets September 2026 Opening for ORR and Airport Corridors as Phase 2A and 2B Near Completion</div>
+      <div class="nsum">BMRCL has set a September 2026 deadline to open the Central Silk Board–KR Puram (Phase 2A) and KR Puram–Kempegowda International Airport (Phase 2B) metro corridors, adding 41 km to the network. Namma Metro construction work on the Outer Ring Road stretch has been causing traffic diversions and congestion in affected areas.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Passes Jan Vishwas (Amendment of Provisions) Bill 2026, Decriminalising 717 Provisions Across 79 Laws</div>
+      <div class="nsum">Both Houses of Parliament cleared the Jan Vishwas (Amendment of Provisions) Bill 2026, which decriminalises 717 provisions across 79 central acts by replacing jail terms for minor and technical offences with monetary penalties and warnings. PM Modi hailed it as a historic shift towards a 'trust-based governance framework' that boosts both Ease of Living and Ease of Doing Business.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Attacks Congress in Rajya Sabha Speech, Highlights India's Growth Trajectory and Global Trade Deals</div>
+      <div class="nsum">Prime Minister Narendra Modi delivered a pointed address in the Rajya Sabha, attacking the Congress party while spotlighting India's economic growth, policy reforms and recent progress on global trade agreements. The speech came during the ongoing Budget Session of Parliament, which has seen passage of several key legislative reforms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ETV Bharat</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Lok Sabha Passes Transgender Persons (Protection of Rights) Amendment Bill 2026 During Budget Session</div>
+      <div class="nsum">The Lok Sabha passed the Transgender Persons (Protection of Rights) Amendment Bill 2026, strengthening legal protections for the transgender community in India. The passage forms part of a busy legislative calendar during the Budget Session 2026, which has seen the government push through a slate of reform-oriented bills.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex, Nifty Crack as Iran War Tensions and Crude Oil Spike Unsettle Markets; IT Stocks Provide Cushion</div>
+      <div class="nsum">Indian benchmark indices fell sharply at open on Monday as escalating West Asia conflict and a spike in crude oil prices rattled investor sentiment, with the Sensex and Nifty facing significant selling pressure. IT heavyweights including HCL Tech, Tech Mahindra, Infosys and TCS provided partial support, limiting the downside.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook Money</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC Begins Three-Day Meet on April 6; Rate-Sensitive Sectors Under Pressure Amid Iran War Uncertainty</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee commenced its April 6–8 meeting, with policymakers expected to weigh the economic fallout of rising West Asia tensions on inflation and growth. Rate-sensitive sectors including banking and real estate came under selling pressure ahead of the policy decision.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Moody's Cuts India's FY27 Growth Forecast to 6%, Cites West Asia Tensions and Supply-Side Inflation Risks</div>
+      <div class="nsum">Ratings agency Moody's trimmed India's growth forecast for FY2026–27 to 6%, pointing to disruptions arising from the Iran conflict and its impact on crude oil prices, LPG supply chains and overall inflation. The revision reflects a broader downgrade cycle across emerging markets as geopolitical risks weigh on global economic momentum.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hawk</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches 2026 India AI Startup Accelerator, Opens Applications for Agentic and Sovereign AI Ventures</div>
+      <div class="nsum">Google has launched its 2026 edition of the India Startup Accelerator, an equity-free three-month programme exclusively targeting AI-first startups working in areas such as Agentic AI, Multimodal AI, Physical AI and Sovereign AI. Applications are open until April 19, with a bootcamp scheduled in Bengaluru in June and a Demo Day in October.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TICE News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Startup Ecosystem Kicks Off April with AI Surge, Deeptech Growth and Strong Profitability Push</div>
+      <div class="nsum">Indian startups began April 2026 with strong strategic momentum, with founders increasingly pivoting toward deeper technology, sustainable unit economics and real-world industrial problem-solving. AI, space-tech and climate-tech verticals are seeing the most notable activity as investors shift focus from growth-at-all-costs to profitability-led scaling.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Analytics India Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Top Indian AI Startups to Watch in 2026: From AiSteth's Smart Stethoscope to Vaani AI's Voice Processing Platform</div>
+      <div class="nsum">A new cohort of Indian AI startups is gaining national and global attention in 2026, with AiSteth screening over 75,000 patients using an offline AI-powered stethoscope and Vaani AI significantly reducing manual call volumes through advanced voice processing. Other notable ventures include Resilience AI in climate analytics and VideoSDK in AI-driven video infrastructure efficiency.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Salon / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Doubles Down on Tariffs on Liberation Day Anniversary, Announces 100% Duties on Pharmaceuticals</div>
+      <div class="nsum">On the one-year anniversary of Liberation Day, President Trump announced a sweeping new round of tariffs including 100% duties on branded pharmaceuticals, alongside adjustments to steel and aluminium levies. The move comes despite a recent US Supreme Court ruling that struck down certain IEEPA-based tariffs, leaving global trade policy highly volatile.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump's New Tariff Threats Stall Trade Deals and Trigger Deep Frustration Among US Trading Partners</div>
+      <div class="nsum">Fresh US tariff threats have caused trade negotiations with multiple countries to stall, with foreign governments expressing deep frustration over Washington's erratic trade posture. Analysts warn the uncertainty is pushing businesses to curb expansion, reduce investment and accelerate supply chain diversification away from the United States.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">World Economic Forum</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">WEF Global Risks Report 2026: Geoeconomic Confrontation Tops Risk Rankings as Geopolitical and Economic Threats Converge</div>
+      <div class="nsum">The World Economic Forum's Global Risks Report 2026 identifies geoeconomic confrontation as the single greatest risk facing the world, followed by interstate conflict, extreme weather events and societal polarisation. The report highlights simultaneous flashpoints in Ukraine, the Middle East and Asia, compounded by mounting water security tensions including the suspension of the Indus Waters Treaty.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 6 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
