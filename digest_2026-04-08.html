@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 8, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 8 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 8 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Chief Orders Immediate Crackdown on Lake Encroachments; JCB Demolitions Imminent at Hebbal and Nagawara</div>
+      <div class="nsum">GBA Chief Commissioner Maheshwar Rao has directed commissioners of all five city corporations to take immediate eviction action against lake encroachers, with JCB-led demolitions described as imminent. Major rejuvenation works are already underway at Hebbal Lake (192 acres) and Nagawara Lake (92 acres), which were drained for desilting and bund construction, while Varthur Lake desilting has been completed and handed over for maintenance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Oneindia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Stretch Targets May 2026 Opening; ORR Blue Line on Track for Late 2026</div>
+      <div class="nsum">The elevated section of the Pink Line (Kalena Agrahara to Tavarekere, 7.5 km) is expected to open by May 2026 with safety trials underway, while the underground section connecting Dairy Circle to Nagawara (13.76 km) is targeted for December 2026. The Outer Ring Road Blue Line from Central Silk Board to KR Puram — a critical 19.75 km stretch — is also on track for a late-2026 opening, which would push the total Namma Metro network from 96 km to over 137 km.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Propheadlines</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">KHB's 772-Acre 'Foxconn City' Township Near Devanahalli Set to Reshape North Bengaluru Real Estate</div>
+      <div class="nsum">The Karnataka Housing Board has completed its 60-day public objection window for a landmark 772-acre integrated township near Devanahalli, designed to house workers from Foxconn's nearby iPhone manufacturing campus expected to employ over 50,000 people. Using a 50:50 land-sharing model, official allotment applications are expected to open on the KHB online portal once documentation for all five villages is finalised.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Dept. of Atomic Energy</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's 500 MWe Prototype Fast Breeder Reactor at Kalpakkam Achieves Historic First Criticality</div>
+      <div class="nsum">India's Prototype Fast Breeder Reactor (PFBR) at Kalpakkam, Tamil Nadu, attained first criticality on April 6, a landmark achievement that positions India to become only the second country after Russia to operate a commercial fast breeder reactor. Commercial operations are expected by September 2026, and PM Modi personally congratulated the nation's scientists and engineers on the breakthrough.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Election Commission</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India on Election Eve: Assam, Kerala and Puducherry Head to Polls Tomorrow in High-Stakes Multi-State Vote</div>
+      <div class="nsum">Assam, Kerala and Puducherry are scheduled to vote on April 9 as part of a major multi-state election cycle covering 824 assembly seats across five states and one union territory. The elections have been marked by controversy over the Election Commission's Special Intensive Revision of electoral rolls, with opposition parties alleging disproportionate disenfranchisement of minority voters ahead of polling day.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / PM India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Completes Census Self-Enumeration, Urges All Citizens to Participate in Long-Delayed National Count</div>
+      <div class="nsum">Prime Minister Narendra Modi completed his own self-enumeration for the national Census and called on all Indian citizens to participate in the household enumeration process. The Census — significantly delayed — is now a major governance milestone, with the government stressing its role in welfare delivery, demographic planning, and evidence-based policy formulation across India.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Republic World / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC Holds Repo Rate at 5.25% in First FY27 Policy Review; GDP Growth Pegged at 7.4% Despite Global Headwinds</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee concluded its April 6–8 meeting, keeping the repo rate unchanged at 5.25% as rising West Asia tensions and crude oil surging past $100 per barrel added to inflationary pressures. Governor Sanjay Malhotra projected India's real GDP growth at 7.4% for the year, though analysts at CareEdge and ICRA warned of downside risks, forecasting growth closer to 6.5–6.7%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook Money / Outlook Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex and Nifty Slip After RBI Rate Pause; Banking and Real Estate Under Pressure as IT Stocks Also Weaken</div>
+      <div class="nsum">Indian equity markets turned choppy following the RBI's decision to hold rates, with the Sensex trading near 73,720 (down ~0.5%) and the Nifty hovering around the 22,900 range. Rate-sensitive sectors including banking, real estate and auto saw notable declines, while metal stocks Hindalco and Vedanta bucked the trend on commodity tailwinds.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty Pharma Extends Losing Streak to Four Sessions, Drops 4% as US 100% Tariff on Patented Drugs Weighs</div>
+      <div class="nsum">The Nifty Pharma index fell roughly 4% for a fourth consecutive session as markets continued to digest the US announcement of 100% tariffs on patented pharmaceutical imports announced on April 2. Major losers include Biocon, Torrent Pharma, Sun Pharma and Wockhardt, though analysts note India's core generic drug export segment remains exempt for now, limiting the immediate damage for large-cap exporters.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ISRO / Rozana Spokesman</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ISRO Launches Mission MITRA in Ladakh to Study High-Altitude Effects on Crew Ahead of Gaganyaan</div>
+      <div class="nsum">ISRO launched Mission MITRA (Mapping of Interoperable Traits and Response Assessment) in Leh, Ladakh at ~3,500 metres above sea level, studying physiological and performance effects of high-altitude conditions on space crew candidates and ground teams. Scientific findings from the two-day mission are expected to directly inform crew readiness protocols for ISRO's upcoming Gaganyaan human spaceflight programme.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Surat-Based AI Startup Rocket Hits 1.5 Million Users Across 180 Countries with McKinsey-Style Consulting Platform</div>
+      <div class="nsum">Indian AI startup Rocket launched Rocket 1.0, a platform combining research, product strategy, competitive intelligence and go-to-market planning in a single AI-driven workflow — positioning itself as a fraction-of-the-cost alternative to traditional consulting firms. Backed by Accel, Salesforce Ventures and Together Fund with a $15 million seed round, the startup has grown from 400,000 to over 1.5 million users since September 2025.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Storyboard18</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Razorpay Files DRHP with SEBI for INR 4,500 Crore IPO as Fintech Giant Eyes Late-2026 Listing</div>
+      <div class="nsum">Razorpay, valued at $9.2 billion, has filed its Draft Red Herring Prospectus with SEBI for a public issue targeting up to INR 4,500 crore (~$550 million), following its reverse flip back to India in May 2025. The company saw operating revenue surge 65% year-on-year to INR 3,783 crore in FY25 and has roped in Axis Capital, Kotak Mahindra Capital, JP Morgan and Citi as bankers for the listing.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Announces Two-Week Iran Ceasefire After Threatening to Annihilate; Strait of Hormuz Reopening Demanded</div>
+      <div class="nsum">President Trump stepped back from a threat that "a whole civilization will die tonight," announcing a two-week ceasefire with Iran conditioned on Tehran reopening the Strait of Hormuz, brokered with Pakistan's facilitation. The deal comes as the US-Israeli military campaign against Iran entered its 39th day, with Iran's ambassador stating a complete cessation of hostilities with guarantees against renewed aggression remains Tehran's core demand.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Axios / CFR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">One Year After Liberation Day: Trump Tariffs Cost Average US Household $1,500 as Global Trade Reroutes Around America</div>
+      <div class="nsum">On the first anniversary of "Liberation Day," the Trump administration announced new 100% tariffs on name-brand pharmaceuticals even as courts and trade deals have pulled the average effective US tariff rate to roughly 13.7%, down from its April 2025 peak. Economists estimate the tariffs represent the largest US tax increase as a share of GDP since 1993, costing the average American household $1,500 in 2026, while other nations forge bilateral deals that exclude Washington.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / South China Morning Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India-China Business Ties Thaw as First Indian Trade Delegation Visits Beijing in Over Five Years</div>
+      <div class="nsum">For the first time in over five years, an Indian business delegation traveled to China (March 29–April 4), with eight Indian companies exploring partnerships in EVs, battery solutions and renewable energy with firms from Shanghai, Zhejiang and Wuxi. The visit follows India's March 11 decision to ease restrictions on Chinese investment, signaling a notable thaw in relations frozen since the 2020 Galwan Valley border clash.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 8 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
