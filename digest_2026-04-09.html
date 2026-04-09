@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 9, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 9 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 9 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Goodreturns / Outlook India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RCB vs CSK IPL 2026 Tonight at Chinnaswamy: Rain Clouds Loom Over Match 11 as City Braces for Evening Showers</div>
+      <div class="nsum">Royal Challengers Bengaluru host Chennai Super Kings in Match 11 of IPL 2026 at M. Chinnaswamy Stadium at 7:30 PM IST, with the city expected to remain mostly clear through the day before clouds build in the evening. Meteorologists warn of a risk of brief thundershowers during the match window, with humidity rising to around 49% and isolated gusty winds possible — though no full washout is forecast at this stage.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Travel &amp; Tour World / BDA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BDA Unveils Rs 420 Crore 4-Lane Flyover at Mekhri Circle to Untangle One of Bengaluru's Worst Bottlenecks</div>
+      <div class="nsum">The Bangalore Development Authority has released plans for a 4-lane flyover at Mekhri Circle — one of the city's most chronic congestion points — with a project outlay of Rs 420 crore aimed at slashing peak-hour delays for thousands of daily commuters. The project is part of a broader infrastructure wave that also includes 170 km of tunnels and double-decker flyovers across the city, targeting completion between 2026 and 2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News Karnataka / Nativeplanet</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bannerghatta Road Metro Construction Throttles Traffic; Blue Line Timelines Locked In with Night-Work Rules Tightened</div>
+      <div class="nsum">Ongoing Namma Metro construction along Bannerghatta Road has turned the busy corridor into a daily bottleneck, with commuters reporting significant delays as utility relocation and pile-work continue. Separately, BMRCL has finalised timelines for the Blue Line (Silk Board–KR Puram, 19.75 km) targeting a December 2026 opening, and has tightened night-work noise norms in residential zones following complaints from residents near Jayanagar and BTM Layout.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / NewsX / CEO Kerala</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Polls Open Across Kerala, Assam &amp; Puducherry; LDF Eyes Historic Third Term as 5.3 Crore Voters Head to Booths</div>
+      <div class="nsum">Voting is underway from 7 AM to 6 PM across 296 assembly seats — 140 in Kerala, 126 in Assam and 30 in Puducherry — in one of the biggest multi-state election days of 2026. Kerala's ruling Left Democratic Front is seeking an unprecedented third consecutive term in office, with pre-poll surveys showing a razor-thin contest against the UDF, while in Assam the BJP-led alliance under CM Himanta Biswa Sarma faces a rejuvenated Congress-AIUDF front; results are due on May 4.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / Ministry of Agriculture</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CM Yogi Inaugurates UP Agricultural Science Congress; State Called Out as Producing 21% of India's Food Grains on 11% of Arable Land</div>
+      <div class="nsum">Chief Minister Yogi Adityanath inaugurated the 6th Uttar Pradesh Agricultural Science Congress 2026 in Lucknow, highlighting that despite possessing only 11% of the country's cultivable land, UP contributes 21% of India's total food-grain output. Agriculture Minister Shivraj Singh Chouhan reiterated that doubling farmers' income and strengthening food security remain the central government's top policy priorities for the coming year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MEA / The Federal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's High Commissioner Meets Bangladesh PM Tarique Rahman in Dhaka to Reset Bilateral Ties After Turbulent Year</div>
+      <div class="nsum">India's High Commissioner Pranay Verma held talks with Bangladesh Prime Minister Tarique Rahman in Dhaka, signalling a deliberate effort to stabilise bilateral relations that have been under strain since the political transition in Dhaka in 2024. The meeting covered trade connectivity, border management and water-sharing, with both sides agreeing to resume stalled institutional dialogue mechanisms at the earliest opportunity.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Goodreturns / Open The Magazine / Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Soars 2,800 Points, Nifty Crosses 24,000 as US-Iran Ceasefire Sends Brent Crude Crashing 16% Below $95</div>
+      <div class="nsum">Indian equity markets staged their biggest single-session rally in months on Wednesday as the US-Iran two-week ceasefire announcement triggered a sharp 16% collapse in Brent crude prices, with the Sensex surging ~2,800 points to close at 77,600 and the Nifty 50 crossing 24,000 for the first time since January. The Rs 16 lakh crore wealth creation in a single session was led by banking, auto, real estate and IT, with the Nifty Realty index up nearly 7% on improved liquidity and rate-cut expectations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Angel One / EMobility+</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ola Electric Shares Surge 7% After Announcing Readiness of In-House 46100 LFP Cell; Gigafactory to Scale to 6 GWh</div>
+      <div class="nsum">Ola Electric's stock jumped over 7% after the company disclosed under Regulation 30 that its indigenously developed 46100 Lithium Iron Phosphate cell — a larger, lower-cost format compared to the current NMC 4680 Bharat Cell — is ready and will be integrated into products from Q3 FY27. The announcement marks a major step toward reducing EV sticker prices for mass-market consumers, with the company's Tamil Nadu gigafactory simultaneously scaling from its current 2.5 GWh capacity to 6 GWh.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SEBI / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SEBI Grants Temporary Relief on Minimum Public Shareholding Norms; Companies with April–September Deadlines Get Breathing Room</div>
+      <div class="nsum">The Securities and Exchange Board of India has granted a one-time waiver from enforcement action for listed companies that have been unable to meet minimum public shareholding thresholds due to market volatility stemming from the West Asia conflict, covering compliance deadlines between April 1 and September 30, 2026. The regulator also opened Om Power Transmission Limited's IPO today (price band Rs 166–175), with allotment expected April 15 and listing on NSE and BSE on April 17.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">EMobility+ / Ackodrive / NewsBytesApp</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ola Electric's Indigenous 46100 LFP Cell Could Democratise EV Ownership; Integration into Products Set for Q3 FY27</div>
+      <div class="nsum">Ola Electric's 46100 LFP cell uses a physically larger cylindrical format that significantly lowers per-kWh cost versus existing NMC chemistry, and the company says the cell has broad applicability across two-wheelers, four-wheelers and grid energy storage. The announcement is being read by analysts as a pivotal move that could bring entry-level electric scooter prices below the Rs 80,000 mark, potentially accelerating adoption in Tier 2 and Tier 3 cities where ICE vehicles still dominate.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndianStartupNews / Tracxn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IAN Angel Fund Backs InterCosmos's HyperX In-Space Propulsion System as India's Deep Tech Funding Surges 62% in 2026</div>
+      <div class="nsum">IAN Angel Fund has invested in InterCosmos to advance its HyperX in-space propulsion technology, enabling satellites to perform orbital adjustments and debris avoidance manoeuvres — a capability increasingly demanded by commercial satellite operators. The deal is part of a broader wave: Indian deep-tech startups have already raised $884 million across 66 equity rounds in 2026 so far, a 61.7% jump over the same period last year, buoyed by the government's Rs 1 lakh crore R&amp;D and Innovation Fund.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google India Opens Applications for 2026 Startups Accelerator; AI and DeepTech Cohort Targets 15 Early-Stage Ventures</div>
+      <div class="nsum">Google India has opened applications for its 2026 edition of the Google for Startups Accelerator, with this year's cohort specifically targeting AI-first and deep-tech ventures at seed to Series A stage across sectors including healthcare, agritech, climate and enterprise SaaS. Selected startups receive up to $350,000 in cloud credits, direct mentorship from Google engineers, and access to Google's global partner and investor network — a programme that has helped 120+ Indian startups since its inception.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / CBS News / CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Ceasefire Wobbles on Day 1: Tehran Cites Israel's Lebanon Strikes as Violation; Islamabad Talks Set for April 10</div>
+      <div class="nsum">The fragile two-week ceasefire brokered by Pakistan between the US, Israel and Iran is already under stress, with Iran accusing Israel of violating terms by continuing strikes on Hezbollah in Lebanon — Netanyahu's office has explicitly stated Lebanon is not covered by the deal. Oil tanker traffic through the Strait of Hormuz, which briefly resumed after the agreement, was halted again, though Brent crude remains ~16% below its pre-ceasefire level near $95/bbl; Pakistan has invited delegations from both sides to Islamabad on Friday, April 10, for further negotiations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Xinhua / Vietnam National Assembly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Vietnam's National Assembly Confirms Le Minh Hung as New Prime Minister for 2026–2031 Term; To Lam Retains State Presidency</div>
+      <div class="nsum">Vietnam's National Assembly adopted a resolution on April 7 confirming Le Minh Hung as the country's new Prime Minister for the 2026–2031 legislative term, replacing Pham Minh Chinh in the country's latest leadership reshuffle. General Secretary To Lam was simultaneously confirmed as State President, consolidating his position at the apex of the Vietnamese political system and signalling continuity in the Communist Party's economic reform and anti-corruption agenda.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / South China Morning Post / Australian Government</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Chinese Premier Li Qiang Pledges Open Market to Australia, Pushes Bilateral Trade as US Tariff War Reshapes Global Supply Chains</div>
+      <div class="nsum">Chinese Premier Li Qiang told his Australian counterpart that China's vast market will remain open and that Beijing is willing to import more high-quality Australian commodities and agricultural products, as both nations look to deepen ties amid the disruption caused by US tariff escalations. The meeting comes as global trade continues to reroute around the US — with the effective American tariff rate at ~13.7% following judicial and bilateral roll-backs — and as economists estimate US tariffs cost the average American household $1,500 in 2026.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 9 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
