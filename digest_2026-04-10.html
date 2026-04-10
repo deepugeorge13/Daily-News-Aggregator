@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 10, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 10 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 10 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Vault PropTech / BBMP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka to Distribute 10 Lakh e-Khata Certificates Across Bengaluru This April in Largest-Ever Digital Property Drive</div>
+      <div class="nsum">The Karnataka government has launched its most ambitious property-records digitisation effort yet, targeting the distribution of 10 lakh BBMP/GBA e-Khata certificates across Bengaluru this month to regularise records, correct errors and accelerate approvals. The drive is expected to sharply reduce delays in property transactions across the city, with residents able to obtain certificates at designated ward offices and through the online portal, cutting out long queues and manual verification steps.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Construction World / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Gets 4th Train; 41 km of New Lines Targeted for Completion in 2026–27 as Network Eyes 175 km</div>
+      <div class="nsum">BMRCL confirmed the arrival of a fourth six-coach train at the Kothanur depot on Bannerghatta Road for the upcoming Pink Line, keeping the corridor on track for its imminent launch. Separately, the Karnataka Budget has earmarked 41 km of additional metro lines for completion in 2026–27, pushing the city's network toward its 175 km expansion target — part of a broader effort to take daily metro ridership past the 10 lakh mark.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / The News Minute</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Directs ₹19,000 Crore Budget Toward Roads, Smart Lighting and Green Spaces; 9 km Pedestrian Walkway Planned Along Outer Ring Road</div>
+      <div class="nsum">Over 65% of BBMP's ₹19,000 crore budget for 2026–27 is being channelled into surface infrastructure upgrades — including pothole-free road resurfacing, smart LED lighting and neighbourhood beautification — as part of the city's drive to improve liveability ahead of the next civic elections. A standout proposal is a 9 km elevated pedestrian and cycling walkway along the metro viaduct on the Outer Ring Road at a cost of Rs 160 crore, which, if approved, would be Bengaluru's longest car-free urban promenade.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Onmanorama / Dynamite News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Post-Poll Silence Begins After Record Turnout: Kerala 78.27%, Assam 85.65%, Puducherry 86.92% — All Eyes on May 4 Results</div>
+      <div class="nsum">Voting concluded on April 9 across 296 assembly seats — 140 in Kerala, 126 in Assam and 30 in Puducherry — with all three recording higher turnouts than their last elections, raising anticipation around a competitive outcome. In Kerala, CPM's Pinarayi Vijayan is seeking an unprecedented third consecutive term, while in Assam, CM Himanta Biswa Sarma's BJP-led alliance faces a reinvigorated Congress-AIUDF combine; exit polls are barred until counting day on May 4.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMD / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Yellow Alert for Delhi-NCR, UP, Bihar and 5 Other States; Thunderstorms and Hail Possible Through the Weekend</div>
+      <div class="nsum">The India Meteorological Department has issued a yellow alert warning of thunderstorms, lightning and hail at isolated places across Delhi-NCR, Uttar Pradesh, Bihar, Uttarakhand, Himachal Pradesh, Rajasthan and Haryana over the next 24–48 hours, driven by a western disturbance interacting with moist easterly winds. Heavy rainfall alerts also remain active for Arunachal Pradesh, Coastal Andhra Pradesh, Kerala, Tamil Nadu and the Andaman &amp; Nicobar Islands.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Pakistan High Commission / News24</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pakistan Issues 2,800+ Visas to Indian Pilgrims for Baisakhi; Amarnath Yatra 2026 Registration Opens April 15 at 554 Bank Branches</div>
+      <div class="nsum">The Pakistan High Commission in New Delhi has issued over 2,800 visas to Sikh pilgrims from India for the Baisakhi celebrations scheduled across Pakistan from April 10–19, one of the largest visa issuances for a religious event in recent years. On the domestic front, the Shrine Board has announced that registration for Amarnath Yatra 2026 — beginning July 1 — will open on April 15 at 554 designated bank branches nationwide, with helicopter bookings and medical fitness certificates also part of the process.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / Upstox / APAC News Network</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TCS Q4 FY26: Net Profit Surges 12% to ₹13,718 Crore, Revenue at ₹70,698 Crore; Rs 31 Dividend Declared as AI Revenue Tops $2.3 Bn</div>
+      <div class="nsum">Tata Consultancy Services reported a strong close to FY26, with Q4 net profit rising 12% year-on-year to ₹13,718 crore and revenue growing 5.4% QoQ to ₹70,698 crore — the operating margin of 25.3% was the highest in four years. The IT major also disclosed that its annualised AI revenue crossed $2.3 billion in Q4, while total contract value for the full year hit a record $40.7 billion, signalling sustained demand for large enterprise deals and signalling a sector-wide turnaround after a subdued FY25.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SolarQuarter / Business Standard / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slips to 76,631, Nifty at 23,771 as Ceasefire Doubts Revive Crude Fears; FIIs Pull Back from Financials</div>
+      <div class="nsum">Indian equities gave back some of Wednesday's spectacular rally on Thursday, with the Sensex declining 1.2% to 76,631 and the Nifty 50 falling ~1% to 23,771 as doubts over the durability of the US-Iran ceasefire caused crude oil prices to rebound and FIIs resumed selling in banking heavyweights including HDFC Bank, ICICI Bank and Kotak. Defence and metals stocks bucked the trend — BEL gained 1.6% — while the renewable energy segment showed mixed performance, with Insolation Energy surging 7.8%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">RBI / Business Standard / SEBI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25% with Neutral Stance; SEBI Waives MPS Enforcement for April–September Amid Market Volatility</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee kept the repo rate unchanged at 5.25%, citing persistent inflation pressures and the need to monitor the global macro fallout from the West Asia conflict before easing further. In a parallel move, SEBI granted a one-time waiver from enforcement action for listed companies that failed to meet minimum public shareholding thresholds due to market volatility, covering compliance deadlines between April 1 and September 30, 2026.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / BestStartup.in / AI Funding Tracker</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Neysa's ₹10,000 Crore Series B is India's Largest-Ever AI Round; Q1 2026 AI Funding Surges 73% YoY to ₹2,110 Crore</div>
+      <div class="nsum">Bengaluru-based AI infrastructure platform Neysa closed India's largest-ever AI funding round at ₹10,000 crore (~$1.2 billion) in Q1 2026, accounting for roughly one-third of the quarter's total AI investment and underscoring appetite for compute infrastructure that powers the country's AI buildout. Overall AI investment in India surged 73% year-on-year to ₹2,110 crore in Q1 FY27, catapulting the sector to third place in total startup funding — behind only fintech and SaaS.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / New Kerala / Google</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google India's 2026 AI Startup Accelerator Applications Close April 19; Programme Targets Agentic AI, Sovereign AI Ventures at Seed to Series A</div>
+      <div class="nsum">Google India has opened applications for its 2026 edition of the Google for Startups Accelerator, with this year's cohort zeroing in on Agentic AI and Sovereign AI ventures at seed to Series A stage — a pivot from its earlier broad-sector focus, reflecting the rapid maturation of India's AI ecosystem. Selected startups receive up to $350,000 in cloud credits, hands-on mentorship from Google engineers and access to its global investor network; the programme has supported over 120 Indian startups since inception.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Analytics India Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Surat-Based Startup Rocket Launches AI Platform That Delivers McKinsey-Style Strategy Reports at a Fraction of the Cost</div>
+      <div class="nsum">Indian AI startup Rocket has unveiled its 1.0 platform, which integrates research, product strategy and competitive intelligence into a single AI-driven workflow — generating detailed documents covering pricing, unit economics and go-to-market playbooks in minutes. The launch comes as India's AI market is projected to reach $126 billion by 2030, with the Google and Inc42 Bharat AI Startups Report 2026 estimating a potential GDP impact of $1.7 trillion by 2035 if adoption continues at its current pace.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Nuclear and Ceasefire Talks Begin in Islamabad Today Under Pakistan's Mediation; Iran Presents 10-Point Proposal</div>
+      <div class="nsum">US and Iranian delegations are arriving in Islamabad on Friday, April 10, for formal negotiations brokered by Pakistan, the first direct talks since the two-week ceasefire was announced on April 7. Iran's 10-point proposal on the table includes Iranian oversight of the Strait of Hormuz, withdrawal of US combat forces from Middle East bases, a halt to strikes on allied armed groups, full war reparations and the lifting of all sanctions — terms analysts describe as a maximalist opening position ahead of what is expected to be a protracted negotiation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NBC News / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ceasefire Fraying at the Edges: Iran Accuses Israel of Lebanon Violations; Hormuz Traffic Stalls as Crude Edges Back Toward $95</div>
+      <div class="nsum">The US-Iran ceasefire, now in its third day, is under severe stress after Iran accused Israel of violating terms by continuing airstrikes on Hezbollah positions in Lebanon — Israeli PM Netanyahu has explicitly stated Lebanon is not covered by the deal. Oil tanker traffic through the Strait of Hormuz, which briefly resumed after the ceasefire announcement, has stalled again, pushing Brent crude back toward $95/barrel after Wednesday's historic 16% crash, and rattling global financial markets that had priced in a more durable truce.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Al Jazeera / GCC Statements</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Gulf States Welcome Ceasefire but Urge Permanent Resolution; GCC Calls for Hormuz Neutrality and Regional De-escalation Framework</div>
+      <div class="nsum">Saudi Arabia, the UAE, Qatar and other GCC members issued statements welcoming the US-Iran ceasefire while calling for it to form the basis of a permanent, internationally monitored de-escalation framework for the broader Middle East. Gulf foreign ministers are expected to convene on the sidelines of the Islamabad talks to present a proposal for Strait of Hormuz neutrality — a move that would guarantee unimpeded oil flows regardless of the outcome of the US-Iran nuclear negotiations and ease the energy-price anxiety gripping Asian importing nations including India and China.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 10 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
