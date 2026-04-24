@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 24, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 24 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 24 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HC Probe Clouds BMRCL Multimodal Transit Hub Plans at Hebbal Junction</div>
+      <div class="nsum">A High Court probe is casting uncertainty over BMRCL's ambitious plans to develop Hebbal Junction as a multimodal transit hub, with the corporation having previously acquired over 1.65 acres from KIADB for Phase 2B station and viaduct construction. The legal cloud now threatens to stall what was envisioned as a key interchange node connecting Namma Metro with other modes of public transport in northern Bengaluru.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Saptashwa TV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Extends Namma Metro Services Until 2 AM for IPL Match Night on April 24</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited has extended Namma Metro services from all terminal stations until 2 AM on April 24 to ease commutes for IPL T20 match-goers at M. Chinnaswamy Stadium, with trains running well beyond the regular 11 PM cutoff. BMRCL stated the move is aimed at reducing match-day road congestion and encouraging fans to use mass transit instead of private vehicles.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Knight Frank</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Offers Most Space for $1 Million Among India's Top Cities, Says Knight Frank Wealth Report 2026</div>
+      <div class="nsum">According to the Knight Frank Wealth Report 2026, $1 million can buy approximately 357 square metres of property in Bengaluru, significantly more than Mumbai's 96 sq m or Delhi's 205 sq m, underscoring the city's relative real estate affordability. The report also noted India's ultra-rich population ranks sixth globally, with Indian billionaires projected to grow by 51% by 2031, driving continued demand for premium city real estate.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook India / PTI / Election Commission of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal and Tamil Nadu Record Highest-Ever Voter Turnouts Since Independence in Assembly Elections 2026</div>
+      <div class="nsum">West Bengal recorded a historic 91.78% voter turnout in Phase 1 of the 2026 Assembly Elections, while Tamil Nadu crossed 84.69% turnout across all 234 constituencies in a single-phase poll on April 23 — both the highest since Independence, according to the Election Commission of India. Results for both states are scheduled to be announced on May 4, with Tamil Nadu's contest pitting the DMK-led alliance against the AIADMK-NDA bloc and actor-turned-politician Vijay's debut TVK party.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / India.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's MEA Rebukes Trump's 'Hellhole' Remark as 'Uninformed and Inappropriate', US Embassy Scrambles to Respond</div>
+      <div class="nsum">India's Ministry of External Affairs sharply condemned US President Donald Trump's amplification of a social media post describing India as a 'hellhole on the planet,' with MEA spokesperson Randhir Jaiswal calling the remarks 'uninformed, inappropriate and in poor taste.' Trump had reposted conservative commentator Michael Savage's critique of US birthright citizenship on Truth Social, after which the US Embassy in New Delhi issued a clarification and Trump separately praised India as 'a great country.'</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India This Week / News24</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Campaigns in West Bengal as State Goes to Polls; Punjab Conducts Air Raid Mock Drill</div>
+      <div class="nsum">Prime Minister Narendra Modi undertook an election campaign visit to West Bengal on April 24 as the state undergoes its historic first-phase polling, while Punjab simultaneously held air raid and blackout mock drills amid heightened national security awareness. The election season across five states — West Bengal, Tamil Nadu, Kerala, Assam and Puducherry — marks one of the largest multi-state electoral exercises in recent Indian history.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Upstox</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HCLTech Q4 FY26 Net Profit Rises 4.2% to ₹4,488 Crore; Shares Tumble 10% on Cautious FY27 Guidance of 1–4%</div>
+      <div class="nsum">HCL Technologies reported a 4.2% year-on-year rise in consolidated net profit to ₹4,488 crore for Q4 FY26, with revenues climbing 12.34% to ₹33,981 crore, while also declaring an interim dividend of ₹24 per share for FY27. However, the stock dropped nearly 10% after the company issued a cautious FY27 revenue growth guidance of just 1–4% in constant currency, citing a volatile demand environment, tariff headwinds, and softened discretionary client spending.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Ends Week Under Pressure Near 77,950 as HDFC Bank, Titan Drag; Brent Crude Near $100</div>
+      <div class="nsum">The BSE Sensex closed Thursday at approximately 77,950 points, dipping about 161 points, with losses led by HDFC Bank (-1.96%), Titan Company (-1.34%) and Mahindra &amp; Mahindra (-1.12%), as rising crude oil prices near $100 a barrel and geopolitical uncertainty from the US-Iran conflict weighed on sentiment. Offsetting some losses, Adani Ports, Larsen &amp; Toubro, and Trent posted gains, while traders remained cautiously watchful of progress in US-Iran talks and the possible reopening of the Strait of Hormuz.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Groww Q4 FY26 Net Profit Surges 122% YoY to ₹686 Crore as Retail Investing Boom Continues</div>
+      <div class="nsum">Zerodha-rival Groww posted a 122% year-on-year jump in net profit to ₹686 crore for Q4 FY26, with income rising 81%, reflecting the continued surge in retail participation in Indian equities. Analysts remain bullish on the asset management and broking space, citing stable systematic investment inflows and an improving yield outlook, even as macro and geopolitical headwinds keep broader markets choppy.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / Organiser / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru-Based Sarvam AI Launches 'Chanakya' Sovereign AI Stack for National Security and Government Use</div>
+      <div class="nsum">Bengaluru-based Sarvam AI — selected under the government's IndiaAI Mission with ₹246.72 crore in financial and compute support — has launched 'Chanakya,' a sovereign AI stack designed to handle classified government and military workloads in air-gapped, offline environments, making India the first developing nation to deploy a sovereign AI system of this scale. The company's broader suite already includes two open-sourced LLMs (Sarvam-30B and Sarvam-105B), multilingual voice and OCR models, and a forthcoming AI wearable device, 'Sarvam Kaze,' planned for launch in May 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrepreneur India / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google India Opens Applications for 2026 AI Startups Accelerator with Bengaluru Bootcamp in June</div>
+      <div class="nsum">Google India has opened applications for its 2026 'Google for Startups Accelerator: India' program, aimed at backing early-stage AI startups with product development, technology, and business growth support. The program is scheduled to kick off in late June with a one-week in-person bootcamp in Bengaluru, concluding with a Demo Day in October where selected startups will showcase their progress to investors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HCLTech Launches AI Force 2.0 Platform for Enterprise Agentic AI as IT Sector Faces GenAI Disruption Fears</div>
+      <div class="nsum">HCL Technologies launched its AI Force 2.0 platform, an enterprise-grade agentic AI solution, positioning itself amid growing investor concerns that rapid advances in GenAI tools like Claude and Palantir could disrupt traditional IT and SaaS business models. The launch comes as Infosys shares remain down 22% in 2026 year-to-date and the broader Indian IT sector grapples with cautious FY27 guidance, delayed client decision-making, and margin pressure from AI-led deflation.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CBS News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Seizes Two Cargo Ships in Strait of Hormuz After Trump Extends Ceasefire but Keeps Naval Blockade</div>
+      <div class="nsum">Hours after President Trump extended the US-Iran ceasefire on social media, Iran's Revolutionary Guard seized two cargo ships — the MSC-Francesca and the Epaminodes — in the Strait of Hormuz, with the Philippine government confirming 15 of its seafarers were aboard and said to be 'safe and unharmed.' Iran has maintained that any ceasefire is meaningless while the US naval blockade of its ports remains in place, describing the blockade as an act of war, while US-Iran peace talks in Pakistan remain stalled.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel-Lebanon Ceasefire Extended by Three Weeks Following White House Peace Talks</div>
+      <div class="nsum">Following a second round of direct peace talks between Israeli and Lebanese ambassadors in Washington, President Trump announced Thursday that the fragile Israel-Lebanon ceasefire, first brokered on April 16, has been extended by three weeks. The talks mark the first direct diplomatic engagement between the two countries in decades, with Lebanon's President Joseph Aoun citing Trump's personal intervention as key to maintaining the ceasefire and launching a broader negotiations track.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EU Leaders Meet in Cyprus to Discuss Ukraine Aid, Hormuz Crisis and Mutual Defence as Global Tensions Mount</div>
+      <div class="nsum">European Union leaders convened in Cyprus for an emergency summit to coordinate responses to the ongoing Ukraine conflict, the Strait of Hormuz shipping crisis, and the bloc's collective defence strategy, as the IMF's April 2026 World Economic Outlook warned that the global economy is being tested by geopolitical risk, war, and rising military spending. A €90 billion loan package for Kyiv was unlocked alongside new sanctions against Russia, while Hungary's long-standing veto on Ukraine's EU membership accession remained a key sticking point.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 24 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
