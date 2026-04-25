@@ -5,6 +5,21 @@ import anthropic
 import json
 import os
 import re
+from twilio.rest import Client
+
+# Load .env if present (no dependency on python-dotenv)
+_env_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+if os.path.exists(_env_file):
+    for _line in open(_env_file):
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip(), _v.strip())
+
+TWILIO_SID   = os.environ["TWILIO_SID"]
+TWILIO_TOKEN = os.environ["TWILIO_TOKEN"]
+TWILIO_FROM  = os.environ["TWILIO_FROM"]
+WHATSAPP_TO  = os.environ["WHATSAPP_TO"]
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT = os.path.join(DIR, "digest_2026-04-25.html")
@@ -315,6 +330,32 @@ function switchTab(id, btn) {{
 </html>"""
 
 
+def _whatsapp_text(data: dict) -> str:
+    """Format the digest as a compact WhatsApp message."""
+    icons = {
+        "local":    ("📍", "LOCAL BANGALORE"),
+        "national": ("🇮🇳", "NATIONAL INDIA"),
+        "business": ("💼", "BUSINESS & FINANCE"),
+        "tech":     ("💻", "TECHNOLOGY"),
+        "intl":     ("🌍", "INTERNATIONAL"),
+    }
+    lines = [f"🗞 *Bangalore Morning Digest*\n{DATE_LONG}\n"]
+    for key, (icon, label) in icons.items():
+        lines.append(f"{icon} *{label}*")
+        for item in data[key][:3]:
+            lines.append(f"• {item['headline']}")
+        lines.append("")
+    lines.append("_Powered by Claude + Web Search_")
+    return "\n".join(lines)
+
+
+def send_whatsapp(data: dict) -> None:
+    client = Client(TWILIO_SID, TWILIO_TOKEN)
+    body   = _whatsapp_text(data)
+    msg    = client.messages.create(from_=TWILIO_FROM, to=WHATSAPP_TO, body=body)
+    print(f"WhatsApp sent → SID {msg.sid}")
+
+
 def main():
     print("Fetching news via Claude + web search …")
     data = fetch_news()
@@ -323,6 +364,8 @@ def main():
     with open(OUTPUT, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"Digest written → {OUTPUT}")
+    print("Sending WhatsApp message …")
+    send_whatsapp(data)
 
 
 if __name__ == "__main__":
