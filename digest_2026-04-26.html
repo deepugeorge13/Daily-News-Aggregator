@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 26, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 26 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 26 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Runs Early from 3 AM on April 26 to Support TCS World 10K Bengaluru Race</div>
+      <div class="nsum">BMRCL announced special early metro services on Sunday, April 26, with trains departing Bommasandra at 3 AM, Whitefield (Kadugodi) and Silk Institute at 3:30 AM, and Challaghatta at 3:35 AM, to facilitate public movement for the TCS World 10K Bengaluru marathon. Trains operated at 15-minute intervals in the first hour, reducing to 30-minute intervals until 7 AM before resuming the regular timetable.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Construction World / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pink Line Elevated Section Completes Final RDSO Safety Trials; Public Launch Expected After May</div>
+      <div class="nsum">The elevated portion of Namma Metro's Pink Line is undergoing final RDSO speed and safety trials as of April 24, 2026, with a public launch expected shortly after May. BMRCL plans to begin Phase 1 operations with 5 trainsets, offering a headway of roughly 5 to 8 minutes, providing a direct high-speed link from Bannerghatta Road to major hubs like MG Road.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMD / Oneindia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Yellow Alert for Thunderstorms Across 14+ Karnataka Districts; Bengaluru Stays Dry</div>
+      <div class="nsum">The India Meteorological Department issued a yellow alert for rain, thunderstorms, and gusty winds of 30–40 kmph across more than 14 Karnataka districts through April 26–27, covering North Interior districts like Belagavi and Kalaburagi as well as South Interior areas including Mysuru and Hassan. Bengaluru is expected to remain largely clear, with daytime temperatures hovering around 36–37 degrees Celsius and dry conditions prevailing through April 27.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MyGov.in / Social News XYZ</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Addresses Nation in 133rd Edition of Mann Ki Baat on April 26</div>
+      <div class="nsum">Prime Minister Narendra Modi broadcast the 133rd episode of his monthly radio programme Mann Ki Baat at 11:00 AM on Sunday, April 26, 2026, reaching citizens across the country. The BJP in Bihar and several other states organised mass listening events and public screenings to maximise the programme's outreach.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / NewKerala</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Navy Unveils New Maritime Security Strategy INMSS-2026 at Naval Commanders Conference</div>
+      <div class="nsum">The Indian Navy concluded its biannual Naval Commanders' Conference 2026 at Nausena Bhawan, New Delhi, releasing the Indian Navy Maritime Security Strategy (INMSS-2026), which outlines the Navy's decade-long approach to safeguarding national maritime interests amid evolving geopolitical tensions, particularly in West Asia. The Chief of Naval Staff Admiral Dinesh Kumar Tripathi emphasised the need to prepare for a highly contested operational space caused by concurrent global conflicts, weakening of rules-based order, and threats from non-state actors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSA Ajit Doval Visits Saudi Arabia as India Steps Up Outreach to Key Energy Suppliers</div>
+      <div class="nsum">National Security Advisor Ajit Doval travelled to Saudi Arabia as part of India's strategic outreach to critical energy-supplying nations amid the ongoing US–Iran conflict and its disruptions to global oil supply. The visit underscores India's effort to secure stable energy corridors and reaffirm bilateral ties, as surging crude oil prices above $100 per barrel continue to threaten India's growth trajectory.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">RBI / Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Cancels Paytm Payments Bank Licence, Orders Winding-Up for Regulatory Violations</div>
+      <div class="nsum">The Reserve Bank of India officially cancelled the banking licence of Paytm Payments Bank Limited (PPBL) effective April 24, 2026, citing governance failures and operations conducted in a manner detrimental to depositors' interests, and confirmed it will approach the High Court to initiate winding-up proceedings. Parent company One97 Communications clarified that its broader Paytm app, UPI services, Paytm Gold, and payment gateway operations remain unaffected, as these services were already separated from the banking subsidiary.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slides Nearly 1,000 Points as Oil Surge, IT Sector Sell-off and Rupee Weakness Weigh</div>
+      <div class="nsum">India's BSE Sensex closed approximately 1.3% lower at 76,664 on Friday, marking three straight sessions of losses, driven by surging crude oil prices above $100 per barrel amid the Middle East standoff, heavy foreign outflows, and a sharp decline in IT stocks. The IT sector plunged over 5%, dragged by Infosys (−7.1%) and HCL Tech (−5.8%) following disappointing revenue guidance, while JP Morgan downgraded Indian equities to 'neutral' from 'overweight', citing high valuations and earnings headwinds tied to the Iran-linked energy shock.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India IPO / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Forex Reserves Rise $2.3 Billion to $703.3 Billion; IDBI Bank Disinvestment on Track</div>
+      <div class="nsum">India's foreign exchange reserves jumped by $2.3 billion to reach a new total of $703.308 billion, providing a significant buffer against global volatility fuelled by the Middle East conflict and surging oil prices. The Finance Minister separately confirmed that the IDBI Bank disinvestment process will proceed as planned, with the government targeting approximately ₹30,000 crore by selling its majority stake to strategic private investors.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MSN India / Business Today / The Print</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Presses Anthropic for Early Access to Mythos AI Amid Critical Infrastructure Cyber Risk Talks</div>
+      <div class="nsum">India's Ministry of Electronics and IT (MeitY) and industry body Nasscom have formally pressed Anthropic for inclusion in Project Glasswing — which currently grants only 40 US-based organisations early access to the powerful Claude Mythos AI model — citing the country's central role in managing critical global digital infrastructure. Finance Minister Nirmala Sitharaman chaired a high-level meeting with bank leaders warning that the Mythos threat is 'unprecedented,' while the RBI has been consulting the US Federal Reserve and Bank of England on potential systemic cybersecurity risks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Sarvam AI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Launches Startup Program and Plans Wearable AI Device Release in May 2026</div>
+      <div class="nsum">Bengaluru-based Sarvam AI, India's flagship sovereign AI company under the IndiaAI Mission, has launched the Sarvam Startup Program offering early-stage firms API credits and engineering support, following the open-sourcing of its Sarvam-30B and Sarvam-105B large language models in February 2026. The company is also preparing to launch 'Sarvam Kaze,' an indigenous AI-powered wearable glass supporting over 10 Indian languages with real-time translation and voice interaction, expected in May 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tracxn / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $5.62 Billion in 531 Equity Rounds in 2026 So Far, Signalling Continued Investor Confidence</div>
+      <div class="nsum">Indian startups have raised $5.62 billion across 531 equity funding rounds in 2026 up to April, according to Tracxn data, with 49 IPOs already completed this year against 315 in all of 2025. The ecosystem, which now counts over 667,000 startups and 127 unicorns, is seeing a pronounced tilt toward AI-first, deeptech, and profitable business models as investors become more selective about backing scalable technology ventures.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Cancels Witkoff-Kushner Pakistan Trip as US-Iran Peace Talks Hit Fresh Uncertainty</div>
+      <div class="nsum">President Donald Trump cancelled the planned trip by special envoys Steve Witkoff and Jared Kushner to Pakistan for a second round of US–Iran peace talks, saying negotiations would be conducted by phone instead, as Iran's Foreign Ministry simultaneously confirmed no meeting with US representatives was planned in Islamabad. The US naval blockade of Iranian ports continues, with 37 ships redirected by the US Navy so far, while Iran's President Pezeshkian urged citizens to conserve electricity amid the economic pressure of the siege.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / AP / EU Council</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EU Approves $106 Billion Loan Package for Ukraine After Hungary Lifts Veto, Also Passes New Russia Sanctions</div>
+      <div class="nsum">The European Union approved a €90 billion ($106 billion) loan package to help Ukraine cover its economic and military needs for 2026–2027, breaking months of political deadlock after Russia resumed oil deliveries to Hungary and Slovakia via the Druzhba pipeline. The EU simultaneously approved a fresh set of sanctions against Russia targeting over 40 shadow fleet oil tankers, multiple banks, and more than 60 additional entities, as Ukrainian President Zelenskyy pledged the funds would first go toward strengthening Ukrainian forces.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News.az / US News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">World Marks 40th Anniversary of Chernobyl Disaster on April 26 as Nuclear Energy Debate Intensifies</div>
+      <div class="nsum">The world marked the 40th anniversary of the April 26, 1986, explosion and fire at the Chernobyl Nuclear Power Plant, with commemorations held across Europe and Ukraine underscoring the lasting environmental and humanitarian legacy of the disaster. The anniversary arrives at a moment of intense global debate over nuclear energy's role in the clean energy transition, as several nations reconsider reactor programmes amid soaring fossil fuel prices driven by the US–Iran conflict.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 26 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
