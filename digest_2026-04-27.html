@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 27, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 27 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 27 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Housing.com / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 on Track for May 2026 Completion; Phase 4 Feasibility Study Underway</div>
+      <div class="nsum">BMRCL's Pink Line Phase 1 (Tavarekere to Kalena Agaraha), covering 7.5 km with six elevated stations, is expected to be completed by May 2026, while Phase 2 of the line is targeted for December 2026. Separately, a feasibility study for the ambitious 197-km Phase 4 expansion — connecting suburbs like Hoskote, Bidadi, and Tumkur — is in progress, with BMRCL planning eight new routes to ease Bengaluru's chronic traffic congestion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HC Probe Clouds BMRCL's Multimodal Transit Hub Plans at Hebbal Junction</div>
+      <div class="nsum">Plans to develop Bengaluru's Hebbal Metro Station into a major multimodal transit hub have hit a roadblock, with a High Court-ordered probe casting uncertainty over BMRCL's land acquisition and development strategy. BMRCL had previously acquired over 6,700 sqm from KIADB for Phase 2B station and viaduct construction, and the legal cloud is now delaying integration with the adjacent BMTC bus depot.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Yellow Alert for 14+ Karnataka Districts; Bengaluru Remains Outside Rain Zone</div>
+      <div class="nsum">The India Meteorological Department issued a yellow alert covering more than 14 Karnataka districts — including Dakshina Kannada, Mysuru, Belagavi, and Kodagu — warning of thunderstorms and gusty winds of 30–40 kmph over the next 24 hours. Bengaluru itself is expected to remain dry, with daytime temperatures hovering around 36–37°C and relatively clear skies through April 27.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Republic World / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Holds Mega Kolkata Roadshow Ahead of West Bengal Election's Final Phase on April 29</div>
+      <div class="nsum">Prime Minister Narendra Modi drew massive crowds during a 2-km roadshow in North Kolkata on Sunday, intensifying the BJP's campaign blitz ahead of the final phase of the West Bengal Assembly elections scheduled for April 29. The elections, held in two phases on April 23 and April 29, will see results declared on May 4, with the BJP targeting TMC's Mamata Banerjee in what it calls a vote against 'jungle raj'.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sakshi Post / NewsX</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Odisha Advances School Summer Holidays to April 27 Amid Severe Heatwave</div>
+      <div class="nsum">The Odisha government announced an early start to school summer holidays beginning April 27 — well ahead of the usual first-week-of-May schedule — following persistent heatwave conditions threatening student safety across the state. The decision, approved by Chief Minister Mohan Charan Majhi on the recommendation of the School and Mass Education Department, keeps administrative and examination activities unaffected.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / AFP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Legendary Indian Photographer Raghu Rai Dies at 83</div>
+      <div class="nsum">Raghu Rai, widely regarded as one of the foremost visual chroniclers of independent India and a Magnum Photos member, passed away at age 83, with his family announcing his death on Sunday. A Padma Shri awardee, Rai's celebrated body of work spanned the 1971 Bangladesh liberation war, intimate portraits of Mother Teresa, and decades of India's political and social life.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Chronicle</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Cancels Paytm Payments Bank Licence; Winding-Up Process Initiated</div>
+      <div class="nsum">The Reserve Bank of India formally cancelled the banking licence of Paytm Payments Bank Limited (PPBL) with effect from April 24, 2026, citing persistent regulatory violations and management practices detrimental to depositors and public interest. The PPBL board and shareholders approved the winding-up resolution on April 25, with the RBI set to approach the High Court; over ₹800 crore in customer funds remain in limbo, though the RBI assured sufficient liquidity to repay all deposit liabilities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex and Nifty Set for Positive Open on April 27 as GIFT Nifty Surges 200 Points; Q4 Earnings Season Kicks Off</div>
+      <div class="nsum">Indian benchmark indices are expected to open sharply higher on Monday, with GIFT Nifty futures trading nearly 200 points up at 24,121, buoyed by a rally in Asian markets and renewed hopes around US-Iran peace talks that eased oil price pressures. The Q4 FY26 earnings season gains full momentum today, with major companies including UltraTech Cement, Coal India, Varun Beverages, SBI Cards, and Bajaj Housing Finance reporting results.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Moody's Cuts India's FY27 GDP Forecast to 6%; RBI Flags Economic Slowdown Signs</div>
+      <div class="nsum">Moody's has revised India's FY27 GDP growth forecast downward to 6%, citing weak consumption, slower industrial activity, and rising energy costs stemming from the Middle East conflict. Adding to the cautious mood, the RBI has flagged early signs of an economic slowdown and the Index of Eight Core Industries contracted 0.4% YoY in March 2026, with weakness in fertilisers, coal, crude oil, and electricity.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Musk v. Altman Trial Opens Today: $134 Billion OpenAI Lawsuit Heads to Oakland Jury</div>
+      <div class="nsum">Jury selection in Elon Musk's landmark lawsuit against OpenAI and Sam Altman begins Monday in federal court in Oakland, California, with Musk seeking up to $134 billion over OpenAI's conversion from a nonprofit to a for-profit entity. The trial — which could derail OpenAI's planned $1-trillion IPO — centres on two remaining claims of breach of charitable trust and unjust enrichment, with Microsoft CEO Satya Nadella among the high-profile witnesses scheduled to testify.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WebSenor / Entrepreneur India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startup Funding Surges to $588 Million in April's Second Week; Google Launches 2026 AI Accelerator</div>
+      <div class="nsum">Indian startups raised an impressive $588 million across 27 deals in the second week of April 2026 — a 4x jump from the prior week — led by KreditBee's $280 million round, with AI startup Tsecond.ai and deeptech firm Nava also securing significant capital. Separately, Google India has opened applications for its 2026 AI Startups Accelerator cohort, with a Bengaluru bootcamp planned for late June and a Demo Day in October.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechNext24 / BestBrokers</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">AI Startups Dominate 2026 Unicorn List: 17 of 70 New Global Unicorns Are AI Firms; India Has 85</div>
+      <div class="nsum">A new BestBrokers report reveals that 17 of the 70 new unicorns minted globally in 2026 so far are AI startups, reflecting a decisive shift of venture capital from generative AI theory to physical AI execution and infrastructure. India ranks third globally with 85 unicorns as of April 2026, with robotics, cloud computing, and cybersecurity also producing significant new billion-dollar companies.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Foreign Minister Araghchi Heads to Moscow for Putin Talks After Islamabad Peace Shuttle</div>
+      <div class="nsum">Iranian Foreign Minister Abbas Araghchi travelled to Moscow on Monday to meet Russian President Vladimir Putin, following a weekend diplomatic shuttle that included visits to Oman and two trips to Pakistan in efforts to broker a resolution to the US-Israel-Iran conflict. The flurry of diplomacy comes amid a delicate ceasefire, with both Iran and the US continuing to blockade the Strait of Hormuz and Brent crude hovering near $107 per barrel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EU Approves $106-Billion Loan Package for Ukraine; Zelenskyy Attends Cyprus Summit</div>
+      <div class="nsum">The European Union approved a landmark $106-billion loan package to support Ukraine's economic and military needs for two years, ending months of political deadlock among member states. Ukrainian President Volodymyr Zelenskyy attended the EU Summit in Ayia Napa, Cyprus, where the package — a key pillar of Western support for Kyiv — was formally greenlit on April 24.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMF / Global Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMF Slashes Global Growth Forecast to 3.1% for 2026 Citing Middle East War and Energy Shocks</div>
+      <div class="nsum">The International Monetary Fund lowered its global economic growth forecast for 2026 to 3.1% in its April World Economic Outlook report, titled 'Global Economy in the Shadow of War,' attributing the downgrade to lingering energy price shocks from the Iran conflict and Ukraine war. The IMF warned that the global economy's medium-term performance remains 'persistently lackluster' compared to the pre-pandemic historical average of 3.7%.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 27 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
