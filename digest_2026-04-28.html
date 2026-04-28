@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 28, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 28 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 28 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Police Review Security for Umar Khalid-Themed Event Amid BJP Opposition</div>
+      <div class="nsum">Bengaluru's East Division police are assessing security arrangements for a private discussion event themed around Umar Khalid at the Bengaluru International Centre, after BJP groups raised objections and issued threat claims. Organisers have formally sought police protection as officials weigh permission and law-and-order risks ahead of the April 28 event.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The News Minute / Nativeplanet</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Rain and Thunderstorm Forecast for Bengaluru Starting April 28, Ending Heat Spell</div>
+      <div class="nsum">The India Meteorological Department has forecast light to moderate rain and thundershowers across Bengaluru from Tuesday, April 28, offering relief after the city recorded peak temperatures of 37°C amid above-normal summer heat. IMD expects the wet spell to continue through May 1, with gusty winds of 40–50 kmph, while an orange alert has been issued for Bagalkot, Belgaum, and Gadag districts.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Realty NMore</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line on Track for 2026 Completion, Set to Reshape Bengaluru Real Estate</div>
+      <div class="nsum">The upcoming Pink Line metro corridor — a 21-km route connecting Kalena Agrahara to Nagawara — is expected to be operational in phases through 2026 and early 2027, fuelling strong commercial and residential demand along Bannerghatta Road and JP Nagar. A Colliers India report projects the Yellow and Pink lines together will trigger 5–7 million sq ft of incremental Grade A office demand and up to 40% surge in home prices in key micro-markets by 2027.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Chronicle / Asianet Newsable</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal Records Historic 91.58% Voter Turnout in Phase 1 Assembly Elections</div>
+      <div class="nsum">West Bengal's first phase of the 2026 Legislative Assembly elections for 152 seats saw a record-breaking turnout of 91.58%, the highest ever recorded in the state, as nearly 3.60 crore electors exercised their franchise. Voting took place on April 23, with the second phase scheduled for April 29 and results to be declared on May 4.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP's Rajnath Singh Promises Border Fencing and CAA Implementation if BJP Wins West Bengal</div>
+      <div class="nsum">Defence Minister Rajnath Singh, campaigning ahead of West Bengal's second-phase polls on April 29, pledged that a BJP government would fence state borders and swiftly implement the Citizenship Amendment Act for the Matua community, which he alleged was being denied citizenship under CM Mamata Banerjee's TMC government. Singh also warned that 'goons' in the state would either face jail or worse if BJP comes to power, echoing remarks made earlier by PM Modi.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Saachi Baat</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">8th Pay Commission Key Meetings Begin in Delhi on April 28</div>
+      <div class="nsum">Critical meetings of the 8th Pay Commission commenced in New Delhi on April 28, 2026, a development closely watched by millions of central government employees and pensioners ahead of expected salary revision recommendations. The commission's findings are expected to significantly impact remuneration structures across the central government workforce.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Business Today / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sun Pharma Acquires US Firm Organon for $11.75 Billion in India's Largest-Ever Overseas Pharma Deal</div>
+      <div class="nsum">Mumbai-based Sun Pharmaceutical Industries has signed a definitive agreement to acquire New Jersey-based Organon &amp; Co. in an all-cash deal valued at $11.75 billion, marking the largest overseas acquisition by an Indian pharmaceutical company. The deal will lift the combined entity's revenue to $12.4 billion, placing it among the top 25 global pharma companies, with Organon's portfolio of 70+ products across women's health and biosimilars in 140 countries set to close in early 2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GIFT Nifty Signals Negative Open as Indian Markets Track US-Iran Tension and BOJ Policy Meeting</div>
+      <div class="nsum">Indian equity markets opened on a cautious note on April 28, with GIFT Nifty futures quoted at 24,048 — down over 72 points — as traders assessed stalled US-Iran peace talks and awaited the outcome of the Bank of Japan's policy meeting. Asian markets were mixed, with Nikkei 225 and Hang Seng slipping, while a heavy slate of Q4 results from Maruti Suzuki, Infobeans, REC, Piramal Pharma and others is due during the session.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">JP Morgan Downgrades Indian Equities to Neutral, Citing Energy Shocks and IT Sector Pressure</div>
+      <div class="nsum">JP Morgan has downgraded Indian equities to 'neutral' from 'overweight', pointing to high valuations and earnings headwinds tied to energy shocks stemming from the US-Iran conflict, which has pushed Brent crude above $106 per barrel. The downgrade follows a difficult week for India's IT sector, with Infosys shares falling 7.1% and HCL Tech declining 5.8% after both companies issued cautious revenue growth guidance despite solid Q4 results.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN Business / TechCrunch / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China Blocks Meta's $2 Billion Acquisition of AI Startup Manus, Orders Deal Unwound</div>
+      <div class="nsum">China's National Development and Reform Commission (NDRC) issued a surprise order on Monday blocking Meta's $2 billion acquisition of Manus, a Singapore-based agentic AI startup with Chinese roots, citing concerns about the transfer of advanced technology out of the country. The move is one of China's most significant interventions in a cross-border tech deal and complicates the unwind, as around 100 Manus employees had already moved into Meta's Singapore offices by March 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrepreneur India / Websenor</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google India Opens Applications for 2026 AI Startups Accelerator, Kicking Off in Bengaluru</div>
+      <div class="nsum">Google India has launched applications for its 2026 'Google for Startups Accelerator: India' program, focused on supporting early-stage AI startups, with a one-week in-person bootcamp slated to begin in Bengaluru in late June. The cohort will culminate in a Demo Day in October, where participating startups will showcase their product development and business growth milestones.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Websenor / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startup Funding Surges 4X to $588 Million in April's Second Week, Led by Fintech and AI</div>
+      <div class="nsum">Indian startups received $588 million in venture capital funding across 27 deals in the second week of April 2026, representing a four-fold jump from the previous week's $117 million and the second-highest weekly funding total this year. Key deals included KreditBee's $280 million raise, Nava's $22 million deeptech round, and AI startup Tsecond.ai's $21.5 million funding from MSN Holdings, signalling growing investor interest in India's AI ecosystem.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PBS NewsHour / CNN / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Proposes Strait of Hormuz Reopening in Exchange for US Lifting Blockade, Nuclear Talks Deferred</div>
+      <div class="nsum">Iran has offered to reopen the Strait of Hormuz — through which a fifth of the world's oil and gas passes — in exchange for the United States lifting its naval blockade and ending the war, with nuclear programme discussions to be addressed in a later phase, according to two regional officials. US President Trump is reportedly unlikely to accept the proposal as-is, while Brent crude remains elevated near $108 per barrel and Iran's Foreign Minister Araghchi met with Russian President Putin in St. Petersburg to shore up diplomatic backing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / PBS NewsHour / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">King Charles III Begins Four-Day State Visit to the US, First British Royal State Visit Since 2007</div>
+      <div class="nsum">King Charles III and Queen Camilla arrived in Washington on April 27 for a four-day state visit — the first by a British monarch since Queen Elizabeth II in 2007 — meeting President Trump and First Lady Melania Trump at the White House for tea and a garden party at the British Ambassador's Residence. The visit, timed to mark the 250th anniversary of US independence, is being closely watched as an opportunity to repair strained UK-US ties over Britain's refusal to join US military action against Iran.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal Polls Phase 2 Voting Underway; Palestinian Local Elections Held for First Time in Decades</div>
+      <div class="nsum">On the global democratic front, Palestinian officials confirmed that local elections held in Gaza and the West Bank mark the first such vote in over two decades, seen as a step toward a long-delayed presidential election, with Fatah-linked lists dominant and Hamas absent from the race. Separately, coordinated Tuareg FLA rebel and JNIM militant attacks struck multiple areas across Mali's capital Bamako and key cities, described as one of the most significant coordinated attacks in years amid worsening insecurity in the Sahel region.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 28 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
