@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — April 29, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 29 April 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 29 April 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Yellow Alert for Bengaluru as Pre-Monsoon Rain and Thunderstorms Hit 15 Karnataka Districts</div>
+      <div class="nsum">The India Meteorological Department has issued a yellow alert covering 15 Karnataka districts, including Bengaluru, warning of rain, thunderstorms, and gusty winds beginning April 29 as the state enters an active pre-monsoon phase. Rainfall during this period is expected to be accompanied by lightning and gusty winds, with a noticeable spread of showers across South Interior Karnataka districts.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / India.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Runs Special Early Metro Services for TCS World 10K Bengaluru Marathon</div>
+      <div class="nsum">Bangalore Metro Rail Corporation Limited (BMRCL) ran special early morning metro services starting from 3 AM on April 26 to facilitate public movement for the TCS World 10K Bengaluru marathon. With nearly 10 lakh daily Namma Metro riders, the integrated ticketing system with BMTC is also expected to boost overall public transport usage across the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Construction World / NoBroker</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Advances Land Acquisition for Namma Metro Phase 3, Eyes 222 km Network Coverage</div>
+      <div class="nsum">BMRCL has formally launched land acquisition for Namma Metro Phase 3, which includes two primary corridors — a 32.15 km stretch from J.P. Nagar Phase 4 to Kempapura and a 12.5 km Hosahalli-to-Kadabagere corridor — at an estimated total cost of Rs 156.11 billion. The expanded Phase 3 network is expected to serve 7.85 lakh passengers daily and raise Bengaluru's metro coverage to 222.2 km.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Exit Poll Results for 5 States to Be Released After 6:30 PM Today as West Bengal Votes in Final Phase</div>
+      <div class="nsum">West Bengal is voting in its second and final phase for 142 assembly seats on April 29, after which the Election Commission's embargo on exit polls lifts and results for West Bengal, Tamil Nadu, Kerala, Assam, and Puducherry will be broadcast from 6:30 PM onwards. West Bengal's first phase recorded a record 93.19% voter turnout — the highest since Independence — while Tamil Nadu logged 84.69% and Assam 85.38%, with vote counting for all five states scheduled for May 4.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News On Air / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Visits Sikkim to Mark 50 Years of Statehood, Inaugurates Projects Worth Rs 4,000 Crore</div>
+      <div class="nsum">Prime Minister Narendra Modi arrived in Gangtok for a two-day visit to Sikkim to participate in the closing ceremony marking 50 years of Sikkim's statehood at Paljor Stadium. During the visit, PM Modi is set to inaugurate and lay the foundation stone of multiple development projects worth Rs 4,000 crore in the state.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News On Air / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Punjab Rail Blast Probe: ISI-Linked Khalistani Module Exposed After Suspect Killed in Failed Patiala Attack</div>
+      <div class="nsum">Security agencies have exposed an ISI-linked Khalistani module following the killing of a suspect involved in a failed rail blast attempt in Patiala, Punjab. The development has raised fresh concerns about cross-border terrorism targeting India's railway infrastructure and has prompted a heightened security response across the state.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Reuters / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sun Pharma Seals India's Biggest-Ever Pharma Deal, Acquires US Firm Organon for $11.75 Billion</div>
+      <div class="nsum">Sun Pharmaceutical Industries has signed a definitive agreement to acquire New Jersey-based Organon &amp; Co in an all-cash deal at an enterprise valuation of $11.75 billion — the largest-ever overseas acquisition by an Indian pharmaceutical company. The deal, expected to close in early 2027, will nearly double Sun Pharma's revenue to $12.4 billion and propel it into the top 25 global pharmaceutical companies, with shares surging over 7% on the announcement.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Zee Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Falls 417 Points, Nifty Ends Below 24,000 as Brent Crude Surges on US-Iran Peace Uncertainty</div>
+      <div class="nsum">India's benchmark indices ended lower on April 28, with the Sensex dropping 416.72 points (0.54%) to close at 76,886.91 and the Nifty declining 97 points to end at 23,995.70, as elevated Brent crude prices — climbing toward $109 per barrel — weighed on risk appetite. Banking stocks led the decline after the RBI confirmed its expected credit loss framework, while foreign institutional investors extended their selling streak to a sixth consecutive session.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee Biz / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bajaj Finance, Vedanta, Adani Power Among Key Firms Reporting Q4FY26 Results on April 29</div>
+      <div class="nsum">Indian equity markets are tracking a busy earnings session on Wednesday, April 29, with major companies including Bajaj Finance, Vedanta, Adani Power, Federal Bank, Mphasis, and Waaree Energies set to declare their fourth-quarter FY26 financial results. The results come amid cautious investor sentiment driven by elevated oil prices, RBI regulatory updates, and ongoing geopolitical tensions in West Asia.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Instant Home-Help Startup Snabbit Raises $56 Million Series D, Valuation Nears $400 Million</div>
+      <div class="nsum">Snabbit, an Indian on-demand domestic services startup, has raised $56 million in a Series D round led by Warburg Pincus, with participation from existing investors Accel and RTP Global, nearly doubling its valuation to approximately $350–400 million. The Mumbai-based company, which connects households with on-demand workers for cleaning, dishwashing, and home repairs, reported completing over 1 million jobs in March alone and plans to use the capital to expand across India and Southeast Asia.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">New Kerala / Google</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Opens 2026 India AI Startup Accelerator Applications, Bengaluru Bootcamp Set for June</div>
+      <div class="nsum">Google has opened applications for its 2026 India AI Startup Accelerator, a three-month equity-free programme targeting startups working in emerging areas such as Agentic AI, Multimodal AI, Physical AI, and Sovereign AI, with access to Google's Gemini, Gemma, and Veo models. The programme will kick off with an in-person bootcamp in Bengaluru in June and conclude with a Demo Day in October, building on a track record where past cohorts saw up to a four-fold revenue increase.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPCI / Blitz India Media</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UPI Clocks Record 22.64 Billion Transactions in March 2026, Hits All-Time High Value of Rs 29.52 Lakh Crore</div>
+      <div class="nsum">India's Unified Payments Interface (UPI) recorded its highest-ever monthly transaction volume of 22.64 billion in March 2026, up sharply from 20.39 billion in February, with the total transaction value touching an all-time high of approximately Rs 29.52 lakh crore. Having celebrated its 10th anniversary on April 11, UPI has grown 12,000-fold in volume since FY17 and now accounts for nearly 49% of global real-time payments, cementing India's position as the world leader in digital payments infrastructure.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Peace Talks Stall; Iran Proposes Reopening Strait of Hormuz While Nuclear Issue Remains Unresolved</div>
+      <div class="nsum">Intense back-channel diplomacy continues between the US and Iran as a second round of in-person talks failed to materialise, with Iran proposing to reopen the Strait of Hormuz as a first step while deferring discussions on its nuclear programme — a sequencing that US Secretary of State Marco Rubio acknowledged was 'better than expected' but stopped short of endorsing. The ongoing conflict has seen the US Navy blockade Iranian ports and redirect 38 ships, with Brent crude prices rising sharply and global shipping disruptions deepening.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Democracy Now</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Pentagon Fires Navy Secretary John Phelan Amid Tensions with Defense Secretary Hegseth</div>
+      <div class="nsum">US Defense Secretary Pete Hegseth has fired Navy Secretary John Phelan, reportedly over tensions related to Phelan's pace in building President Trump's so-called Golden Fleet of new warships, according to The Wall Street Journal. Phelan's dismissal is the latest in a series of top military leadership changes since Trump's return to office, following the removal of the chair of the Joint Chiefs of Staff, the chief of naval operations, the Coast Guard commandant, and the director of the Defense Intelligence Agency.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Xinhua / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Hungary's Viktor Orban Quits Parliament After 36 Years Following Fidesz Election Defeat</div>
+      <div class="nsum">Hungarian Prime Minister Viktor Orban announced he will return his parliamentary mandate, ending a 36-year tenure as a member of parliament, after his Fidesz party suffered a defeat in the April 12 parliamentary elections. Orban stated his efforts are now needed outside parliament to reorganise the 'national side,' with Gergely Gulyas set to lead a fundamentally transformed Fidesz parliamentary faction.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 29 April 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
