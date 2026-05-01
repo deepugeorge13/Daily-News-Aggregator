@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Bangalore Morning Digest for April 30, 2026."""
+"""Generate the Bangalore Morning Digest for May 1, 2026."""
 
 import anthropic
 import json
@@ -22,14 +22,14 @@ TWILIO_FROM  = os.environ.get("TWILIO_FROM")
 WHATSAPP_TO  = os.environ.get("WHATSAPP_TO")
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT = os.path.join(DIR, "digest_2026-04-30.html")
+OUTPUT = os.path.join(DIR, "digest_2026-05-01.html")
 
-DATE_LONG  = "Thursday, 30 April 2026"
+DATE_LONG  = "Friday, 1 May 2026"
 TIME_IST   = "9:00 AM IST"
-TITLE_DATE = "April 30, 2026"
+TITLE_DATE = "May 1, 2026"
 
 SYSTEM = """\
-You are a news curator for the Bangalore Morning Digest. Today is Thursday, 30 April 2026.
+You are a news curator for the Bangalore Morning Digest. Today is Friday, 1 May 2026.
 
 Use the web_search tool to find 3 real, current news stories for EACH of these 5 categories:
   1. local    – Bangalore / Karnataka city news (BBMP, BMRCL, metro, infrastructure, civic)
@@ -76,7 +76,7 @@ def fetch_news() -> dict:
     client = _make_client()
     tools  = [{"type": "web_search_20250305", "name": "web_search"}]
     msgs   = [{"role": "user", "content": (
-        "Search for the top news stories for April 30, 2026 across all five categories "
+        "Search for the top news stories for May 1, 2026 across all five categories "
         "(Local Bangalore, National India, Business & Finance, Technology, International) "
         "and return the results as a JSON object exactly as instructed."
     )}]
@@ -364,19 +364,11 @@ def main():
     with open(OUTPUT, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"Digest written → {OUTPUT}")
-<<<<<<< HEAD
     if all(os.environ.get(v) for v in ("TWILIO_SID", "TWILIO_TOKEN", "TWILIO_FROM", "WHATSAPP_TO")):
         print("Sending WhatsApp message …")
         send_whatsapp(data)
     else:
         print("Skipping WhatsApp (Twilio credentials not configured).")
-=======
-    if TWILIO_SID and TWILIO_TOKEN and TWILIO_FROM and WHATSAPP_TO:
-        print("Sending WhatsApp message …")
-        send_whatsapp(data)
-    else:
-        print("Twilio credentials not set — skipping WhatsApp.")
->>>>>>> 5ba8dbb (Add April 30, 2026 morning digest and update generator for today)
 
 
 if __name__ == "__main__":

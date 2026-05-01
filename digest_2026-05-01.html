@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 1, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 1 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 1 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Set to Open in May 2026, Expanding City Network to 137 km</div>
+      <div class="nsum">BMRCL's Pink Line Phase 1, a 7.5-kilometre elevated stretch between Kalena Agrahara and Tavarekere with six stations, is expected to open by May 2026, subject to statutory safety approvals. Once all 41 km of new lines are commissioned this year, Bengaluru's operational metro network will expand to 137 kilometres, with Phase 3 (44.65 km) also underway and an airport link targeted for 2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Guarantee News / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Bans Animal Slaughter and Meat Sales Across Bengaluru on Buddha Purnima / Labour Day</div>
+      <div class="nsum">The Greater Bengaluru Authority (BBMP) issued an order banning all animal slaughter and meat sales across Bengaluru city limits on May 1, 2026, in observance of Buddha Purnima. The ban, directed by BBMP's Animal Husbandry department, required all slaughterhouses in the city to temporarily suspend operations for the day.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMD / Goodreturns</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Orange Alert for Bengaluru and South Interior Karnataka Amid Thunderstorm Warning</div>
+      <div class="nsum">The India Meteorological Department issued an Orange Alert for Bengaluru, Mysuru, and several districts in South Interior Karnataka, warning of thunderstorms with gusty winds of 40–50 kmph through early May 2026. The IMD advised residents to avoid open areas during storms, stay away from trees and electric poles, and secure loose objects that could be blown away by strong winds.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / News24 / The Researchers</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal Assembly Election Results Awaited as Exit Polls Show Tight TMC–BJP Contest</div>
+      <div class="nsum">Voting for all 294 seats of the West Bengal Legislative Assembly concluded in two phases on April 23 and 29, 2026, with the Election Commission recording a record 92.47% voter turnout — the highest since Independence. Vote counting is scheduled for May 4, with exit polls sharply divided: P-MARQ projects BJP winning 150–175 seats, while other surveys suggest TMC may retain power under Mamata Banerjee.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Defence Minister Rajnath Singh Reveals India Was Ready for Prolonged Conflict During Operation Sindoor</div>
+      <div class="nsum">Defence Minister Rajnath Singh stated that India was fully equipped and mentally prepared for a prolonged military confrontation with Pakistan if the situation during Operation Sindoor had escalated further. The revelation came as the government reiterated its strong strategic posture on national security matters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / Outlook Money</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Observes Labour Day and Buddha Purnima as Public Holiday; Banks and Markets Shut in Most States</div>
+      <div class="nsum">May 1, 2026 is a public holiday across Karnataka, Maharashtra, Tamil Nadu, West Bengal, Kerala, and several other states, coinciding with both International Labour Day and Buddha Purnima. Banks in these states are closed under the RBI holiday schedule, and Indian stock markets (NSE and BSE) are shut for the day on account of Maharashtra Day, with trading set to resume on Monday, May 4.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE and BSE Closed for Maharashtra Day; Sensex Shed 583 Points in Thursday's Pre-Holiday Session</div>
+      <div class="nsum">Indian stock markets remained closed on May 1, 2026, for Maharashtra Day, with all equity, derivatives, currency, and SLB segments suspended for the day across both the BSE and NSE. Ahead of the long weekend, the BSE Sensex dropped 582.86 points (0.75%) to close at 76,913.5 on Thursday, April 30, weighed down by surging global oil prices and hawkish US Federal Reserve commentary.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Brent Crude Hits $126 Four-Year High as US–Iran Strait of Hormuz Standoff Rattles Global Markets</div>
+      <div class="nsum">Brent crude futures surged to a four-year intraday high of $126.41 per barrel on April 30 before settling at $114.01, as US–Iran ceasefire talks stalled and the Strait of Hormuz remained effectively blocked. The eight-day rally in oil prices has rattled investor sentiment globally, with Goldman Sachs warning prices could approach $120 per barrel if the supply disruption persists.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NewsX</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Vedanta Demerger Effective May 1; Adani Enterprises Posts Q4 Loss of ₹221 Crore but Revenue Up 20%</div>
+      <div class="nsum">Vedanta Limited confirmed that May 1, 2026, has been approved as the effective date of its demerger and the record date to determine eligible shareholders, marking a landmark corporate restructuring. Separately, Adani Enterprises reported a Q4 net loss of ₹221 crore even as revenue grew 20% year-on-year, with its board also approving a 130% dividend for shareholders.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Daily Pioneer / IBC World News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Adani Group Commits $100 Billion to Build India's AI Infrastructure; Google Partners with $15 Billion Data Centre in Visakhapatnam</div>
+      <div class="nsum">The Adani Group announced a $100 billion commitment to develop renewable energy-powered, AI-ready hyperscale data centres across India by 2035, aiming to create what it describes as the world's largest integrated data centre platform. Google has committed $15 billion to co-develop a data centre campus in Visakhapatnam alongside AdaniConnex — set to be the largest AI data centre facility outside the United States.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Maharashtra AI Policy / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Maharashtra Approves Ambitious AI Policy 2026, Targeting Rs 10,000 Crore Investment and 1.5 Lakh Jobs by 2031</div>
+      <div class="nsum">The Maharashtra government approved its AI Policy 2026, targeting over Rs 10,000 crore in investments and the creation of 150,000 jobs by 2031, with plans to establish five AI Innovation Cities and six sectoral Centres of Excellence. The policy also proposes 12 AI incubators offering up to Rs 1 crore in startup support, and aims to train 200,000 young people in AI technologies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India AI Startup Ecosystem Raises $253 Million in Q1 2026, Up 73% Year-on-Year Amid Structural Reset</div>
+      <div class="nsum">India's AI startup ecosystem attracted $253 million across 29 deals in the first quarter of 2026, marking a 73% surge over the same period last year, according to Inc42 analysis. However, a structural reset is underway, with investors shifting toward high-conviction bets on startups with proprietary differentiation, while those lacking clear market fit — such as the recently shuttered NeuroPixel.AI — are being filtered out.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Faces 60-Day War Powers Deadline on Iran Conflict as Hormuz Blockade and Oil Crisis Persist</div>
+      <div class="nsum">US President Donald Trump faces a critical 60-day War Powers Resolution deadline on May 1, triggered when he notified Congress on March 2 of military action against Iran; Congress has not yet authorised the war. The Strait of Hormuz remains effectively blocked, with Iran refusing to reopen the waterway unless the US lifts its naval blockade of Iranian ports, keeping Brent crude elevated above $110 a barrel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UAE Officially Exits OPEC on May 1 as Global Energy Governance Fractures Amid Iran War</div>
+      <div class="nsum">The United Arab Emirates formally withdrew from OPEC and the broader OPEC+ alliance effective May 1, 2026, declaring the move necessary to prioritise its own national interests at a time of unprecedented disruption to global energy markets. The exit highlights a deepening fragmentation of the global oil order, as the Iran war and Hormuz blockade have cut roughly 20% of global seaborne oil and LNG supplies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMF and World Bank Monitor Global Slowdown Risks as Iran War, Oil Shock and Trade Tensions Converge</div>
+      <div class="nsum">The IMF and World Bank are closely monitoring rising signs of a global economic slowdown, assessing risks to growth, inflation, and financial stability across major economies amid the ongoing Iran conflict and soaring energy prices. The Asian Development Bank has already cut its regional growth forecast from 5.1% to 4.7% for 2026, with analysts warning that elevated oil and commodity prices are pushing inflation higher across Asia and beyond.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 1 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
