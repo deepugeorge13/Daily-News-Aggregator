@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 2, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 2 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 2 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News9Live / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Banashankari Skywalk Construction Finally Begins After 7-Year Wait</div>
+      <div class="nsum">Construction of the long-delayed Banashankari Skywalk has commenced in Bengaluru, with BMRCL committing to a 15-month completion timeline after tenders were first called in April 2025. MP Tejasvi Surya, who publicly tracked the project through multiple government and civic body meetings since 2022, confirmed the groundbreaking and pledged to monitor progress month by month.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Housing.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Nears Launch, Trial Runs Underway on Kalena Agrahara–Tavarekere Stretch</div>
+      <div class="nsum">BMRCL has commenced trial runs on the 7.5-km elevated first phase of Bengaluru's Pink Line, connecting Kalena Agrahara to Tavarekere with six stations, targeting a May 2026 opening subject to statutory safety approvals. Once the full 21-km Pink Line is operational, it is expected to significantly improve north–south connectivity and ease daily commuting pressures across key residential and commercial zones.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Eyes 200+ km of New Metro Corridors in Long-Term Expansion Push</div>
+      <div class="nsum">Bangalore Metro Rail Corporation Limited (BMRCL) has confirmed that feasibility studies are underway for more than 200 kilometres of new metro corridors to meet Bengaluru's surging urban mobility needs. Officials also confirmed that Namma Metro is expected to connect Kempegowda International Airport by end of 2027, a long-awaited milestone for the city.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal Repolling at 15 Booths Today Amid TMC–BJP EVM Row; Counting Set for May 4</div>
+      <div class="nsum">Repolling is underway today (May 2) at 15 polling stations across two South 24 Parganas constituencies — Magrahat Paschim and Diamond Harbour — after the Election Commission ordered fresh voting based on reports of electoral malpractices from the April 29 Phase 2 polls. The BJP alleged EVM tampering and booth irregularities, while the TMC has challenged ECI's counting rules in the Supreme Court; results for all 294 seats are due on May 4.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Kashmir Reader</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jammu–Srinagar Vande Bharat Express Begins Regular Public Service Today</div>
+      <div class="nsum">The extended 20-coach Vande Bharat Express connecting Jammu Tawi to Srinagar launched regular commercial operations for the public today, May 2, covering approximately 267 km in under five hours — down from 10–12 hours by road. Flagged off by Railway Minister Ashwini Vaishnaw with J&amp;K Chief Minister Omar Abdullah present, the service is expected to boost tourism, trade, and all-weather connectivity in Jammu &amp; Kashmir.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ladakh Earthquake Recorded Near Leh; No Casualties or Damage Reported</div>
+      <div class="nsum">A tremor was recorded at 03:54 IST with its epicentre in Leh, Ladakh, at a depth of 150 kilometres, according to seismological authorities. No injuries, deaths, or structural damage have been reported so far, and authorities say the situation is being monitored.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Govt Slashes Diesel and ATF Export Duties to ₹23/litre and ₹33/litre; Retail Prices Unchanged</div>
+      <div class="nsum">The central government revised export duties on diesel and aviation turbine fuel (ATF) to ₹23 per litre and ₹33 per litre respectively, effective May 1, to ensure domestic fuel availability amid the West Asia crisis, while keeping petrol export duty at nil. State-owned Indian Oil Corporation confirmed that retail prices of petrol, diesel, and domestic LPG remain unchanged, fully insulating consumers from the recent surge in international fuel prices.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex and Nifty Slide on Oil Price Surge and Hawkish Fed; Markets Reopen Monday After Maharashtra Day Holiday</div>
+      <div class="nsum">Indian equity benchmark indices fell sharply on April 30, with the BSE Sensex dropping 582.86 points (0.75%) to close at 76,913.5 and the NSE Nifty shedding 180 points (0.74%) to 23,997.55, weighed by a surge in oil prices and hawkish US Federal Reserve commentary. BSE and NSE were closed on May 1 for Maharashtra Day and will resume trading on Monday, May 4, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Federal / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Fertiliser Production Tumbles 24.6% in March as West Asia Crisis Squeezes Gas Supplies</div>
+      <div class="nsum">India's Finance Ministry Monthly Economic Review for April 2026 revealed that the Index of Eight Core Industries declined 0.4% in March, with fertiliser production seeing a steep fall of 24.6% due to LNG supply shortages triggered by the West Asia conflict. Urea prices have nearly tripled from $390 to $950 per tonne over the past year, raising concerns about input costs ahead of the kharif sowing season.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechStartups.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Calligo Technologies in Talks to Raise $12–15 Million for RISC-V Chip Development</div>
+      <div class="nsum">Bengaluru-based Calligo Technologies is in advanced discussions to raise between $12 million and $15 million to scale its RISC-V open-architecture chip development, with the round expected to be led by US-based BIG Capital. The fundraise underlines India's growing ambitions in semiconductor design using open chip architectures that reduce dependence on legacy instruction-set ecosystems.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Maharashtra Approves AI Policy 2026, Targets ₹10,000 Crore Investment and 1.5 Lakh Jobs by 2031</div>
+      <div class="nsum">The Maharashtra government has approved an ambitious AI Policy 2026 that aims to attract over ₹10,000 crore in investment and create 150,000 jobs by 2031, including the launch of a Maharashtra AI Mission, five AI innovation cities, and six sectoral Centres of Excellence. The policy also plans to train 200,000 young people in AI technologies and extend financial support to 5,000 MSMEs for AI adoption.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India AI Startup Funding Surges 73% in Q1 2026 to $253 Million, But Structural Reset Underway</div>
+      <div class="nsum">India's AI startup ecosystem attracted $253 million across 29 deals in the first quarter of 2026, marking a 73% jump over the same period in 2025, reflecting strong investor confidence in the sector. However, analysts note a structural shift as investors pivot toward larger, high-conviction bets in startups with proven revenue models, while those lacking proprietary differentiation are being filtered out.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Sends New Ceasefire Proposal to US via Pakistani Mediators as Hormuz Standoff Deepens</div>
+      <div class="nsum">Iran has submitted a fresh proposal to the United States through Pakistani intermediaries in an effort to end the ongoing conflict, even as the Strait of Hormuz standoff continues to send energy costs soaring around the world. Preliminary casualty figures from the conflict stand at approximately 3,375 dead in Iran and 2,509 in Lebanon, with global markets reeling from the supply disruptions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Myanmar Transfers Aung San Suu Kyi from Prison to House Arrest, More Than Five Years After Coup</div>
+      <div class="nsum">Myanmar state television announced that detained opposition leader Aung San Suu Kyi has been transferred from prison to house arrest, more than five years after the military coup that removed her from power in 2021. The move has alarmed her son Kim Aris, who says he has received no authoritative confirmation of her current wellbeing or exact location.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine's Zelenskyy Seeks Details of Short-Term Russia Ceasefire Proposal Made to Trump</div>
+      <div class="nsum">Ukrainian President Volodymyr Zelenskyy is actively seeking specifics of a short-term ceasefire that Russia reportedly proposed to US President Donald Trump, signalling a potential — though fragile — diplomatic opening in the more than four-year-old war. Trump has also suggested he may reduce the US military presence in Germany amid ongoing disagreements with Chancellor Friedrich Merz over the US-Israel conflict with Iran.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 2 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
