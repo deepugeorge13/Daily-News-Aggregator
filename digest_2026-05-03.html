@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 3, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 3 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 3 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / News9Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Set to Open This Month, Boosting South Bengaluru Connectivity</div>
+      <div class="nsum">BMRCL's Pink Line Phase 1, a 7.5-km elevated stretch from Kalena Agrahara to Tavarekere with six stations, is expected to open by May 2026 subject to statutory safety approvals. The remaining underground section from Tavarekere to Nagawara, covering 12 stations, is on track to commence operations by November 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News9Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Banashankari Skywalk Construction Finally Begins After 7-Year Wait</div>
+      <div class="nsum">Construction on the long-delayed Banashankari Skywalk, designed to connect the metro station and Banashankari TTMC with greenery, resting pods, and vendor spaces, has officially broken ground in Bengaluru. MP Tejasvi Surya announced the development on May 1, noting that the project was technically ready by 2022 but took until 2026 for work to begin, and pledged to track progress publicly month by month.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMD / Goodreturns</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Orange Alert for Bengaluru as Thunderstorms and Gusty Winds Lash Karnataka</div>
+      <div class="nsum">The India Meteorological Department issued an Orange Alert for Bengaluru and several districts in South Interior Karnataka, warning of thunderstorms with gusty winds of 30–50 kmph persisting through early May 2026. The IMD advised residents to avoid open areas during storms and stay away from trees, electric poles, and weak structures.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News Today / Navbharat Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NEET UG 2026 Conducted Nationwide Today Across 552 Cities for 22.8 Lakh Candidates</div>
+      <div class="nsum">The NEET UG 2026 examination was held today, May 3, from 2:00 PM to 5:00 PM across 552 cities in India and 14 international cities including Dubai, Singapore, and Doha, as confirmed by the National Testing Agency. Over 22.80 lakh candidates registered for the exam this year — the largest-ever cohort — competing for nearly 2 lakh medical seats across government and private institutions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Free Press Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal Assembly Election Results Countdown: EC Deploys Massive Security for May 4 Vote Count</div>
+      <div class="nsum">The Election Commission of India deployed 165 additional counting observers and 77 police observers ahead of vote counting on May 4, 2026, for all 294 West Bengal Assembly seats, following two-phase polling that concluded on April 29. The election recorded a historic voter turnout of approximately 92.93%, the highest ever in the state, with exit polls projecting a tight contest between BJP and TMC.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Google News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Election Commission Orders Re-Poll in West Bengal's Falta Constituency, Cites Electoral Offences</div>
+      <div class="nsum">The Election Commission of India ordered fresh polling in West Bengal's Falta constituency on May 21, calling the situation a 'subversion of democratic process' and citing severe electoral offences during the original polling round. The EC also announced that the re-poll counting will be held on May 24, separately from the main May 4 results day.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Fuel Exports Hit Lowest Level Since 2022 as West Asia Crisis Squeezes Refinery Output</div>
+      <div class="nsum">India's fuel exports in April averaged 947,000 barrels per day, down 18% from February levels, marking the lowest point since 2022, according to industry data provider Kpler. Reliance Industries, which accounts for around 80% of the country's fuel exports, sold 16% less last month, while Europe — India's third-biggest market — received no cargo at all.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSE Sensex Slides 1.1% as Brent Crude Surges Toward $120/Barrel on Iran War Fears</div>
+      <div class="nsum">India's BSE Sensex fell about 1.1% to 76,677 on Thursday as sentiment weakened amid a sharp surge in crude oil prices, with Brent climbing toward $120 per barrel on concerns tied to the US-Iran conflict and a potential months-long blockade of Iran's ports. The US Federal Reserve kept rates unchanged but adopted a hawkish tone, and markets have now fully priced out any rate cuts in 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Upturn / A2Z Taxcorp</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Hikes Diesel and ATF Export Duties from May 1 to Safeguard Domestic Fuel Supplies</div>
+      <div class="nsum">The Government of India revised Special Additional Excise Duty (SAED) rates on petroleum product exports effective May 1, 2026, raising diesel export duty to ₹23 per litre and aviation turbine fuel (ATF) to ₹33 per litre. The fortnightly levy — introduced in March 2026 to discourage exports amid the West Asia oil crisis — does not affect domestic petrol or diesel retail prices.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndianTV / LevelUpIAS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Sarvam AI Opens Beta Access to 'Indus', India's Sovereign AI App Powered by 105B Model</div>
+      <div class="nsum">Bengaluru-based Sarvam AI, selected under the Government of India's IndiaAI Mission, has launched limited beta access to 'Indus', a conversational AI interface powered by its 105-billion-parameter sovereign large language model. The app is designed to prioritise accuracy, efficiency, and alignment with Indian languages and cultural contexts, as India moves from AI adoption to domestic AI creation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Maharashtra Approves Ambitious AI Policy 2026, Targets ₹10,000 Crore Investment and 1.5 Lakh Jobs by 2031</div>
+      <div class="nsum">The Maharashtra government approved its AI Policy 2026, aiming to attract investments of over ₹10,000 crore and create 150,000 jobs by 2031, with plans to establish five AI innovation cities, six sectoral Centres of Excellence, and 12 AI incubators offering support of up to ₹1 crore per startup. The policy also sets a target to train 200,000 young people and includes a governance framework with annual AI readiness audits across government departments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Fintech Startup Oolka Raises $14 Million Series A Led by Accel</div>
+      <div class="nsum">Bengaluru-based fintech startup Oolka has raised $14 million in a Series A funding round led by Accel, with participation from existing investors Lightspeed and Z47. The raise reflects continued strong investor interest in India's fintech ecosystem, even as the broader startup funding environment navigates macroeconomic headwinds from rising oil prices and global geopolitical risks.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Reviews Iran's 14-Point Peace Proposal as Strait of Hormuz Blockade Tightens</div>
+      <div class="nsum">US President Donald Trump told reporters on Saturday he is reviewing a new 14-point peace proposal submitted by Iran, even as the US blockade of the Strait of Hormuz has now forced 48 Iranian ships to turn around over the past 20 days, according to US Central Command. Israel meanwhile continued strikes on southern Lebanon, with 73 people killed and 163 injured since Lebanon's health ministry last updated figures on April 30.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Administration to Pull 5,000 Troops from Germany Amid Feud with European Allies over Iran War</div>
+      <div class="nsum">The US said it plans to pull approximately 5,000 troops out of Germany over the next six to twelve months, escalating a feud with European allies over the US-Israel war against Iran. The move follows German Chancellor Friedrich Merz's public disapproval of the US-Israeli military campaign, which has sent oil prices soaring and rattled global markets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CBS News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UK Raises National Threat Level to 'Severe' After Jewish Community Stabbings and Arson Attacks</div>
+      <div class="nsum">The United Kingdom raised its national threat level from 'substantial' to 'severe', citing an increasing threat of Islamist and extreme right-wing terrorism, following a string of arson attacks and a double stabbing in London's Golders Green neighbourhood that targeted the Jewish community. A 45-year-old man was charged with attempted murder in the stabbings, and the British government pledged to increase security for Jewish communities across the country.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 3 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
