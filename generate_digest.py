@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Bangalore Morning Digest for May 4, 2026."""
+"""Generate the Bangalore Morning Digest for May 5, 2026."""
 
 import anthropic
 import json
@@ -22,14 +22,14 @@ TWILIO_FROM  = os.environ.get("TWILIO_FROM")
 WHATSAPP_TO  = os.environ.get("WHATSAPP_TO")
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT = os.path.join(DIR, "digest_2026-05-04.html")
+OUTPUT = os.path.join(DIR, "digest_2026-05-05.html")
 
-DATE_LONG  = "Monday, 4 May 2026"
+DATE_LONG  = "Tuesday, 5 May 2026"
 TIME_IST   = "9:00 AM IST"
-TITLE_DATE = "May 4, 2026"
+TITLE_DATE = "May 5, 2026"
 
 SYSTEM = """\
-You are a news curator for the Bangalore Morning Digest. Today is Monday, 4 May 2026.
+You are a news curator for the Bangalore Morning Digest. Today is Tuesday, 5 May 2026.
 
 Use the web_search tool to find 3 real, current news stories for EACH of these 5 categories:
   1. local    – Bangalore / Karnataka city news (BBMP, BMRCL, metro, infrastructure, civic)
@@ -76,7 +76,7 @@ def fetch_news() -> dict:
     client = _make_client()
     tools  = [{"type": "web_search_20250305", "name": "web_search"}]
     msgs   = [{"role": "user", "content": (
-        "Search for the top news stories for May 4, 2026 across all five categories "
+        "Search for the top news stories for May 5, 2026 across all five categories "
         "(Local Bangalore, National India, Business & Finance, Technology, International) "
         "and return the results as a JSON object exactly as instructed."
     )}]

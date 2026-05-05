@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 5, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 5 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 5 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsFirst Prime / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Unveils Feasibility Study for Bengaluru's Longest-Ever 73 km Namma Metro Corridor</div>
+      <div class="nsum">A feasibility study for a 68 km metro line from Kalena Agrahara to Kadugodi Tree Park, plus a 5 km spur to the new 80,000-seater international cricket stadium in Anekal taluk, has been completed by Introsoft Solutions for BMRCL — making it the single longest metro corridor planned for the city. The study will be submitted to the Karnataka state government for approval before a Detailed Project Report is prepared, with the elevated route designed to serve fast-growing suburbs including Bannerghatta, Jigani, Attibele, Sarjapur, and Varthur.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Records ₹50 Crore Drug Bust in a Single Week; MDMA, LSD and Brown Sugar Seized</div>
+      <div class="nsum">Law enforcement agencies in Bengaluru executed a major crackdown on narcotics, seizing drugs worth ₹50 crore including MDMA, LSD strips, and brown sugar within a single week in the city. The arrests are part of a wider surge in drug-related enforcement activity across Karnataka, which has seen a significant rise in such cases in recent months.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka IAS Officer Darpan Jain Leads India–US Trade Negotiations in Washington</div>
+      <div class="nsum">Karnataka-cadre IAS officer Darpan Jain is heading key India–US trade talks in the United States, representing India at a critical phase of bilateral trade negotiations. The development has drawn attention to Karnataka's growing role in shaping national-level economic and diplomatic engagements.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Wins West Bengal for First Time, Ending Mamata Banerjee's 15-Year Rule; TVK Sweeps Tamil Nadu</div>
+      <div class="nsum">India's BJP achieved a historic first-ever victory in West Bengal, winning over 200 seats in the 294-member assembly and ending Chief Minister Mamata Banerjee's 15-year reign, while Vijay's TVK party delivered a spectacular debut in Tamil Nadu, emerging as the single largest party. In other state results, Congress-led UDF crossed the majority mark in Kerala, BJP retained Assam with a sweeping majority, and a BJP-led alliance won Puducherry — marking a landmark multi-state electoral sweep for the ruling party.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Navbharat Live / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Mamata Banerjee to Hold Press Conference After West Bengal Poll Defeat; Alleges EVM Tampering</div>
+      <div class="nsum">TMC chief and outgoing West Bengal Chief Minister Mamata Banerjee scheduled a press conference following the party's crushing defeat in the state assembly elections, and alleged tampering of Electronic Voting Machines in her own Bhabanipur constituency — claims swiftly refuted by the Election Commission of India. The BJP's win is being described by analysts as the result of sustained religious polarisation and deep anti-incumbency built over 15 years of TMC governance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google News / Mission Ki Awaaz</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Forecasts Above-Normal Rainfall of 110%+ for May 2026; Pre-Monsoon Storms to Sweep North India</div>
+      <div class="nsum">India's Meteorological Department has predicted above-normal rainfall exceeding 110% of the long-period average for May 2026, with an active pre-monsoon phase already bringing dust storms and scattered showers to Delhi-NCR, Punjab, and Uttar Pradesh. Orange and Yellow alerts have been issued for Sikkim, Assam, Meghalaya, and sub-Himalayan West Bengal, with very heavy rainfall expected to cause waterlogging in low-lying areas across the northeast.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Rebounds 1.2% to 77,816 on Election Optimism and Easing Oil Prices; Nifty Tops 24,250</div>
+      <div class="nsum">India's BSE Sensex rose approximately 1.2% to 77,816 on Monday, rebounding from previous losses as easing crude oil prices and positive state election trends boosted investor sentiment, with top gainers including Vedanta (+7.9%), Meesho (+6.8%), and Hindustan Unilever (+4.4%). On the corporate earnings front, investor focus remained on Kotak Mahindra Bank following a strong Q4 profit beat with unexpected margin expansion, Adani Enterprises after reporting a rare quarterly loss, and BHEL whose net profit more than doubled year-on-year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Upturn / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NCLAT Rejects Vedanta's Appeal, Clears Adani Enterprises' ₹14,535 Crore Bid for Jaypee Associates</div>
+      <div class="nsum">The National Company Law Appellate Tribunal upheld the resolution plan for Jaypee Associates and dismissed Vedanta's appeal, paving the way for Adani Enterprises to proceed with its ₹14,535 crore acquisition bid. The tribunal said the earlier order passed by the adjudicating authority did not warrant any intervention, making Adani's path to the acquisition significantly clearer.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Explores Crisis-Era NRI Dollar Deposit Window as Rupee Hits Record Lows Amid Oil Shock</div>
+      <div class="nsum">With the Indian rupee sliding to fresh record lows and crude oil prices surging above $100 per barrel due to Strait of Hormuz tensions, the Reserve Bank of India is revisiting crisis-era tools from 2013 — including a special NRI dollar deposit window and possible tax relief for foreign bond investors. With foreign exchange reserves dipping and capital outflows rising, the central bank is actively exploring measures to attract fresh dollar inflows and stabilise the currency.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Digitimes Asia / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nvidia Signs Record 760,000 Sq Ft Bengaluru Office Lease, India's Largest Single-Tenant Deal, as AI Push Accelerates</div>
+      <div class="nsum">Nvidia has signed a 10-year lease for approximately 760,000 square feet of office space at Bagmane Capital's Memphis South Tower in Mahadevpura, Bengaluru — the largest single-tenant office commitment in India to date — which will span 12 floors and serve as a major hub for the company's expanding AI and engineering operations. The move is part of India's broader technology ecosystem boom, which is also seeing Reliance Industries plan a ₹1.6 trillion investment to build a 1.5 GW data centre cluster in Visakhapatnam that could become India's largest data centre complex.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Snabbit Raises $50 Million at $400 Million Valuation in Round Led by Susquehanna Venture Capital</div>
+      <div class="nsum">Snabbit, a Bengaluru-based instant house-help startup, is close to raising around $50 million in fresh funding at a valuation of approximately $400 million in a round led by Susquehanna Venture Capital, with participation expected from Mirae Asset, FJ Labs, Lightspeed Venture Partners, and Bertelsmann India Investments. The deal marks a significant jump from the $180 million valuation at which the startup raised $30 million as recently as October 2025, reflecting strong investor appetite for India's on-demand services sector.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Analytics Insight</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs at India AI Impact Summit 2026</div>
+      <div class="nsum">Sarvam AI, which was picked by the Indian government to build India's first homegrown sovereign large language model under the IndiaAI Mission, unveiled two new LLMs — Sarvam-30B and Sarvam-105B — at the India AI Impact Summit 2026. India's AI market is projected to become a $126 billion opportunity by 2030 with a potential GDP impact of $1.7 trillion by 2035, according to Google and Inc42's Bharat AI Startups Report 2026.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / CBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Strikes UAE's Fujairah Oil Port with Missiles and Drones, Wounding Three Indian Nationals; Ceasefire on Brink</div>
+      <div class="nsum">The United Arab Emirates accused Iran of attacking the country with a barrage of missiles and drones, setting an oil refinery ablaze in the eastern emirate of Fujairah and wounding at least three Indian nationals — the first such attack since a fragile ceasefire took hold in early April. The strikes came in response to US President Donald Trump's 'Project Freedom' initiative to escort stranded commercial vessels through the Strait of Hormuz, with Iran warning that the US effort constitutes a ceasefire violation; oil prices surged above $100 a barrel and US gas prices hit $4.46 a gallon.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Democracy Now</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Withdraws 5,000 Troops from Germany Amid Trump-Merz Feud Over Iran War Strategy</div>
+      <div class="nsum">The Pentagon announced it will withdraw approximately 5,000 troops from Germany over the next year, reducing US military presence there by about 14% in a move that has rattled NATO allies and deepened fears that Europe can no longer rely on Washington. The decision followed a public row in which President Trump called German Chancellor Friedrich Merz 'totally ineffective' after Merz stated that the US had been 'humiliated' by Iran and lacked an exit plan from its ongoing military conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Morning Star / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">WHO Confirms Hantavirus Outbreak on Atlantic Cruise Ship; Three Dead, One Critically Ill</div>
+      <div class="nsum">Three people have died and one British citizen is critically ill following a hantavirus outbreak on the MV Hondius cruise ship sailing in the Atlantic Ocean, with the critically ill patient medically evacuated to a hospital in Johannesburg and confirmed to have contracted the disease. The World Health Organization said it is actively supporting the ship and managing the situation, and assessed the risk to the wider public as low, noting the virus is typically transmitted from rodents to humans and not between people.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 5 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
