@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 7, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 7 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 7 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Receives Fourth Train as Partial Launch Preparations Accelerate</div>
+      <div class="nsum">The upcoming Pink Line has received its fourth six-coach train, which arrived at the Kothanur depot on Bannerghatta Road after being manufactured at BEML's New Thippasandra facility. BMRCL officials confirmed that technical checks and safety tests are now underway before the corridor's partial launch, with the first 7.5-km elevated stretch between Kalena Agrahara and Tavarekere expected to open by May 2026, subject to statutory safety approvals.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IPL 2026: Bengaluru May Lose Hosting Rights for Final Over MLA Ticket Dispute</div>
+      <div class="nsum">Uncertainty has gripped the IPL 2026 final as demands by MLAs for complimentary tickets have put Chinnaswamy Stadium's hosting status in serious doubt, with the BCCI weighing a venue shift despite the stadium having received a safety clearance. The decision remains pending even as RCB's strong season has kept playoff hopes high and public interest in a Bengaluru final at a peak.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Launches Feasibility Studies for 200+ km of New Metro Corridors to Future-Proof Bengaluru Mobility</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited is accelerating its long-term expansion strategy, with feasibility studies now underway for more than 200 kilometres of new metro corridors to address the city's rapidly growing urban mobility needs. BMRCL advisor Abhai Kumar Rai confirmed that 41 kilometres of new metro lines are scheduled to be commissioned by 2026, taking the operational network length to 137 kilometres by year-end.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Wins West Bengal for First Time, Reshapes India's Political Map After State Elections</div>
+      <div class="nsum">In a landmark outcome, the BJP has won West Bengal for the first time in its 46-year history, one of the most consequential state election victories since Narendra Modi first came to power in 2014. The BJP now governs or is part of the governing coalition in 21 of India's 28 states, covering nearly 80 percent of the country's 1.4 billion people.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsX / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Actor Vijay's TVK Emerges as Largest Party in Tamil Nadu; Congress Extends Support to Form Government</div>
+      <div class="nsum">Tamilaga Vettri Kazhagam, founded by actor C. Joseph Vijay, won 108 seats in the 234-member Tamil Nadu assembly, falling 10 seats short of a majority, triggering intense coalition negotiations. Congress decided to extend support to TVK, citing the need to protect the Constitution, a move that may strain its longstanding 22-year alliance with the DMK.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsX / LatestLY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Hosts Vietnamese President To Lam, Signs MoUs on Trade and Technology at Hyderabad House</div>
+      <div class="nsum">Prime Minister Narendra Modi met Vietnamese President To Lam at Hyderabad House in New Delhi, where the two nations signed Memorandums of Understanding covering trade, technology, and cultural cooperation. The visit is aimed at deepening bilateral ties as India broadens its strategic partnerships across Southeast Asia.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Paytm Investor Relations</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Paytm Posts First-Ever Annual Net Profit of ₹552 Crore in FY26, Revenue Grows 22% YoY</div>
+      <div class="nsum">One 97 Communications, the parent of Paytm, reported its first full-year net profit of ₹552 crore for FY2026, a historic milestone after years of losses, with operating revenue reaching ₹8,437 crore, up 22% year-on-year. The company attributed growth to market share gains in merchant and consumer payments, AI-led cost optimisation, and a 52% surge in financial services distribution revenue to ₹2,593 crore.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges 940 Points as Oil Prices Slide Below $100 on US-Iran Peace Deal Hopes</div>
+      <div class="nsum">India's BSE Sensex gained 941 points or 1.22% on Wednesday to close at 77,959, driven by a sharp drop in crude oil prices as optimism grew around a potential US-Iran peace agreement signalled by President Trump. The rally was led by Tata Motors, IndiGo parent InterGlobe Aviation, HDFC Bank, and Coforge, with broader sentiment also lifted by India's services sector hitting a five-month high in April.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bajaj Auto Q4 Profit Surges 34% YoY to ₹2,746 Crore; Board Announces ₹5,633 Crore Buyback</div>
+      <div class="nsum">Bajaj Auto reported a strong fourth-quarter standalone profit of ₹2,746 crore, up 34% year-on-year, as revenue surged 32%, driven by robust two- and three-wheeler sales domestically and internationally. The board also approved a ₹5,633 crore share buyback at a 16.3% premium over the current market price, alongside a dividend of ₹150 per share.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India West / BizzBuzz News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Opens Applications for Third Play Accelerator India Cohort, Targeting 20 AI-Powered Startups</div>
+      <div class="nsum">Google has launched applications for the third cohort of its Google Play Accelerator India, a three-month, equity-free program that will select 20 India-based startups at the Seed to Series A stage beginning July 2026. Eligible startups must use artificial intelligence and machine learning in a core capacity, with the program covering app quality, growth, design, data safety, and global expansion, culminating in a Demo Day in November 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Conventus Law / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Online Gaming Rules 2026 Take Effect, Banning Real-Money Games with Criminal Penalties</div>
+      <div class="nsum">India's Promotion and Regulation of Online Gaming Rules, 2026 came into effect on May 1, 2026, centralising regulation under a new Online Gaming Authority of India and banning real-money games with penalties including a three-year jail term and fines of up to ₹1 crore. The law creates defined pathways for e-sports and online social games while requiring all online gaming platforms, financial intermediaries, and advertisers to promptly reassess their compliance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Outreach / Analytics Insight</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru EV Startup River in Advanced Talks to Raise Up to ₹830 Crore in Series C Round</div>
+      <div class="nsum">Bengaluru-based electric two-wheeler startup River is in advanced negotiations to raise approximately $80–100 million from A91 Partners, Claypond Capital, and Elev8 Venture Partners at a valuation of around $200 million, which would mark the company's largest fundraise to date. The capital will be deployed to scale retail from 45 to over 100 stores, boost manufacturing at its Hoskote plant, and develop at least two new product platforms by 2027.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Says US-Iran War Will End Quickly as Both Sides Near One-Page Peace Memorandum</div>
+      <div class="nsum">US President Donald Trump expressed strong optimism about ending the US-Israel war on Iran, saying talks have been 'very good' and that a deal is 'very possible,' as Reuters reported the two sides are close to a one-page, 14-point memorandum of understanding. Under the proposed terms, Iran would halt uranium enrichment for at least 12 years, while the US would lift sanctions and release billions in frozen Iranian assets, with both sides reopening the Strait of Hormuz.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran's Foreign Minister Araghchi Meets China's Wang Yi in Beijing, Urging Diplomatic Push Ahead of Trump-Xi Summit</div>
+      <div class="nsum">Iranian Foreign Minister Abbas Araghchi held talks with Chinese counterpart Wang Yi in Beijing, seeking China's diplomatic support in peace negotiations with the United States, one week before President Trump's scheduled summit with President Xi Jinping on May 14–15. China called for a comprehensive ceasefire, urged Iran to reopen the Strait of Hormuz, and indicated it views the crisis as an opportunity to strengthen its image as a global diplomatic power.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Explosion at Chinese Fireworks Plant Kills at Least 26, Injures 61 in Central Province</div>
+      <div class="nsum">A powerful explosion at a fireworks manufacturing plant in a central Chinese province killed at least 26 people and injured 61 others, with authorities confirming that search and rescue operations have largely been completed. The cause of the blast remains unknown, and the person in charge of the facility has been detained by authorities as an investigation gets underway.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 7 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
