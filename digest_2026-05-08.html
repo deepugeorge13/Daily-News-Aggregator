@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 8, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 8 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 8 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Trains Arrive in May; Depot Link Issue May Delay Trial Runs on Silk Board–KR Puram Stretch</div>
+      <div class="nsum">BMRCL is set to receive the first Blue Line train rakes in May 2026, with BEML delivering Trainsets 7 and 8 under a 53-train order. However, trial runs on the Silk Board–KR Puram corridor may face delays due to pending depot connectivity and ongoing civil and approval work.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / The News Minute</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Budget Earmarks 41-km Namma Metro Expansion for 2026–27, Network to Cross 137 km</div>
+      <div class="nsum">The Karnataka state budget has announced a 41-kilometre expansion of the Bengaluru Metro rail network to be completed in 2026–27, with the expanded network expected to benefit an estimated 15 lakh passengers daily once operational. The budget also allocates Rs 500 crore for land acquisition for Corridor-4 (Heelalige–Rajanukunte), targeting completion by December 2030.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Chief Maheshwar Rao Orders Complete Road Asphalting by May-End, Monitoring Dashboard to Be Set Up</div>
+      <div class="nsum">Greater Bengaluru Authority (GBA) chief Maheshwar Rao has directed civic officials to complete road asphalting work across the city by the end of May 2026 and set up a real-time monitoring dashboard to track progress. The directive comes as the GBA, which replaced BBMP as the main civic body, steps up pressure on contractors to meet deadlines amid public complaints over potholed and unfinished roads.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Kashmir Reader / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Marks One Year of Operation Sindoor; PM Modi, Armed Forces Reaffirm Zero Tolerance for Cross-Border Terror</div>
+      <div class="nsum">On the first anniversary of Operation Sindoor, Prime Minister Narendra Modi and the three armed services reaffirmed India's resolve against terrorism, with senior military commanders stating the operation was 'just the beginning.' The tri-service strike, launched on May 7, 2025, targeted nine terror infrastructure sites in Pakistan and Pakistan-Occupied Kashmir in retaliation for the Pahalgam attack that killed 26 civilians.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / Google News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal Post-Poll Violence: CEC Orders Immediate Arrests; Governor Dissolves Assembly After Mamata Banerjee Steps Down</div>
+      <div class="nsum">The Chief Election Commissioner has ordered the immediate arrest of those involved in post-poll violence in West Bengal following the 2026 Assembly election results, while directing Bengal's Chief Secretary, DGP, and CAPFs to enforce a crackdown. West Bengal Governor RN Ravi dissolved the state assembly after Chief Minister Mamata Banerjee stepped down, triggering intense political activity over government formation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tamil Nadu Political Drama: TVK's Vijay Meets Governor to Stake Claim; Congress Offers Conditional Support</div>
+      <div class="nsum">Actor-turned-politician Vijay, whose TVK party emerged as a major force in the Tamil Nadu 2026 Assembly elections, met the Governor to stake his claim to form the government, even as Governor Arlekar declined his initial bid. Congress dropped its support for DMK and offered 'conditional' backing to TVK, deepening the political uncertainty over government formation in the state.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges 940 Points as Six BSE 100 Stocks Hit 52-Week Highs; Adani Ports, Sun Pharma Lead Rally</div>
+      <div class="nsum">The BSE Sensex surged 940 points as six BSE 100 stocks hit fresh 52-week highs, signalling strong bullish momentum in Indian equity markets. Stocks including Adani Ports, Nestlé India, and Sun Pharma led the gains, supported by solid monthly performance and positive investor sentiment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI to Conduct Rs 75,000 Crore Variable Rate Repo Auction to Manage Banking System Liquidity</div>
+      <div class="nsum">The Reserve Bank of India has announced a four-day variable rate repo auction worth Rs 75,000 crore to manage evolving liquidity conditions in the banking system. The move comes amid a broader push to balance monetary conditions as India's finished steel consumption also rose 8.1 per cent in April 2026, reflecting stronger domestic demand.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Goods and Services Exports Rise 4.59% to $863.11 Billion in FY26; EV Sales Surge 75% in April</div>
+      <div class="nsum">India's combined goods and services exports climbed 4.59 per cent to reach $863.11 billion in FY2025–26, reflecting steady external demand despite global headwinds. Separately, electric passenger vehicle sales surged 75.14 per cent in April 2026 according to data released by the Federation of Automobile Dealers Associations (FADA), underlining strong domestic EV momentum.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Outlook Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Freshworks Cuts 11% of Global Workforce (~500 Jobs) Citing AI Transformation; Over Half Its Code Now Written by AI</div>
+      <div class="nsum">Nasdaq-listed SaaS firm Freshworks announced it will lay off approximately 11 per cent of its global workforce, or around 500 employees, as part of an AI-led restructuring aimed at accelerating growth in employee experience and customer experience products. CEO Dennis Woodside disclosed that more than half of Freshworks' code is now written using AI tools, with the company estimating $8 million in one-time restructuring charges.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Outreach / TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru EV Startup River in Advanced Talks to Raise $80–100 Million Series C at $200 Million Valuation</div>
+      <div class="nsum">Bengaluru-based electric two-wheeler startup River is in advanced negotiations to close its largest fundraise yet — approximately $80–100 million — from investors including A91 Partners and the Manipal Group's family office Claypond Capital, at a valuation of around $200 million. Founded in 2020, River has carved a niche with its flagship Indie scooter, and the round will mark the first time Indian investors hold substantial stakes in the company.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NVIDIA Blog / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Market Could Hit $126 Billion by 2030; NVIDIA Deepens Partnerships with Indian VCs and Research Bodies</div>
+      <div class="nsum">According to the Google and Inc42 Bharat AI Startups Report 2026, India's AI market is projected to become a $126 billion opportunity by 2030, with a potential GDP impact of $1.7 trillion by 2035. NVIDIA is partnering with prominent Indian venture capital firms including Peak XV, Elevation Capital, and Accel India, alongside the Anusandhan National Research Foundation, to fund and mentor AI startups and accelerate sovereign AI infrastructure development in India.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran FM Meets China's Wang Yi in Beijing as US–Iran Peace Talks Near One-Page Memorandum of Understanding</div>
+      <div class="nsum">Iran's Foreign Minister Abbas Araghchi held talks with Chinese counterpart Wang Yi in Beijing, with China calling for an immediate ceasefire and the reopening of the Strait of Hormuz, which Iran effectively closed after the US-Israeli war on Iran disrupted global oil supplies. Separately, the White House indicated it is close to finalising a one-page, 14-point memorandum of understanding with Iran to end the war and launch 30 days of detailed nuclear negotiations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">WHO Confirms Hantavirus Cases Rising on Cruise Ship; Passengers Evacuated at Saint Helena as Global Health Alert Grows</div>
+      <div class="nsum">The World Health Organization confirmed that five of eight suspected hantavirus cases from the MV Hondius cruise ship have been verified, with officials warning that the number may rise and that the outbreak may indicate human-to-human transmission. Dozens of passengers, including the wife of a Dutch man who died, disembarked at the British overseas territory of Saint Helena while health authorities raced to trace all contacts.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Delays EU Tariff Hike Until July 4 After Call with Von der Leyen; US Secretary of State Rubio Meets Pope Leo XIV</div>
+      <div class="nsum">US President Donald Trump delayed his threatened 'much higher' tariffs on the European Union until July 4 after a call with European Commission President Ursula von der Leyen, who hailed 'good progress' toward a resolution. In a separate diplomatic development, US Secretary of State Marco Rubio travelled to Rome to meet Pope Leo XIV, the first American pope, seeking to ease tensions between Washington and the Vatican.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 8 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
