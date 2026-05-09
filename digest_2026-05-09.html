@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 9, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 9 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 9 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / News First Prime</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Nears Launch, Blue Line Targets December Opening</div>
+      <div class="nsum">Bengaluru&apos;s Namma Metro is preparing to open the first phase of the Pink Line — a 7.5-km elevated stretch from Kalena Agrahara to Tavarekere featuring six stations — in May 2026, while the Blue Line linking Silk Board to KR Puram is scheduled to begin commercial operations by December. The two new corridors will add significantly to the existing 96-km network, with the city&apos;s Karnataka Budget 2026 earmarking 41 additional km of metro lines to be completed in 2026–27 to serve an estimated 15 lakh daily commuters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Plan Finalised for Bengaluru&apos;s Longest Metro Corridor — 73 km from Kalena Agrahara to Kadugodi with Stadium Link</div>
+      <div class="nsum">A feasibility report is set for submission for a 73-km Namma Metro corridor running from Kalena Agrahara to Kadugodi via Sarjapur, including a 5-km spur to the new Anekal stadium, aimed at boosting IT hub and suburban connectivity. The proposal, reported on 3 May 2026, is part of Bengaluru&apos;s broader infrastructure push that includes 40 km of tunnel corridors worth ₹40,000 crore under a Build-Own-Operate-Transfer model.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live / News First Prime</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Approves ₹2,141 Crore Road Upgrade Plan; GBA Chief Orders Full Asphalting by May-End</div>
+      <div class="nsum">The Karnataka government has approved ₹2,141 crore to upgrade 100 roads, white-top 500 km, and improve drains and flyovers across Bengaluru, with Greater Bengaluru Authority Chief Maheshwar Rao directing complete road asphalting to be done by month-end and a monitoring dashboard to be set up for real-time tracking. Plans for 170 km of tunnels and double-decker flyovers — including the Hebbal–Silk Board tunnel and JP Nagar–Hebbal flyovers — are also underway, targeting completion between 2026 and 2027.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Business Today / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP&apos;s Suvendu Adhikari Sworn In as West Bengal&apos;s First BJP Chief Minister on May 9</div>
+      <div class="nsum">Suvendu Adhikari was sworn in as West Bengal&apos;s Chief Minister at Brigade Parade Ground on May 9, marking the BJP&apos;s historic first government in the state after winning over 200 seats in the 294-member assembly — ending Mamata Banerjee&apos;s 15-year TMC rule. In Tamil Nadu, actor-turned-politician Vijay&apos;s Tamilaga Vettri Kazhagam emerged as the single largest party with 107 seats, while the Congress-led UDF returned to power in Kerala, completing a sweeping political realignment across five state polls.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Domain-b</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DRDO and IAF Successfully Conduct Maiden Flight Trial of Indigenous TARA Glide Weapon System</div>
+      <div class="nsum">India&apos;s Defence Research and Development Organisation (DRDO) and the Indian Air Force successfully tested the Tactical Advanced Range Augmentation (TARA) system off the Odisha coast on May 8, 2026 — India&apos;s first indigenous glide weapon that converts conventional unguided bombs into precision-guided munitions capable of striking targets from long standoff distances. Defence Minister Rajnath Singh hailed the achievement as a major step toward strengthening India&apos;s self-reliant defence capabilities under the Aatmanirbhar Bharat initiative.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News On Air / News On Air</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Marks One Year of Operation Sindoor, Reaffirms India&apos;s Resolve Against Terrorism</div>
+      <div class="nsum">Prime Minister Narendra Modi posted a tribute on the first anniversary of Operation Sindoor, saying the Indian Armed Forces displayed &apos;unparalleled courage, precision and resolve&apos; during the operation and that the nation remains steadfast in defeating terrorism and dismantling its enabling ecosystem. Modi said the forces gave a fitting response to those who attacked innocent Indians at Pahalgam, with the entire nation saluting their bravery.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / India News Network</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Clears Kotak Mahindra Bank to Acquire Up to 9.99% Stake Each in AU Small Finance Bank and Federal Bank</div>
+      <div class="nsum">The Reserve Bank of India on May 6, 2026, formally approved Kotak Mahindra Bank to acquire aggregate holdings of up to 9.99% of paid-up share capital in both AU Small Finance Bank and Federal Bank, with both lenders confirming receipt of RBI approval letters in separate regulatory filings. Following the announcement, AU Small Finance Bank shares rose 0.99% to ₹1,034.60 and Federal Bank climbed 1.47% to ₹297.40, as markets welcomed the strategic stake acquisition.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Gold Outperforms Indian Equities in 2026 as Markets Stay Range-Bound Amid Global Uncertainty</div>
+      <div class="nsum">Gold has re-emerged as one of the strongest-performing asset classes of 2026, outpacing Indian benchmark equities amid persistent market volatility linked to global trade tensions and the ongoing US-Iran conflict disrupting energy supply chains. J.P. Morgan analysts noted that improving macro indicators and a strong earnings trajectory could set the stage for an equity market rally from the second half of 2026 onward, with the Nifty50 trading near 24,321 and Sensex at 77,887.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse (Economic Times) / DD News On Air</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India&apos;s GST Collections Hit Record High in April 2026, Signalling Robust Domestic Consumption</div>
+      <div class="nsum">India&apos;s Goods and Services Tax collections reached a record high in April 2026, driven by strong domestic consumption and improved compliance, according to a DD News On Air bulletin titled &apos;Record High GST Collections in April 2026.&apos; The buoyant tax receipts come as the government also implements GST 2.0 reforms — including reduced GST on medicines and nil GST on health insurance — expected to partially offset the adverse impact of US tariffs in coming quarters, according to J.P. Morgan research.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week / SpaceNews / The Next Web</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Skyroot Aerospace Becomes India&apos;s First Space-Tech Unicorn, Targets June Vikram-1 Orbital Launch</div>
+      <div class="nsum">Hyderabad-based Skyroot Aerospace raised $60 million in a round co-led by Sherpalo Ventures and GIC with participation from BlackRock-managed funds, crossing a $1.1 billion valuation to become India&apos;s first space-tech unicorn. The funding is timed to the planned June 2026 orbital launch of Vikram-1 — India&apos;s first privately developed orbital rocket — from Sriharikota, with hardware already shipped to the Satish Dhawan Space Centre for final integration tests.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Analytics India Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs at India AI Impact Summit 2026</div>
+      <div class="nsum">Sarvam AI, chosen by the central government to build India&apos;s first homegrown sovereign large language model under the IndiaAI Mission, unveiled two new foundation models — Sarvam-30B and Sarvam-105B — at the India AI Impact Summit 2026. According to Google and Inc42&apos;s Bharat AI Startups Report 2026, India&apos;s AI market could become a $126 billion opportunity by 2030, with a potential GDP impact of $1.7 trillion by 2035.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BizzBuzz News / Zee News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches Play Accelerator India 2026 Targeting AI-Led Startups Between Seed and Series A</div>
+      <div class="nsum">Google has announced a new intake for its Play Accelerator India 2026 program, targeting up to 20 India-based startups between Seed and Series A stages that have published apps on the Google Play Store, with the cohort kicking off in July 2026 and concluding with an in-person Demo Day in November. The initiative reflects growing momentum in India&apos;s AI startup ecosystem, with Mumbai Tech Week 2026 — scheduled for May 29–30 — also set to spotlight applied AI use cases across enterprise innovation.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US and Iran Exchange Fire in Strait of Hormuz as Fragile Ceasefire Comes Under Threat</div>
+      <div class="nsum">US Central Command forces intercepted what it described as &apos;unprovoked Iranian attacks&apos; in the Strait of Hormuz on May 8, 2026, firing on two Iranian oil tankers and engaging Iranian forces, while Iran accused the US of violating their ceasefire by targeting ships and attacking civilian areas along its southern coast. The UN&apos;s International Maritime Organization warned that approximately 1,500 ships and crew remain stranded in the Gulf due to Iran&apos;s continued closure of the strategic waterway, through which one-fifth of the world&apos;s oil and LNG supplies pass.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News On Air / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Declares Unilateral Ukraine Ceasefire on Victory Day, Warns of Retaliation if Disrupted</div>
+      <div class="nsum">Russia&apos;s Defence Ministry announced a unilateral ceasefire in Ukraine on May 8–9 to mark the 81st anniversary of the defeat of Nazi Germany in World War II, warning it would retaliate if Kyiv attempted to disrupt Victory Day celebrations. Russia scaled back its traditional Red Square military parade this year due to fears of Ukrainian drone attacks — a move observers described as a symbol of Russians&apos; growing frustrations with the war.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China Calls for End to Iran War and Reopening of Strait of Hormuz Ahead of Trump-Xi Summit</div>
+      <div class="nsum">Chinese Foreign Minister Wang Yi met Iranian counterpart Abbas Araghchi in Beijing and called for a complete cessation of fighting and the immediate reopening of the Strait of Hormuz, ahead of US President Donald Trump&apos;s planned summit with President Xi Jinping on May 14–15. Iran, which effectively closed the strait after the US-Israeli war on Iran began — pushing fuel and fertiliser prices sharply higher — is seeking clarity from Beijing that China will not make concessions to Washington that could damage Tehran&apos;s interests.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 9 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
