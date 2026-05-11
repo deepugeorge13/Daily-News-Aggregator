@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 11, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 11 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 11 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Clears Final Hurdle, Set to Open by May-End</div>
+      <div class="nsum">BMRCL's Pink Line first phase, a 7.5-km elevated stretch between Kalena Agrahara and Tavarekere with six stations, is awaiting statutory safety approvals before its imminent inauguration. Once fully operational, the Pink Line is expected to significantly improve north-south connectivity in Bengaluru and ease daily commuting pressures across key residential and commercial zones.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Targets 137 km Metro Network by End of 2026 with 41 km Addition</div>
+      <div class="nsum">Bangalore Metro Rail Corporation Limited (BMRCL) is accelerating its long-term expansion strategy with feasibility studies underway for more than 200 kilometres of new metro corridors to meet Bengaluru's growing urban mobility needs. Officials confirmed that 41 kilometres of new metro lines are scheduled to be commissioned by 2026, taking the operational network to 137 kilometres, with the airport link targeted by end-2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BWSSB One-Time Settlement Scheme Collects ₹12.15 Crore in Initial Phase</div>
+      <div class="nsum">The Bengaluru Water Supply and Sewerage Board's (BWSSB) OTS scheme has seen a strong public response, with ₹12.15 crore collected in its initial phase from defaulting water bill payers. In parallel, the Greater Bengaluru Authority (GBA) Chief Maheshwar Rao has directed officials to complete all road asphalting by month-end and set up a monitoring dashboard to track progress.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / The Print / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Successfully Test-Fires Advanced Agni Missile with MIRV Technology Under Mission Divyastra</div>
+      <div class="nsum">DRDO successfully conducted the flight trial of an advanced Agni missile equipped with Multiple Independently Targeted Re-Entry Vehicle (MIRV) technology from Dr. APJ Abdul Kalam Island, Odisha on May 8, placing India among a select group of nations — alongside the US, Russia, China, France and the UK — possessing proven MIRV capability. The missile was flight-tested with multiple payloads targeted at different locations across the Indian Ocean Region, with Defence Minister Rajnath Singh lauding the test as a major boost to the country's defence preparedness.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / Pragati Vadi</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Film Star-Turned-Politician Vijay Sworn In as Tamil Nadu Chief Minister</div>
+      <div class="nsum">TVK leader C. Joseph Vijay was sworn in as Chief Minister of Tamil Nadu at Nehru Stadium, Chennai, on May 10, becoming the first non-DMK/AIADMK CM since 1967, after securing majority support from Congress, CPI, CPI(M), VCK and IUML. The Governor directed Vijay to prove a majority in the Assembly on or before May 13, 2026, as political opponents including AMMK's Dhinakaran raised allegations of forged support letters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / Indiablooms</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP's Suvendu Adhikari Sworn In as West Bengal's First-Ever BJP Chief Minister</div>
+      <div class="nsum">BJP leader Suvendu Adhikari was sworn in as West Bengal's ninth and first-ever BJP Chief Minister at the Brigade Parade Ground in the presence of Prime Minister Narendra Modi, ending decades of Left and TMC rule in the state. Shortly after the ceremony, the Union Jal Shakti Ministry cleared ₹2,700 crore under the Jal Jeevan Mission for Bengal in what was seen as an early governance signal from the new dispensation.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Free Press Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FPI Outflows Cross ₹2 Lakh Crore in 2026, Surpassing Full-Year 2025 Record</div>
+      <div class="nsum">Foreign Portfolio Investors pulled out ₹14,231 crore from Indian equities so far in May, taking total 2026 FPI outflows beyond ₹2 lakh crore — significantly higher than the ₹1.66 lakh crore withdrawn during the entire calendar year 2025, according to NSDL data. Experts cite rising crude oil prices above $100 a barrel, a weakening rupee, and geopolitical tensions around the Strait of Hormuz as the primary drivers of sustained foreign investor caution.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard (ts2.tech)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Set for Weak Open as Iran Tensions Push Brent Crude to $105 a Barrel</div>
+      <div class="nsum">Indian shares are set to open lower on May 11 following a surge in oil prices after the US and Iran failed to agree on a peace proposal, heightening concerns over energy supply disruptions in the Strait of Hormuz. Nifty futures indicated a weaker start, with Brent crude rising 3.5% to around $105 a barrel — a spike that threatens to increase inflation and pressure economic growth in India, the world's third-largest oil importer.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Open Magazine / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Enterprises to Channel 40-45% of Tech Budgets Into AI and Data Transformation in 2026</div>
+      <div class="nsum">A Bain &amp; Company India Enterprise Technology Report 2026 found that AI and data transformation initiatives are expected to account for 40–45 percent of India's change-related technology spending this year, with overall IT spending projected to grow 6–8 percent — ahead of the global forecast of 4–6 percent. Despite high AI enthusiasm, the report cautioned that only 15% of business leaders view IT as truly strategic and that legacy tech debt remains the top barrier cited by 72% of CIOs.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Voice AI Startup Wispr Flow Bets Big on India, Targets 100% Month-on-Month Growth with Hinglish Model</div>
+      <div class="nsum">US-based voice AI startup Wispr Flow has emerged as a major player in India — its second-largest market after the US — after launching a Hinglish voice model and an India-specific pricing plan of ₹320 per month, driving growth of around 100% month-on-month following its India campaign. The startup, which has seen over 2.5 million global downloads between October 2025 and April 2026 with India accounting for 14% of installs, is now planning broader multilingual support and eventually targeting pricing as low as ₹10–20 per month to reach non-urban users.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Dailyhunt / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google for Startups and Antler India Launch AI Immersion Programme for Indian Founders</div>
+      <div class="nsum">Google for Startups and Antler India have launched the Google for Startups Immersion, a two-phase hybrid programme for founders, CTOs, and technical leads building AI companies in India, with applications closing May 22, 2026. The programme's first phase offers four virtual sessions for up to 5,000 founders covering AI Studio, Gemini Enterprise Agent Platform and venture investment tracks, with top 25 startups invited to an in-person session at Google's Bengaluru office.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IPO Central / Editorji</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $1.48 Billion in Q1 2026, Accounting for 38% of All Startup Funding</div>
+      <div class="nsum">Indian startups raised nearly $3.9 billion in Q1 2026 alone, with AI accounting for a staggering 38% of that total — approximately $1.48 billion — as the sector transitions from 'AI features' to 'workflow-native systems' in a market projected to reach $126 billion by 2030. Bengaluru-based GPU cloud startup Neysa led the charge, raising a $1.2 billion Series B in February 2026, positioning itself as India's answer to CoreWeave for AI infrastructure.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump-Brokered Russia-Ukraine Three-Day Ceasefire Holds Through Victory Day Weekend</div>
+      <div class="nsum">President Donald Trump announced a three-day ceasefire (May 9–11) in the Russia-Ukraine war, with both President Zelenskyy and Putin's foreign affairs adviser confirming the agreement that also includes an exchange of 1,000 prisoners from each side. The ceasefire was brokered to coincide with Russia's Victory Day parade on May 9, though earlier shorter ceasefires had quickly unravelled, and Ukraine stated it was counting on the US to hold Russia to its commitments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Talks Stall as Strait of Hormuz Tensions Escalate, Oil Prices Surge</div>
+      <div class="nsum">The United States is awaiting Iran's response to a peace proposal aimed at ending the ongoing conflict and reopening the Strait of Hormuz, after US forces exchanged fire with Iranian forces and struck two Iranian oil tankers, further inflaming the crisis. Iran is facing skyrocketing food prices and currency pressure from a US-enforced naval blockade, while global oil stockpiles are depleting at a record pace and Brent crude has surged above $105 a barrel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Hantavirus-Stricken Cruise Ship MV Hondius Docks in Spain's Canary Islands, Passengers Evacuated</div>
+      <div class="nsum">The Dutch-flagged cruise ship MV Hondius, at the centre of a deadly hantavirus outbreak, docked in Spain's Canary Islands on Sunday after more than 100 passengers and crew fell ill, with repatriation flights arranged to send affected passengers home. The outbreak has put global health authorities on alert, with new cases continuing to emerge even as passengers are being disembarked and contact tracing efforts are being ramped up internationally.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 11 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
