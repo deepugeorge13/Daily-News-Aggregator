@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 12, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 12 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 12 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line RDSO Safety Trials Conclude Today; Late-May Launch on Track</div>
+      <div class="nsum">Research Design and Standards Organisation (RDSO) officials completed safety trials today, May 12, on the 7.5-kilometre elevated Pink Line stretch between Kalena Agrahara and Tavarekere, covering six stations. Commuters on Bannerghatta Road can expect services to begin by late May once the Commissioner of Metro Railway Safety (CMRS) gives the final nod, with BMRCL planning trains from 5 AM to 11 PM.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News On AIR / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Visits Bengaluru for Art of Living's 45th Anniversary, Inaugurates Dhyan Mandir</div>
+      <div class="nsum">Prime Minister Narendra Modi visited Bengaluru on May 10 to participate in the 45th Anniversary Celebrations of The Art of Living, addressing a large gathering at the International Centre. He also inaugurated the newly constructed Dhyan Mandir at the campus, marking a significant cultural and civic event for the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BWSSB One-Time Settlement Scheme Collects ₹12.15 Crore in Initial Phase Amid Strong Public Response</div>
+      <div class="nsum">The Bengaluru Water Supply and Sewerage Board's (BWSSB) One-Time Settlement (OTS) scheme has seen a strong public response, with ₹12.15 crore collected in the initial phase from water bill defaulters. The scheme is aimed at clearing outstanding dues and improving the civic body's revenue, with authorities urging more residents to take advantage of the waiver window before it closes.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / The Week / Outlook India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Suvendu Adhikari Sworn In as West Bengal's First BJP Chief Minister, Ending 15-Year TMC Rule</div>
+      <div class="nsum">BJP leader Suvendu Adhikari was sworn in as West Bengal's first-ever BJP Chief Minister on May 9 at Brigade Parade Grounds in Kolkata, with PM Narendra Modi, Home Minister Amit Shah, and several NDA chief ministers in attendance. The BJP won a landslide 207 of 294 Assembly seats, ending the Trinamool Congress's 15-year dominance; Adhikari also defeated outgoing CM Mamata Banerjee in her Bhabanipur stronghold.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / News24</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Urges Citizens to Work From Home, Cut Foreign Travel and Fuel Use Amid West Asia Oil Crisis</div>
+      <div class="nsum">Prime Minister Narendra Modi made a strong public appeal for self-reliance, urging Indians to work from home, avoid non-essential foreign trips, reduce fuel consumption, and refrain from purchasing gold, citing the escalating West Asia conflict and surging oil prices. The appeal, repeated within 24 hours, triggered debate among opposition leaders and prompted discussion about India's labour laws and WFH rights.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Retail Inflation Data Released Today; India-Oman FTA Early Implementation Talks Held</div>
+      <div class="nsum">The government released retail inflation data on May 12, a key economic indicator being closely watched against the backdrop of rising energy prices driven by West Asia tensions. Separately, India and Oman held talks in New Delhi to discuss early implementation of their Free Trade Agreement signed in December 2025, which is expected to provide duty-free access for 98 per cent of India's exports to Oman.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Plunges 1,292 Points for Third Straight Session; Titan, SBI, Airtel Lead Losses</div>
+      <div class="nsum">The BSE Sensex fell 1,292 points (1.67%) on Monday to close at 76,036, marking its third consecutive session of decline and hitting its lowest level since April 7, driven by escalating US-Iran tensions and rising crude oil prices. Consumer-linked stocks bore the brunt of selling after PM Modi's austerity push, with Titan Company plunging nearly 7%, IndiGo slipping 4.7%, and State Bank of India dropping 4.5%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Goldman Sachs Flags $22 Billion FII Selloff in 2026 as One of India's Sharpest Equity Outflows in Two Decades</div>
+      <div class="nsum">Goldman Sachs has identified 12 Indian stocks as medium-term alpha bets even as it warned that the record $22 billion FII selloff in 2026 may persist, marking one of the sharpest equity outflows in over two decades amid continued global risk-off sentiment. The brokerage's cautious outlook reflects sustained foreign investor nervousness linked to geopolitical uncertainties and rising global energy costs.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Honasa Consumer (Mamaearth) Set to Declare First-Ever Dividend at Q4 FY26 Results on May 21</div>
+      <div class="nsum">Honasa Consumer's board is set to consider a final dividend on May 21 alongside its Q4 FY26 results, potentially making Mamaearth's parent the first listed new-age consumer company to reward shareholders with a dividend. The move signals improving stock performance and steady business growth expectations for the Bengaluru-headquartered FMCG startup.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newskart / Convergence Now</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Marks National Technology Day 2026: Cabinet Approves New Semiconductor Units Under India Semiconductor Mission</div>
+      <div class="nsum">India observed National Technology Day on May 11, with PM Modi highlighting technology as a key pillar of a self-reliant India, and the Union Cabinet approving new semiconductor units under the India Semiconductor Mission, including projects linked to advanced display and packaging capabilities. UPI also crossed 22 billion monthly transactions, underscoring India's digital public infrastructure scale, while policymakers called for deeper AI adoption and indigenous deep-tech research.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Voice AI Startup Wispr Flow Eyes India Expansion With Hinglish Model, Targets Every Indian Smartphone User</div>
+      <div class="nsum">Voice AI startup Wispr Flow, which has seen India emerge as its second-largest market by downloads — accounting for 14% of over 2.5 million global installs between October 2025 and April 2026 — is aggressively expanding for Indian users with a Hinglish voice model and Android launch. The startup recorded nearly 100% month-over-month growth in India following its localised campaign and is targeting ultra-low pricing of ₹10–20 per month to reach non-urban users.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IPO Central / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $1.48 Billion in Q1 2026 Alone, Accounting for 38% of Total Startup Funding</div>
+      <div class="nsum">In Q1 2026, Indian startups raised nearly $3.9 billion in total, with AI accounting for a staggering 38% — approximately $1.48 billion — reflecting a dramatic surge in investor confidence in homegrown AI ventures. Bengaluru-based Neysa led the charge with a $1.2 billion Series B round in February, positioning itself as India's answer to GPU-accelerated cloud infrastructure provider CoreWeave.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Rejects Iran's Ceasefire Proposal; Strait of Hormuz Closure Enters 10th Straight Week</div>
+      <div class="nsum">President Donald Trump declared Iran's response to a US ceasefire proposal 'totally unacceptable,' with the Strait of Hormuz remaining closed for ten consecutive weeks and Saudi Aramco's CEO warning that normalization may not occur until 2027. The closure has created a massive global oil supply shock, costing American consumers an estimated $37 billion in higher gasoline and diesel prices since the conflict began on February 28.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News On AIR / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal's New BJP Government Approves Land Transfer to BSF for India-Bangladesh Border Fencing</div>
+      <div class="nsum">The newly sworn-in BJP government in West Bengal, led by Chief Minister Suvendu Adhikari, has approved land transfer to the Border Security Force (BSF) to facilitate India-Bangladesh border fencing amid rising security concerns. The move comes as regional tensions remain elevated following reports of illegal crossings and in the wake of post-election political instability.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Linked to Escalating Antisemitic Attacks Across Europe as IRGC Reportedly Recruits Operatives Online</div>
+      <div class="nsum">Intelligence agencies and investigative reports indicate Iran may be using Telegram channels to recruit operatives across Europe to carry out antisemitic attacks, including a petrol-bomb arson at a London synagogue, as attacks on Jewish communities escalate continent-wide. At least 60 Israelis have been indicted on espionage charges for Iran since 2023, with prosecutors alleging that several filmed sensitive IDF and Shin Bet sites later targeted in Iranian missile strikes.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 12 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
