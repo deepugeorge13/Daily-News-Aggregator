@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 13, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 13 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 13 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Launch Imminent as BMRCL Confirms May 2026 Opening</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has confirmed that the first phase of the 21.25-km Pink Line, covering the 7.5-km elevated stretch from Kalena Agrahara to Tavarekere with six stations, is set to open in May 2026. The second phase, extending underground from Dairy Circle to Nagawara via MG Road (13.76 km), is expected to be operational by December 2026, bringing north-south metro connectivity to key hubs like Jayadeva Hospital, IIM Bangalore, and Shivajinagar.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Karnataka Budget / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Budget Allocates ₹40,000 Cr for Bengaluru Tunnel Corridors and 41-km Metro Expansion in 2026–27</div>
+      <div class="nsum">The 2026–27 Karnataka state budget, presented by Chief Minister Siddaramaiah, announced the approval of two tunnel corridors covering approximately 40 km under a Build-Own-Operate-Transfer (BOOT) model at an estimated cost of ₹40,000 crore to address Bengaluru's chronic traffic congestion. Separately, 41 km of additional Namma Metro lines are targeted for completion during 2026–27, and a feasibility study is underway for a 73-km corridor from Kalena Agrahara to Kadugodi via Sarjapur, potentially Bengaluru's longest metro line.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMD / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Orange Alert for Karnataka, Bengaluru Braces for Heavy Rain and Hailstorms Through May 16</div>
+      <div class="nsum">The India Meteorological Department issued an orange alert for eight Karnataka districts, including Bengaluru, forecasting heavy rainfall, thunderstorms, and hailstorms for the next four days starting May 13, 2026. The alerts are linked to a low-pressure area over the Southwest Bay of Bengal and an upper air cyclonic circulation over South Interior Karnataka, with intensifying southwest monsoon winds expected to bring early monsoon-like conditions to the coast by May 15.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / NDTV / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NTA Cancels NEET-UG 2026 Over Paper Leak Allegations; CBI Registers FIR, Re-Exam Dates to Be Announced</div>
+      <div class="nsum">The National Testing Agency cancelled the NEET-UG 2026 examination held on May 3 after central investigative agencies confirmed alleged irregularities, including a suspected leak of over 300 questions circulated via WhatsApp groups before the exam; the CBI has since registered an FIR under the BNS, Prevention of Corruption Act, and the Public Examination Prevention of Unfair Means Act 2024. Over 22.79 lakh students who sat the exam at 5,400-plus centres will not be charged additional fees for the re-examination, with fresh dates to be notified within 6–8 days.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Britannica / The Print</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Ends TMC's 15-Year Rule in West Bengal; Vijay's TVK Wins Tamil Nadu as Assembly Election Results Reshape National Politics</div>
+      <div class="nsum">Results declared on May 4 from five state assembly elections showed the BJP scoring a historic landslide in West Bengal, ending Mamata Banerjee's Trinamool Congress government's 15-year tenure, and retaining Assam, while actor-politician Vijay's Tamilaga Vettri Kazhagam (TVK) emerged as the single largest party in Tamil Nadu's 234-seat assembly with 108 seats. The Congress-led UDF toppled the LDF in Kerala, and for the first time in India, no state government is led by a Left party, marking a significant shift in the national political landscape ahead of the 2029 Lok Sabha elections.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News On Air / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi to Embark on Five-Nation Tour from May 15, Focusing on Energy Security and Defence Partnerships</div>
+      <div class="nsum">Prime Minister Narendra Modi is set to visit five nations between May 15–20, 2026, with the itinerary focused on strengthening energy security ties and advancing defence cooperation amid the ongoing West Asia crisis that has driven crude oil prices sharply higher. The tour follows PM Modi's domestic austerity push urging citizens to reduce fuel consumption and curb non-essential imports, measures that have triggered broad-based selling in Indian equity markets over the past week.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Drops 1,283 Points on Tuesday to Close at 74,732 as Rupee Hits Record Low of ₹95.58 Against Dollar</div>
+      <div class="nsum">India's BSE Sensex fell 1,283 points (1.69%) on Tuesday to close at 74,732, its fourth consecutive session of losses, as Brent crude surged above $105 on stalled US-Iran ceasefire negotiations and FIIs sold ₹84.38 billion worth of equities — the largest outflow since April 24. The rupee simultaneously hit a record low of ₹95.58 against the US dollar, amplifying inflationary concerns, while tech and banking heavyweights including Tech Mahindra (–4.21%), Adani Ports (–4.10%), and State Bank of India (–4.5%) led the decline.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Business Upturn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's April Retail Inflation Ticks Up to 3.48%; Oil Companies Post ₹1 Lakh Crore in Losses Over 10 Weeks</div>
+      <div class="nsum">India's retail CPI inflation for April 2026 edged up to 3.48%, rising from 3.4% in March, driven by higher food prices and indirect pressure from elevated global energy costs linked to the West Asia conflict. State-run oil companies have collectively lost over ₹1 lakh crore across 10 weeks due to frozen domestic fuel prices against surging crude import costs, with Oil Minister Hardeep Puri warning of mounting losses while the government considers expanding strategic crude, gas, and LPG reserves.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Upturn / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Q4 Earnings Season in Full Swing: Bharti Airtel, Tata Motors, TVS Motor, DLF Among Major Companies Reporting May 13</div>
+      <div class="nsum">Wednesday, May 13 marks a heavy Q4 FY26 earnings day, with major companies including Bharti Airtel, Tata Motors, TVS Motor, DLF, and Hindustan Petroleum set to announce results, amid a mixed earnings season where Berger Paints reported a 28% net profit jump and a 400% dividend while Indian Hotels Q4 profit rose 15% YoY. Analysts note that while the broader SMID space remains fundamentally resilient, geopolitical-driven market volatility, FII outflows, and a record-low rupee continue to weigh on investor sentiment and near-term outlook.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Hacker News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">OpenAI Launches Daybreak, an AI-Powered Cybersecurity Platform to Rival Anthropic's Mythos</div>
+      <div class="nsum">OpenAI unveiled Daybreak on May 11–12, 2026, a cybersecurity initiative that combines GPT-5.5 models with its Codex Security agentic system to help organisations detect software vulnerabilities, validate patches, and automate defensive workflows — directly competing with Anthropic's Claude Mythos under Project Glasswing. The platform is already being integrated by major firms including Cisco, CrowdStrike, Cloudflare, and Palo Alto Networks, and the European Commission is in active discussions with OpenAI about accessing the system for public-sector cybersecurity vulnerability assessments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startup Funding Declines to $865 Mn in April Amid Market Volatility; AI Sector Continues to Attract Lion's Share</div>
+      <div class="nsum">Indian startup funding fell to $865 million in April 2026, down from the Q1 FY26 peak when AI accounted for 38% of the $3.9 billion raised across the quarter, according to Entrackr's monthly report. Leadership churn is also rising across the ecosystem, with 14 CEOs and 13 CFOs appointed at Indian startups so far in 2026, while Google-backed edtech firm Adda247 laid off over 200 employees, reflecting broader cost rationalisation amid geopolitical uncertainty and tightening global capital.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / IPO Central</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs at India AI Impact Summit 2026, Advancing Sovereign AI Push</div>
+      <div class="nsum">Bengaluru-based Sarvam AI, selected by the Indian government under the IndiaAI Mission to build the country's first homegrown sovereign large language model, unveiled two new models — Sarvam-30B and Sarvam-105B — at the India AI Impact Summit 2026, with the 105B model described as a gold standard for Indian languages. The startup has moved from experimental pilots to production-grade deployments in banking and public-service sectors, reflecting a broader trend in which India's AI market is projected to become a $126 billion opportunity by 2030 with a $1.7 trillion GDP impact by 2035.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Arrives in Beijing for High-Stakes Summit with Xi Jinping Amid Stalled Iran Ceasefire and Rising Oil Prices</div>
+      <div class="nsum">US President Donald Trump departed for Beijing on May 12 for a state visit with Chinese President Xi Jinping, arriving with a weakened negotiating position following a quagmire in Iran, sky-high oil prices above $105 per barrel, and shrinking domestic support. The visit comes as the Iran war ceasefire is described as 'on life support,' with Saudi Aramco warning of 'catastrophic consequences' unless the Strait of Hormuz is reopened, and Iran-linked casualties reported at over 3,468 in Iran and 2,702 in Lebanon.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Hantavirus Outbreak on Cruise Ship MV Hondius Rises to 11 Cases With 2 Deaths; Passengers Evacuated in Tenerife</div>
+      <div class="nsum">The total number of confirmed and probable hantavirus cases aboard the MV Hondius cruise ship rose to 11, including two confirmed deaths and one suspected fatality, after passengers were evacuated at Tenerife in the Canary Islands; 16 American passengers were subsequently transferred to the University of Nebraska Medical Center for monitoring. Health authorities in Illinois are separately investigating a potential hantavirus case in a Winnebago County resident unconnected to the cruise ship outbreak, raising broader public health concerns.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran War Pushes US Inflation to 3.8% as Petrol Prices Surge; Europe Plans Active Cyber-Defence Amid Rising Online Attacks</div>
+      <div class="nsum">US inflation climbed to 3.8% in the latest reading as surging petrol prices driven by the ongoing Iran war and Strait of Hormuz supply disruption fears fed through to consumer prices, intensifying pressure on the Federal Reserve and global markets. Simultaneously, Germany announced plans for 'active cyberdefence' as online attacks escalate across Europe, while Qatar warned Iran against weaponising the Hormuz Strait to 'blackmail' Gulf states, underscoring a multipronged geopolitical and economic crisis reshaping global trade and energy flows.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 13 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
