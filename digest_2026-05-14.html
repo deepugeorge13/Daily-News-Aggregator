@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 14, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 14 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 14 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka HC Halts Arrests in Chinnaswamy Stadium Stampede Case, Grants Relief to Cricket Body</div>
+      <div class="nsum">The Karnataka High Court has stayed arrests in connection with the M. Chinnaswamy Stadium stampede that killed 11 people during RCB's IPL victory parade celebrations in Bengaluru. The court directed the Karnataka State Cricket Association to fully cooperate with the ongoing probe into the tragic crowd mismanagement incident.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsfirst Prime / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Set for Imminent Launch, Blue Line Due by December 2026</div>
+      <div class="nsum">Bengaluru's Namma Metro is on the verge of opening the first phase of its Pink Line — a 7.5-km elevated stretch from Kalena Agrahara to Tavarekere with six stations — targeted for May 2026. The Blue Line connecting Silk Board Junction to KR Puram across 17.75 km is separately planned to become operational by December, significantly expanding the city's 96-km metro network.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BWSSB One-Time Settlement Scheme Collects ₹12.15 Crore as Bengaluru Road Asphalting Deadline Set for May-End</div>
+      <div class="nsum">The Bengaluru Water Supply and Sewerage Board's One-Time Settlement scheme has seen a strong public response, collecting ₹12.15 crore in its initial phase from over 6.2 lakh Cauvery water consumers with pending dues. Separately, Greater Bengaluru Authority Chief Maheshwar Rao has directed civic agencies to complete full road asphalting across the city by end of May and set up a real-time monitoring dashboard.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BRICS Foreign Ministers Convene in New Delhi; Iranian FM Araghchi Calls on PM Modi</div>
+      <div class="nsum">India is hosting the BRICS Foreign Ministers' Meeting in New Delhi on May 14–15, the first major ministerial gathering of the bloc since the 2025 UNGA sidelines, with foreign ministers from Brazil, Russia, South Africa, Egypt, Ethiopia, and Indonesia calling on Prime Minister Modi. Iranian Foreign Minister Abbas Araghchi is among the attendees, arriving in Delhi ahead of PM Modi's five-nation tour beginning May 15 to the UAE, Netherlands, Sweden, Norway, and Italy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Congress Finalises Kerala CM Pick Today; KC Venugopal Emerges as Front-Runner</div>
+      <div class="nsum">The Congress high command is set to announce its Kerala Chief Minister designate on May 14, ending days of suspense following the party's landslide victory in the state assembly elections. KC Venugopal has emerged as the leading contender over VD Satheesan and Oommen Chandy, with the Congress legislature party meeting scheduled to seal the decision.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / NewsonAir</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cabinet Approves Hike in MSP for 14 Kharif Crops for Marketing Season 2026-27</div>
+      <div class="nsum">The Cabinet Committee on Economic Affairs (CCEA) has approved an increase in Minimum Support Prices for 14 Kharif crops for Marketing Season 2026-27, with the government estimating the total farmer payout at ₹2.60 lakh crore for the season. Information and Broadcasting Minister Ashwini Vaishnaw said the hikes are aimed at ensuring remunerative prices for growers, though farmer organisations have criticised the rates for not accounting for the potential impact of free trade agreements.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsX / Business Upturn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dalal Street Braces for Earnings-Heavy Session as Sensex, Nifty Seek Recovery Amid Crude Oil Pressure</div>
+      <div class="nsum">Indian benchmark indices enter Thursday's session cautiously after the Sensex closed marginally higher at 74,608 and the Nifty at 23,412 on Wednesday, snapping a three-day losing streak led by metals stocks. Over 100 companies including JSW Steel, Hindustan Aeronautics Limited, Tata Motors, Bharti Airtel, and Muthoot Finance are scheduled to announce Q4 FY26 results today, while SEBI's proposal to ease intraday borrowing norms for mutual funds is also in focus.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HPCL Declares Highest Dividend in Five Years at ₹19.25/Share as Q4 Profit Surges 46%</div>
+      <div class="nsum">Hindustan Petroleum Corporation Limited (HPCL) has declared a final dividend of ₹19.25 per share — its highest payout in five years — with August 14 set as the record date, sending shares up 4% on Wednesday. The state-run oil major reported a 46% jump in Q4 FY26 net profit to ₹4,902 crore, even as India's oil marketing companies face escalating under-recoveries due to crude oil supply disruptions linked to the Iran conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsX / Groww</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Reliance Jio IPO Buzz Intensifies as Akash Ambani Appointed MD of Jio Platforms</div>
+      <div class="nsum">Reliance Industries has appointed Akash Ambani as Managing Director of Jio Platforms to lead what is expected to become India's biggest-ever IPO, with the issue size reportedly touching nearly $4 billion (₹33,000 crore). The Draft Red Herring Prospectus is expected within weeks, with reports indicating Mukesh Ambani prefers a pure fresh-issue structure to prioritise long-term listing stability over short-term valuation maximisation.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / NewsX</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Uber Inks Deal with Adani Group to Set Up Its First Data Centre in India</div>
+      <div class="nsum">Uber CEO Dara Khosrowshahi announced a landmark partnership with Adani Group to establish Uber's first India-based data centre, saying the facility — expected to be ready later in 2026 — will help the company &quot;build at scale, from India, for the world.&quot; The move comes as global tech giants, including Google (via a $15 billion AI hub in Visakhapatnam with AdaniConneX) and Reliance-NVIDIA (a 1 GW data centre in Jamnagar), race to expand India's AI and cloud infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Voice AI Startup Wispr Flow Sees 100% Monthly Growth in India After Hinglish Model Launch</div>
+      <div class="nsum">Bay Area-based AI voice input startup Wispr Flow says India is now its fastest-growing market and second-largest by downloads globally, with growth accelerating to around 100% month-on-month following its India-focused marketing push and Hinglish language model rollout. The startup plans to expand multilingual voice support across Indian languages over the next 12 months and is eyeing ultra-low pricing of ₹10–₹20 per month to reach beyond urban and white-collar users.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / TiE Delhi-NCR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Innovation Day 2026 to Convene Founders, Investors and Policymakers in Gurugram on May 15</div>
+      <div class="nsum">India Innovation Day (iDay) 2026, the 15th edition of TiE Delhi-NCR's flagship event themed 'Audacity of Now', will bring together representatives from OpenAI, Sarvam AI, MakeMyTrip, Hero Enterprise, and Chiratae Ventures in Gurugram on Friday. The event highlights India's surge to over 55,200 DPIIT-recognised startups in FY2025-26 — a 50% year-on-year jump — with DeepTech funding in the country also surging 37% to $2.3 billion.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Meets Xi Jinping at Beijing's Great Hall of the People in High-Stakes Summit on Trade, Iran and AI</div>
+      <div class="nsum">US President Donald Trump kicked off his first visit to China since 2017 on May 14, meeting Chinese President Xi Jinping at the Great Hall of the People in Beijing, with talks covering trade, Taiwan, artificial intelligence, and the ongoing war with Iran. Xi welcomed Trump with an elaborate ceremony, stating &quot;China and the United States both stand to gain from cooperation and lose from confrontation,&quot; as both sides weigh extending their existing trade truce amid soaring oil prices caused by the Strait of Hormuz disruption.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Ceasefire Talks Stall as Iran's Deputy FM Says Washington Not Engaged in Serious Diplomacy</div>
+      <div class="nsum">Iran's Deputy Foreign Minister Kazem Gharibabadi accused the United States of failing to pursue genuine peace negotiations, insisting ceasefire talks cannot progress while a siege and sanctions remain in place. The EIA now projects Brent crude will stay near $106 a barrel through May and June, with the Strait of Hormuz expected to remain effectively closed until at least late May, as Trump seeks China's help in pressuring Tehran toward a settlement.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / OPB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Test-Fires New Sarmat ICBM as Nuclear Modernisation Programme Advances</div>
+      <div class="nsum">Russia test-fired its new Sarmat intercontinental ballistic missile on May 13 as part of ongoing efforts to modernise its nuclear arsenal, with officials indicating the nuclear-armed missile is expected to enter combat service by the end of the year. The test adds to rising global security concerns at a time when the world's attention is focused on the Iran conflict and the Trump-Xi summit in Beijing.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 14 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
