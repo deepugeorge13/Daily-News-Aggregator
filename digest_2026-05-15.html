@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 15, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 15 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 15 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsX / OneIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Braces for Pre-Monsoon Thunderstorms From May 15–16 as KSNDMC Issues Alert</div>
+      <div class="nsum">The Karnataka State Natural Disaster Monitoring Centre has issued thunderstorm alerts for South Interior Karnataka, including Bengaluru, with gusty winds of 40–50 kmph expected between May 13 and May 16. Residents have been advised to stay cautious during evening hours as sudden heavy rain, lightning, and strong winds may cause waterlogging and traffic congestion across parts of the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Safety Trials Complete; Partial Launch on Bannerghatta Road Corridor Expected by End of May</div>
+      <div class="nsum">Officials from the Research Designs and Standards Organisation (RDSO) completed safety trials on May 12 covering the 7.5-kilometre Pink Line stretch between Kalena Agrahara and Tavarekere, with six stations set to serve commuters. BMRCL is also expecting 21 new six-coach trains in the coming months to boost capacity on high-ridership corridors across the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Goodreturns / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Petrol Price Jumps ₹3.21 in a Day to ₹106.17 Per Litre as Fuel Hike Hits City</div>
+      <div class="nsum">As of May 15, 2026, petrol in Bengaluru is priced at ₹106.17 per litre, a sharp rise from ₹102.96 the previous day, reflecting the nationwide ₹3-per-litre fuel price hike triggered by Brent crude staying above $105 per barrel. CNG prices in Delhi also rose by ₹2 per kg, with analysts warning that rising fuel costs will further strain household budgets and raise transportation expenses across Karnataka.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY / Reuters / US News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Departs on Five-Nation Tour Starting With UAE Visit Today to Secure Energy and Trade Deals</div>
+      <div class="nsum">Prime Minister Narendra Modi kicked off a six-day, five-nation tour on May 15, beginning with a visit to the UAE where he is expected to meet President Sheikh Mohamed bin Zayed Al Nahyan and conclude key MoUs on LPG supply and strategic petroleum reserves. The tour, which will also cover the Netherlands, Sweden, Norway, and Italy, comes as surging global oil prices driven by the Middle East conflict strain India's foreign exchange reserves.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BRICS Foreign Ministers' Meeting Concludes in New Delhi With Iran War and Hormuz Crisis Dominating Agenda</div>
+      <div class="nsum">The two-day BRICS foreign ministers' meeting at Bharat Mandapam in New Delhi, held on May 14–15 to prepare for the 18th BRICS summit in September, was overshadowed by the ongoing US-Israel war on Iran and the blockade of the Strait of Hormuz. External Affairs Minister S. Jaishankar called for unimpeded maritime flows through international waters, while Iran's Foreign Minister urged BRICS members to condemn what he called unlawful aggression against Tehran.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Chronicle / Business Today / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's WPI Inflation Hits 42-Month High of 8.3% in April, Driven by Fuel and Energy Shock</div>
+      <div class="nsum">India's wholesale price inflation surged to 8.3% in April 2026 — the highest in three-and-a-half years — jumping from 3.88% in March, driven by a 24.71% spike in the fuel and power category and an 88% rise in crude petroleum prices amid the West Asia war. The government also hiked petrol and diesel prices by ₹3 per litre nationwide as oil marketing companies could no longer absorb ballooning under-recoveries with Brent crude above $105 per barrel.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Business Upturn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Open Higher on May 15 With OMC and Steel Stocks in Focus; GIFT Nifty Signals Positive Start</div>
+      <div class="nsum">GIFT Nifty hinted at a higher open for Indian markets on May 15 as several heavyweights including Tata Steel, JSW Steel, United Spirits, Adani Group, and HAL reported quarterly earnings; HAL's Q4 net profit surged 5.5% to ₹4,196 crore while Muthoot Finance posted 50% YoY AUM growth. Oil marketing company stocks remained in sharp focus after the nationwide ₹3-per-litre fuel hike, with analysts flagging potential inflationary pass-through risks to the broader economy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HPCL Declares Highest Dividend in Five Years at ₹19.25 Per Share as Q4 Profit Surges 46%</div>
+      <div class="nsum">Hindustan Petroleum Corporation Limited (HPCL) announced a final dividend of ₹19.25 per share — its highest payout in five years — with August 14 set as the record date, sending its shares up 4% on the announcement. The state-run oil refiner's Q4 profit climbed 46% to ₹4,902 crore even as India's oil marketing companies continue to face mounting under-recoveries due to persistent crude oil supply disruptions from the Middle East conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Foreign Portfolio Investors Pull Record $23.14 Billion From Indian Equities in 2026 Amid Energy Crisis</div>
+      <div class="nsum">Foreign portfolio investors have withdrawn $23.14 billion from Indian equities so far in 2026, surpassing the record outflows seen in all of 2025, as elevated crude oil prices from the Strait of Hormuz blockade worsen India's macroeconomic outlook and weaken the rupee. The BSE Sensex has faced multiple sessions of losses in recent weeks, with risk-sensitive IT stocks — including Infosys, Tech Mahindra, and TCS — falling more than 1% in recent trading sessions.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / TiE Delhi-NCR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Innovation Day 2026 Kicks Off in Gurugram Today, Spotlighting AI and Deep-Tech Ecosystem</div>
+      <div class="nsum">The 15th edition of India Innovation Day (iDay), organised by TiE Delhi-NCR and themed 'Audacity of Now', is being held in Gurugram on May 15, bringing together founders, investors, policymakers, and technology leaders for discussions on the future of Indian innovation. India recognised over 55,200 startups in FY2025–26, a 50% year-on-year surge, with DeepTech funding alone rising 37% to $2.3 billion, signalling growing investor confidence in advanced technologies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MeitY / The Quint / India Briefing</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Online Gaming Rules 2026 Now in Force, Banning Real-Money Games and Establishing New Central Regulator OGAI</div>
+      <div class="nsum">The Promotion and Regulation of Online Gaming (PROG) Rules, 2026, notified by MeitY on April 22 and effective from May 1, have established India's first comprehensive federal gaming framework, creating the Online Gaming Authority of India (OGAI) as the central regulator and completely prohibiting online money games. The rules mandate age verification, parental controls, time limits, and grievance redressal systems for all licensed platforms, while leaving most non-real-money social games free to operate without mandatory prior registration.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Voice AI Startup Wispr Flow Targets Indian Mass Market With Hinglish Support and Ultra-Low ₹10–20/Month Pricing</div>
+      <div class="nsum">Wispr Flow, a Bay Area-based AI voice input startup, says India is now its fastest-growing market, with downloads accounting for 14% of its global 2.5 million installs between October 2025 and April 2026, after rolling out a Hinglish (Hindi-English) voice model and an India-specific pricing of ₹320 per year. The company aims to eventually bring costs down to as low as ₹10–20 per month to expand beyond urban white-collar users and into Indian households across all language groups.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump and Xi Hold High-Stakes Beijing Summit, Agree to Frame US-China Ties as 'Constructive and Stable'</div>
+      <div class="nsum">US President Donald Trump and Chinese President Xi Jinping met in Beijing on May 14–15 for a wide-ranging summit covering trade, the Iran war, Taiwan, and AI, with both sides agreeing to characterise their relationship as 'constructive, strategic and stable' after the first day of talks. Xi placed Taiwan at the centre of discussions, calling it 'the most important issue' between the two nations, while the two leaders also agreed that the Strait of Hormuz must remain open to global shipping.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Launches Mass Drone and Missile Attack on Kyiv, Killing One and Injuring at Least 31</div>
+      <div class="nsum">Russia carried out a large-scale drone and missile assault on Ukraine's capital Kyiv on May 14, killing one person, injuring at least 31 others, and causing damage across six districts of the city. The strike comes as signals from Moscow suggest Russia may be preparing to wind down aspects of the Ukraine conflict, even as its aerial bombardment of civilian infrastructure continues.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / DD News / News On Air</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran War Death Toll Rises as Strait of Hormuz Blockade Triggers Global Energy and Supply Chain Crisis</div>
+      <div class="nsum">Preliminary figures from the ongoing US-Israel war on Iran show at least 3,468 people killed in Iran, 2,702 in Lebanon, and 28 in Gulf states, as Iran's blockade of the Strait of Hormuz — in place since early March — continues to disrupt 20% of the world's oil and LNG supply. Saudi Aramco has warned of 'catastrophic consequences' unless the strait reopens, while global crude prices above $105 per barrel are reverberating through economies worldwide, including India's.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 15 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
