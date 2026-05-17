@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 17, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 17 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 17 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Asianet Newsable / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Proposes Ambitious 73-km Namma Metro Corridor Linking South and East Bengaluru IT Hubs</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited has completed a feasibility study for a 73-km elevated metro corridor stretching from Kalena Agrahara in South Bengaluru to Kadugodi Tree Park in the east, with the report set to be submitted to the Karnataka government soon. The proposed line will pass through key suburban tech and residential zones including Bannerghatta, Sarjapur, and Varthur Kodi, and is expected to feature over 50 stations as part of BMRCL's larger 210.9-km expansion blueprint.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live / Zee News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Orange Alert for Karnataka Through May 17 as Heavy Rain, Thunderstorms Lash State</div>
+      <div class="nsum">The India Meteorological Department has issued an Orange Alert for Karnataka through May 17, warning of heavy rainfall, lightning, and strong winds of up to 50 kmph across coastal and interior districts. The alert flags risks of waterlogging and power disruptions, with civic agencies in Bengaluru put on standby to respond to weather-related emergencies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Greater Bengaluru Authority Chief Orders Complete Road Asphalting by May-End, Monitoring Dashboard to Be Set Up</div>
+      <div class="nsum">Greater Bengaluru Authority Chief Maheshwar Rao has directed that all pending road asphalting work across the city must be completed by the end of May, with a real-time monitoring dashboard to be established to track progress. The directive comes as residents and civic groups continue to raise concerns about the quality and pace of ongoing road works across multiple BBMP zones.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CBI Arrests Mastermind Linked to NEET-UG 2026 Biology Paper Leak; Re-Exam Scheduled for June 21</div>
+      <div class="nsum">The Central Bureau of Investigation has arrested the alleged mastermind connected to the NEET-UG 2026 biology paper leak, which led the National Testing Agency to cancel the examination held on May 3 due to widespread irregularities. The NTA has officially confirmed the re-examination will be held on June 21, with the CBI investigating allegations that leaked papers were sold through organised coaching networks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google News / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Arrives in the Netherlands on Five-Nation European Tour, Meets Dutch Royals to Discuss Tech and Trade</div>
+      <div class="nsum">Prime Minister Narendra Modi has arrived in the Netherlands, the first leg of a five-nation European tour, where he met Dutch royals and addressed the Indian diaspora, calling The Hague a symbol of Indo-Dutch friendship. The visit is focused on strengthening bilateral ties in technology, trade, and defence, following PM Modi's earlier stop in the UAE where he sealed strategic deals on oil reserves, LPG supply, and AI supercomputing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP's Suvendu Adhikari Sworn In as West Bengal CM After Historic Election Win; Mamata Banerjee Refuses to Quit</div>
+      <div class="nsum">The BJP's Suvendu Adhikari was inaugurated as Chief Minister of West Bengal on May 9 following the party's landmark majority win in the state assembly elections held April 23–29, marking the first time the BJP has governed West Bengal. Trinamool Congress chief Mamata Banerjee has firmly rejected calls to step down after her party's defeat, with unrest continuing to grip parts of the state.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Stock Market on Verge of Dropping Out of World's Top Five as AI Trade Bypasses Its Economy</div>
+      <div class="nsum">India stands out as one of the biggest losers as the artificial intelligence trade reshapes global investment flows, with the country's stock market on the verge of dropping out of the world's five biggest for the first time in three years. The NSE Nifty IT Index has dropped more than 26 percent this year as global capital chases AI-linked chip manufacturing and computing infrastructure themes largely absent from India's corporate landscape.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSE Sensex Posts 2.7% Weekly Decline as India Raises Petrol and Diesel Prices by Rs 3 Per Litre for First Time in Four Years</div>
+      <div class="nsum">India raised petrol and diesel prices by Rs 3 per litre — more than 3% — for the first time in four years to recoup losses from surging global crude oil prices driven by persistent Middle East tensions and uncertainty over the Strait of Hormuz. The Sensex closed 0.21% lower at 75,238 on Friday, shedding 2.7% for the week, as metals and oil-and-gas stocks led losses while investors grew more cautious about rising inflation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Forex Reserves Rise to $696.99 Billion as Gold Reserves Surge; UK Steel Import Row Stalls India-UK FTA</div>
+      <div class="nsum">India's foreign exchange reserves increased to $696.99 billion in the week ended May 8, led by a sharp rise in gold reserves, according to RBI data, providing a buffer amid rupee pressures. Meanwhile, UK steel import curbs have emerged as a key hurdle delaying the operationalisation of the India-UK free trade agreement, with officials noting the dispute has stalled finalisation of the landmark deal.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Krutrim, India's First GenAI Unicorn, Pivots to Cloud Services After Pausing Chip Design and Cutting 200 Jobs</div>
+      <div class="nsum">Bengaluru-based Krutrim, India's first generative AI unicorn founded by Ola's Bhavish Aggarwal, has announced a strategic pivot to cloud services following a business overhaul in late 2025 that included pausing chip design efforts and cutting more than 200 roles across multiple rounds. The startup reported approximately Rs 3 billion in revenue for FY2026, a threefold year-on-year increase, along with its first annual net profit and margins exceeding 10%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Digitimes / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nvidia Signs Record 760,000-Sq-Ft Bengaluru Office Lease in India's Largest Ever Single-Tenant Deal</div>
+      <div class="nsum">Nvidia has signed a 10-year lease for approximately 760,000 square feet of office space at Bagmane Capital's Memphis South Tower in Mahadevpura, Bengaluru, marking the largest single-tenant office commitment in India to date. The 12-floor facility will serve as a major hub for Nvidia's expanding AI and engineering operations in India, as global tech majors deepen their presence amid India's accelerating AI infrastructure push.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Bharatfast</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs Under IndiaAI Mission as Sovereign AI Push Accelerates</div>
+      <div class="nsum">Sarvam AI, selected by the Indian government to build the country's first homegrown sovereign large language model under the IndiaAI Mission, unveiled two new open-source models — Sarvam-30B and Sarvam-105B — at the India AI Impact Summit 2026 in New Delhi. The government has also announced a tax holiday until 2047 for foreign companies providing cloud services through Indian data centres, aiming to attract global tech investment and add an estimated $1.7 trillion to India's GDP by 2035.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump-Xi Beijing Summit Ends With Trade Progress and Taiwan Tensions; China to Buy 200 Boeing Jets</div>
+      <div class="nsum">President Donald Trump concluded a two-day summit with Chinese President Xi Jinping in Beijing, with both sides touting progress on stabilising trade ties — including China's agreement to purchase 200 Boeing aircraft and US oil and LNG — though no major breakthroughs were announced on Iran or the Strait of Hormuz blockade. Xi warned Trump that mishandling Taiwan could put the US-China relationship into 'great jeopardy,' and the two leaders agreed to hold a follow-up White House summit in late September.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Washington Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel Kills Hamas Military Wing Leader; Russian Missile Strike on Kyiv Apartment Block Kills 24</div>
+      <div class="nsum">Israel announced it has killed the leader of Hamas's military wing, one of the architects of the October 7, 2023 attacks, as fighting continued across Gaza and Lebanon despite a US-brokered ceasefire that was supposed to have taken effect in April. Separately, a Russian cruise missile strike flattened a residential apartment building in Kyiv, killing at least 24 people in one of the deadliest attacks on the Ukrainian capital since the war began.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / Times of Israel</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bulgaria Wins Eurovision 2026 in Vienna; Israel Finishes Runner-Up After Public Vote Overturns Jury Standings</div>
+      <div class="nsum">Bulgaria's Dara claimed victory at the 70th Eurovision Song Contest grand final held in Vienna on the night of May 16–17, with the public vote pushing Israel's Noam Bettan — who had led in jury points — into second place. The contest was overshadowed by protests over Israel's participation, though tight security and large crowds of enthusiastic fans marked the event, which was described as a rare moment of hope for Israelis amid the ongoing conflict.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 17 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
