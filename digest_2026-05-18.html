@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 18, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 18 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 18 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsFirst / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Begins Underground Electrification of Reach-6 Metro Corridor From May 18</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has commenced the progressive energisation of 33kV electrical cables and the 750V DC third rail in the Reach-6 underground corridor starting May 18, covering the stretch between Langford Town and Pottery Town. BMRCL has issued a public safety warning against unauthorised entry into the restricted underground sections, stating it will not be responsible for any injury or loss of life resulting from trespass after electrification begins.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Asianet Newsable / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Submits Feasibility Report for 73-km Metro Corridor Linking South and East Bengaluru</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited has completed a feasibility study for a proposed 73-km elevated metro corridor stretching from Kalena Agrahara in South Bengaluru to Kadugodi Tree Park in the east, with the report set to be submitted to the Karnataka government shortly. If approved, the ambitious project could begin construction around 2029 and is expected to significantly ease traffic congestion across the city's rapidly expanding IT and residential corridors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News Karnataka / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CM Siddaramaiah Slams Centre Over NEET-UG 2026 Cancellation, Demands Accountability</div>
+      <div class="nsum">Karnataka Chief Minister Siddaramaiah strongly criticised the Union government over the cancellation of the NEET-UG 2026 examination following allegations of a question paper leak, demanding a formal apology to the over 22 lakh affected students. The controversy has triggered sharp political reactions in Karnataka, with the CM dismissing central government responses as inadequate and calling for systemic reforms to the national examination framework.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NTA / India TV News / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NEET-UG 2026 Cancelled Over Paper Leak; CBI Probe Ordered, Re-Exam Dates Awaited</div>
+      <div class="nsum">The National Testing Agency officially cancelled the NEET-UG 2026 exam held on May 3, citing a verified question paper leak after Rajasthan's Special Operations Group found a 'guess paper' with 120 questions matching the actual exam, triggering a nationwide controversy affecting over 22 lakh students. The Government of India has ordered a CBI investigation into the irregularities, with the NTA confirming a re-examination will be conducted on fresh dates to be announced, requiring no new registration or additional fee from candidates.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Euronews / Kashmir Reader</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Arrives in Sweden on Five-Nation Europe Tour; EU Hails 'New Era' in India-Europe Relations</div>
+      <div class="nsum">Prime Minister Narendra Modi visited Gothenburg, Sweden on May 17–18 as part of his six-day, five-nation tour covering the UAE, Netherlands, Sweden, Norway, and Italy, holding bilateral talks with Swedish PM Ulf Kristersson and meeting European Commission President Ursula von der Leyen at the European Round Table for Industry. The visit is the first by an Indian PM to Gothenburg, and comes shortly after the India-EU Free Trade Agreement came into effect in January 2026, with discussions covering AI, defence, green transition, and resilient supply chains.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">VD Satheesan / NDTV / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">VD Satheesan's Kerala Cabinet Takes Oath on May 18 With 20 Ministers, 14 New Faces</div>
+      <div class="nsum">Congress-UDF leader VD Satheesan, sworn in as Kerala Chief Minister following his party's landslide Assembly election victory, announced a 20-member cabinet ahead of the swearing-in ceremony on May 18, with 14 of the ministers being fresh faces. The cabinet formation follows weeks of intense negotiations within the Congress-led coalition after the UDF secured a more-than-two-thirds majority in the Kerala Assembly elections.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty Posts Worst Weekly Loss Since Mid-March as Rupee Hits Record Low and Crude Oil Surges</div>
+      <div class="nsum">Indian equities headed into Monday on shaky footing after the benchmark Nifty 50 posted its worst weekly loss since mid-March, weighed down by a record-low rupee, surging crude oil prices amid Middle East tensions, and a nationwide petrol and diesel price hike of ₹3 per litre — the first in four years. A spike in global bond yields across the US, UK, and Japan is adding further pressure on Indian assets, threatening to lure away foreign funds at a time when FII outflows have already accelerated to a 14-year low in ownership.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC-TV18 / MSN India / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Foreign Portfolio Investors Pull ₹27,000 Crore in May; 2026 Total Outflows Cross ₹2.2 Lakh Crore</div>
+      <div class="nsum">Foreign Portfolio Investors (FPIs) have pulled out approximately ₹27,000 crore from Indian markets in May alone, pushing total 2026 outflows past the ₹2.2 lakh crore mark amid persistent global uncertainty, elevated geopolitical tensions, and crude oil price volatility weighing on emerging market risk appetite. Analysts at Morningstar note that the continued selling reflects structural concerns about India missing the AI-driven investment wave that has powered markets in Taiwan and South Korea.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Raises Petrol and Diesel Prices by ₹3 Per Litre for First Time in Four Years Amid Rising Crude Costs</div>
+      <div class="nsum">India hiked retail petrol and diesel prices by ₹3 per litre — a rise of more than 3% — marking the first fuel price increase in four years, as oil marketing companies moved to recover losses incurred due to elevated global crude oil prices linked to ongoing Middle East tensions. The hike has added to inflationary pressures and dampened foreign institutional investor mood, with economists warning it could slow the domestic consumption recovery story.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's First GenAI Unicorn Krutrim Pivots From AI Models to Cloud Infrastructure Services</div>
+      <div class="nsum">Bengaluru-based Krutrim, India's first generative AI unicorn founded by Bhavish Aggarwal, announced a strategic pivot toward cloud services following a major business overhaul in late 2025 that included reallocating capital, pausing chip design efforts, and cutting over 200 roles across multiple rounds of layoffs. Despite the pivot, Krutrim reported revenues of approximately ₹3 billion (around $31.5 million) in FY2026 — a threefold year-on-year increase — alongside its first-ever annual net profit with margins exceeding 10%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Startup Ecosystem Raises $1.48 Billion in Q1 2026, Accounting for 38% of Total Startup Funding</div>
+      <div class="nsum">Indian AI startups raised nearly $1.48 billion in Q1 2026 alone, representing 38% of the total $3.9 billion raised by Indian startups in the quarter, underscoring surging investor confidence in the sector. The government is backing this momentum with a tax holiday until 2047 for companies building data-centre infrastructure in India, as global players including Reliance, Tata, and L&amp;T deepen partnerships with OpenAI and NVIDIA to strengthen India's AI compute capabilities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's IT Sector Faces Structural Reckoning as AI Disruption Pushes Nifty IT Index Down 26% in 2026</div>
+      <div class="nsum">India's stock market is on the verge of dropping out of the world's five largest for the first time in three years, with global investors increasingly reallocating capital to AI-driven markets in Taiwan and South Korea, away from India's IT services-heavy index. The NSE Nifty IT Index has fallen more than 26% this year, as generative AI tools automate coding, testing, and back-office functions — directly threatening the business models of bellwether firms like Infosys and TCS.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / BBC / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Drone Strike Hits Perimeter of UAE's Barakah Nuclear Plant as Iran War Deadlock Continues</div>
+      <div class="nsum">A drone strike sparked a fire near the perimeter of the United Arab Emirates' Barakah nuclear power plant on Sunday, with UAE officials reporting no injuries or radiation leak as regional tensions surrounding the ongoing Iran war ceasefire deadlock remained elevated. The incident follows a pattern of escalating drone and missile activity across the Gulf region, with the Strait of Hormuz situation continuing to disrupt global oil shipping and supply chains.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Washington Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel Kills Hamas Military Wing Commander Izz-al-Din al-Haddad in Gaza Strike</div>
+      <div class="nsum">Israeli forces confirmed the killing of Izz-al-Din al-Haddad, the commander of Hamas's militant wing and described as one of the key architects of the October 7, 2023 attacks, in a strike in western Gaza City. Hamas acknowledged the loss as 'profound', while simultaneously Israeli air attacks also killed at least five people in multiple locations across southern and eastern Lebanon, further deepening regional instability.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Launches One of Its Largest-Ever Drone Strikes on Russia, Killing at Least Four Near Moscow</div>
+      <div class="nsum">Ukraine carried out one of its largest drone attacks on Russian territory on May 17, killing at least four people including three near Moscow and wounding a dozen others, according to local Russian authorities. The large-scale strike marks a significant escalation in the ongoing conflict and drew sharp international attention as US-Russia ceasefire negotiations remain stalled.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 18 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
