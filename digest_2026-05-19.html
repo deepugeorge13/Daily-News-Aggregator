@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 19, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 19 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 19 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Cleared for Imminent Launch on Bannerghatta Road Corridor</div>
+      <div class="nsum">RDSO safety trials on the 7.5-km elevated stretch of the Namma Metro Pink Line between Kalena Agrahara and Tavarekere were completed on May 12, with BMRCL officials confirming that commuter services along Bannerghatta Road are expected to commence by end of May 2026. The Pink Line's first phase will feature key stops at IIM Bangalore, JP Nagar 4th Phase, and Jayadeva Hospital, where it will interchange with the operational Yellow Line, benefiting thousands of daily commuters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YoMetro / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Raises Over ₹1,500 Crore from Private Firms via Innovative Station-Financing PPP Model</div>
+      <div class="nsum">The Bengaluru Metro Rail Corporation Limited has raised more than ₹1,500 crore from private companies through a public-private partnership model that links station financing to long-term branding and access rights. BMRCL officials said the model enables the metro agency to raise upfront capital for expansion while bringing in corporate participation, setting a precedent for metro financing across India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsFirst Prime / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Government Launches ₹7,000 Crore B-SMILE SPV to Build 40 km of Tunnel Roads and Flyovers Across Bengaluru</div>
+      <div class="nsum">The Karnataka government has established Bengaluru Smart Infrastructure Limited (B-SMILE), a Special Purpose Vehicle, to execute a ₹7,000 crore urban infrastructure overhaul that includes constructing 40 kilometres of tunnel roads, new flyovers, and underpasses aimed at halving peak-hour traffic delays. Projects such as the Hebbal–Silk Board tunnel and JP Nagar–Hebbal double-decker flyovers are among the priority works, with the government approving an additional ₹2,141 crore for white-topping 500 km of roads and upgrading drains across the city.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Wire / ETV Bharat</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India and UAE Sign Landmark Energy and Defence Pacts; Abu Dhabi Pledges $5 Billion Investment Amid West Asia War</div>
+      <div class="nsum">Prime Minister Narendra Modi visited Abu Dhabi on May 15 and inked a series of landmark agreements covering strategic petroleum reserves, long-term LPG supply, and a strategic defence partnership framework, as the West Asia conflict threatens India's energy imports through the Strait of Hormuz. The Abu Dhabi National Oil Company (ADNOC) agreed to potentially store up to 30 million barrels of crude in India's strategic petroleum reserves, while UAE entities announced investments totalling $5 billion in Indian banking, infrastructure, and finance sectors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of India / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Inaugurates 594-km Ganga Expressway Linking Meerut to Prayagraj, UP's Longest Highway Corridor</div>
+      <div class="nsum">Prime Minister Narendra Modi inaugurated the 594-km Ganga Expressway on April 29, 2026 in Hardoi, Uttar Pradesh, a six-lane greenfield national expressway connecting Meerut to Prayagraj across 12 districts and designed to significantly cut travel time while boosting trade and industrial growth. The expressway connects with major routes including the Purvanchal, Agra-Lucknow, and Bundelkhand expressways, forming an expansive road network across the state, with a Phase 2 extension of 455 km already approved.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata Electronics and ASML Sign $11 Billion Semiconductor Fab Deal During PM Modi's Netherlands Visit</div>
+      <div class="nsum">India's Tata Electronics and Dutch chipmaking equipment giant ASML signed a Memorandum of Understanding on May 16 during PM Modi's visit to The Hague, outlining cooperation to build India's first commercial 300-millimetre semiconductor fabrication plant at Dholera, Gujarat, with a planned investment of $11 billion. ASML will supply advanced lithography tools and assist in ramping up production at the facility, which is expected to manufacture chips for artificial intelligence, automotive, and mobile sectors, as India moves to reduce dependence on imported semiconductors.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bharti Airtel Overtakes HDFC Bank to Become India's Second Most Valuable Company with ₹11.9 Lakh Crore Market Cap</div>
+      <div class="nsum">Bharti Airtel surpassed HDFC Bank on May 18 to become India's second-most valued listed company, with its market capitalisation reaching ₹11.91 lakh crore during intraday trade, trailing only Reliance Industries. The telecom giant's shares surged 11% over four consecutive sessions, driven by improving Average Revenue Per User, strong 5G expansion, and resilient subscriber growth, while HDFC Bank's stock has shed nearly 23% year-to-date amid concerns over its chairman succession plan.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Banking Finance / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Approves Emirates NBD's ₹25,000 Crore Acquisition of 74% Stake in RBL Bank, India's Largest Foreign Bank Deal</div>
+      <div class="nsum">The Reserve Bank of India has approved UAE-based Emirates NBD to acquire up to a 74% stake in RBL Bank for approximately $3 billion, marking the largest foreign investment in an Indian bank. Following the approval, RBL Bank will be treated as a foreign bank subsidiary, and the transaction is expected to strengthen the bank's capital base, enhance global integration, and support its long-term growth strategy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Equity Margin Funding Rebounds to ₹1.14 Lakh Crore in April as Markets Recover from March Sell-Off</div>
+      <div class="nsum">Equity margin funding in India rebounded sharply in April 2026, with the average margin trade financing book reaching ₹1.14 lakh crore, signalling renewed investor confidence after a broad market sell-off in March. The surge was driven by a strong recovery in mid- and small-cap stocks, encouraging leveraged bets as markets showed signs of a short-term bottom, while regulatory shifts in derivatives may have also redirected traders towards margin funding.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's First GenAI Unicorn Krutrim Pivots to Cloud Services, Pauses AI Model Ambitions After Business Overhaul</div>
+      <div class="nsum">Bengaluru-based Krutrim, India's first GenAI unicorn founded by Bhavish Aggarwal, announced it is shifting its focus toward cloud services following a major business overhaul in late 2025 that included reallocating capital and talent and pausing chip design efforts. The startup reported approximately ₹3 billion in revenue for FY2026 — a threefold increase year-on-year — along with its first annual net profit, even as it cut more than 200 roles over the past year and stepped back from competing directly with global AI model providers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Value for Startups</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Set to Launch 'Kaze' Smart Glasses in May 2026, India's First Made-in-India AI Wearable Device</div>
+      <div class="nsum">Bengaluru-based Sarvam AI, the government-selected builder of India's sovereign LLM under the IndiaAI Mission, is set to launch the 'Sarvam Kaze' — India's first indigenously designed AI-powered smart glasses — in May 2026, supporting over 10 Indian languages for real-time voice interaction and translation. The launch follows Sarvam's unveiling of its Sarvam-30B and Sarvam-105B open-source large language models at the India AI Impact Summit in February 2026, positioning the company as a full-stack sovereign AI platform.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata-ASML Semiconductor Deal Marks India's Entry into Front-End Chip Manufacturing with $11 Billion Gujarat Fab</div>
+      <div class="nsum">India's Tata Electronics and ASML signed a landmark agreement to build India's first front-end 300mm semiconductor fabrication plant at Dholera, Gujarat, with Tata Electronics planning an $11 billion investment and ASML supplying its cutting-edge lithography machines for mass microchip production. The deal, witnessed by PM Modi and Dutch PM Rob Jetten on May 16, also includes workforce training and supply chain development, and forms part of a broader India-EU economic partnership accord that Modi called 'the mother of all deals.'</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump-Xi Beijing Summit Concludes with Strategic Stability Framework and China's Pledge to Buy 200 Boeing Jets</div>
+      <div class="nsum">US President Donald Trump completed a historic two-day state visit to Beijing on May 14–15, his first trip to China since 2017, meeting with Chinese President Xi Jinping at the Great Hall of the People and agreeing to frame bilateral ties as a 'constructive, strategic and stable' relationship for the next three years. The summit, which was delayed from April due to the ongoing Iran war, concluded with Trump saying China agreed to buy 200 Boeing jets, an invitation for Xi to visit the White House on September 24, and agreement that both sides oppose Iran acquiring a nuclear weapon, though no firm deals were announced on trade tariffs or Taiwan.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran War Ceasefire Remains Fragile as US Extends Truce and State Department Secures 45-Day Lebanon Extension</div>
+      <div class="nsum">The US-Iran ceasefire, brokered by Pakistan on April 8, continues to face violations by both sides, with President Trump extending the truce at Iran's request while describing it as 'massive life support' as talks on a permanent peace deal remain deadlocked. The State Department separately secured a 45-day extension to the Israel-Lebanon ceasefire that was due to expire on May 18, even as the Strait of Hormuz remains partially blocked, fuelling a global energy crisis and pushing Brent crude above $108 a barrel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Fox News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Long Island Rail Road Strike Paralyses New York Commutes as MTA Negotiations Collapse</div>
+      <div class="nsum">New York faced widespread commuter chaos on May 18 as Long Island Rail Road workers walked off the job after negotiations between the Metropolitan Transportation Authority and rail unions broke down over the weekend, marking the LIRR's first strike in roughly 30 years and disrupting hundreds of thousands of daily riders. Governor Kathy Hochul urged commuters to work from home and deployed emergency shuttle buses and additional subway services, warning that it was 'impossible to fully replace LIRR service' during the stoppage.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 19 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
