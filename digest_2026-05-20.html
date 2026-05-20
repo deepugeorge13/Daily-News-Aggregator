@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 20, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 20 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 20 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsX / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pre-Monsoon Deluge Floods Electronic City, Whitefield and Silk Board; IMD Issues Yellow Alert for Bengaluru</div>
+      <div class="nsum">Heavy pre-monsoon rains lashed Bengaluru on May 19, causing extensive waterlogging and massive traffic snarls across major IT corridors including Electronic City, Whitefield, and the Silk Board junction. Several videos on social media showed vehicles partly submerged in floodwaters as the IMD issued a yellow alert warning of continued thunderstorms and gusty winds across the Karnataka capital.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Nears Launch on Bannerghatta Road Corridor by End of May</div>
+      <div class="nsum">The BMRCL's much-awaited Namma Metro Pink Line first phase — a 7.5-km elevated stretch between Kalena Agrahara and Tavarekere along Bannerghatta Road — is expected to commence operations by end of May 2026, pending Commissioner of Metro Railway Safety (CMRS) clearance. The six-station corridor is designed to ease chronic traffic congestion on Bannerghatta Road, BTM Layout, and JP Nagar, with a full 21.25-km line rollout targeted by December 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Becomes India's First State to Roll Out Alcohol-in-Beverage Excise Duty System, Revising Liquor and Beer Prices</div>
+      <div class="nsum">Karnataka has made history by implementing the Alcohol-in-Beverage (AIB)-based excise duty structure from May 11, 2026 — the first such reform in India — which links liquor taxation directly to the alcohol content (ABV) of a drink rather than bulk volume. Announced by Chief Minister Siddaramaiah in the 2026-27 state budget, the overhaul is expected to lower prices on mild beers and premium Scotch whiskies while raising rates on some mass-market Indian Made Liquor categories, with the state targeting ₹45,000 crore in excise revenue for FY27.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Congress Leader V.D. Satheesan Sworn In as Kerala's 13th Chief Minister, Ending LDF's Decade-Long Rule</div>
+      <div class="nsum">Congress leader V.D. Satheesan was sworn in as Kerala's 13th Chief Minister on May 18, 2026, at a grand ceremony at Central Stadium in Thiruvananthapuram, alongside a 20-member Cabinet, after leading the UDF alliance to a landslide victory of 102 seats in the 140-member assembly. Senior Congress leaders including Rahul Gandhi, Priyanka Gandhi, and Mallikarjun Kharge attended the ceremony, with PM Modi congratulating Satheesan and pledging full Central Government support.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMIndia.gov.in / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Addresses Parliament on West Asia Crisis, Asserts Strait of Hormuz Disruptions Are 'Unacceptable' and Pledges Energy Security</div>
+      <div class="nsum">Prime Minister Narendra Modi addressed both Houses of Parliament on the ongoing US-Israel war on Iran, informing lawmakers that over 3,75,000 Indians have been safely evacuated from the conflict zone and that the government is working around the clock to secure energy supplies through alternate global suppliers. Modi declared that disruptions to the Strait of Hormuz — through which large quantities of India's crude oil, gas, and fertilisers are transported — are wholly unacceptable, and pledged diplomatic engagement with all West Asian leaders to ensure safe passage for Indian ships.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NewsX</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Air India Flights Hit by Sudden Ground Staff Strike at Mumbai Airport; Over 15 Services Delayed by Up to Two Hours</div>
+      <div class="nsum">Operations at Mumbai's Chhatrapati Shivaji Maharaj International Airport were significantly disrupted on May 18 after employees of government-run ground handling agency AI Airport Services Limited (AIASL) staged an unannounced protest over wage revision demands, delaying over 15 departing Air India and Air India Express flights by up to two hours. The strike also left passengers stranded inside landed aircraft for nearly an hour, though the industrial action was subsequently called off following a successful mediation meeting.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bharti Airtel Dethrones HDFC Bank to Become India's Second Most Valuable Listed Company with ₹12 Lakh Crore Market Cap</div>
+      <div class="nsum">Bharti Airtel overtook HDFC Bank on May 18, 2026, to become India's second most valued company by market capitalisation, with its market cap crossing nearly ₹12 lakh crore after shares climbed for a fourth consecutive session, buoyed by strong Q4 FY26 revenue growth of 15.6% and improving ARPU of ₹257. HDFC Bank's shares have declined 23% in 2026 amid investor concern over its chairman succession plan following the resignation of part-time Chairman Atanu Chakraborty, with only Reliance Industries now ranking above Airtel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Halts Sugar Exports Till September 2026 as ISO Warns of Global Deficit Risk Amid El Niño Concerns</div>
+      <div class="nsum">India has suspended sugar exports until September 2026 to stabilise domestic supplies and prices, as the International Sugar Organisation (ISO) flagged a risk of a global sugar deficit in 2026-27 driven by El Niño-related weather disruptions. The move is aimed at protecting domestic consumers from price spikes while the government monitors production trends in key sugarcane-growing states ahead of the new harvest cycle.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian IT Stocks Plunge to Near 2008-09 Crisis Valuations as AI Disruption and TCS Headcount Drop of 23,000 Shake Sector</div>
+      <div class="nsum">Indian IT exporters' stock valuations have tumbled to near 2008-09 subprime crisis levels, trading at 15-18x P/E multiples with shares losing nearly 30% in 2026, as AI-driven automation and the direct entry of players like OpenAI into enterprise solutions erode the traditional headcount-based business model. TCS reported a net reduction of 23,460 employees in FY26, while peers Infosys, Wipro, and HCL have also filed US WARN layoff notices, sparking anxiety across India's IT workforce and prompting Karnataka's Labour Minister to seek an explanation from TCS.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's First GenAI Unicorn Krutrim Pivots Away from AI Model Ambitions, Shifts Focus to Cloud Services</div>
+      <div class="nsum">Bengaluru-based Krutrim, India's first GenAI unicorn founded by Ola's Bhavish Aggarwal, has announced a strategic pivot toward cloud services following a major business overhaul in late 2025 that included reallocating capital, pausing chip design efforts, and cutting over 200 roles. Despite the pivot, Krutrim reported its first annual net profit and revenue of approximately ₹3 billion (around $31.52 million) in FY26 — a threefold increase year-on-year — though the shift marks a significant retreat from its original ambition of building India's homegrown large language models.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian-Origin Healthtech Unicorn Innovaccer Lays Off 340 Employees in Third Restructuring Round, Citing AI-Native Transition</div>
+      <div class="nsum">Innovaccer, the Indian-founded healthtech unicorn valued at $3.45 billion and headquartered in San Francisco, has laid off around 340 employees across India and the US as part of its shift toward becoming an 'AI-native' organisation, according to an internal email from CEO Abhinav Shashank. This marks the company's third layoff round in four years, coming months after a ₹600 crore ESOP buyback, and reflects a broader trend of AI-driven restructuring across global technology and startup firms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Voice AI Startup Wispr Flow Bets Big on India: Hinglish Support, 100% Monthly Growth, and Plans for Sub-₹20 Pricing</div>
+      <div class="nsum">Bay Area-based AI voice input startup Wispr Flow has identified India as its fastest-growing market — accounting for 14% of its 2.5 million global downloads between October 2025 and April 2026 — and is aggressively expanding with Hinglish language support and Android availability tailored to Indian users. The company has achieved approximately 100% month-over-month growth in India following its localisation campaign and plans to eventually reduce pricing to as low as ₹10-₹20 per month to penetrate beyond urban, white-collar users into Indian households.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / Time / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Calls Off Planned Military Strike on Iran, Citing 'Serious Negotiations' After Gulf Leaders Urge Restraint</div>
+      <div class="nsum">US President Donald Trump announced on May 18, 2026, that he was postponing a military attack on Iran — scheduled for May 19 — at the personal request of the leaders of Qatar, Saudi Arabia, and the UAE, who assured him that serious negotiations toward a deal, including a demand for Iran to abandon nuclear weapons, are now underway. Trump simultaneously warned that strikes could resume within 'two or three days' if no agreement is reached, while Iran's newly established Persian Gulf Strait Authority announced it would require prior coordination for all vessels passing through the Strait of Hormuz.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / CNBC / Washington Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Putin Arrives in Beijing for Xi Summit Days After Trump's Visit, Seeking to Cement Russia-China Energy and Strategic Ties</div>
+      <div class="nsum">Russian President Vladimir Putin arrived in Beijing on May 19 for a two-day summit with Chinese President Xi Jinping — his second face-to-face meeting with Xi in less than a year — just days after US President Donald Trump concluded his own high-profile visit to the Chinese capital. The summit, timed to mark the 25th anniversary of the Sino-Russian Treaty of Friendship, is expected to yield a major oil and gas deal as Russia's exports to China grew 35% in Q1 2026, while Beijing attempts to balance deepening ties with Moscow against its newly stabilised relationship with Washington.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / CDC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">American Aid Worker Tests Positive for Bundibugyo Ebola Virus in Congo; CDC Evacuates Patient and Six Others to Germany</div>
+      <div class="nsum">The US Centers for Disease Control and Prevention (CDC) confirmed that an American medical missionary working in the Democratic Republic of Congo has tested positive for the Bundibugyo Ebola virus after being exposed while treating patients at Nyankunde Hospital. The CDC, working with the US State Department, is evacuating the infected individual along with six high-risk contacts — including the patient's family — to Germany for treatment and monitoring, raising international health security concerns.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 20 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
