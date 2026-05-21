@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 21, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 21 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 21 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YoMetro / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Safety Trials Complete; Bannerghatta Road Launch Expected by End of May</div>
+      <div class="nsum">The Research Designs and Standards Organisation (RDSO) has completed safety trials on a 7.5-kilometre stretch of Namma Metro's Pink Line, clearing the corridor for an imminent partial launch. Commuters travelling along Bannerghatta Road can expect services to commence by the end of May, offering significant relief on one of Bengaluru's most congested arteries.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Construction World / NewsFirst Prime</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Raises Rs 1,500 Crore from Private Firms via Innovative Station-Financing PPP Model</div>
+      <div class="nsum">The Bengaluru Metro Rail Corporation Limited has raised over Rs 1,500 crore from private companies through a public-private partnership model that links station financing with long-term branding and access rights. The innovative funding mechanism enables BMRCL to raise upfront capital for metro expansion while corporations gain prominent branding at key interchange stations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsFirst Prime / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Greenlights B-SMILE SPV with Rs 7,000-Crore Plan for Tunnel Roads and Flyovers Across Bengaluru</div>
+      <div class="nsum">The Karnataka government has established Bengaluru Smart Infrastructure Limited (B-SMILE), a Special Purpose Vehicle tasked with executing a Rs 70-billion urban transformation plan that includes 40 kilometres of tunnel roads, new flyovers, and underpasses. Deputy Chief Minister D.K. Shivakumar said the initiative will ease urban congestion and elevate Bengaluru's mobility infrastructure, operating independently from BBMP which will retain control over routine civic functions.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / India Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Chairs First Full Council of Ministers Meeting of 2026 Amid West Asia Crisis and Cabinet Reshuffle Buzz</div>
+      <div class="nsum">Prime Minister Narendra Modi chaired a full Council of Ministers meeting on Thursday — his first major government-level engagement after returning from his foreign tour — with the West Asia conflict and its economic impact on India expected to dominate discussions. The meeting has added political significance as sources indicate a Cabinet expansion and reshuffle could materialise in the second week of June, around the Modi 3.0 government's first anniversary.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / India.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CBI Arrests 10th Suspect in NEET-UG 2026 Paper Leak Case as Probe Uncovers Chemistry and Biology Leak Source</div>
+      <div class="nsum">The Central Bureau of Investigation has arrested Shivraj Motegaonkar, director of Latur's RCC Classes coaching institute, becoming the 10th person held in connection with the NEET-UG 2026 paper leak scandal that led to the exam's cancellation on May 12. The CBI confirmed its special teams have successfully traced the original source of the Chemistry and Biology paper leaks, which were circulated to students prior to the May 3 examination.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Orders Social Media Platforms to Remove Fake NEET Paper Leak Content; IMD Warns of Severe Heatwave Till May 25</div>
+      <div class="nsum">The central government has directed major social media platforms to proactively identify and remove networks spreading fake paper leak claims and unverified exam-related content ahead of the NEET re-examination. Separately, the India Meteorological Department has forecast heatwave to severe heatwave conditions over large parts of northwest and central India through May 25, with experts warning that rising night-time temperatures are making heatwaves more dangerous across Indian cities.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Upturn / Khaleej Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Rupee Crashes to Historic All-Time Low of 96.89 Per Dollar as Iran War Deadlock Fuels Oil Surge and FII Flight</div>
+      <div class="nsum">The Indian rupee fell to a fresh all-time low of 96.89 against the US dollar, extending a 6% decline since the Iran war began in late February 2026 — the sharpest sustained depreciation episode in at least a decade. The currency is under simultaneous pressure from Brent crude prices surging over 50% to around $110 per barrel, Strait of Hormuz shipping disruptions, and foreign institutional investors pulling over $22 billion from Indian stocks and bonds.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tata Steel / Upstox / Investing.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata Steel Posts 125% YoY Profit Jump in Q4 FY26; India Operations Deliver 25% EBITDA Margin</div>
+      <div class="nsum">Tata Steel reported a 125% year-on-year surge in consolidated net profit to Rs 2,926 crore for Q4 FY26, with full-year EBITDA rising 35% to Rs 34,848 crore on revenues of Rs 2,32,140 crore. India operations were the standout performer, contributing approximately 74% of total crude steel production and delivering a stellar EBITDA margin of around 25%, even as global steel market conditions remained challenging.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / OilPrice.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Asian Stocks Slide as Inflation Fears Drive Bond Yields to Multi-Year Highs; India GDP Growth Forecast Cut to 6.7%</div>
+      <div class="nsum">Asian stock markets mirrored Wall Street's decline as persistent inflation concerns, driven by elevated oil prices from the Iran conflict, pushed Treasury yields to multi-year highs and raised doubts about equity valuations globally. Analysts at BMI (Fitch) have cut India's GDP growth forecast for fiscal 2026–27 to 6.7%, down from 7.7% last year, with fuel price hikes widely anticipated if the Middle East conflict and Strait of Hormuz closure persist.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Blog / Tom's Guide / Android Central</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google I/O 2026: Gemini Omni and Gemini 3.5 Flash Launched; Antigravity Agent Platform and AI Glasses Unveiled</div>
+      <div class="nsum">At Google I/O 2026, CEO Sundar Pichai unveiled Gemini Omni — capable of creating content from any input including video — and Gemini 3.5 Flash, the first model in a new series combining frontier intelligence with agentic action, alongside the upgraded Antigravity 2.0 agent-first development platform. Google also announced Samsung's 'Intelligent Eyewear' glasses arriving this fall, the new Gemini Spark '24/7 personal AI agent', Universal Cart for shopping, and a $2 million Build with Gemini XPRIZE Hackathon.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's First GenAI Unicorn Krutrim Pivots to Cloud Services After Pausing Chip Design and AI Model Ambitions</div>
+      <div class="nsum">Bengaluru-based Krutrim, India's first generative AI unicorn founded by Bhavish Aggarwal, announced it is shifting its business focus toward cloud services following a major overhaul in late 2025 that included reallocating capital, cutting over 200 roles, and pausing chip design efforts. The startup reported approximately Rs 3 billion in revenue for FY2026 — a threefold increase year-over-year — along with its first annual net profit and margins exceeding 10%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Startup360 News / Analytics Insight</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India AI Impact Summit 2026 Showcases 51 Startups at WAVES Creators Corner; Minister Vaishnaw Flags AI's Role in India's Future Economy</div>
+      <div class="nsum">Union Minister Ashwini Vaishnaw inaugurated the 'WAVES Creators' Corner' at the India AI Impact Summit 2026, a dedicated showcase for 51 innovative startups presenting AI-powered solutions spanning generative AI, robotics, natural language processing, and smart automation across multiple industries. The summit underscored India's ambition to become a global AI leader, with experts noting that Indian startup AI funding in Q1 2026 alone hit $1.48 billion, accounting for 38% of total startup investment.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Xi and Putin Signal United Anti-US Front in Beijing Summit; Sign Over 40 Cooperation Agreements on Energy and Trade</div>
+      <div class="nsum">Chinese President Xi Jinping and Russian President Vladimir Putin met in Beijing and signalled a united front against Washington, warning against a global return to the 'law of the jungle' and jointly criticising the US 'Golden Dome' missile defence plan in a formal statement. The two leaders oversaw the signing of more than 40 cooperation agreements covering trade, technology, energy, and media, with Xi declaring bilateral ties had reached 'the highest level in history'.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WHO / CNN / TIME</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">WHO Declares Bundibugyo Ebola Outbreak in DRC and Uganda a Global Health Emergency; Over 130 Deaths Reported with No Approved Vaccine</div>
+      <div class="nsum">The World Health Organization declared the Ebola outbreak caused by the Bundibugyo virus in the Democratic Republic of Congo and Uganda a Public Health Emergency of International Concern on May 17, with over 130 deaths and more than 500 suspected cases reported, including confirmed cross-border infections in Kampala. The outbreak is particularly alarming because there are no licensed vaccines or specific therapeutics for the Bundibugyo strain, and active armed conflict in DRC's Ituri province is severely hampering containment efforts.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Warns US of 'Surprises' as Nuclear Deal Talks Stall; Oil Prices Remain Above $109 After Trump Briefly Halts Bombardment</div>
+      <div class="nsum">Tehran warned the United States of 'many more surprises' as peace negotiations over the Iran conflict remained deadlocked, following Trump's brief halt to a new bombardment after Saudi Arabia and Gulf allies requested more time for diplomacy. Brent crude prices remain elevated above $109 per barrel — up more than 50% since hostilities began — continuing to act as a major inflationary accelerant for global markets and a severe strain on oil-import-dependent economies like India.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 21 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
