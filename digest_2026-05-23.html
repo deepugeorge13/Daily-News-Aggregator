@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 23, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 23 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 23 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of India / Swarajya Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Not Monsoon-Ready: NHAI Plans Only 4 of 28 Waterlogging Sites, BBMP Given 7-Day Pothole Deadline</div>
+      <div class="nsum">Three months after instructions were issued to address waterlogging and flooding at 28 BBMP-limit sites, NHAI has managed to draw up plans for just four, prompting sharp criticism at a high-level review meeting held on May 23. Chief Secretary Shalini Rajneesh directed BBMP to fix 647 identified potholes within seven days using disaster-management funds, and ordered disciplinary action against BWSSB officials for persistent drainage failures.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Launch Imminent as RDSO Completes Safety Trials on Bannerghatta Road Stretch</div>
+      <div class="nsum">The Research Designs and Standards Organisation (RDSO) completed safety trials on the 7.5-km Pink Line stretch along Bannerghatta Road, with officials confirming the corridor's partial launch is expected by end of May. BMRCL also separately confirmed it expects to receive 21 new six-coach trains in the coming months to ease congestion on busy corridors that have seen rapid ridership growth.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Raises Over ₹1,500 Crore From Private Firms Through Innovative Station-Branding PPP Model</div>
+      <div class="nsum">Bengaluru Metro Rail Corporation Limited has raised more than ₹1,500 crore from private firms through a public-private partnership model that integrates station financing with long-term branding and access rights. The innovative financing structure enables BMRCL to raise upfront capital while allowing corporate partners to establish a presence at high-footfall metro stations across the network.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / Prokerala</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Distributes 51,000 Appointment Letters at 19th Rozgar Mela Via Video Conferencing</div>
+      <div class="nsum">Prime Minister Narendra Modi on Saturday distributed more than 51,000 appointment letters to newly recruited youth across various central government departments and organisations at the 19th Rozgar Mela held simultaneously at 47 locations nationwide. Since the initiative's launch, around 12 lakh recruitment letters have been issued through 18 such melas, underscoring the government's mission-mode approach to public-sector employment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / The Statesman / Tribune India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India and Cyprus Elevate Ties to Strategic Partnership as President Christodoulides Concludes State Visit</div>
+      <div class="nsum">Cyprus President Nikos Christodoulides concluded his four-day state visit to India (May 20–23) with PM Modi, with the two nations elevating their relationship to a Strategic Partnership and unveiling a five-year defence cooperation roadmap. The visit carries heightened diplomatic weight as Cyprus currently holds the Presidency of the Council of the European Union, giving the engagements a broader India-EU dimension.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Wins West Bengal for First Time, Securing 206 of 294 Seats and Strengthening Modi's Political Mandate</div>
+      <div class="nsum">Prime Minister Narendra Modi's Bharatiya Janata Party achieved a historic first-ever state-level win in West Bengal, securing 206 out of 294 assembly seats and forming government there for the first time. Analysts say the victory strengthens the central government's political capital to pursue economic reforms, though experts warn that accelerating India's sluggish FDI inflows remains an urgent priority.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Closes 0.3% Up at 75,415 as Banking Stocks Rally; Foreign Outflows Remain a Concern</div>
+      <div class="nsum">India's BSE Sensex closed approximately 0.3% higher at 75,415 on Friday (May 22), led by gains in Axis Bank (+2.5%), ICICI Bank (+1.8%), and HDFC Bank (+1%) amid cautious optimism over a potential resolution to the Middle East conflict. However, foreign investors have now withdrawn $22.2 billion from Indian equities in under three months, exceeding last year's record annual outflows and signalling continued caution.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">LIC Q4 Net Profit Rises 23%, Asset Quality Improves; Adani Ports to Acquire Jaypee Fertilizers for ₹1,500 Crore</div>
+      <div class="nsum">Life Insurance Corporation of India reported a 23% rise in net profit for Q4 alongside improved asset quality, with the company also declaring a dividend for shareholders. Separately, Adani Ports announced it would acquire Jaypee Fertilizers for ₹1,500 crore, in a deal expected to be consummated within 90 days of the approved resolution plan's effective date.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / News on Air</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate Steady at 5.25%, Projects GDP Growth at 6.9% as West Asia Conflict Clouds Outlook</div>
+      <div class="nsum">RBI Governor Sanjay Malhotra announced that the Monetary Policy Committee unanimously decided to retain the repo rate at 5.25% with a neutral stance, adopting a wait-and-watch approach on the ongoing West Asia conflict. The MPC projected India's real GDP growth for the current fiscal at 6.9% while warning that elevated energy prices, higher freight costs, and supply-chain disruptions from the conflict could impair growth.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Hosts AI Impact Summit 2026; Sarvam AI Unveils Sarvam-30B and Sarvam-105B Large Language Models</div>
+      <div class="nsum">India's AI Impact Summit 2026 showcased the country's sovereign AI ambitions, with Sarvam AI — selected by the central government to build India's first homegrown LLM under the IndiaAI Mission — unveiling two flagship models, Sarvam-30B and Sarvam-105B. Cyprus President Christodoulides congratulated PM Modi on hosting the summit and Cyprus endorsed the Summit Declaration, reflecting growing international recognition of India's Global South-led AI development model.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Bharatfast</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Infrastructure Push: 38,000 GPUs Onboarded at ₹65/hr, 5G Now Covers 99.9% of Districts</div>
+      <div class="nsum">Under the IndiaAI Mission, India has onboarded over 38,000 high-end GPUs available at ₹65 per hour — roughly one-third of the global average cost — alongside 1,050 TPUs to democratise AI compute access for startups and researchers. Complementing this, 5G services now cover 99.9% of India's districts reaching 85% of the population, while the Union Budget 2026 introduced a tax holiday until 2047 for foreign cloud-service providers using Indian data centres.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">upGrad Valued at $1.7 Billion in Fresh Funding Round; Provisional FY26 Financials Show Profit</div>
+      <div class="nsum">Edtech giant upGrad has been valued at $1.7 billion in a fresh funding round, with provisional FY26 financials showing the company has turned profitable — a significant milestone in India's maturing startup ecosystem. In other leadership news, former Coupang executive Sandeep Karwa is set to replace Vineeth Nair as CEO of Reliance's fashion platform AJIO.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WHO / Al Jazeera / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">WHO Declares Ebola Outbreak in DRC and Uganda a Public Health Emergency of International Concern</div>
+      <div class="nsum">The World Health Organization declared the Ebola outbreak caused by the rare Bundibugyo virus in the Democratic Republic of the Congo and Uganda a Public Health Emergency of International Concern (PHEIC), citing cross-border spread, over 130 suspected deaths, and more than 600 cases. The Bundibugyo strain has no approved vaccines or therapeutics, and the WHO assessed the risk as high at the national and regional levels, urging neighbouring countries to activate emergency mechanisms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UN News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UN General Assembly Backs Historic World Court Climate Crisis Ruling With 141 Votes in Favour</div>
+      <div class="nsum">The UN General Assembly adopted a landmark resolution with 141 votes in favour endorsing the International Court of Justice's July 2025 advisory opinion that states have a legal obligation to protect the environment from greenhouse gas emissions. UN Secretary-General António Guterres hailed the resolution as a powerful affirmation of international law and climate justice, noting it makes clear that tackling the climate crisis is a legal duty, not merely a political choice.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Washington Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Xi Jinping and Putin Sign Over 40 Agreements in Beijing as US-Iran Nuclear Talks Show Tentative Progress</div>
+      <div class="nsum">Chinese President Xi Jinping and Russian President Vladimir Putin oversaw the signing of more than 40 cooperation agreements in trade, technology, and media during a high-profile summit in Beijing, reinforcing their strategic partnership. Separately, US Secretary of State Marco Rubio described US-Iran nuclear talks as showing only tentative signs of progress, keeping global markets on edge over Strait of Hormuz shipping access and elevated oil prices.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 23 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
