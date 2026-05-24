@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 24, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 24 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 24 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Inches Closer to Launch as RDSO Safety Trials Near Completion</div>
+      <div class="nsum">The Bengaluru Metro Pink Line's first phase — a 7.5-km elevated stretch from Kalena Agrahara to Tavarekere on Bannerghatta Road — is on track for an end-of-May 2026 launch after safety trials by the Research Designs and Standards Organisation (RDSO) were completed. The 21.25-km north–south corridor, connecting Kalena Agrahara to Nagawara with 18 stations, is expected to significantly ease traffic along one of Bengaluru's most congested routes once fully operational.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Budget 2026: Five GBA Corporations to Raise Funds via Municipal Bonds for City Projects</div>
+      <div class="nsum">The Karnataka Budget 2026 has proposed that the five civic corporations under the newly formed Greater Bengaluru Authority (GBA) — which replaced BBMP in September 2025 — will raise funds through municipal bonds to finance large-scale urban infrastructure. The budget also announced road upgrades, Metro expansion, and the Cauvery Phase VI water project as key priorities for Bengaluru's development under the new governance framework.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Raises Rs 1,500 Crore from Private Firms Through Innovative Station Branding PPP Model</div>
+      <div class="nsum">The Bengaluru Metro Rail Corporation Limited (BMRCL) has successfully raised over Rs 1,500 crore from private companies through a public-private partnership model that links station financing with long-term branding and access rights. The innovative financing approach allows the metro agency to raise upfront capital without fully depending on government allocations, and BMRCL is also expecting delivery of 21 new six-coach trains in the coming months to meet rising ridership demand.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Kashmir Reader</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Distributes 51,000+ Appointment Letters at 19th Rozgar Mela Across 47 Locations</div>
+      <div class="nsum">Prime Minister Narendra Modi on May 23, 2026, virtually distributed over 51,000 government appointment letters to newly recruited candidates across 47 locations nationwide as part of the 19th Rozgar Mela. Recruits were inducted into central ministries including Railways, Home Affairs, Health, and Financial Services, with the government stating that nearly 12 lakh appointment letters have been distributed in total since the initiative began.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Secretary of State Marco Rubio Arrives in India for Four-Day Visit Ahead of Quad Foreign Ministers' Meeting</div>
+      <div class="nsum">US Secretary of State Marco Rubio arrived in Kolkata on May 23, 2026 — his first official trip to India since taking office — and is scheduled to meet External Affairs Minister S. Jaishankar and potentially Prime Minister Modi, with the formal Quad Foreign Ministers' Meeting set for May 26 in New Delhi. The visit comes as Washington seeks to reset strained bilateral ties following tariff disputes and tensions over Trump's claims of mediating the India-Pakistan conflict last year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Wins West Bengal for the First Time, Cementing Modi's Political Grip Ahead of 2029 National Elections</div>
+      <div class="nsum">In a historic election result earlier this month, the BJP won 206 of 294 seats in West Bengal, marking the party's first-ever state government there and extending its political footprint well beyond its northern strongholds. A Bloomberg analysis found that Modi, riding a wave of electoral success across multiple state polls, is positioning the BJP for a potential parliamentary majority restoration in the national elections due by mid-2029.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Capital Group Builds $2 Billion Adani Bet, Pivots Away from Reliance in Major Foreign Investor Shift</div>
+      <div class="nsum">The Capital Group, one of the world's largest investment managers with $3 trillion in assets under management, has acquired stakes worth over $2 billion across three Adani Group companies — Adani Power, Adani Green Energy, and Adani Ports — in recent weeks, while steadily trimming its long-held position in Reliance Industries. Adani Power shares have climbed 48% in 2026 so far, with analysts noting that Adani companies are increasingly viewed as leveraged plays on India's infrastructure development and energy transition.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Petrol and Diesel Prices Hiked for Third Time in May as OMCs Absorb West Asia Shock</div>
+      <div class="nsum">Across three separate price revisions on May 15, May 19, and May 23, state-run oil marketing companies raised petrol prices by a cumulative ₹4.74 per litre and diesel by ₹4.82 per litre, as prolonged closure of the Strait of Hormuz pushed crude costs sharply higher. Despite the hikes, India's roughly 5% fuel price increase between February and May 2026 remains among the lowest globally, as OMCs and the government absorbed significant losses to cushion retail consumers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NCDEX / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NCDEX to Launch India's First Exchange-Traded Weather Derivative 'RAINMUMBAI' on May 29</div>
+      <div class="nsum">The National Commodity and Derivatives Exchange (NCDEX) announced the launch of RAINMUMBAI — India's first SEBI-approved, exchange-traded weather derivatives contract — set to begin trading on May 29, 2026, developed in collaboration with IIT Bombay and using rainfall data from the India Meteorological Department. The cash-settled futures contract is designed to help weather-sensitive sectors such as agriculture, construction, power, and logistics hedge against monsoon rainfall variability, marking a milestone for India's climate risk management ecosystem.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Krutrim, India's First GenAI Unicorn, Pivots to AI Cloud Services and Posts First-Ever Annual Profit</div>
+      <div class="nsum">Bhavish Aggarwal-led Krutrim has abandoned its ambitions to build frontier large language models and design semiconductor chips, instead pivoting to a full-stack domestic AI cloud platform for enterprise customers, generating roughly ₹300 crore in FY26 revenue — nearly three times year-on-year — and posting its first annual net profit with margins exceeding 10%. The Bengaluru-based startup, which had undergone a major business realignment in late 2025, now serves over 25 enterprise clients across telecom, fintech, healthcare, and logistics, and says it requires no fresh external funding.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BharatFast / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IndiaAI Mission Offers 100% Compute Subsidy and GPU Access at Rs 67/Hour to Boost Homegrown AI Startups</div>
+      <div class="nsum">The Indian government, under the ₹10,000 crore IndiaAI Mission, has announced that startups building foundational AI models will receive a 100% compute subsidy, alongside access to GPU infrastructure at a subsidised rate of Rs 67 per hour in 2026, aimed at helping domestic startups compete with global AI giants. Separately, Indian AI startup Sarvam unveiled its Sarvam-30B and Sarvam-105B large language models at the India AI Impact Summit 2026, with the models already deployed in production-grade banking and public service applications.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Upstox / Artemis</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Neysa Raises $1.2 Billion Series B, Emerges as India's Leading GPU Cloud Infrastructure Provider in 2026</div>
+      <div class="nsum">Bengaluru-based Neysa has become the breakout AI infrastructure story of 2026, raising a massive $1.2 billion Series B round in February, positioning itself as India's answer to CoreWeave by providing GPU-accelerated cloud infrastructure to Indian startups and enterprises. In Q1 2026 alone, Indian startups raised nearly $3.9 billion in funding, with AI accounting for a record 38% of that total at $1.48 billion, according to a Google and Inc42 Bharat AI Startups Report that projects India's AI market could reach $126 billion by 2030.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / Washington Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Says US-Iran Peace Deal 'Largely Negotiated,' Including Reopening of Strait of Hormuz</div>
+      <div class="nsum">President Donald Trump announced on May 23, 2026, that a peace framework with Iran had been 'largely negotiated' following calls with leaders from Saudi Arabia, UAE, Qatar, Pakistan, Turkey, Egypt, Jordan, Bahrain, and Israel, with the deal expected to include reopening the Strait of Hormuz without tolls. The US and Iran are reportedly close to announcing a final draft agreement within 24 hours, though key differences — including the fate of Iran's nuclear programme and the US naval blockade — remain under discussion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel-Lebanon Conflict Intensifies as Over 3,000 Killed and One Million Displaced Despite Ceasefire</div>
+      <div class="nsum">Despite a US-brokered ceasefire signed in mid-April 2026, Israeli forces and Iranian-backed Hezbollah have continued fighting in Lebanon, with Lebanon's health ministry reporting over 3,000 deaths — many of them civilians — and more than one million people displaced from their homes. The WHO has recorded 169 attacks on healthcare workers and facilities in Lebanon since Israel escalated its military campaign on March 2, with four paramedics killed in an Israeli strike on an ambulance centre in southern Lebanon on Friday.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Taliban Issues New Marriage Law with Child Marriage Provisions as UN Expresses 'Grave Concern'</div>
+      <div class="nsum">The United Nations expressed 'grave concern' on May 22, 2026 over a new law issued by Afghanistan's Taliban government on marriage separation that includes provisions permitting child marriage, marking the latest in a series of restrictions on women's rights since the Taliban returned to power. Human rights organisations have called on the international community to take immediate action, warning the law represents a dangerous regression in protections for Afghan women and girls.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 24 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
