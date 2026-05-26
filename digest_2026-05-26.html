@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 26, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 26 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 26 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / The Federal / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Submits DPR for ₹19,700 Crore Bengaluru–Tumakuru Metro Corridor Under PPP Model</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited has submitted a Detailed Project Report to the Karnataka government for a 60-km metro corridor connecting Madavara (BIEC) to Tumakuru via Nelamangala, Dabaspet, and Kyathasandra, projected to cost around ₹19,700 crore under a Public-Private Partnership model. The proposal, now headed to the state cabinet for deliberations, envisions 16 stations, a travel time of 59 minutes, and a projected daily ridership of around 3 lakh passengers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Solar Power Push Faces Policy and Infrastructure Hurdles, Says BMRCL</div>
+      <div class="nsum">BMRCL has acknowledged that running the upcoming Blue Line entirely on solar power would require significant policy changes and infrastructure upgrades, as the corridor — scheduled for completion by December 2027 — is projected to become one of Karnataka's largest public infrastructure electricity consumers with an annual demand of 152 GWh under full operations. The agency is currently evaluating energy sourcing models to meet the line's substantial power requirements sustainably.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Yometro / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Gets Fourth Train as RDSO Safety Trials Near Completion; Launch Expected by End of May</div>
+      <div class="nsum">The Namma Metro Pink Line received its fourth six-coach train at the Kothanur depot on Bannerghatta Road, with officials confirming it was brought from Bharat Earth Movers Limited's manufacturing facility in New Thippasandra. Separately, BMRCL has raised over ₹1,500 crore from private firms through an innovative public-private partnership financing model that links station financing with long-term branding and access rights.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Wins Historic Majority in West Bengal, Securing First-Ever State Government as Modi Tightens Political Grip</div>
+      <div class="nsum">The BJP won 206 out of 294 seats in West Bengal, forming its first-ever government at the state level and significantly bolstering PM Modi's political standing ahead of national elections due by mid-2029. The victory, combined with wins in other recent state polls, has dispelled concerns about Modi losing political momentum, with global brokerage Citi noting it reflects the 'continued popularity of PM Modi and his party.'</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Secretary of State Marco Rubio Meets PM Modi in New Delhi, Ahead of Quad Ministerial Talks</div>
+      <div class="nsum">US Secretary of State Marco Rubio arrived in India and called on Prime Minister Narendra Modi, ahead of a scheduled meeting with his counterparts from India, Australia, and Japan as part of the Indo-Pacific strategic alliance known as the Quad. Rubio also indicated that US-Iran ceasefire negotiations remained a 'work in progress,' remarking during his India visit that 'we're either going to have a good agreement or we're going to have to deal with it another way.'</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / Outlook India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Distributes Over 51,000 Appointment Letters at 19th Rozgar Mela via Video Conferencing</div>
+      <div class="nsum">Prime Minister Narendra Modi distributed more than 51,000 appointment letters to newly appointed youth across various government departments and organisations at the 19th Rozgar Mela, held via video conferencing. The event underscores the Modi government's continued focus on government job creation as a key plank of its employment outreach strategy under the 'Viksit Bharat' agenda.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Declares Record ₹2.87 Lakh Crore Dividend to Centre for FY26, Providing Fiscal Cushion Amid West Asia Crisis</div>
+      <div class="nsum">The Reserve Bank of India approved a historic surplus transfer of ₹2,86,588 crore to the Central Government for FY 2025-26, as its balance sheet expanded by 20.61% to ₹91.97 lakh crore, providing critical fiscal support amid the ongoing Middle East energy crisis. The decision was taken at the 623rd meeting of the Central Board of Directors under Governor Sanjay Malhotra, with the RBI's gross income growing 26.42% compared to the previous year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Stock Markets Face Shortened Trading Week as NSE and BSE to Remain Shut on May 28 for Bakri Eid</div>
+      <div class="nsum">Indian stock markets are set for a truncated trading week, with the National Stock Exchange and BSE both closing on Thursday, May 28, for the Bakri Eid holiday — one of 16 planned stock market holidays in 2026. On Monday, May 25, the Sensex surged to a day's high, rising 900 points with Nifty approaching 24,000, led by strong gains in banking and financial stocks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Policy Circle / Outlook Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD's Below-Normal Monsoon Forecast at 92% of LPA Raises Inflation and Growth Concerns for Indian Economy</div>
+      <div class="nsum">The India Meteorological Department has forecast the 2026 southwest monsoon at 92% of the long period average, classifying it as below normal and marking the first such early forecast in three years, putting pressure on food prices and agricultural output. Economists warn this could push India's CPI inflation above 5% this fiscal year, complicating the RBI's monetary policy stance and potentially restraining its ability to support growth through rate cuts.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's First GenAI Unicorn Krutrim Pivots to Cloud Services After Business Overhaul, Pausing Chip Design Ambitions</div>
+      <div class="nsum">Bengaluru-based Krutrim, founded by Bhavish Aggarwal and India's first GenAI unicorn after raising $50 million at a $1 billion valuation in January 2024, announced it is shifting toward cloud services following a late-2025 business overhaul that included reallocating capital and talent and pausing chip design efforts. The startup reported revenues of approximately ₹3 billion for FY2026 — a threefold increase — along with its first annual net profit, though it also cut more than 200 roles across multiple rounds of layoffs over the past year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Crescendo AI / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Microsoft Commits $17.5 Billion to AI and Cloud Infrastructure in India Through 2029, Targeting 20 Million Skilled Workers</div>
+      <div class="nsum">Microsoft announced its largest-ever Asia investment of $17.5 billion to expand AI and cloud infrastructure across India from 2026 to 2029, building on an earlier $3 billion pledge and spanning new hyperscale data centres, sovereign cloud solutions, and AI integrations into government labour platforms serving 310 million informal workers. The commitment includes a plan to double its workforce skilling targets to train 20 million Indians in AI skills by 2030, positioning Microsoft as a foundational layer of India's AI-first national agenda.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / BharatFast</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Market Projected at $126 Billion by 2030 as NITI Aayog Roadmap Targets $1.7 Trillion GDP Impact by 2035</div>
+      <div class="nsum">According to Google and Inc42's Bharat AI Startups Report 2026, India's AI market could become a $126 billion opportunity by 2030, with enterprise AI expected to lead growth while consumer AI scales rapidly on the back of strong adoption. The government has bolstered this ambition with a Union Budget 2026 tax holiday until 2047 for foreign companies providing cloud services through Indian data centres, with NITI Aayog's new AI roadmap targeting a potential GDP impact of $1.7 trillion by 2035.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Pounds Kyiv with 600 Drones and 90 Missiles Including Hypersonic Oreshnik, Killing Four and Injuring Dozens</div>
+      <div class="nsum">Russia launched one of its most devastating attacks on Ukraine, deploying 600 drones and 90 missiles — including the nuclear-capable Oreshnik hypersonic ballistic missile, used for only the third time in the war — killing at least four people and injuring more than 60 across Kyiv and surrounding areas, with damage recorded at 40 locations including residential buildings, the Foreign Ministry, and Ukraine's Cabinet of Ministers. The attacks also destroyed the Chernobyl disaster museum and one of Kyiv's oldest markets, prompting Ukrainian Foreign Minister Andrii Sybiha to call the strikes 'terror against civilians.'</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US and Iran Near Ceasefire Deal as Rubio Says Agreement Is a 'Work in Progress,' Key Disputes Remain Over Sanctions and Strait of Hormuz</div>
+      <div class="nsum">The United States and Iran are negotiating a memorandum of understanding that could transform their existing ceasefire into a lasting settlement, with key sticking points including the reopening of the Strait of Hormuz, Iran's nuclear programme, and the release of frozen Iranian assets. Major disagreements persist over the timing of sanctions relief, with Iran insisting on asset releases before any agreement while the US maintains that the Strait must reopen first.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Over 1.5 Million Pilgrims Converge on Mecca for Hajj 2026 Against Backdrop of Tenuous Iran Ceasefire and Regional Tensions</div>
+      <div class="nsum">More than 1.5 million pilgrims have arrived in Saudi Arabia for the annual Hajj pilgrimage, one of the Five Pillars of Islam, with the event unfolding against a backdrop of fragile regional stability following the US-Iran conflict ceasefire. Separately, China launched the Shenzhou 23 spacecraft carrying three astronauts to its space station, with one astronaut set to remain in space for a full year to explore human adaptability in long-duration spaceflights.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 26 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
