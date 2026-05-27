@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 27, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 27 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 27 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Submits Rs 19,000 Crore DPR for Bengaluru–Tumakuru Metro Corridor Under PPP Model</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited has submitted a Detailed Project Report for a nearly 60 km metro corridor connecting Madavara (BIEC) to Tumakuru via Nelamangala, Dobbspet, and Kyathasandra to Karnataka Home Minister G Parameshwara. The project, estimated at up to Rs 19,361 crore under a Viability Gap Funding-based PPP framework, now awaits Karnataka Cabinet approval, with construction expected to take four to five years if cleared.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News First Prime / The Hans India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Invites Bids to Develop Large-Format 'Experience Hub' at MG Road Metro Station</div>
+      <div class="nsum">Bengaluru Metro Rail Corporation Limited has issued a Request for Proposal to develop a curated commercial and experience destination inside the MG Road Metro Station, occupying 6,673 sq ft in the heart of the city's Central Business District. The initiative is part of BMRCL's broader strategy to boost non-fare revenue, with a minimum monthly rental set at Rs 9.44 lakh inclusive of GST, while food courts, cinemas, and high-footfall retail formats have been explicitly excluded.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Gets 7-Day Deadline to Fix 647 Potholes as Bengaluru Braces for Monsoon</div>
+      <div class="nsum">Karnataka's Chief Secretary issued a seven-day ultimatum to the BBMP to repair 647 potholes identified by the Joint Commissioner of Traffic, with repairs to be funded from the disaster management fund. Critical civic works across departments including road restoration, stormwater drain replacement, and footpath encroachment removal remain significantly behind schedule, raising concerns about the city's readiness for the monsoon season.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Raps NTA Over NEET-UG 2026 Cancellation, Seeks Status Report on Reforms</div>
+      <div class="nsum">The Supreme Court expressed serious concern over the cancellation of NEET-UG 2026 following fresh paper leak allegations, observing that the National Testing Agency appeared not to have learned its lesson from the 2024 controversy. A bench of Justices P S Narasimha and Alok Aradhe issued notices on petitions filed by doctors' bodies and students seeking either replacement or dissolution of the NTA, and demanded a status report on the implementation of the Radhakrishnan Committee's reform recommendations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Petrol Crosses Rs 102 in Delhi After Fourth Fuel Price Hike in Two Weeks</div>
+      <div class="nsum">Fuel retailers have raised petrol by approximately Rs 7.38 per litre and diesel by Rs 7.52 per litre across four revisions since May 15, pushing petrol prices in Delhi past the Rs 102 mark for the first time in years. The sharp catch-up revisions come after oil marketing companies like IOC, BPCL, and HPCL had absorbed mounting losses due to surging global crude oil prices driven by geopolitical tensions around the Strait of Hormuz.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Orders Delhi Gymkhana Club to Vacate 27.3-Acre Lutyens' Delhi Premises by June 5</div>
+      <div class="nsum">The Union Government has directed the Delhi Gymkhana Club to vacate its sprawling 27.3-acre premises in Lutyens' Delhi by June 5, citing defence infrastructure needs, public security requirements, and governance concerns. The Club has legally challenged the directive in court, with its counsel telling the Supreme Court that a plea for conciliation has been made, and the Attorney General indicating the government is willing to consider the request.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RVNL Shares Slump 4% as Q4 FY26 Net Profit Plunges 59% Year-on-Year to Rs 187 Crore</div>
+      <div class="nsum">Rail Vikas Nigam Ltd's shares fell 4% to Rs 261.05 on May 26 after the state-run Navratna company posted a steep 58.92% year-on-year drop in consolidated net profit to Rs 187.07 crore in Q4 FY26, badly missing analyst estimates. Revenue from operations grew a modest 4.18% to Rs 6,695.91 crore, while EBITDA margins contracted sharply to 4.01% from 6.79% a year ago, adding to pressure on a stock already down over 26% year-to-date in 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Foreign Investors Pull $24 Billion from Indian Equities in 2026 as AI Boom Fuels East Asian Rally</div>
+      <div class="nsum">A global AI-led market shift is driving massive foreign capital outflows from India toward East Asian technology hubs, with overseas investors pulling nearly $24 billion from Indian equities so far this year. Fuelled by the AI boom and a sharp rally in Taiwan Semiconductor Manufacturing Company, Taiwan has overtaken India as the world's fifth-largest stock market, while analysts warn that elevated crude prices, a weaker rupee, and rising inflation are further pressuring corporate profits heading into Q1 FY27.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges 1.5% to 76,550 on Hopes of US–Iran Peace Deal and Easing Oil Prices</div>
+      <div class="nsum">India's BSE Sensex jumped over 1,100 points on May 25 to close at 76,550, its highest level since early May, as investor sentiment improved sharply on reports that the US and Iran had largely negotiated a memorandum of understanding aimed at reopening the Strait of Hormuz. Heavyweight financials led the rally, with HDFC Bank, ICICI Bank, and Bajaj Finance each rising over 2.5%, though analysts caution that a Q1 FY27 earnings downgrade cycle remains a significant market concern.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / NewsBytesApp</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Neocambrian AI Launches India's First Robotics Data Factory to Train Physical AI Models</div>
+      <div class="nsum">Neocambrian AI, founded by Abhinav Kukreja, officially launched India's first robotics data factory on May 26, aiming to build massive real-world human action datasets to train robots and embodied AI systems using motion tracking hardware, egocentric video capture rigs, and stereo capture systems. The startup argues that India's large, diverse, and cost-effective workforce makes it an ideal hub for generating the kind of physical-world training data for humanoid robots that large language model datasets were for generative AI.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Krutrim Pivots from AI Model Building to Cloud Services After Layoffs and Business Overhaul</div>
+      <div class="nsum">Bengaluru-based Krutrim, India's first GenAI unicorn founded by Bhavish Aggarwal, announced it is shifting its focus from building large language models to offering cloud services, following a late-2025 business overhaul that included reallocating capital, pausing chip design efforts, and cutting over 200 roles. The startup reported FY26 revenue of around Rs 3 billion — a threefold increase year-on-year — along with its first annual net profit, but its absence from the India AI Impact Summit contrasted sharply with rival Sarvam AI, which unveiled new open-source models at the event.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / BharatFast</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs, Cementing Lead as India's Sovereign AI Champion</div>
+      <div class="nsum">Sarvam AI, the startup chosen by the central government under the IndiaAI Mission to build India's first homegrown sovereign large language model, unveiled two new models — Sarvam-30B and Sarvam-105B — at the India AI Impact Summit 2026, with the 105B model described as the current gold standard for Indian languages. The India AI market, backed by NITI Aayog's roadmap and a Union Budget tax holiday for foreign cloud companies using Indian data centres, is projected to reach $126 billion by 2030 with a potential GDP impact of $1.7 trillion by 2035.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Launches New Military Strikes on Iran as Ceasefire Talks Continue and Internet Blackout Lifts</div>
+      <div class="nsum">The US military launched fresh attacks on Iranian missile sites and naval assets even as ceasefire negotiations continued, with Secretary of State Rubio asserting the Strait of Hormuz would be reopened 'one way or the other.' Meanwhile, Iran partially lifted its 87-day nationwide internet blackout, with First Vice President Mohammad Reza Aref stating the move fulfils a government promise and will facilitate smart services and knowledge-based development.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Kyiv Independent / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Launches Largest-Ever Missile and Drone Attack on Kyiv, Killing Four and Damaging Every District</div>
+      <div class="nsum">Russia fired 90 missiles and 600 drones at Kyiv in an overnight assault on May 24 — described by city officials as the largest single attack on the capital in the entire full-scale war — killing at least four people, wounding over 100, and causing damage in every district of the city. The strike included the use of the Oreshnik hypersonic ballistic missile for only the third time in the war, while Russia's Foreign Minister Lavrov subsequently warned the US of planned future strikes on Kyiv's 'decision-making centers.'</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nearly Two Million Muslim Pilgrims Gather on Mount Arafat for Pinnacle of Hajj 2026</div>
+      <div class="nsum">Close to two million Muslim pilgrims from over 150 countries gathered on the vast plain of Arafat in Saudi Arabia on May 27 for the holiest day of the annual Hajj pilgrimage, standing in prayer under blazing sun in one of the largest human gatherings on earth. Indian religious bodies had earlier confirmed that Eid al-Adha would be celebrated on May 28, 2026, following the non-sighting of the Dhul-Hijjah crescent moon.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 27 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
