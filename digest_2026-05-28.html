@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 28, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 28 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 28 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Submits ₹19,700 Crore DPR for Bengaluru–Tumakuru Metro Corridor Under PPP Model</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has submitted a Detailed Project Report to the Karnataka government for a proposed 60-km metro corridor connecting Madavara (BIEC) to Tumakuru via Nelamangala, Dabaspet and Kyathasandra, with 16 stations and an estimated travel time of 59 minutes. The project, pegged at approximately ₹19,700 crore under a Public-Private Partnership framework, is now awaiting Karnataka Cabinet approval, with construction expected to take four to five years if greenlit.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Wikipedia (Namma Metro)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Safety Trials Near Completion; Partial Launch on Bannerghatta Road Corridor Imminent</div>
+      <div class="nsum">The Research Designs and Standards Organisation (RDSO) completed safety trials on the 7.5-km elevated section of Namma Metro's Pink Line along Bannerghatta Road, with BMRCL officials confirming that the partial corridor from Kalena Agrahara to Tavarekere is set to open to commuters by end of May 2026. The 21.25-km Pink Line, connecting the city's south to Nagawara in the north with 18 stations, has been long awaited after multiple deadline extensions due to tunnelling and land acquisition challenges in dense urban zones.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Observes Eid-ul-Adha Holiday; BWSSB OTS Scheme Collects ₹12.15 Crore in Initial Phase</div>
+      <div class="nsum">May 28 is a public holiday across Karnataka, including Bengaluru, for Bakrid (Eid-ul-Adha), with banks, schools, and government offices remaining closed for the day. Separately, the BWSSB's One-Time Settlement scheme has seen strong public response, collecting ₹12.15 crore in its initial phase as Bengaluru residents clear pending water board dues.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Bar &amp; Bench</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Upholds Validity of Special Intensive Revision of Electoral Rolls in Landmark Verdict</div>
+      <div class="nsum">A three-judge Supreme Court bench led by Chief Justice Surya Kant upheld the constitutional validity of the Election Commission of India's Special Intensive Revision (SIR) of electoral rolls, ruling it is empowered under Article 324 and the Representation of the People's Act to conduct such an exercise. The court rejected opposition claims that the SIR was an overreach targeting vulnerable voters in Bihar, ruling it was a proportionate measure with adequate procedural safeguards to ensure accurate, up-to-date voter lists.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Celebrates Eid-ul-Adha (Bakrid) on May 28; Banks and Stock Markets Shut Across Multiple States</div>
+      <div class="nsum">Eid-ul-Adha, known as Bakrid in India, is being celebrated across most of the country on May 28, 2026, after moon-sighting announcements revised the date from May 27 in several states including Delhi, Karnataka, Telangana, West Bengal, and Haryana. The festival has triggered bank and stock market closures nationwide, with NSE and BSE remaining fully shut for the day — the second market holiday in May after the Maharashtra Day closure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / NDTV Profit</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Government Plans ₹10,000 Crore LIC Stake Sale as Early as June to Kickstart FY27 Disinvestment Drive</div>
+      <div class="nsum">The Centre is preparing to sell a 1.5–2% stake in Life Insurance Corporation of India (LIC) through an Offer for Sale targeted at institutional investors, aiming to raise up to ₹10,000 crore as early as June or July 2026, marking the beginning of an ambitious ₹80,000-crore FY27 disinvestment strategy. The government has also shortlisted Coal India, Indian Overseas Bank, and IRFC for phased stake sales, with Finance Minister Nirmala Sitharaman confirming continuity in the asset-monetisation agenda despite slower progress in FY26.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Adani Power Overtakes Infosys in Market Cap, Becomes India's 11th Most Valued Company</div>
+      <div class="nsum">Adani Power's market capitalisation surged to ₹4.77 lakh crore, overtaking Infosys (₹4.69 lakh crore) to become the 11th largest listed company in India by market cap, driven by a 67% stock rally in 2026 on the back of strong Q4 earnings and rising power demand amid intense heatwaves. In contrast, Infosys shares have slipped 29% this year, weighed down by AI-led disruption fears, weak revenue growth guidance, and currency headwinds, reflecting a broader market pivot from technology names toward domestic energy and infrastructure stocks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Sakshi Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSE and NSE Remain Shut on May 28 for Bakrid; MCX Operates Partial Evening Session</div>
+      <div class="nsum">Indian benchmark indices — the Sensex and Nifty50 — along with all equity, derivatives, and securities lending segments on BSE and NSE are fully closed on Thursday, May 28, 2026, for the Bakrid (Eid-ul-Adha) holiday, making it the second market holiday in May and the ninth of 2026. The Multi Commodity Exchange (MCX) will remain shut during the morning session from 9 AM to 5 PM but will resume trading in the evening session from 5 PM to 11:30/11:55 PM; normal market activity across all exchanges resumes on Friday, May 29.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Apollo Micro Systems Surges 40% in Seven Sessions on Strong Q4 FY26 Results</div>
+      <div class="nsum">Shares of Apollo Micro Systems have continued their strong post-results rally, rising nearly 40% across seven trading sessions following the company's announcement of robust Q4 FY2026 financial results, making it one of the top-performing defence-tech stocks on Indian markets this month. The rally reflects growing investor appetite for domestic defence and electronics manufacturing companies as India accelerates its indigenous defence production push under the Atmanirbhar Bharat policy.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Krutrim, India's First GenAI Unicorn, Pivots from AI Model Development to Cloud Services</div>
+      <div class="nsum">Bengaluru-based Krutrim, India's first generative AI unicorn founded by Bhavish Aggarwal, has formally announced a strategic shift away from building large-scale AI foundation models toward offering cloud services, following a business overhaul in late 2025 that included pausing chip design efforts and reallocating capital and talent. The company reported revenues of approximately ₹3 billion in FY26 — a threefold increase year-on-year — along with its first annual net profit, though it declined to specify how much of this came from external customers versus its parent Ola's ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Free Press Journal / BW Disrupt</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs Under India's ₹10,000 Crore IndiaAI Mission</div>
+      <div class="nsum">Bengaluru-based Sarvam AI, selected by the Government of India as the first startup from 67 applicants to build the country's sovereign large language model under the IndiaAI Mission, unveiled two flagship LLMs — a 30-billion-parameter model for real-time conversations and a 105-billion-parameter model for complex enterprise reasoning — both trained from scratch on Indian language data using government-provided GPU infrastructure. Both models have been open-sourced under the Apache License on Hugging Face, with benchmarks showing competitive performance against global models such as Mistral, Qwen, and GPT-OSS, and Sarvam AI is now in talks for a $250 million funding round that would value it at $1.5 billion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BharatFast / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Market Projected to Reach $126 Billion by 2030 as Q1 2026 Startup Funding Hits $3.9 Billion</div>
+      <div class="nsum">According to the Google and Inc42 Bharat AI Startups Report 2026, India's AI market is on track to become a $126 billion opportunity by 2030, with a potential GDP impact of $1.7 trillion by 2035, as enterprise AI leads growth and consumer AI scales on the back of strong adoption. Indian startups raised nearly $3.9 billion in Q1 2026 alone, with AI accounting for 38% of total startup funding at $1.48 billion — underscoring surging investor confidence and the Centre's projection that the sector could attract over $200 billion in capital over the next two years.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US and Iran Near Peace Memorandum of Understanding as Strait of Hormuz Dispute Persists</div>
+      <div class="nsum">The United States and Iran are negotiating a memorandum of understanding to convert their April ceasefire into a broader peace settlement, with President Trump declaring the agreement 'largely negotiated,' though key sticking points remain over the reopening of the Strait of Hormuz, Iran's uranium stockpile, and the scope of sanctions relief. Iranian officials have confirmed ongoing talks but pushed back on US claims, with Tehran insisting it has made no commitments on its nuclear programme and both sides continuing to dispute the draft MoU's terms on US troop positioning and the timeline for resolving nuclear issues.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Xinhua</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China Launches Shenzhou-23 Mission with Three Astronauts, Including First Hong Kong Astronaut; One Set for Year-Long Stay</div>
+      <div class="nsum">China successfully launched the Shenzhou-23 crewed spacecraft on May 24 from the Jiuquan Satellite Launch Center, sending three astronauts — commander Zhu Yangzhu, Zhang Zhiyuan, and Lai Ka-ying (the first astronaut from Hong Kong) — to its Tiangong space station to conduct over 100 science and application projects. One astronaut is scheduled for a year-long stay in orbit to explore human adaptability and performance limits in long-duration spaceflight, ahead of China's ambitious goal of achieving its first crewed lunar landing before 2030.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Europe Hit by Record May Heatwave as London and France Log Unprecedented High Temperatures</div>
+      <div class="nsum">Europe is experiencing a severe and record-breaking heatwave in late May 2026, with London recording temperatures of 95°F (35°C) for consecutive days — an extraordinary event for the month — and cities in France also logging temperatures far above historical averages. Climate experts have warned that such extreme and unpredictable weather events are becoming increasingly frequent, with governments issuing public health warnings and urging residents to take precautions against the prolonged heat.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 28 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
