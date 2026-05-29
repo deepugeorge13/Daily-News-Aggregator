@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 29, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 29 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 29 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Submits DPR for Rs 19,000 Crore Bengaluru–Tumakuru Metro Corridor Under PPP Model</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has submitted the Detailed Project Report (DPR) for a nearly 60 km metro extension from Madavara (BIEC) to Tumakuru via Nelamangala and Dobbspet to Karnataka Home Minister G. Parameshwara. The project, estimated between Rs 17,785 crore and Rs 19,361 crore under alternate funding structures, will now be placed before the Karnataka Cabinet for approval, with construction expected to take four to five years if greenlit.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Republic World / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Siddaramaiah Resigns as Karnataka CM, Clears Way for DK Shivakumar to Take Charge</div>
+      <div class="nsum">Karnataka Chief Minister Siddaramaiah officially resigned on May 28, submitting his resignation to the Governor's office at Lok Bhavan in Bengaluru around 3 PM, following directives from the Congress high command. Deputy CM DK Shivakumar, who accompanied Siddaramaiah during the submission, is set to be sworn in as Karnataka's next Chief Minister, ending a prolonged internal tussle over rotational chief ministership within the state Congress unit.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live / The Hans India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BWSSB Ranked Among World's Top 5 Water Utilities at Global Water Summit 2026 in Madrid</div>
+      <div class="nsum">The Bangalore Water Supply and Sewerage Board (BWSSB) has made history by becoming the only Indian water utility to be recognised in three major categories at the prestigious Global Water Summit 2026 held in Madrid from May 18–20. BWSSB secured a top-5 global ranking in the 'Utility of the Year' category, with its flagship Cauvery Stage-V Drinking Water Project also placing among the top five globally under the 'Water Project of the Year' award.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Congress High Command Proposes DK Shivakumar as Karnataka CM After Siddaramaiah's Exit</div>
+      <div class="nsum">The Congress central leadership, following back-to-back meetings in Delhi involving Rahul Gandhi and AICC President Mallikarjun Kharge, directed Siddaramaiah to step down and nominated Deputy CM DK Shivakumar as his successor. Siddaramaiah declined an offered Rajya Sabha seat, stating he wishes to remain in active state politics, and departed for Delhi shortly after his resignation to discuss the new cabinet formation with the Congress high command.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NEET UG 2026 Re-Examination Scheduled for June 21; CBI Arrests Two in Exam Leak Case</div>
+      <div class="nsum">The NEET UG 2026 re-examination has been officially scheduled for June 21, 2026, with the city intimation slip for candidates expected to be released by May 31. The Central Bureau of Investigation (CBI) arrested two accused individuals for their alleged involvement in the leak and dissemination of the NEET examination paper, intensifying the crackdown on the high-profile exam fraud case.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">upGrad to Acquire Unacademy in All-Stock Deal Worth Rs 2,055 Crore, Awaiting CCI Nod</div>
+      <div class="nsum">India's edtech sector has seen its biggest consolidation move as upGrad signed a definitive term sheet to acquire rival Unacademy in a 100% share-swap transaction valued at approximately Rs 2,055 crore (~$218 million), marking a near 90% discount to Unacademy's 2021 peak valuation of $3.4 billion. The combined entity will focus on enterprise learning, global education markets, and AI-driven solutions, with Unacademy co-founder Gaurav Munjal continuing to lead the platform post-acquisition, subject to Competition Commission of India (CCI) approval.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Adani Power Overtakes Infosys in Market Cap, Becomes India's 11th Most Valuable Firm</div>
+      <div class="nsum">Adani Power surpassed IT major Infosys in market capitalisation to claim the 11th position among BSE-listed companies, with its market cap reaching Rs 4.77 lakh crore against Infosys's Rs 4.69 lakh crore. The energy company's stock has surged 67% in 2026, driven by rising power demand, strong Q4 FY26 earnings with EBITDA of Rs 6,498 crore (up 27% YoY), and aggressive capacity expansion plans from 18.2 GW to 42 GW by FY32, while Infosys shares have fallen 29% amid AI-led disruption fears.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty Midcap 100 Hits All-Time High of 62,299 for Fourth Consecutive Session</div>
+      <div class="nsum">The Nifty Midcap 100 index scaled a fresh record high of 62,299 on May 26, rising 0.54% even as the Sensex fell 479 points to 76,009 and Nifty slipped 118 points amid fresh US strikes on Iran dampening peace deal hopes. Market experts attribute the midcap rally to strong domestic retail and HNI buying, sectoral diversity, and robust DII inflows, with the index now up 18.3% in the current financial year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">MobiKwik Receives RBI In-Principle Approval for Offline Payment Aggregator (PA-P) Licence</div>
+      <div class="nsum">Fintech firm MobiKwik received the Reserve Bank of India's in-principle approval for a Payment Aggregator-Physical (PA-P) licence on May 25, 2026, enabling it to aggressively scale its offline merchant payments business across India. The company, which currently serves 4.9 million merchants through UPI QR codes, Soundbox devices, and EDC machines, is targeting 10x growth in its merchant business by FY28, focusing on small businesses, oil and gas outlets, and organised retail over the next 18–24 months.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Open-Sources Sarvam-30B and Sarvam-105B LLMs Under IndiaAI Mission, Enters Unicorn Talks</div>
+      <div class="nsum">Bengaluru-based Sarvam AI released two foundational open-source large language models — Sarvam-30B and Sarvam-105B — trained from scratch under the government-backed IndiaAI Mission, with both models supporting all 22 official Indian languages and available under the Apache 2.0 licence on Hugging Face and AIKosh. The startup is reportedly in advanced talks for a $250 million funding round led by NVIDIA, Accel, and HCLTech that would catapult its valuation to $1.5 billion, reflecting India's fast-growing sovereign AI ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Blackstone Press Release</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Neysa Raises $1.2 Billion Led by Blackstone to Build India's Sovereign AI Cloud Infrastructure</div>
+      <div class="nsum">Mumbai-based AI cloud infrastructure startup Neysa secured a landmark $1.2 billion capital raise — $600 million in equity led by Blackstone along with Teachers' Venture Growth, TVS Capital, and Nexus Venture Partners, plus $600 million in planned debt financing — to scale its GPU-first cloud platform for Indian enterprises and government agencies. The company plans to deploy over 20,000 GPUs in India, accounting for roughly a third of the country's high-end AI compute capacity, positioning itself as the domestic alternative to global hyperscalers like AWS and Azure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indiablooms / StartupTalky</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">upGrad Appoints New CFO as Rs 2,055 Crore Unacademy Acquisition Awaits CCI Clearance</div>
+      <div class="nsum">As its all-stock acquisition of Unacademy moves toward regulatory clearance, edtech firm upGrad appointed Mukesh Mundra as its new CFO — joining from JioStar where he headed finance and previously served as CFO of Viacom18. The combined upGrad-Unacademy entity, valued at around $2.25 billion, will focus on AI-driven learning solutions and enterprise education, with upGrad also reportedly having turned profitable in the first 11 months of FY26 with a profit of Rs 38 crore on revenue of Rs 1,532 crore.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hill / Axios</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US and Iran Reach Tentative 60-Day Ceasefire Extension Deal to Reopen Strait of Hormuz</div>
+      <div class="nsum">The United States and Iran have struck a tentative agreement on a 60-day memorandum of understanding (MOU) to extend their fragile ceasefire and begin the reopening of the Strait of Hormuz, through which 20% of the world's oil and gas supply flows — though the deal still awaits final approval from both President Trump and senior Iranian leadership. Under the draft framework, Iran would demine the waterway, refrain from imposing tolls on commercial ships, and commit to nuclear negotiations, while the US would lift its blockade on Iranian ports and issue sanctions waivers allowing Iran to sell oil freely.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WHO / CDC / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ebola Bundibugyo Outbreak in DRC and Uganda Surpasses 1,200 Cases; WHO Declares PHEIC</div>
+      <div class="nsum">The Ebola outbreak caused by the Bundibugyo virus in the Democratic Republic of Congo's Ituri Province — the country's 17th recorded Ebola outbreak — has spread to North Kivu, South Kivu, and Uganda's capital Kampala, with 1,205 suspected and confirmed cases and at least 264 deaths reported as of May 27, 2026. The World Health Organization declared the epidemic a Public Health Emergency of International Concern (PHEIC) on May 16, with response efforts severely hampered by active armed conflict in eastern DRC restricting humanitarian access; no approved vaccine or specific treatment exists for the Bundibugyo strain.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Restores Internet Access After Monthslong Shutdown as US-Iran Peace Talks Continue</div>
+      <div class="nsum">Iranians began to regain internet access on May 28 after authorities ended a monthslong nationwide shutdown that had been in place since the outbreak of the US-Iran conflict, though service remained slow and spotty in some areas with apps like YouTube and Instagram heavily restricted. The restoration comes as US and Iranian negotiators, mediated by Pakistan and Qatar, continue talks to finalise a deal to extend the ceasefire and reopen the Strait of Hormuz, with PBS NewsHour reporting on May 29 that both sides are closing in on a final agreement.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 29 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
