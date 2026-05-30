@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 30, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 30 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 30 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Governor Accepts Siddaramaiah Resignation, DK Shivakumar Set to Become CM</div>
+      <div class="nsum">Karnataka Governor Thaawarchand Gehlot accepted Chief Minister Siddaramaiah's resignation on May 29 and dissolved the Council of Ministers with immediate effect, while Siddaramaiah continues in a caretaker role until new arrangements are made. Deputy Chief Minister DK Shivakumar is widely expected to be sworn in as the next Chief Minister, with the Congress Legislative Party meeting date to be finalised shortly.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Submits Rs 19,000 Crore Bengaluru–Tumakuru Metro Corridor DPR Under PPP Model</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has submitted a Detailed Project Report for a proposed 60-km metro corridor connecting Madavara (BIEC) to Tumakuru via Nelamangala, Dabaspet and Kyathasandra, with 16 stations and an estimated cost of approximately ₹19,700 crore under a Public-Private Partnership model. The report has been placed before the Karnataka government for Cabinet deliberation and approval, with construction expected to take four to five years if greenlit.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / NewSX</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Eyed for Solar Power as Pink Line Nears Launch</div>
+      <div class="nsum">BMRCL confirmed that the upcoming Blue Line, scheduled for completion by December 2027, is projected to become one of Karnataka's largest public infrastructure electricity consumers with an annual demand of 152 GWh, and that running it entirely on solar power would require significant policy and infrastructure changes. Meanwhile, the Namma Metro Pink Line is advancing toward a partial launch, with pre-monsoon showers bringing relief to Bengaluru as the city records cloudy skies and light thunderstorms.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Issues Nationwide Heatwave Advisory as Temperatures Soar Past 47°C</div>
+      <div class="nsum">Prime Minister Narendra Modi urged citizens across India to stay hydrated and look out for vulnerable neighbours as a severe heatwave gripped large parts of north, central and eastern India, with Banda in Uttar Pradesh recording a peak of 47.4°C and the IMD issuing red, orange and yellow alerts across multiple states. Delhi implemented its Heatwave Action Plan 2026, distributing over 10 lakh ORS packets and deploying mobile heat relief vans, while the IMD also warned of delayed monsoon onset beyond its May 26 expected arrival in Kerala.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Singapore Court Sentences Byju's Founder Byju Raveendran to Six Months in Jail for Contempt</div>
+      <div class="nsum">A Singapore court sentenced Byju Raveendran, founder of the once-celebrated Indian edtech giant Byju's, to six months in jail for contempt of court after finding he had repeatedly defied multiple asset disclosure orders dating back to April 2024. Raveendran, whose whereabouts remain unclear, was also ordered to pay legal costs of S$90,000 and submit ownership documents for a Singapore entity; his lawyers said they would seek a stay and appeal the ruling.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Chairs 51st PRAGATI Meeting, Reviews Central and State Infrastructure Projects</div>
+      <div class="nsum">Prime Minister Narendra Modi chaired the 51st meeting of PRAGATI, the ICT-enabled multi-modal governance platform designed to foster pro-active implementation by integrating efforts of central and state governments. The meeting reviewed major ongoing infrastructure and public service delivery projects, underscoring the Centre's focus on timely project completion ahead of the Union Budget cycle.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSE Sensex Ends May With Modest 0.8% Monthly Gain Amid Geopolitical Jitters and Foreign Outflows</div>
+      <div class="nsum">India's BSE Sensex closed the month of May with a slim gain of approximately 0.8%, closing around 75,868 points, as persistent geopolitical uncertainty surrounding US-Iran tensions and sustained foreign institutional outflows weighed on market sentiment. HDFC Bank was the top loser after reports of alleged illegal payments worth ₹450 million to a state department, while Power Grid, NTPC and Wipro were among the top gainers for the period.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tesla Launches 2026 Model Y Premium RWD in India Priced at Rs 50.89 Lakh</div>
+      <div class="nsum">Tesla introduced the 2026 Model Y Premium Rear-Wheel Drive variant in India, featuring an enhanced interior design, a 16-inch touchscreen, 2,138 litres of storage space and a claimed range of 500 km, priced at ₹50.89 lakh. The launch marks Tesla's continued push into the Indian EV market as competition from domestic and global electric vehicle makers intensifies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PC Jeweller Shares Surge 14% on 58% Jump in Q4 Net Profit; SEBI Eases Demat Nomination Norms</div>
+      <div class="nsum">Shares of PC Jeweller jumped 14% after the company reported a 58% year-on-year rise in Q4 net profit to ₹150 crore, with quarterly revenue climbing 33% to ₹927 crore on strong consumer demand, pushing full-year FY26 revenue up 49% to ₹3,353 crore. Separately, SEBI announced relaxed nomination norms for demat accounts and mutual funds effective September 1, 2026, simplifying documentation and enabling digital submission processes.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wipro Newsroom / CXO Digital Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Wipro Expands ServiceNow Partnership to Deploy Agentic AI Workflows Across Enterprise Functions</div>
+      <div class="nsum">Wipro Limited announced on May 28 an expanded partnership with ServiceNow to implement and scale agentic AI workflows across core enterprise functions including IT, HR, procurement and cybersecurity, integrating its Wipro Intelligence™ platform with the ServiceNow AI Platform. Wipro shares rose over 3% and its US-listed ADRs surged as much as 18.5% following the announcement, reflecting strong investor optimism about the deal's potential to accelerate AI-led enterprise transformation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's First GenAI Unicorn Krutrim Pivots from AI Model Development to Cloud Services</div>
+      <div class="nsum">Krutrim, India's first GenAI unicorn founded by Bhavish Aggarwal, announced a strategic pivot from large-scale AI model development toward cloud services, following a business overhaul in late 2025 that included reallocating capital and talent and pausing chip design efforts. The Bengaluru-based startup reported approximately ₹3 billion in revenue for FY26 — a threefold increase year-on-year — along with its first annual net profit and margins exceeding 10%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / IndianStartupNews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Infosys Co-Founder Nandan Nilekani Joins as Anchor Investor in Rs 2,000 Crore AI and Deeptech Fund</div>
+      <div class="nsum">Infosys co-founder Nandan Nilekani has joined as an anchor investor in F2A's ₹2,000 crore AI and deeptech fund, signalling growing confidence in India's next generation of deep-technology startups. The move comes as India's IndiaAI Mission continues to onboard over 38,000 high-end GPUs available at ₹65 per hour and has selected 12 startups and institutions — including Sarvam AI, Gnani AI and Fractal Analytics — for foundational AI model development.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Democracy Now</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Strikes Iran Again Even as Peace Talks Continue; Strait of Hormuz Remains at Centre of Negotiations</div>
+      <div class="nsum">The United States carried out fresh strikes on Iran even as diplomatic negotiations continued to end the conflict and reopen the Strait of Hormuz, with Vice President JD Vance stating only a few language points remain unresolved while Iranian sources disputed media reports on the proposed agreement. Iran's Revolutionary Guard Corps confirmed a retaliatory attack on a US air base, and Iran's president ordered the creation of alternative trade corridors to reduce dependence on the Strait of Hormuz.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russian Drone Crashes Into Romanian Apartment Building, Injuring Two Near Ukraine Border</div>
+      <div class="nsum">A Russian drone that was part of an overnight attack on Ukraine veered off course and crashed into an apartment building in Galati, eastern Romania near the Ukrainian border, injuring two people and triggering a fire. Romanian authorities confirmed the incident, raising fresh alarm within NATO about the spillover risks of Russia's ongoing aerial campaign against Ukraine.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CBS News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">WHO Chief Arrives in Congo as Ebola Outbreak Spreads; US Drug-Boat Strike Death Toll Tops 200</div>
+      <div class="nsum">The Director-General of the World Health Organization, Tedros Adhanom Ghebreyesus, travelled to Kinshasa, Congo, to personally oversee the response to an outbreak of a rare strain of Ebola virus, with the gold-mining town of Mongbwalu identified as the emerging epicentre. In a separate development, the death toll from US military strikes on alleged drug-trafficking vessels in the Caribbean and eastern Pacific climbed above 200, drawing scrutiny over the evidence and legal basis for the ongoing campaign.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 30 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
