@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — May 31, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 31 May 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 31 May 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / YoMetro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Submits Rs 19,000 Crore Bengaluru–Tumakuru Metro Corridor DPR Under PPP Model</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has submitted a Detailed Project Report for a nearly 60-km metro corridor from Madavara (BIEC) to Tumakuru via Nelamangala, Dobbspet, and Kyathasandra, estimated at up to Rs 19,361 crore under a Viability Gap Funding-based PPP model. The DPR, now placed before the Karnataka Cabinet for deliberation, proposes 16 stations with an estimated travel time of 59 minutes, and construction is expected to take four to five years if approved.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / News First Prime</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 on Bannerghatta Road Inches Towards May 2026 Launch</div>
+      <div class="nsum">The BMRCL's Pink Line elevated stretch of 7.5 km from Kalena Agrahara to Tavarekere along Bannerghatta Road is on the verge of its long-awaited public launch this month, pending Commissioner of Metro Railway Safety (CMRS) clearance. The first phase covers six stations including Jayadeva Hospital, JP Nagar 4th Phase, IIMB, and Hulimavu, with the full 21.25-km underground line through to Nagawara targeted for completion in December 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line's Full Solar Power Switch Would Require Major Policy and Infrastructure Overhaul, Says BMRCL</div>
+      <div class="nsum">BMRCL has stated that running the upcoming Blue Line entirely on solar power would necessitate significant policy changes and infrastructure upgrades, given the line's projected annual electricity demand of 152 GWh once fully operational by December 2027. Officials noted the Blue Line is set to become one of Karnataka's largest public infrastructure electricity consumers, making green energy sourcing a major planning challenge for the metro authority.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / PTI / The Federal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India and US Sign Bilateral Critical Minerals Framework at Quad Foreign Ministers' Meeting in New Delhi</div>
+      <div class="nsum">External Affairs Minister S. Jaishankar and US Secretary of State Marco Rubio signed a landmark bilateral Critical Minerals Cooperation Framework in New Delhi on May 26, 2026, on the sidelines of the Quad foreign ministers' meeting, aimed at securing supply chains for mining and processing of critical minerals and rare earths. The deal, which covers mining, processing, recycling, and related investments, comes amid growing concerns over China's dominance in rare earth exports and builds on India's earlier signing of the US-led Pax Silica initiative in February 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / ProKerala</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Posts All-Time High Foodgrain Production of 376.56 Million Tonnes in 2025–26</div>
+      <div class="nsum">India's Ministry of Agriculture released its third advance estimates showing total foodgrain production surged 5.3% to a historic 376.563 million tonnes in 2025–26, up from 357.732 million tonnes the previous year. Rice production hit 154.024 million tonnes, wheat reached a record 120.657 million tonnes, and maize achieved a historic high of 55.093 million tonnes, with Agriculture Minister Shivraj Singh Chouhan calling it the highest-ever output in the country's history.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Insights on India / UPSC Current Affairs</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Proposes Universal 'Kill Switch' for Digital Payments to Combat Cyber Fraud</div>
+      <div class="nsum">The Reserve Bank of India has proposed a universal 'Kill Switch' framework for digital payments that will cover the entire electronic spectrum, including UPI, IMPS, and NEFT — going beyond existing tools restricted to debit and credit cards. The mechanism is designed to give victims an immediate way to block fraudulent transactions during digital arrest scams and other cyber frauds, strengthening trust in India's fast-growing digital payments ecosystem.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Tumbles 1.44% on MSCI Rebalancing, Closes May with 2.8% Monthly Loss</div>
+      <div class="nsum">India's BSE Sensex closed at 74,776 points on May 29, 2026, shedding 1.44% in a sharp late-session selloff triggered by MSCI Global Standard Index rebalancing, which drove an estimated $800 million to $1 billion in foreign passive outflows from Indian equities. Most sectors came under pressure, with Power Grid, NTPC, IndiGo, M&amp;M, and Tata Steel among the biggest laggards, while technology stocks showed relative resilience amid optimism around AI.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bank of America Forecasts Rupee to Weaken to 98 Per Dollar by End of 2026</div>
+      <div class="nsum">Bank of America has projected the Indian rupee will weaken to around 98 per US dollar by the end of 2026, and further slip to 99 over the following 12 months, citing persistent foreign institutional investor outflows and global uncertainties. The forecast adds to investor caution already heightened by geopolitical tensions, the MSCI rebalancing impact, and concerns over weaker-than-normal monsoon forecasts that could stoke domestic inflation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Univest / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Wipro Announces Rs 15,000 Crore Share Buyback at Rs 250 Per Share Ahead of June 5 Record Date</div>
+      <div class="nsum">Wipro has set June 5, 2026 as the record date for a Rs 15,000 crore buyback of up to 60 crore equity shares at Rs 250 per share, representing a 16.3% premium over the market price — the buyback constitutes 5.72% of the company's total paid-up equity share capital. The announcement, combined with Wipro's expanded agentic AI partnership with ServiceNow, sent the company's shares surging up to 4.7% on the BSE and drove its US-listed ADRs up 18.54% on the NYSE.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wipro Newsroom / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Wipro Expands ServiceNow Partnership to Deploy Agentic AI Workflows Across Enterprise IT, HR, Procurement and Cybersecurity</div>
+      <div class="nsum">Wipro announced an expanded partnership with ServiceNow on May 28, 2026, integrating its Wipro Intelligence™ AI platform suite with the ServiceNow AI Platform to implement and scale agentic AI workflows across core enterprise functions including IT, HR, procurement, and cybersecurity. The collaboration, which includes solutions like SmartProcure, Telco Autonomous Networks, and Cyber Transform, is designed to reduce manual coordination, accelerate turnaround times, and enhance operational governance for enterprises at scale.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Krutrim, India's First GenAI Unicorn, Pivots from AI Model Development to Cloud Services</div>
+      <div class="nsum">Bengaluru-based Krutrim, India's first GenAI unicorn founded by Bhavish Aggarwal of Ola, has announced a strategic pivot from building large language models to offering cloud services, following a business overhaul in late 2025 that included reallocating capital, pausing chip design efforts, and restructuring talent. Despite the pivot, Krutrim posted its first annual net profit in FY2026 with revenue of approximately ₹3 billion — a threefold year-on-year increase — and profit margins exceeding 10%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Free Job Alert / Insights on India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Odisha Signs Rs 2,000 Crore MoU with Intel and 3D Glass Solutions for India's First Advanced 3D Chip Packaging Unit</div>
+      <div class="nsum">The Odisha government signed a landmark MoU with Intel and 3D Glass Solutions on May 30, 2026, to introduce semiconductor substrate manufacturing technology in India, with an investment of approximately Rs 2,000 crore at Info Valley, Bhubaneswar. The project will establish India's first advanced 3D chip packaging unit, aligning with NITI Aayog's semiconductor roadmap targeting a $120–150 billion domestic chip ecosystem by 2035.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / AFP / The National</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israeli Forces Cross Lebanon's Litani River for First Time Since 2006, Encircle City of Nabatieh</div>
+      <div class="nsum">Israeli Prime Minister Benjamin Netanyahu confirmed on May 30, 2026, that Israeli forces had crossed the Litani River in southern Lebanon — breaching their self-declared buffer zone perimeter for the first time since 2006 — and are now on the outskirts of Nabatieh, a key economic and cultural hub of southern Lebanon. The military escalation came even as Israeli and Lebanese military delegations held landmark direct security talks at the Pentagon in Washington, with the next round of talks scheduled for June 2–3.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Xinhua / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China's Shenzhou-21 Astronauts Return to Earth After Record 210-Day Mission</div>
+      <div class="nsum">Three astronauts of China's Shenzhou-21 mission — Zhang Lu, Wu Fei, and Zhang Hongzhang — safely returned to Earth on May 30, 2026, after a record 210-day stay aboard China's space station, the longest single-crew mission in Chinese spaceflight history. The China Manned Space Agency confirmed all three crew members are in good health, calling the mission a complete success.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Defense Secretary Hegseth Raises 'Rightful Alarm' Over China's Military Buildup at Shangri-La Dialogue in Singapore</div>
+      <div class="nsum">US Defense Secretary Pete Hegseth addressed the 22nd Shangri-La Dialogue summit in Singapore on May 30, 2026, warning of 'rightful alarm' over China's military expansion while also striking a notably moderate tone on broader US-China relations and sidestepping the issue of Taiwan. The annual Asia-Pacific defense and security forum also addressed rising tensions in the Middle East and Russia's ongoing war on Ukraine, with defence ministers and officials from across the Indo-Pacific in attendance.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 31 May 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
