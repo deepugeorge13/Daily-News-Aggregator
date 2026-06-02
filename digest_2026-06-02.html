@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 2, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 2 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 2 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DK Shivakumar Set to Be Sworn In as Karnataka CM on June 3 at Lok Bhavan</div>
+      <div class="nsum">DK Shivakumar was unanimously elected as the Congress Legislature Party leader after outgoing CM Siddaramaiah proposed his name, paving the way for a leadership change in Karnataka. The swearing-in ceremony is scheduled for June 3 at 4:05 PM at Lok Bhavan in Bengaluru, with the event planned to be simple and without public fanfare.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Phase 3 Construction Kicks Off as BMRCL Pushes Expansion to 222 km by 2026</div>
+      <div class="nsum">BMRCL has shifted Phase 3 metro construction into gear, with the Cabinet-approved ₹15,611-crore project covering 44.65 km across two new elevated corridors. The long-awaited Kempegowda International Airport Blue Line, connecting the airport to the city centre, is also expected to open this month, part of a broader plan to expand Bengaluru's metro network to 222 km.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / India.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru on Monsoon Alert: BBMP Issued Deadline for Pothole Fixes as Southwest Rains Approach</div>
+      <div class="nsum">With the southwest monsoon expected to arrive imminently, Bengaluru's civic readiness is under scrutiny after 647 potholes were flagged by the joint traffic commissioner, prompting the Chief Secretary to direct the BBMP to carry out repairs within seven days from the disaster management fund. Critical inter-departmental works including stormwater drain replacement and road restoration remain significantly behind schedule, raising doubts about the city's full monsoon preparedness.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Southwest Monsoon Still Awaited Over Kerala; IMD Warns of Below-Normal 2026 Season Due to El Niño</div>
+      <div class="nsum">The India Meteorological Department confirmed on June 2 that conditions are favourable for the southwest monsoon to advance into Kerala within the next two to three days, after the onset was delayed from its earlier predicted date of May 26. The IMD has also revised its seasonal forecast downward, projecting India will receive only 90% of the Long Period Average rainfall this year, partly due to the emergence of El Niño conditions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of India / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India-US Trade Deal Closing In: First Tranche to Be Signed Soon as Four-Day Talks Conclude</div>
+      <div class="nsum">A US trade delegation visited India from June 1–4 to finalise details of the interim bilateral trade agreement, with the Centre stating that all major points have been settled and the first tranche is set to be signed soon. The framework, agreed upon in February 2026, includes a reduction of US reciprocal tariffs on Indian goods from 25% to 18% and covers market access, non-tariff measures, and economic security alignment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / The Quint</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Power Transition Complete: Siddaramaiah Steps Down After Congress High Command's Push</div>
+      <div class="nsum">Outgoing Chief Minister Siddaramaiah officially resigned from office, ending weeks of intense speculation over a leadership transition in Karnataka after he completed approximately three years of his term. The Congress party's central leadership facilitated the smooth handover to DK Shivakumar, with the formal resolution to elect him as CLP leader passed unanimously at the Vidhana Soudha.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NMDC Steel Shares Surge 18% to 52-Week High After Stunning Q4 FY26 Profit Turnaround</div>
+      <div class="nsum">NMDC Steel posted a net profit of ₹391.91 crore in Q4 FY26, swinging sharply from a loss of ₹473 crore in the same period last year, with full-year FY26 revenue jumping 60% to ₹13,641 crore. Shares surged nearly 18% to a fresh 52-week high on the NSE, driven by record production of 23.25 lakh metric tonnes and improved capacity utilisation of 80% at its Nagarnar Steel Plant.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Republic World / Tribune India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC Meeting Begins June 3; Markets Expect Repo Rate Held at 5.25% Amid Global Uncertainty</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee, chaired by Governor Sanjay Malhotra, convenes from June 3–5, with its policy decision to be announced on June 5 at 10 AM IST. A broad market consensus expects the repo rate to remain unchanged at 5.25% for the third consecutive meeting, as cooling crude oil prices ease inflationary pressure, though the West Asia conflict and domestic inflation trajectory remain key risks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slips 497 Points on Monday; IT Stocks Shine as FMCG and Auto Drag Market Lower</div>
+      <div class="nsum">The BSE Sensex fell 497 points or 0.66% to close at 74,279 on June 1, weighed down by losses in Hindustan Unilever, ITC, and Mahindra &amp; Mahindra amid uncertainty over the US-Iran peace deal and foreign outflows. IT majors bucked the trend, with Tech Mahindra rising 3.71%, Infosys 3.67%, and TCS 1.77%, as investors repositioned ahead of the RBI policy decision and key GDP data.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechnoSports / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Hit Record $5 Billion in Global Funding by June 2026, Driven by IndiaAI Mission</div>
+      <div class="nsum">Indian AI startups have secured a landmark $5 billion in global funding as of June 2026, placing India among the top three global AI investment destinations for 2025–26, fuelled by the government's IndiaAI Mission and surging private venture capital. Current funding rounds are heavily focused on generative AI, large language model research, and specialised hardware, with major domestic players like Reliance Industries and Tata Group also deepening their AI investments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches AI Immersion Program for Indian Startups, Kicking Off Virtual Sessions on June 2</div>
+      <div class="nsum">Google for Startups, in partnership with Antler India, launched an AI Immersion Program targeting up to 5,000 Indian founders across four online sessions starting June 2, focused on deepening AI implementation around infrastructure, product development, and go-to-market readiness. A second in-person phase will shortlist 25 startups for a residency day at Google's Bengaluru office on June 26, covering architecture reviews, fundraising guidance, and hands-on AI workshops.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs as India Pushes Sovereign AI Agenda</div>
+      <div class="nsum">Bengaluru-based Sarvam AI, selected by the Indian government to build the country's first homegrown sovereign large language model under the IndiaAI Mission, unveiled two new models — Sarvam-30B and Sarvam-105B — at the India AI Impact Summit 2026. The models have moved from experimental pilots to production-grade deployments in the banking and public services sectors, representing a major milestone in India's push for AI self-reliance.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / PBS NewsHour / Axios</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Peace Deal Hangs in Balance as Trump Weighs Final Approval on Nuclear Ceasefire MOU</div>
+      <div class="nsum">Negotiators from the US and Iran reached a tentative memorandum of understanding involving a 60-day ceasefire extension, the reopening of the Strait of Hormuz, and the start of nuclear talks, but Trump left a White House Situation Room meeting on May 30 without announcing final approval. The deal includes an Iranian commitment not to pursue nuclear weapons and discussions on disposing of Iran's stockpile of highly enriched uranium, though skirmishes in the Strait of Hormuz and Republican opposition continue to complicate finalisation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / NPR / CBS News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Colombia Presidential Race Goes to June 21 Runoff Between Pro-Trump Right-Winger and Leftist Senator</div>
+      <div class="nsum">Right-wing outsider Abelardo de la Espriella led Colombia's first-round presidential election on May 31 with around 44% of votes, falling short of an outright majority, setting up a runoff against leftist Senator Iván Cepeda, an ally of outgoing President Gustavo Petro, scheduled for June 21. The polarised race is seen as a referendum on Petro's 'total peace' policy and is expected to redefine Colombia's relationship with the United States on drug trafficking and security cooperation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel Expands Lebanon Offensive, Captures Historic Beaufort Castle as Middle East Conflict Widens</div>
+      <div class="nsum">Israeli forces captured the 12th-century Beaufort Castle in southern Lebanon, a strategically commanding hilltop position overlooking the border region, as Israel rapidly expanded its military offensive in Lebanon. Israeli officials describe the occupied adjacent territories in Gaza, Lebanon, and Syria as security buffer zones, while some voices within Israel advocate for permanently extending the country's borders.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 2 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
