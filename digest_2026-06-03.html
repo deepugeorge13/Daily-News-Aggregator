@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 3, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 3 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 3 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Airport Line on Track for June 2026 Opening as Phase 3 Construction Kicks Off</div>
+      <div class="nsum">The much-awaited Kempegowda International Airport Blue Line, spanning 58.19 km with 32 stations, is expected to open in June 2026, directly connecting the city centre to the airport. Simultaneously, BMRCL has begun Phase 3 construction — a two-elevated-route, 44.65 km project approved at an estimated cost of Rs 15,611 crore — though tree-cutting and land acquisition delays continue to slow progress.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Urban Acres / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Pothole Crisis Returns as Pre-Monsoon Rains Batter City Roads</div>
+      <div class="nsum">Seasonal rains have triggered a fresh wave of pothole complaints across Bengaluru, exposing persistent infrastructure maintenance gaps and raising concerns about urban mobility ahead of the full monsoon. BBMP faces renewed pressure from residents and civic groups to fast-track road repairs before the monsoon season intensifies in June and July.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMD / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Under Yellow Alert as Southwest Monsoon Set to Hit Kerala by June 4</div>
+      <div class="nsum">The India Meteorological Department confirmed that the southwest monsoon is primed to make its official onset over Kerala around June 4, 2026, slightly delayed from the normal June 1 arrival. Bengaluru has been placed under a Yellow Alert, with heavy pre-monsoon showers expected to intensify across the southern peninsula in the coming days.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMD / Free Press Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Declares Southwest Monsoon Onset Over Kerala Around June 4, Orange Alerts Issued Statewide</div>
+      <div class="nsum">The India Meteorological Department officially confirmed the southwest monsoon is set to arrive over Kerala around June 4, 2026, marking the start of India's crucial four-month rainy season. IMD scientist Neetha K Gopal warned that all parts of Kerala will be under Orange or Yellow alerts for the coming week, with hilly regions requiring special caution.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PRS India / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">131st Constitutional Amendment Bill Fails in Lok Sabha, Lok Sabha Expansion to 850 Seats Shelved</div>
+      <div class="nsum">The 131st Constitutional Amendment Bill, 2026, which sought to increase Lok Sabha seats from 550 to 850 and delink Women's Reservation from delimitation, failed to secure the required two-thirds majority in the Lok Sabha on April 17, 2026, receiving 298 votes in favour and 230 against. The government subsequently withdrew the accompanying Delimitation Bill, leaving parliamentary expansion plans in limbo ahead of the 2029 general elections.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Mission Ki Awaaz / The Statesman</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Severe Heatwave Scorches North India as Temperatures Soar 4–8°C Above Normal</div>
+      <div class="nsum">India is experiencing sharply contrasting weather extremes, with northern and northwestern plains recording temperatures 4 to 8 degrees Celsius above normal levels, severely impacting daily life and outdoor activities. The IMD has forecast that temperatures could rise by a further 3°C to 6°C over the next few days in these regions, even as the southwest monsoon brings relief to the south.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Drops 500 Points, Nifty Slips Below 23,400 Amid Iran-US Tensions and FII Selling</div>
+      <div class="nsum">Indian stock markets saw a significant downturn on June 2, with the Sensex ending 500 points lower and the Nifty closing below the crucial 23,400 support level, driven by renewed US-Iran conflict tensions and continued selling by foreign institutional investors. Major stocks including Bajaj Finance recorded losses, though IT stocks bucked the broader trend amid concerns over near-term AI-driven revenue pressure estimated at 1–3%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Screener.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Wipro Announces Rs 15,000 Crore Buyback and Acquires Additional 20% Stake in US Insurtech Aggne Global</div>
+      <div class="nsum">Wipro announced a Rs 15,000 crore buyback of 60 crore shares at Rs 250 each, with a record date of June 5, 2026, signalling strong confidence in the company's financial position. Simultaneously, Wipro is set to acquire an additional 20% stake in US-based insurtech Aggne Global Inc for $28.5 million, increasing its ownership to 80% in a deal aimed at bolstering its AI-led insurance transformation capabilities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Coca-Cola Explores 2027 IPO of India Bottling Unit; Nomura Flags Data Centre Boom as Decadal Opportunity</div>
+      <div class="nsum">Coca-Cola is exploring a public listing in India for its largest bottler, Hindustan Coca-Cola Holdings, with a potential 2027 debut on Indian stock exchanges as part of its global asset-light strategy. Separately, Nomura has identified India's data centre sector as a multi-year growth opportunity, projecting IT load capacity to grow at roughly 30% CAGR through 2030, and named GE Vernova T&amp;D India and CG Power as top beneficiary stocks.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechnoSports / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Secure Record $5 Billion in Global Funding by June 2026</div>
+      <div class="nsum">Indian AI startups have secured a landmark $5 billion in global funding as of June 2026, placing India among the top three global AI investment destinations for the 2025–2026 period, according to reports citing TechCrunch. The surge is fuelled by the government's IndiaAI Mission — which allocated Rs 10,371 crore for domestic AI infrastructure — alongside rising private venture capital from major conglomerates such as Reliance Industries and Tata Group.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Entrepreneur India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches AI Immersion Program for Up to 5,000 Indian Startup Founders, Bengaluru Residency Set for June 26</div>
+      <div class="nsum">Google for Startups has launched a large-scale AI Immersion Program for Indian founders, with online virtual sessions running June 2–11 capable of hosting up to 5,000 participants, followed by a selective in-person residency day at Google's Bengaluru office on June 26, 2026. The programme, co-run with Antler India, focuses on deep AI implementation using tools such as Gemini, AI Studio, and the Gemini Enterprise Agent Platform, targeting startups with live products and measurable traction.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News9Live / Bharatfast</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nvidia CEO Jensen Huang Says AI Data Centres Can Recreate India's Internet-Era Job Boom</div>
+      <div class="nsum">Nvidia CEO Jensen Huang said AI-powered data centres could unlock a massive new wave of jobs in India comparable in scale to the internet boom, with employment spreading across construction, supply chains, operations, and startups. His remarks align with India's Union Budget 2026 incentive of a tax holiday until 2047 for foreign companies building data centre infrastructure in India, a move the government estimates could attract over $200 billion in investment.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Unleashes One of Its Largest Attacks on Ukraine, Killing 22 in Kyiv and Dnipro</div>
+      <div class="nsum">Russia launched 656 drones and 73 missiles at Ukraine overnight on June 2, 2026, killing at least 22 civilians and wounding 138 others in one of Moscow's largest aerial assaults in recent months, with Kyiv, Dnipro, Kharkiv, and Zaporizhzhia among the main targets. Ukrainian President Zelenskyy urgently appealed for more US and European air defence support, warning that strikes will continue unless Ukraine is protected from ballistic missiles.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Axios</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Ceasefire Deal Hangs in Balance as Trump Withholds Final Approval on 60-Day MOU</div>
+      <div class="nsum">US and Iranian negotiators reached a tentative 60-day memorandum of understanding to extend the ceasefire and launch nuclear talks, including provisions for unrestricted shipping through the Strait of Hormuz and the removal of Iranian mines, but President Trump ended a Situation Room meeting without announcing his final decision. Iran's state media pushed back on Trump's characterisation of the deal terms, and key sticking points — including Iran's highly enriched uranium stockpile and frozen assets — remain unresolved.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / EU Parliament</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EU Overhauls Migration Policy, Approving Major Expansion of Deportations and Offshore Detention Centres</div>
+      <div class="nsum">The European Union moved forward on June 2, 2026 with a sweeping overhaul of its migration policy, aiming to ramp up deportations and establish detention centres outside EU borders. Critics drew direct comparisons to the immigration strategy of the Trump administration, raising significant human rights concerns among civil society groups and member states.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 3 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
