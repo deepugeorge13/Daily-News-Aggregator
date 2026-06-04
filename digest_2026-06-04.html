@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 4, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 4 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 4 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BookNewProperty / Elets eGov</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Budget 2026 Greenlights 40 km Tunnel Road Network and Metro Expansion for Bengaluru</div>
+      <div class="nsum">The Karnataka Budget 2026 has proposed a 40 km tunnel road network across Bengaluru, with the first phase being a 17 km Hebbal–Silk Board corridor for which tenders worth approximately ₹17,780 crore have been invited. The budget also allocated ₹1,225 crore for civic infrastructure improvements and announced plans for a second airport in Bengaluru to handle growing air traffic.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Phase 2B Airport Line Expected to Open This Month, Expanding Network to 96 km</div>
+      <div class="nsum">The Namma Metro's under-construction Phase 2B line connecting Krishnarajapura to Kempegowda International Airport is expected to open in June 2026, further expanding the city's rapid transit network. The Bengaluru Metro Rail Corporation Limited (BMRCL), a joint venture of the Government of India and Karnataka, currently operates 96.1 km of metro lines, making it the third-largest metro network in India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UrbanAcres / Swarajya Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Pothole Crisis Resurfaces as Monsoon Rains Batter City Roads</div>
+      <div class="nsum">Bengaluru's perennial pothole problem has returned with the onset of monsoon rains, exposing critical infrastructure maintenance gaps and raising concerns about urban mobility across the city. The Chief Secretary has directed BBMP to urgently fix identified potholes from the disaster management fund, while disciplinary action has been ordered against BWSSB officials for failure to resolve persistent drainage issues.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Google News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">21 Killed, Including 18 Foreign Nationals, in Devastating Hotel Fire in Delhi's Malviya Nagar</div>
+      <div class="nsum">At least 21 people were killed and several others injured when a fire swept through a multi-storey building in Delhi's Malviya Nagar neighbourhood on Wednesday, June 3, in one of the deadliest blazes in the capital in recent years. The blaze broke out in a building housing a restaurant on the ground floor and a hotel above, with eight fire engines deployed and more than 40 people rescued.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India-US Trade Framework Advances as Modi Confirms 18% Reciprocal Tariff Deal with Trump</div>
+      <div class="nsum">The United States and India announced an interim trade framework under which US reciprocal tariffs on Indian goods were reduced from 25% to 18%, with Prime Minister Modi confirming the deal and calling it a step toward restoring bilateral momentum. The agreement also sees India committing to stop purchasing Russian oil and pledging to buy $500 billion worth of US energy, technology, and agricultural products over five years, though analysts note that key details and a binding legal text are yet to be finalised.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / BusinessUpturn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">USTR Launches Section 301 Action, Proposes Fresh 12.5% Tariff on Indian Exports Over Forced Labour Concerns</div>
+      <div class="nsum">The US Trade Representative has proposed an additional 12.5% tariff on imports from India as part of a sweeping Section 301 action targeting 60 economies accused of failing to ban goods produced with forced labour. The proposal comes even as US and Indian trade officials are engaged in active negotiations in New Delhi, with India urging the US to resolve these concerns within the broader bilateral trade deal framework rather than through unilateral tariffs.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessUpturn / The Logical Indian</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Transfers Record ₹2.86 Lakh Crore Surplus to Government for FY2025-26</div>
+      <div class="nsum">The Reserve Bank of India has reported a record surplus of ₹2,86,588 crore for the financial year 2025-26, up 6.7% from the previous year, which will be transferred to the central government to boost fiscal space. The RBI's balance sheet also expanded by 20.6% to reach ₹91.97 trillion by March 2026, driven by a 52% jump in foreign exchange transaction gains and rising gold holdings.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessUpturn / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Open Subdued as Nifty Slips to 23,426 and IT Sector Falls Over 2%</div>
+      <div class="nsum">The Indian stock market opened on a weak note on June 3, with the Nifty 50 declining 0.24% to 23,426.85 and the Sensex falling 0.33% to 74,404.58, with the IT index bearing the steepest losses at 2.26%. Broader market sentiment was weighed down by global trade uncertainty, including the newly proposed US Section 301 tariffs and ongoing geopolitical tensions affecting energy prices.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessUpturn / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IndiGo Reports ₹2,537 Crore Q4 Loss as Rupee Depreciation and Cost Pressures Weigh on Earnings</div>
+      <div class="nsum">IndiGo, India's largest airline by market share, posted a net loss of ₹2,537 crore for the fourth quarter, primarily driven by rupee depreciation and elevated operational costs including fuel and aircraft lease payments. Despite the loss, IndiGo has continued to expand its domestic and international market share as rival Air India trims its flight operations.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechnoSports / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Cross $50 Billion in Global Funding, Cementing India as Top-3 Investment Destination</div>
+      <div class="nsum">Indian AI startups have attracted a record $50 billion in global funding as of June 2026, positioning India among the top three global destinations for AI investment, driven by the government's IndiaAI Mission and major commitments from Microsoft, Google, and NVIDIA. However, challenges persist, with India holding fewer than 80,000 high-end GPUs — roughly 100 times fewer than the US — creating structural bottlenecks for startups seeking to train large-scale AI models.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Sovereign AI Push Faces Funding and Infrastructure Hurdles Despite Global Ambitions</div>
+      <div class="nsum">India's high-stakes effort to build sovereign AI models is gaining momentum under the IndiaAI Mission, but faces critical constraints including a shortage of GPU computing capacity and reliance on foreign cloud infrastructure dominated by AWS and Microsoft Azure. A February budget granted a 20-year tax holiday to foreign cloud providers using Indian data centres, with the government later extending the same benefit to domestic operators following industry pushback.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Vajiramandravi / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Ranked 5th in Global Digital Economy and 4th in AI Performance in SIDE 2026 Report</div>
+      <div class="nsum">The ICRIER-Prosus SIDE 2026 report reveals that India has climbed from 8th to 5th place in overall digital economy rankings and secured 4th position globally in the CHIPS-AI Index, behind only the United States, China, and Singapore. The growth is attributed to Digital Public Infrastructure such as UPI and Aadhaar, a booming startup ecosystem of over two lakh startups, and rising AI adoption across government, healthcare, and financial services.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Fox News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US House Passes War Powers Resolution to Withdraw Troops from Iran in Rare Bipartisan Rebuke of Trump</div>
+      <div class="nsum">The US House of Representatives passed a war powers resolution to effectively halt the American military campaign against Iran, in a rare bipartisan defeat for President Trump, with all Democrats and four Republicans voting in favour of the measure. The vote follows weeks of escalating conflict, with thousands gathering in Tehran to protest US and Israeli strikes on Iran.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Launches Massive Aerial Attack on Kyiv, Killing at Least 22 Civilians</div>
+      <div class="nsum">Russian forces launched a large-scale aerial assault on Kyiv and other Ukrainian cities on June 2, killing at least 22 civilians and wounding 138 others in one of the deadliest strikes on the capital in recent months. The attack began overnight and continued into the day, with residential buildings among the targets struck by the missile barrage.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EU Overhauls Migration Policy with Increased Deportations and Offshore Detention Plans</div>
+      <div class="nsum">The European Union has moved forward with a sweeping overhaul of its migration policy, aiming to significantly ramp up deportations and establish detention centres abroad to manage irregular migration flows. Critics have drawn comparisons between the new EU framework and the hardline immigration policies of the Trump administration in the United States.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 4 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
