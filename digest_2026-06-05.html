@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 5, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 5 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 5 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Chronicle / ETV Bharat</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DK Shivakumar Sworn In as Karnataka's 25th Chief Minister in Bengaluru Ceremony</div>
+      <div class="nsum">Congress leader DK Shivakumar was administered the oath of office by Governor Thaawarchand Gehlot at Lok Bhavan on June 3, succeeding Siddaramaiah who resigned on May 28 after more than two and a half years in office. Thirteen ministers, including Deputy Chief Minister G. Parameshwara, were also sworn in at the ceremony attended by Rahul Gandhi and AICC president Mallikarjun Kharge.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Yellow Line Sees Rapid Operational Improvements in 2026, Boosting South Bengaluru Connectivity</div>
+      <div class="nsum">The Yellow Line Metro, inaugurated by PM Modi on August 10, 2025 and connecting RV Road to Bommasandra across 19.15 km with 16 stations, has seen significant operational improvements in 2026, strengthening connectivity across South Bengaluru's IT and residential corridors. An additional train set was inducted in May 2026, reducing peak-hour frequency to 8 minutes, with plans to add more trains to eventually bring wait times down to 5 minutes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Pushes Bengaluru Metro Phase 3 Construction Launch to June 2026 Amid Land and Tree-Cutting Delays</div>
+      <div class="nsum">The Bengaluru Metro Rail Corporation (BMRCL) has shifted the start of Phase 3 Metro construction to June 2026, as land acquisition, tree-cutting approvals, and utility-shifting work have slowed progress. BMRCL has proposed a compensatory afforestation plan under a Rs 43.53-crore environmental monitoring initiative to address ecological concerns tied to the project.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Launches 'Trust, Development and Welfare' Campaign Nationwide to Mark 12 Years of Modi Government</div>
+      <div class="nsum">The BJP launched a nationwide outreach and publicity campaign on June 5, running through June 21, to mark 12 years of the Narendra Modi government, themed 'Trust, Development and Public Welfare.' The campaign involves Union ministers, MPs, and MLAs conducting Pragati Path Yatras, tree plantation drives, and district-level conventions ahead of upcoming state elections.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Visits Gujarat and Daman on June 5 to Review Industrial and Infrastructure Projects</div>
+      <div class="nsum">Prime Minister Narendra Modi travelled to Gujarat and Daman on June 5, visiting Hazira in Surat district to review ongoing industrial operations and infrastructure projects. The visit is part of a broader schedule that included Modi inaugurating the first World Yogasana Sports Championship in Ahmedabad via video message on June 4.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP's Historic West Bengal Win Strengthens Modi's Political Grip, But Economic Challenges Loom</div>
+      <div class="nsum">The BJP achieved a breakthrough victory in the West Bengal state elections in early May 2026, further consolidating PM Modi's political position after his party has retained or gained power in six of eleven state elections since 2024. However, analysts warn that rising fuel costs due to the West Asia conflict, a weakened rupee, and a record exodus of over $20 billion in foreign portfolio investments since January pose serious economic headwinds.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Univest</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC Announces June 5 Rate Decision Amid Iran-War Inflation Pressure and Rupee Volatility</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee concluded its three-day meeting on June 5, with Governor Sanjay Malhotra delivering the policy decision at 10 AM IST; market consensus widely expected a hold at the current repo rate of 5.25%, maintained since February 2026. The RBI faces a complex balancing act as Iran-war-driven crude oil prices push WPI to 8.3%, the rupee hovers near 95/USD, while domestic CPI remains within target and growth momentum stays cautiously positive.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Channel IAM</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ATM Cash Logistics Firms Warn IBA of Service Disruption Risk as Operating Costs Surge 15–20%</div>
+      <div class="nsum">The Currency Cycle Association (CCA), representing major cash logistics firms including CMS Info Systems, Brink's India, and SIS Prosegur, has alerted the Indian Banks' Association (IBA) that soaring fuel costs and state-level minimum wage hikes could push industry-wide operating costs up by 15–20%. ATM replenishment visits rose 11–12% between November 2025 and March 2026, and the industry is exploring reducing daily refills to two or three times a week at lower-demand locations to control expenses.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Onmanorama / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Expresses Confidence in India-US Trade Deal, Calls PM Modi a 'Good Friend'</div>
+      <div class="nsum">US President Donald Trump on June 5 reaffirmed his optimism about finalising a comprehensive bilateral trade agreement with India, calling PM Modi a 'good friend' and saying the two nations would 'get to a deal.' The remarks come months after the US lowered its reciprocal tariff on India from 25% to 18% following a Modi-Trump call in February 2026, with detailed negotiations on remaining tariff barriers and non-tariff barriers still ongoing.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Krutrim, India's First GenAI Unicorn, Pivots to Cloud Services After Pausing Chip Design and LLM Ambitions</div>
+      <div class="nsum">Bengaluru-based Krutrim, founded by Bhavish Aggarwal and valued at $1 billion, announced a strategic shift toward cloud services following a business overhaul in late 2025 that included reallocating capital, cutting over 200 roles, and pausing chip design efforts. The startup reported approximately ₹3 billion in revenue for FY2026, a threefold increase from the prior year, along with its first annual net profit and margins exceeding 10%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Investment Guru India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches 2026 AI Immersion Program for Indian Startups, Culminating in Bengaluru Residency on June 26</div>
+      <div class="nsum">Google for Startups launched a two-stage AI Immersion Program for Indian startups in June 2026, beginning with four online virtual sessions designed to bring together up to 5,000 founders focused on AI infrastructure, product development, and go-to-market readiness. Twenty-five shortlisted startups will participate in an in-person immersion day at Google's Bengaluru office on June 26, featuring architecture reviews, hands-on workshops, and one-on-one sessions on fundraising and scaling.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">StartupFeed / IPO Central</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $1.48 Billion in Q1 2026, Accounting for 38% of All Startup Funding That Quarter</div>
+      <div class="nsum">India's AI startup ecosystem recorded $1.48 billion in funding in Q1 2026 alone, representing 38% of the country's total $3.9 billion in startup investment that quarter, with Neysa's $1.2 billion financing from Blackstone being the single largest capital commitment to an Indian AI startup. India now has over 4,500 active AI startups, ranking third globally after the US and China, with the IndiaAI Mission committing Rs 10,000 crore and allocating 4,096 NVIDIA H100 GPUs to accelerate sovereign AI development.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukrainian Drones Strike St. Petersburg Oil Terminal and Kronstadt Naval Base as Putin's Economic Forum Opens</div>
+      <div class="nsum">Ukraine launched a major overnight drone assault on June 3, striking the St. Petersburg oil terminal — one of Russia's largest oil transshipment complexes — and setting ablaze the guided-missile corvette Boikiy at the Kronstadt naval base, with Russia's defense ministry claiming it downed 354 drones. The strikes coincided with the opening of Putin's flagship St. Petersburg International Economic Forum, causing flight disruptions at Pulkovo Airport and drawing a strong condemnation from UN Secretary-General António Guterres.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Fires Missiles at Kuwait and Bahrain; Kuwait Airport Heavily Damaged, Flights Suspended</div>
+      <div class="nsum">Iran launched missile and drone attacks targeting Kuwait and Bahrain, with Iranian drones heavily damaging a passenger terminal at Kuwait's main international airport, killing one person and wounding dozens, prompting a suspension of commercial flights. The US Central Command reported that missiles aimed at Bahrain were intercepted, while Iran's IRGC claimed it had targeted the US Navy's 5th Fleet headquarters in Bahrain, dramatically escalating the West Asia conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Launches Deadly Barrage on Kyiv and Dnipro, Killing at Least 23 in One of War's Deadliest Attacks in Months</div>
+      <div class="nsum">Russian forces launched a massive aerial offensive on June 2, firing over 600 drones and dozens of missiles at Ukraine, killing at least 23 people — including seven in Kyiv and 16 in Dnipro — in one of the deadliest attacks in months. Ukrainian President Zelenskyy expressed frustration over delays in securing US-made Patriot air-defence missiles, partly attributed to American stocks being depleted by the Iran war, even as NATO Secretary-General Mark Rutte visited Kyiv to reaffirm allied support.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 5 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
