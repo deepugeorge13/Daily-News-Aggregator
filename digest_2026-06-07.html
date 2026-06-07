@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 7, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 7 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 7 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Airport Line Set to Open This Month, Completing 175 km Network</div>
+      <div class="nsum">The long-awaited Blue Line connecting Kempegowda International Airport to the city centre is expected to open in June 2026, forming the backbone of Bengaluru's expanded 175 km metro network. The BMRCL-managed project, funded partly by a $500 million Asian Development Bank loan, also integrates new underpasses at Chikkabidarakallu and Madavara in collaboration with NHAI.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Citizen Matters / Urbanacres</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Outer Ring Road Flooding Exposes Critical Drainage Infrastructure Gaps</div>
+      <div class="nsum">Heavy pre-monsoon rainfall has triggered flash flooding and severe traffic jams across Bengaluru's Outer Ring Road, Whitefield, Silk Board, and Bellandur, exposing glaring gaps in the city's stormwater drainage systems. Rapid urbanisation, blocked drains, and encroachments on water bodies have compounded the problem as IMD warns of prolonged wet weather ahead for the Karnataka region.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Citizen Matters / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BWSSB Under Fire as Cauvery Water Supply Drops to Once Every Five Days in Key Localities</div>
+      <div class="nsum">Residents in Hebbal, Banaswadi, and JC Nagar are receiving Cauvery water only once every five days, down from the earlier once-in-two-days schedule, prompting accusations that the Bangalore Water Supply and Sewerage Board is rationing supply ahead of a summer shortage. Weak Southwest monsoon rains, depleted Cauvery basin reservoir levels, and encroachment on water body zones are cited as root causes of the deepening crisis in a city of 14 million.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / India.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cockroach Janta Party Holds Mass Protest in New Delhi, Demands Removal of Education Minister Pradhan</div>
+      <div class="nsum">Hundreds of supporters of the satirical Cockroach Janta Party (CJP), a social-media movement that has attracted millions of young Indian followers, gathered at New Delhi's Jantar Mantar protest zone demanding the resignation of Education Minister Dharmendra Pradhan. The protest was spurred by India's Chief Justice having likened young government critics to 'cockroaches,' and organisers urged participants to carry books as a symbol of the right to education and equal opportunity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Thunderstorm Alert for Delhi-NCR as Heatwave Gives Way to Pre-Monsoon Storms</div>
+      <div class="nsum">The Indian Meteorological Department issued alerts for thunderstorms and rain across Delhi, Noida, Gurugram, and Faridabad on June 7, with maximum temperatures expected to settle near 36°C. From June 8 onwards, temperatures are forecast to climb again toward 40-41°C as strong surface winds return, while Delhi's Air Quality Index remained in the 'moderate' category at 162 on Saturday.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Modi Govt Approves Rs 10,000 Crore Aviation Fuel Support Fund as West Asia Crisis Hammers Indian Airlines</div>
+      <div class="nsum">The Cabinet approved a one-time budgetary support mechanism of up to Rs 10,000 crore to provide Aviation Turbine Fuel (ATF) price stabilisation for scheduled Indian carriers, as soaring jet fuel costs from the West Asia conflict have cost airlines several thousand crores. India's oil refineries are simultaneously operating above 100% capacity utilisation to shield consumers from supply shocks caused by the ongoing Iran-related conflict.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / HDFC Sky</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate, Cuts GDP Growth Forecast to 6.5% and Unveils Five-Pronged Plan to Attract Foreign Capital</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee kept the repo rate unchanged at its June 5 meeting while cutting its FY27 GDP growth forecast from 6.9% to 6.5%, citing higher inflation risks and a challenging global environment. The RBI simultaneously unveiled a five-pronged plan to attract foreign capital, boost dollar inflows, ease banking liquidity, and stabilise the rupee — sending the Sensex down 117 points and Nifty to 23,367 as markets parsed the mixed signals.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Asia Crisis Batters Indian Aviation Sector: Air India, IndiGo Slash Capacity as Jet Fuel Costs Double</div>
+      <div class="nsum">India's aviation sector has suffered substantial losses exceeding several thousand crores as major carriers Air India and IndiGo heavily cut domestic and international capacity in the face of doubling jet fuel prices triggered by the West Asia conflict. IATA data for April 2026 shows India's revenue passenger kilometres fell 2.9% year-on-year, while the passenger load factor dropped 4.3 percentage points, with Indian travellers increasingly redirecting holiday plans to nearby destinations over costlier Europe and US routes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Technosports</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Cross $5 Billion in Global Funding Milestone; TrueFan AI and Bengaluru EV Startup Raise Fresh Rounds</div>
+      <div class="nsum">Indian AI startups have secured a landmark $5 billion in global funding as of June 2026, driven by the government's IndiaAI Mission and surging private venture capital from firms including Reliance Industries and Tata Group. On the startup funding front, TrueFan AI raised $10 million to scale its enterprise video-generation platform, while a Bengaluru-based electric two-wheeler manufacturer raised Rs 250 crore in a Series B round ahead of a planned FY28 public listing.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / NPR / White House</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Signs AI Executive Order Seeking Voluntary 30-Day Pre-Release Access to Frontier AI Models</div>
+      <div class="nsum">President Donald Trump signed the executive order 'Promoting Advanced Artificial Intelligence Innovation and Security' on June 2, directing federal agencies to create a framework for AI companies to voluntarily provide the government up to 30 days of early access to their most powerful frontier models before public release. The order also mandates a classified benchmarking process for assessing models' advanced cyber capabilities and the creation of an AI cybersecurity clearinghouse, while explicitly barring any mandatory government licensing regime.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / CNBC / TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google to Pay SpaceX $920 Million a Month for AI Supercomputing Power in Landmark Three-Year Deal</div>
+      <div class="nsum">Google has agreed to pay SpaceX $920 million per month from October 2026 through June 2029 to access approximately 110,000 Nvidia GPUs and related compute infrastructure housed in SpaceX's Colossus data centres — a deal worth roughly $30 billion over its full term. The agreement, disclosed in a regulatory filing just days before SpaceX's planned record-breaking IPO targeting a $1.75 trillion valuation, reflects surging demand for Google's Gemini Enterprise AI agent platform that has exceeded the company's own expectations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Investment Guru India / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches 2026 India AI Startup Accelerator Targeting Agentic, Multimodal and Sovereign AI</div>
+      <div class="nsum">Google opened applications for its 2026 India Startups Accelerator, a three-month equity-free programme targeting Indian AI-first startups from seed to Series A stages working on Agentic AI, Multimodal AI, Physical AI, and Sovereign AI solutions. The programme kicks off with a week-long in-person bootcamp in Bengaluru in late June, and will give participating startups access to Google's advanced AI models including Gemini, Gemma, Imagen, Veo, and Lyria, along with dedicated technical mentorship and success managers.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel Kills Lebanese Army General as Iranian Missiles Strike Kuwait and Bahrain; Pakistan Urges End to War</div>
+      <div class="nsum">Israeli forces killed three high-ranking Lebanese soldiers in a strike that Lebanon's President Joseph Aoun condemned as 'a flagrant violation of Lebanese sovereignty and international law,' as the widening West Asia conflict saw Iranian missiles target Kuwait and Bahrain following a US-Iran clash. The United States said it destroyed two Iranian drones targeting shipping in the Strait of Hormuz, even as the Trump administration continues to ramp up pressure on Tehran to negotiate a deal to end the conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Strait of Hormuz Near Standstill as Global Companies Scramble for Alternative Oil and Cargo Routes</div>
+      <div class="nsum">Ship traffic through the Strait of Hormuz has ground to a virtual standstill due to the ongoing Iran war, forcing companies worldwide to urgently find alternative routes for the movement of oil, fertiliser, and consumer goods. The disruption is compounding a global energy crisis, with jet fuel prices having more than doubled in April 2026 compared to the previous year, and Pope Leo XIV weighing in to say the conflict does not qualify as a 'just war' under Catholic teaching.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Peru Heads to Polls Today in Tight Presidential Race Between Far-Right Fujimori and Leftist Sanchez</div>
+      <div class="nsum">Peruvians are voting on June 7 in a highly polarised presidential election between hard-right candidate Keiko Fujimori and leftist candidate Roberto Sánchez, with polls indicating an extremely tight race. The election comes amid deep societal divisions and intense international attention, as the outcome is expected to determine Peru's economic and foreign policy direction for the next five years.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 7 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
