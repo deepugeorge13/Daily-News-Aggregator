@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 9, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 9 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 9 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UrbanPost / Urban Acres</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Landmark Court Ruling Backs Bengaluru Wastewater Network Expansion</div>
+      <div class="nsum">A landmark legal ruling has provided backing for the expansion of Bengaluru's sewer and wastewater connectivity infrastructure, supporting the city's long-term environmental and urban growth goals. The decision is seen as a significant step toward strengthening the city's civic utilities amid rapid population growth.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UrbanPost / Urban Acres</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Suburban Rail Upgrade Targets Stronger Regional Connectivity</div>
+      <div class="nsum">A fresh rail upgrade initiative for Bengaluru aims to strengthen regional connectivity, with the Bengaluru Suburban Rail Project (BSRP) spanning 149 km currently 22 percent complete. Corridor one, linking Yelahanka to Devanahalli, is expected to be finished by December 2026 as electrification and signalling tenders are accelerated.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OpenCity / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSMILE Floats Tenders for Nine Flyovers and Elevated Corridors Across Bengaluru</div>
+      <div class="nsum">The Greater Bengaluru Corporation's infrastructure arm BSMILE has floated tenders for nine flyovers and elevated corridors across the city, with a combined estimated cost of ₹4,645 crore. The corridors span key stretches including the Inner Ring Road, Adugodi, the CBD, and the Indiranagar–Koramangala belt to ease chronic traffic congestion.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cabinet Approves ₹10,000 Crore ATF Relief Fund to Shield Indian Airlines from Fuel Price Surge</div>
+      <div class="nsum">The Union Cabinet has approved a ₹10,000 crore budgetary support package for oil marketing companies to stabilise aviation turbine fuel prices for domestic airlines, triggered by geopolitical tensions in West Asia and Pakistan's closure of its airspace to Indian carriers. Airlines including IndiGo, Air India, and SpiceJet are among the beneficiaries of the relief measure announced in early June 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Carnegie Endowment</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's 2026 Heatwave Declared a Structural Economic Threat as IMD Issues Alerts</div>
+      <div class="nsum">The India Meteorological Department has issued heatwave warnings for Delhi, Haryana, Punjab, and Rajasthan as an unusually intense and humid summer grips northern India. Economists warn that extreme heat is no longer an episodic shock but a structural drag on GDP, with potential productivity losses estimated at up to 4.5 percent by 2030.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CBSE Re-Evaluation Portal Hit by Large-Scale Cyberattack, Government Launches Probe</div>
+      <div class="nsum">India's Central Board of Secondary Education re-evaluation portal was targeted by a large-scale cyberattack on June 3, in an apparent attempt to disrupt the ongoing board exam verification and re-evaluation process. The government has launched an investigation, with authorities working to restore and secure the affected systems.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slips 0.2% as RBI Raises Inflation Forecast and Cuts GDP Growth Projection</div>
+      <div class="nsum">India's BSE Sensex closed about 0.2% lower at 74,243 on Friday as investors digested the RBI's cautious policy outlook, foreign investor outflows, and rising geopolitical uncertainties. The RBI unanimously kept the repo rate unchanged at 5.25% with a neutral stance, but raised its inflation forecast and cut its GDP growth projection for the current financial year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Travel and Tour World / Nomad Lawyer</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Launches $1 Billion Aviation Fuel Stabilisation Mechanism Amid West Asia Crisis</div>
+      <div class="nsum">India has unveiled a USD 1 billion aviation fuel stabilisation mechanism, providing interest-free advances to oil marketing companies to absorb fuel price shocks when international jet fuel costs exceed predetermined benchmarks. The move aims to shield domestic carriers from severe margin compression caused by surging ATF prices, which account for nearly 40% of airline operating expenses.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Titan Company Crosses ₹75,000 Crore in Revenue as Tata Group Jewellery Giant Eyes Global Expansion</div>
+      <div class="nsum">Titan Company has emerged as one of corporate India's most remarkable growth stories, crossing ₹50,000 crore in revenue in FY25 and adding another ₹25,000 crore in FY26 alone. Now the Tata Group's second most valuable company after TCS with a market capitalisation of nearly ₹3.6 lakh crore, Titan continues to expand into fragrances, eyewear, ethnic wear, and global markets through brands like Tanishq and CaratLane.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Technosports / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Surpass $50 Billion in Global Funding, Ranking India Among Top 3 Investment Destinations</div>
+      <div class="nsum">Indian startups have attracted a record $50 billion in global AI funding as of early June 2026, driven by the government's IndiaAI Mission and major pledges from Microsoft, Google, and NVIDIA of over $3 billion each for India. The surge positions India among the world's top three destinations for AI investment, with over 2 lakh startups now active, nearly 90% using AI in some form.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CoinGeek / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Commits $15 Billion for AI Hub and Data Centre in Visakhapatnam in Landmark India Deal</div>
+      <div class="nsum">Google has committed $15 billion over five years (2026–2030) to build a state-of-the-art data centre and AI hub in Visakhapatnam, Andhra Pradesh — its largest-ever investment in India. The facility will bolster the IndiaAI Mission, provide advanced compute infrastructure, and include a new international subsea cable landing to strengthen India's role as a global digital gateway.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hans India / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Sarvam AI Showcases Indigenous LLMs with Up to 105 Billion Parameters at India AI Summit</div>
+      <div class="nsum">Bengaluru-based startup Sarvam AI showcased indigenous large language models with 30 billion and 105 billion parameters at the India AI Impact Summit 2026, reflecting growing domestic technical capability. The summit concluded with the New Delhi Declaration on AI Impact, endorsed by over 90 countries, and saw more than $250 billion in AI infrastructure pledges from global and Indian corporations.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel and Iran Trade Missile Strikes, Endangering Fragile Ceasefire on War's 100th Day</div>
+      <div class="nsum">Israel and Iran exchanged missile strikes on Monday, marking a major escalation that threatens to unravel a shaky ceasefire that had been in place since early April. Both nations have signalled a conditional willingness to stop attacking each other, even as mediation efforts for a comprehensive peace deal remain fragile.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Magnitude 7.8 Earthquake Strikes Southern Philippines, Killing at Least 32 and Triggering Tsunami</div>
+      <div class="nsum">A powerful offshore magnitude 7.8 earthquake rocked the southern Philippines on Monday, killing at least 32 people, injuring more than 200 others, and sending a 3-foot tsunami into nearby coastlines. The Pacific Tsunami Warning Center confirmed the threat had largely passed within five hours of the quake striking the Mindanao region.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DRC Ebola Outbreak Spreading at Unprecedented Pace, Africa CDC Warns</div>
+      <div class="nsum">The Democratic Republic of Congo's Ebola outbreak is accelerating at an unprecedented rate, prompting a stark warning from the Africa CDC on June 8, 2026. Health authorities are working to contain the spread as Congolese Red Cross teams carry out safe burials in affected areas including Bunia.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 9 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
