@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 10, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 10 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 10 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DK Shivakumar Sworn In as Karnataka CM, Assigns Cabinet Portfolios with Key Bengaluru Mandate</div>
+      <div class="nsum">Senior Congress leader DK Shivakumar was sworn in as Karnataka's new Chief Minister on June 3, succeeding Siddaramaiah under the party's long-anticipated power-sharing arrangement. He retained Finance, Cabinet Affairs, and Intelligence portfolios, while Krishna Byre Gowda was allocated the Greater Bengaluru Development portfolio, covering the GBA, all five city corporations, BWSSB, and BMRCL.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Gets Revised Deadlines: Silk Board–KR Pura Stretch Targeted for December 2026</div>
+      <div class="nsum">BMRCL has issued revised timelines for Bengaluru's 58-km Blue Line metro project, with the first stretch from Central Silk Board to KR Pura now targeted for December 2026 and the KR Pura–Hebbal section pushed to December 2027. The airport link, covering Hebbal to Kempegowda International Airport, is expected only in late 2027 due to ongoing land acquisition and utility-shifting challenges.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">New Karnataka Cabinet to Oversee First Greater Bengaluru Authority Elections as BBMP Is Restructured</div>
+      <div class="nsum">The newly formed Shivakumar ministry has assumed responsibility for conducting elections to five new Greater Bengaluru Authority (GBA) city corporations, following the restructuring of the BBMP under the Greater Bengaluru Governance Act 2024. The cabinet expansion is expected after Rajya Sabha elections on June 18, with several ministerial positions still to be filled from the state's sanctioned strength of 34.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Modi Government Marks 12 Years in Office; BJP Launches Month-Long Welfare Campaign</div>
+      <div class="nsum">Prime Minister Narendra Modi recently crossed 12 years in office, surpassing Jawaharlal Nehru's record as India's longest-serving continuously elected prime minister. The BJP launched a month-long campaign highlighting key achievements including the expansion of metro networks to over 1,100 km across 26 cities, the operation of 164 Vande Bharat trains, and the establishment of over 2.2 lakh startups.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Modi Meets Economic Advisory Council Amid Global Turmoil; Cabinet Reshuffle Speculation Grows</div>
+      <div class="nsum">PM Modi held a meeting with the Economic Advisory Council (EAC-PM) to discuss measures to boost India's economic growth amid global uncertainty stemming from the ongoing West Asia conflict. Recent BJP organisational moves and Rajya Sabha nominations have also sparked speculation that Modi may soon undertake a Cabinet reshuffle.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bombay High Court / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bombay High Court Quashes One-Time Spectrum Charges Worth ₹20,000 Crore for Vodafone Idea and Airtel</div>
+      <div class="nsum">The Bombay High Court quashed government demands for one-time spectrum charges, granting relief of approximately ₹20,000 crore to Vodafone Idea and Bharti Airtel. The court ruled the government lacked legal authority to levy the charges, though the matter remains pending before the Supreme Court.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / GrowJust India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Zepto Files Updated IPO Prospectus; Founders Retain Full Stake Ahead of ₹10,000 Crore July Debut</div>
+      <div class="nsum">Quick commerce giant Zepto filed its Updated Draft Red Herring Prospectus (UDRHP) with SEBI for a ~₹10,000 crore IPO targeted for July 2026, which would make it the first quick commerce company to go public in India. Founders Aadit Palicha and Kaivalya Vohra are retaining their entire 18.47% combined stake, while the UDRHP also disclosed that the ED summoned both founders in April 2026 under FEMA for information on foreign and overseas investments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges 500 Points, Nifty Crosses 23,250 Led by Realty and Banking Stocks</div>
+      <div class="nsum">Indian equity markets opened firmly higher on Wednesday, with the Sensex rising over 500 points and Nifty trading above 23,250 in early trade. Nifty Realty led sectoral gains at 1.21%, while Nifty Financial Services, Nifty Bank, and Nifty PSU Bank also posted gains of around 0.9%, 0.87%, and 0.85% respectively.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dark Patterns Costing Indian Consumers Up to ₹28,000 Crore Annually, New Report Warns</div>
+      <div class="nsum">A new report by Datum Intelligence reveals that deceptive design practices or 'dark patterns' — including hidden charges and manipulative tactics — are costing Indian consumers up to ₹28,000 crore every year, affecting nearly nine out of ten online buyers. The report warns that the growing trust deficit could put ₹55,000 crore worth of digital commerce spending at risk.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / TechCrunch / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Apple Unveils Rebuilt Siri AI at WWDC 2026, Powered by Google Gemini; CEO Tim Cook Bids Farewell</div>
+      <div class="nsum">Apple unveiled a completely overhauled 'Siri AI' at its WWDC 2026 keynote on June 8 at Apple Park, featuring deep system-wide integration, cross-app context awareness, and a dedicated standalone Siri app powered by Google Gemini's cloud AI. The event also marked outgoing CEO Tim Cook's final WWDC, with John Ternus set to take over as Apple's CEO in September; however, the new Siri AI will not initially be available in the EU or China due to regulatory challenges.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nasscom / TICE News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nasscom Launches InnoTrek UK 2026 to Globalise Indian Deeptech Startups; UK Forum Held June 10</div>
+      <div class="nsum">Nasscom launched InnoTrek UK 2026, a programme running June 8–12, to help a selected cohort of Indian deeptech startups expand internationally by connecting them with UK investors, enterprises, and policymakers. The UK Forum, hosted in London on June 10, focused on artificial intelligence, deeptech innovation, digital transformation, and cross-border investments, coinciding with London Tech Week.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Technosports / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Hit Record $5 Billion in Global Funding by June 2026, Driven by IndiaAI Mission</div>
+      <div class="nsum">Indian startups have secured a record $5 billion in global AI funding as of June 2026, marking a significant milestone for the domestic tech ecosystem and placing India among the top three global AI investment destinations for the 2025–2026 period. The government's IndiaAI Mission, which allocated ₹10,371 crore to build domestic AI infrastructure including 10,000+ GPUs, has played a foundational role, while private venture capital now drives the bulk of market expansion.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel and Iran Trade Worst Strikes Since April Ceasefire; Both Sides Signal Pause Amid US Pressure</div>
+      <div class="nsum">Israel and Iran exchanged their heaviest direct strikes since the Pakistan-brokered April 8 ceasefire, after Iran fired ballistic missiles at northern Israel in retaliation for Israeli strikes on Beirut's southern suburbs, and Israel responded with overnight attacks on Tehran, Tabriz, Karaj, and Isfahan. Both sides have since signalled a halt to hostilities, with US President Trump urging them to stop, though a top Iranian official said Tehran sees no 'serious will' from the US to finalise a peace deal framework.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera / CBS News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Magnitude 7.8 Earthquake Strikes Southern Philippines, Killing at Least 32 and Triggering Tsunami</div>
+      <div class="nsum">An offshore magnitude 7.8 earthquake rocked Mindanao in the southern Philippines on June 8, killing at least 32 people, injuring more than 200 others, and sending a 1-metre tsunami into nearby coasts, triggering tsunami warnings across parts of Asia. Buildings collapsed in General Santos city, the hardest-hit area, and Philippine President Ferdinand Marcos Jr mobilised national disaster response agencies while ordering school closures across affected regions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pope Leo XIV Addresses Spanish Parliament in Historic First, Calls for Moral Renewal in Public Life</div>
+      <div class="nsum">Pope Leo XIV — the first American pope — addressed the Spanish legislature in Madrid on June 8, 2026, in the first-ever papal address to the Spanish parliament, calling for a 'moral renewal' in legislatures and public life to ensure respect for the inherent dignity of all people. The visit, which analysts say reflects the new pope's priorities around political engagement and social cohesion, comes amid fresh debates across Europe over foreign influence and democratic backsliding.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 10 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
