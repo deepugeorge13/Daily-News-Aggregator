@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 12, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 12 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 12 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Airport Corridor on Track to Open This Month as BMRCL Eyes June 2026 Deadline</div>
+      <div class="nsum">The under-construction Blue Line (Phase 2A/2B), running 58.19 km from Central Silk Board to Kempegowda International Airport via Krishnarajapura and Yelahanka, is expected to open in June 2026, according to BMRCL and Wikipedia's Namma Metro page updated as of April 2026. The Centre is simultaneously evaluating a revised DPR for the ₹15,611-crore Phase 3 project after the Ministry of Housing and Urban Affairs raised concerns about material changes to the original project structure, with a fresh assessment of economic viability now underway.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / IMD Karnataka</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Southwest Monsoon Strengthens Over Karnataka, Bangalore Braces for Persistent Light Rain on June 12</div>
+      <div class="nsum">Bangalore is experiencing a cool, cloudy, and damp Friday as the southwest monsoon system gains strength over Karnataka, with light rain likely throughout the day and humidity levels running exceptionally high. The city is forecast to receive an additional 30–40 mm over the coming days, with a north-south trough extending over South Interior Karnataka amplifying rainfall activity across the region.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BBMP Watch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Faces Renewed Civic Pressure Over Waterlogging and Drainage Failures as Monsoon Sets In</div>
+      <div class="nsum">With the southwest monsoon now active over Bengaluru, civic activists and residents have renewed demands on BBMP to fix potholes, repair roads, and overhaul the city's failing drainage and sewage infrastructure ahead of heavier rain. Poor urban planning, rapid construction, and encroachment on water bodies continue to make large swathes of the Outer Ring Road and residential layouts vulnerable to severe inundation every monsoon season.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Lodges Strong Protest With US After Three Indian Sailors Killed in Navy Strikes Off Oman</div>
+      <div class="nsum">India's Ministry of External Affairs summoned the US chargé d'affaires in New Delhi and registered a 'strong protest' after three Indian crew members aboard the Palau-flagged MT Settebello were confirmed killed following a US Navy strike off the Omani coast — one of three attacks on Indian-crewed vessels in four days. Shipping Minister Sarbananda Sonowal confirmed the deaths and India said it would raise the issue of attacks on merchant shipping at the G7 summit in Evian-les-Bains on June 15–17, where PM Modi is expected to hold bilateral talks with President Trump.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Becomes India's Longest Continuously Serving Elected Prime Minister, Completing 4,399 Days in Office</div>
+      <div class="nsum">Prime Minister Narendra Modi on June 10 surpassed Jawaharlal Nehru's record to become India's longest continuously serving democratically elected Prime Minister, completing 4,399 days in office across three consecutive terms. The Union Cabinet passed a resolution congratulating Modi during a special meeting, while the BJP launched a month-long 'Garib Kalyan' campaign highlighting 12 years of welfare and governance reforms under NDA rule.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook India / India.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Congress Releases '12-Year Report Card' on Modi Government, Alleges Propaganda Over Performance</div>
+      <div class="nsum">The Indian National Congress released a document titled 'Prachar vs Hisab' on the occasion of the Modi government's 12th anniversary, accusing the NDA of prioritising publicity over tangible outcomes on jobs, inflation control, and economic welfare. AICC Research Department Chairman Prof. Rajeev Gowda cited India's fall from 108th to 131st on the Global Gender Gap Index and the shutdown of 40,000 MSMEs in the last financial year as key indicators of governance failure.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Moneylife / PIB / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Exempts FPIs From Capital Gains and Withholding Tax on Government Securities in Major Bond Market Reform</div>
+      <div class="nsum">The Union government promulgated the Income-tax (Amendment) Ordinance, 2026 on June 5, granting foreign portfolio investors (FPIs) a complete exemption from capital gains tax and withholding tax on interest income earned from government securities, effective retrospectively from April 1, 2026. The reform, which also expands the Fully Accessible Route (FAR) to include 15-, 30- and 40-year G-Secs and sovereign green bonds, is aimed at attracting long-term foreign capital as FPI equity outflows in 2026 have already surpassed ₹2.2 lakh crore.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / The Hindu Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty 50 Ends in the Red as West Asia Tensions and Tech Sell-Off Weigh on Markets</div>
+      <div class="nsum">The NSE Nifty 50 slipped 27.15 points, or 0.12%, to close at 23,214.95 on Thursday as renewed US-Iran hostilities and a global technology sector sell-off dampened investor sentiment. Overseas investors have net sold Indian shares in every month of 2026 except February, and the RBI's MPC, which kept the repo rate unchanged at 5.25% on June 5, also lowered its FY27 GDP growth forecast to 6.6% from 6.9%, citing geopolitical uncertainty and elevated crude prices.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / World Bank</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India to Remain World's Fastest-Growing Major Economy at 6.6% in FY27, Says World Bank, Despite Iran War Risks</div>
+      <div class="nsum">The World Bank reaffirmed that India will remain the fastest-growing major economy in FY2027, projecting GDP growth of 6.6%, even as the ongoing US-Iran conflict and the Strait of Hormuz disruption pose significant risks to energy prices, supply chains and capital flows. The West Asia war is also raising concerns for India's real estate sector, with reports warning that over 500,000 home deliveries could face delays due to rising input costs and constrained shipping routes.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Republic World / YourStory / BusinessWire</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Zoho Unveils 'Nathu La' — India's First In-House Designed Server — in Push for Full-Stack Technological Sovereignty</div>
+      <div class="nsum">Zoho Corporation on June 10 launched Nathu La, its first indigenously designed server platform, built over five years by an R&amp;D team in Nagpur using Intel Xeon 6 processors, with all intellectual property owned in India. The server delivers equivalent performance with 12–18% lower power consumption and 20–30% lower total cost of ownership, and Zoho plans to host its own applications on the platform to cut AI inference costs and eliminate reliance on foreign firmware and licensing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TICE News / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nine Indian Startups Named WEF Tech Pioneers 2026 for Leading Global AI Infrastructure and Deeptech Innovation</div>
+      <div class="nsum">The World Economic Forum recognised nine Indian startups in its prestigious 2026 Technology Pioneers list — an exclusive cohort of 100 companies from 23 countries — selected specifically for building foundational infrastructure for next-generation artificial intelligence and advanced industrial applications. The recognition underscores India's growing global stature in deeptech, with the KPMG report on India's startup ecosystem noting that AI, robotics, biotech, and quantum computing startups now account for over 12% of India's total startup base, comprising more than 3,600 companies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TICE News / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Exponent Energy Raises ₹200 Crore to Scale EV Fast-Charging Infrastructure Across India</div>
+      <div class="nsum">Bengaluru-based Exponent Energy secured ₹200 crore in a fresh funding round, reflecting continued investor confidence in India's electric vehicle charging infrastructure as EV adoption expands from early adopters into mainstream commercial and consumer segments. The fundraise comes alongside broader momentum in India's deeptech startup scene, with PhonePe launching AI-powered SmartPages for merchants and Bengaluru's Hoola Health (formerly BabyMD) raising $5 million in a round led by Peak XV's Surge for paediatric healthcare expansion.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / IRGC / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Declares Strait of Hormuz 'Closed to All Vessels' After Fresh US Airstrikes; Oil Prices Surge to $94 a Barrel</div>
+      <div class="nsum">Iran's Islamic Revolutionary Guard Corps declared the Strait of Hormuz closed to all vessels, including oil tankers and commercial ships, after the US launched a second consecutive night of airstrikes on Iranian military targets on June 10–11, with Brent crude surging to $94.58 a barrel. The strait, through which approximately 20% of global oil and gas supplies normally transit, has seen a 95% reduction in crude oil shipping since the US-Israel conflict with Iran began in February 2026, according to World Trade Organization data.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Anti-Immigration Riots Engulf Belfast for Second Night After Sudanese Asylum Seeker Charged in Stabbing Attack</div>
+      <div class="nsum">Protesters in Northern Ireland set fires and hurled bricks and bottles at police during a second consecutive night of unrest after a Sudanese asylum seeker was arrested and charged in connection with a brutal stabbing attack that blinded a Belfast man. The violence has spread to Newtownabbey and other parts of Northern Ireland, raising alarm across the UK about rising anti-immigration sentiment and community tensions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIFA World Cup 2026 Kicks Off in Mexico City as US-Iran War Casts Shadow Over Tournament</div>
+      <div class="nsum">The 2026 FIFA World Cup officially got underway on June 11 at the Estadio Azteca in Mexico City, where co-host Mexico faced South Africa in front of 80,000 fans in a highly anticipated Group A opener. The tournament, co-hosted by the US, Mexico, and Canada, is unfolding against a backdrop of geopolitical tension — including the denial of entry to Somali referee Omar Artan by US immigration authorities — while the ongoing US-Iran conflict continues to overshadow events in the broader region.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 12 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
