@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 13, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 13 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 13 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The News Minute / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru GBA Civic Polls Scheduled Between June 14–24 as Supreme Court Deadline Looms</div>
+      <div class="nsum">The Karnataka State Election Commission has directed the Greater Bengaluru Authority to finalise an election date between June 14 and June 24, 2026, for polls across all five city corporations covering 369 wards. The Supreme Court had earlier mandated that elections, which have been pending since the BBMP council's term expired in September 2020, must be completed before June 30, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Southwest Monsoon Intensifies Over Bengaluru; IMD Issues Red and Orange Alerts Across Karnataka</div>
+      <div class="nsum">The India Meteorological Department has issued rain alerts forecasting moderate to heavy thunderstorms across Bengaluru and several Karnataka districts as the Southwest monsoon firmly establishes itself over the region. Waterlogging in low-lying areas, traffic disruptions, and reduced visibility during storms are being flagged as key concerns for residents by civic authorities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / News First Prime</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Phase 3 Construction Officially Commences as Bengaluru's ₹12,000–15,000 Crore Infrastructure Push Gains Steam</div>
+      <div class="nsum">BMRCL has kicked off Phase 3 metro construction after delays linked to land acquisition, tree-cutting approvals, and utility shifting, targeting 175 km of operational metro lines by December 2027. Concurrently, the Bengaluru Suburban Rail Project and the Satellite Town Ring Road are advancing, with the first BSRP corridor linking Yelahanka to Devanahalli expected to be ready by December 2026.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Tribune / SSBCrack News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Historic IMA Passing Out Parade: First-Ever Batch of Women Officer Cadets Commissioned as Lieutenants</div>
+      <div class="nsum">On June 13, 2026, the Indian Military Academy in Dehradun marked a landmark moment in its 94-year history as eight women officer cadets from the NDA's inaugural 2022 intake took the 'Antim Pag' and were permanently commissioned as Lieutenants in the Indian Army. President Droupadi Murmu, serving as Reviewing Officer, presided over the Spring Term Passing Out Parade at the iconic Chetwode Building Drill Square.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Amar Ujala / News on Air</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Puts Fresh Conditions on US Nuclear Deal as Ceasefire Negotiations Stall</div>
+      <div class="nsum">Iranian Foreign Minister Abbas Araghchi has signalled that any proposed agreement with the United States would need to cover issues beyond the nuclear programme, including the status of the Strait of Hormuz, sanctions relief, and the release of frozen Iranian funds. Negotiations remain in limbo even as US airstrikes on Iranian military sites continued through the week.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Hindustan Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata Sons Board Holds Inconclusive Discussion on Chandrasekaran's Third Term as Chairman</div>
+      <div class="nsum">The much-anticipated June 12 board meeting of Tata Sons ended without a decision on whether N Chandrasekaran, who completes his second five-year term in February 2027, will be given a third term as Executive Chairman of the salt-to-software conglomerate. The board reviewed new-age businesses across the group as Tata Trusts, the largest shareholder, continues internal deliberations on the leadership question.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Eliminates Capital Gains Tax on FPI Investments in Government Securities to Deepen Bond Market</div>
+      <div class="nsum">The Indian government has completely removed capital gains tax and withholding tax on interest income for Foreign Portfolio Investors investing in government securities under the Fully Accessible Route, in a move aimed at attracting more global capital into India's $1.5 trillion G-Sec market. FPI holdings in G-Secs under the FAR route rose by ₹8,794 crore in the week following the announcement, signalling early positive market response.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / YouTube (Post Market Report)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25%; Nifty Slips Below Key Support Level</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee kept the repo rate unchanged at 5.25% in its June 2026 review, opting for a cautious pause as markets reacted with a slip in the Nifty below a key technical support level. Investors are now watching for cues on future rate trajectory, with India's Q4 GDP growth having come in at 7.4%, slightly above RBI's forecast.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Business Today Names India's Most Sustainable Companies 2026 as Firms Embed ESG into Core Strategy</div>
+      <div class="nsum">Business Today has released its India's Most Sustainable Companies 2026 special issue, recognising organisations that have integrated sustainability into their core business strategy amid rising climate risks, energy shocks, and global trade challenges. The issue examines trends spanning coal gasification, carbon management, industrial electrification, alternative fuels, and evolving ESG disclosure requirements across Indian industry.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Rozana Spokesman / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nine Indian Startups Named WEF Technology Pioneers 2026 for Building Next-Gen AI Infrastructure</div>
+      <div class="nsum">The World Economic Forum has recognised nine Indian startups in its prestigious Technology Pioneers 2026 cohort, selected from 100 ventures across 23 countries for building foundational infrastructure for the next generation of AI and advanced industrial applications. The Indian cohort includes deep-tech and space innovators such as Dhruva Space, Sarla Aviation, Bellatrix Aerospace, and climate-tech startup Varaha, which uses remote sensing and blockchain for agricultural solutions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Technosports / openPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Cross $50 Billion in Global Funding by Mid-2026, Driven by IndiaAI Mission</div>
+      <div class="nsum">Indian startups have attracted a record $50 billion in global AI funding as of mid-2026, positioning the country as a leading hub for next-generation technology investment, propelled by the government's IndiaAI Mission which earmarked ₹10,371 crore for domestic AI infrastructure. Tech giants Microsoft, Google, and NVIDIA have each pledged over $3 billion specifically for India, reflecting growing confidence in the country's AI talent pipeline and scalability.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Dailyhunt / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TCS Launches Oracle AI Data Platform Lab in India; Bengaluru's Pramatra Space Develops Quantum-Resilient Encryption Chip</div>
+      <div class="nsum">TCS has inaugurated an Oracle AI Data Platform Lab aimed at helping enterprises convert data into actionable insights using AI-driven automation, with plans to expand to four more Indian cities over the next three years. Meanwhile, Bengaluru-based startup Pramatra Space has developed a photonics chip that generates encryption keys using quantum entanglement, targeting enterprises seeking quantum-resilient cybersecurity solutions.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Launches Second Consecutive Day of Airstrikes on Iran; Retaliation Targets Gulf Military Bases</div>
+      <div class="nsum">The United States launched a second consecutive day of airstrikes targeting military facilities along Iran's coast and near the Strait of Hormuz, after President Trump stated Iran was taking 'too long to negotiate.' Iran's Revolutionary Guard claimed it retaliated against 18 US-linked sites across Kuwait, Bahrain, and Jordan, while diplomatic efforts to end the conflict remained deadlocked.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Prokerala</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South Korea's Ex-President Yoon Suk Yeol Sentenced to 30 Years for Ordering Drone Flights Over Pyongyang</div>
+      <div class="nsum">The Seoul Central District Court sentenced former South Korean President Yoon Suk Yeol to 30 years in prison after finding him guilty of ordering military drone incursions over North Korea's capital Pyongyang in October 2024, with the intent to heighten cross-border tensions and manufacture a pretext for his December 2024 martial law declaration. Yoon's legal team immediately filed an appeal, and he remains in custody while also serving a separate life sentence for leading an insurrection.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / AOL / FIFA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">2026 FIFA World Cup Kicks Off in Mexico City Amid US-Iran Conflict Shadow; Iran Withdraws from Tournament</div>
+      <div class="nsum">The 2026 FIFA World Cup officially commenced in Mexico City on June 11, with the expanded 48-team tournament co-hosted by the United States, Mexico, and Canada, but Iran's sports minister confirmed the country cannot participate following US-Israeli airstrikes that killed Supreme Leader Ayatollah Ali Khamenei. FIFA stated it wants all teams participating, but Iran's withdrawal adds a major geopolitical dimension to the tournament as matches get underway.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 13 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
