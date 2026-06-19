@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 19, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 19 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 19 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Orders Karnataka to Complete Greater Bengaluru Authority Civic Polls by June 30</div>
+      <div class="nsum">The Supreme Court directed the Karnataka government to conclude elections to municipal corporations within the Greater Bengaluru Authority area by June 30, 2026, with the bench of CJI Surya Kant and Justice Joymalya Bagchi leaving no room for further extensions. The term of the previous BBMP council had lapsed as far back as September 2020, making these polls one of the most long-pending civic exercises in Bengaluru's history.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 on Track for August 2026 Launch; Underground Section by December</div>
+      <div class="nsum">The Namma Metro Pink Line's 7.5-km elevated stretch is planned to open in August 2026 as Phase 1, while the 13.76-km underground section is targeted for December 2026. BMRCL's Pink Line (Nagawara–Kalena Agrahara), spanning 21.25 km with 18 stations, will add critical north–south connectivity to Bengaluru's rapidly expanding rapid transit network.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / BBMP–BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP and BMRCL's ₹9,800-Crore Integrated Outer Ring Road Metro Corridor Moves Forward</div>
+      <div class="nsum">A joint venture between BBMP and BMRCL, the ambitious ₹9,800-crore project will develop an integrated road-and-metro corridor spanning 32.15 km along Bengaluru's Outer Ring Road from JP Nagar to Hebbal. The space-efficient double-deck design aims to create a signal-free route on one of the city's most congested corridors while boosting real estate values for the large IT workforce along the ORR.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi to Disburse ₹2,400 Crore in Employment Incentives Under PM-VBRY on June 19</div>
+      <div class="nsum">Prime Minister Narendra Modi is set to personally disburse incentives worth around ₹2,400 crore under the Pradhan Mantri Viksit Bharat Rozgar Yojana at a special programme at Vigyan Bhawan, New Delhi, on June 19, 2026 at 5 PM. The scheme forms a key pillar of the government's employment generation push under its Viksit Bharat 2047 agenda.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / PM India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Champions India's AI Vision and Startup Ecosystem at VivaTech 2026 in Paris</div>
+      <div class="nsum">Prime Minister Narendra Modi addressed the 10th edition of VivaTech — Europe's largest technology and startup summit — in Paris on June 18, outlining India's vision for the democratisation of Artificial Intelligence and urging global tech companies to invest in India. He highlighted that half of the world's real-time digital transactions now happen in India through UPI, and invited attendees to experience India's startup innovation at the India Pavilion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India–UK Comprehensive Economic and Trade Agreement Set to Enter Into Force on July 15, 2026</div>
+      <div class="nsum">Prime Minister Narendra Modi expressed delight that the India–UK Comprehensive Economic and Trade Agreement (CETA) will enter into force on July 15, 2026, marking a landmark moment in bilateral relations. The deal is expected to significantly boost trade and investment flows between the two nations and provides Indian exporters preferential access to the UK market across a range of sectors.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE IPO DRHP Unpacked: Exchange Commands 92.99% Cash Market Share, Eyes India's Largest-Ever Listing</div>
+      <div class="nsum">India's National Stock Exchange filed its Draft Red Herring Prospectus ahead of what is expected to be the country's largest-ever IPO, with the exchange holding a dominant 92.99% share of India's cash equity market and 99.79% in equity futures by turnover in FY2026. Total fund mobilisation on NSE reached ₹20.33 lakh crore in FY2026, including ₹1.78 lakh crore raised through fresh primary market listings on the mainboard and SME board.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Investing.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Oil Prices Slide to Pre-Iran War Levels as US–Iran Ceasefire Lifts Shipping Restrictions on Hormuz</div>
+      <div class="nsum">Oil prices fell sharply to their lowest levels since before the US–Iran conflict after a ceasefire deal was reached and the US Central Command confirmed that shipping restrictions to and from Iranian ports and coastal waters had been lifted. The development, combined with a wave of Persian Gulf oil supply set to reach Asian refiners, is expected to ease inflationary pressure on India's import bill and provide relief to the rupee.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Investing.com / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty and Sensex Rally as Rupee Strengthens Amid Easing Crude Prices and Positive Risk Sentiment</div>
+      <div class="nsum">Indian equity benchmarks opened in the green on June 16, with the Nifty 50 advancing 0.30% to 23,920 and the BSE Sensex gaining 0.33% to 76,518, supported by a stronger rupee trading near 94.40 per US dollar. Analysts noted that easing crude oil prices, following the US–Iran ceasefire and resumption of Hormuz shipping, are expected to continue providing a tailwind for Indian markets into the week of June 19.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / Technosports</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi at VivaTech 2026: India's IndiaAI Mission Backed by ₹10,371 Crore to Lead Global AI Race</div>
+      <div class="nsum">India's IndiaAI Mission, launched in March 2024 with a financial allocation of ₹10,371.92 crore, is powering a new wave of AI startups that are scaling solutions globally across healthcare, finance, and public services. PM Modi used his VivaTech address to highlight India's AI democratisation agenda, easing of regulations, and the country's growing stature as a global hub for deep-tech innovation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IPO Central / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI's 105B Model Sets Gold Standard for Indian Languages; Whatfix Eyes 2026 IPO</div>
+      <div class="nsum">Sarvam AI's Sarvam-105B large language model has become the benchmark for Indian language AI, moving from experimental pilots to production-grade deployments in banking and public services sectors. Meanwhile, Bangalore-based Whatfix — whose adaptive AI 'Mirror' platform has pushed its employee count past 1,100 globally — is in active talks with advisors for a 2026 stock market listing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IPO Central / Gates Foundation</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Qure.ai Expands to 3,000+ Sites Globally, Leads India's Health-Tech AI Diagnostics Segment</div>
+      <div class="nsum">Mumbai-based Qure.ai, backed by significant grants from the Gates Foundation, has deployed its medical imaging AI at more than 3,000 sites worldwide, cementing its position as India's leading AI startup in health-tech diagnostics. The company's rapid global scale-up reflects the broader momentum of Indian AI startups, which now number over 207,000 recognised entities with 112 unicorns and a combined valuation exceeding $350 billion.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US–Iran 14-Point Interim Pact Halts Conflict and Reopens Strait of Hormuz to Global Shipping</div>
+      <div class="nsum">The United States and Iran unveiled a 14-point interim agreement to halt their conflict and reopen the Strait of Hormuz, with the US Central Command confirming the lifting of all shipping restrictions on Iranian ports and coastal waters. The deal has sent oil prices tumbling to pre-war levels, with a surge of Persian Gulf crude now set to swamp Asian refiners and ease global energy market tensions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CBS News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Defence Secretary Hegseth Announces NATO Review, Calls for Reboot to 'NATO 3.0'</div>
+      <div class="nsum">US Defence Secretary Pete Hegseth on June 18 lashed out at NATO allies and announced a review of American forces stationed in Europe, calling for a fundamental restructuring of the alliance into what he termed 'NATO 3.0.' The announcement has triggered alarm among European member states and adds to broader transatlantic tensions over burden-sharing and defence commitments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Obama Presidential Center and Library Opens to the Public in Chicago on June 19, 2026</div>
+      <div class="nsum">After more than a decade since its announcement, the Obama Presidential Center and Library officially opens to the public in Chicago's Jackson Park on June 19, 2026, marking a major cultural and civic milestone. The centre is expected to serve as a museum, community hub, and archive dedicated to the presidency of Barack Obama and the South Side Chicago community.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 19 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
