@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 20, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 20 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 20 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / The News Minute</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Civic Polls Deadline Looms: Supreme Court Had Mandated Bengaluru Municipal Elections by June 30</div>
+      <div class="nsum">The Supreme Court set June 30, 2026, as the hard deadline for completing elections to the Greater Bengaluru Authority (GBA), ending an unprecedented 11-year gap in civic representation since the BBMP council's term expired in September 2020. A bench of CJI Surya Kant and Justice Joymalya Bagchi directed Karnataka to publish final ward-wise reservations across the new 369-ward, five-corporation structure with no further extensions permitted.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / India Rail Info</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Receives 13th Train for Namma Metro Yellow Line, Full Fleet on Track by August</div>
+      <div class="nsum">The 13th six-coach train for Bengaluru Metro's Yellow Line was delivered to BMRCL at the Hebbagodi depot on June 15, 2026, and must complete 750 km of dynamic night-testing before entering passenger service. With 10 trains currently operational on the 19.75 km RV Road–Bommasandra stretch at 7-minute peak frequency, all 15 trains are targeted to be in service by August 11, the Yellow Line's first anniversary.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CM DK Shivakumar Retains Finance in New Karnataka Cabinet; Second Expansion Expected Post Rajya Sabha Polls</div>
+      <div class="nsum">DK Shivakumar was sworn in as Karnataka's new Chief Minister on June 3, 2026, with G. Parameshwara as Deputy CM, ending months of Congress power-sharing speculation following Siddaramaiah's resignation. Portfolios were formally notified on June 4, with Shivakumar retaining Finance and Cabinet Affairs, while a second cabinet expansion to fill remaining slots out of a sanctioned strength of 34 was expected after the June 18 Rajya Sabha elections.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian / New Kerala</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Delhi High Court Upholds Temporary Telegram Block Ahead of NEET-UG 2026 Re-Examination</div>
+      <div class="nsum">The Delhi High Court dismissed Telegram's challenge to the Central government's temporary ban on the messaging platform, ruling it the 'least restrictive measure' to prevent examination fraud ahead of the NEET-UG 2026 re-exam scheduled for June 21. The court found that Telegram's architecture — including large public channels and message-editing features — made it prone to misuse, and upheld the block as operative until June 22 with the editing-feature disable extended to June 30.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsonair / Tripura Star News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi to Lead 12th International Day of Yoga at Red Road, Kolkata on June 21</div>
+      <div class="nsum">Prime Minister Narendra Modi is set to lead the national observance of the 12th International Day of Yoga from Red Road in Kolkata on June 21, 2026, under the theme 'Yoga for Healthy Ageing.' Pre-event programmes including 'Vande Yogam' are being held in Kolkata on June 20, with over 210 Indian missions abroad organising Yoga Day events at nearly 2,500 locations worldwide.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Declares Right to Walk on Footpaths Fundamental, Calls for Dedicated Regulator</div>
+      <div class="nsum">The Supreme Court of India ruled that the right to walk on demarcated footpaths is a fundamental right, and called for the creation of a dedicated regulatory body to protect pedestrian infrastructure across Indian cities. The landmark observation underscores growing judicial concern over encroachment and misuse of public walkways in urban areas.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook Business / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Reliance AGM 2026: Mukesh Ambani Expected to Reveal Jio IPO Timeline and AI Strategy</div>
+      <div class="nsum">Reliance Industries held its 49th Annual General Meeting on June 19, 2026, with investors keenly awaiting Mukesh Ambani's update on the Jio Platforms IPO, which at an estimated $4 billion could surpass Hyundai India's listing to become the largest in Indian history. Updates on Reliance's renewable energy business and AI infrastructure investments were also among the key items on the investor watch-list.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SBI Mutual Fund IPO Set for Early July Launch After Receiving SEBI Approval</div>
+      <div class="nsum">SBI Mutual Fund is preparing to launch its IPO in early July 2026 after receiving regulatory approval from SEBI, with the offer — entirely a stake sale by SBI and Amundi — estimated at around Rs 13,000 crore, potentially making it among the largest asset management listings in India. SBI will divest a 6.3% stake and Amundi a 3.7% stake in SBI Funds Management, India's largest AMC managing assets of approximately Rs 12 lakh crore.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Pulse by Zerodha / The Hindu Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IT Stocks Slide as TCS, LTIMindtree, Tech Mahindra Fall Nearly 5%; FSSAI Cites Hygiene Lapses at Food Firms</div>
+      <div class="nsum">Indian IT bellwethers TCS, LTIMindtree, and Tech Mahindra each fell nearly 5% in Friday trading, with Oracle Financial Services (OFSS) the only major IT stock in positive territory. Separately, FSSAI cited consumer complaints, alleged hygiene lapses, and misleading labelling practices across dairy, snacks, nutraceuticals, beverages, and packaged food companies.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Technosports / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Reach Record $50 Billion in Global Funding by Mid-2026, Driven by IndiaAI Mission</div>
+      <div class="nsum">Indian startups have attracted a record $50 billion in global AI funding as of mid-2026, positioning India as a leading hub for next-generation technology investment, fuelled by the government's IndiaAI Mission which earmarked Rs 10,371.92 crore for domestic AI infrastructure and compute. Tech giants Microsoft, Google, and NVIDIA have each pledged over $3 billion specifically for India between 2024 and 2025, reflecting strong global confidence in India's AI talent pool.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Dailyhunt / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Defence-Tech Startups ShortOrbit and GenXAI Partner to Deliver AI-Powered SDR Platform to Ministry of Defence</div>
+      <div class="nsum">Indian startup ShortOrbit has integrated a specialised Vision AI model from GenXAI into its SDRStrike Pro software-defined radio testing platform, which is being delivered to India's Ministry of Defence as part of a strategic alliance. The companies said the collaboration also extends to post-quantum cryptographic and secure documentation platforms, demonstrating Indian-developed AI meeting stringent defence-grade requirements.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsonair / MeitY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">MeitY Launches AI Impact Startup Book to Connect Solution Providers with Government Agencies at Scale</div>
+      <div class="nsum">The Ministry of Electronics and Information Technology launched the AI Impact Startup Book at the India Impact Summit 2026, a compendium capturing the scale, diversity, and global footprint of India's AI and deep-tech startup ecosystem. The initiative aims to provide a consolidated repository of AI solutions for ministries, states, and institutions to assess real-world performance and drive population-scale deployment across sectors.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US and Iran Agree to Preliminary Ceasefire Deal; Strait of Hormuz to Reopen After Months of Conflict</div>
+      <div class="nsum">The United States and Iran have reached a preliminary agreement to extend their ceasefire, with the US authorising the opening of the Strait of Hormuz and allowing ships to enter and exit Iranian ports as both sides move into a 60-day new phase of negotiations. Analysts described it as 'the most significant diplomatic breakthrough since the outbreak of the war' that began on February 28, 2026, though its long-term prospects remain uncertain.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Launches One of Its Biggest Drone Attacks on Moscow, Hitting Oil Refinery and Other Sites</div>
+      <div class="nsum">Ukraine recently launched one of its largest-ever drone attacks on Moscow, striking an oil refinery and multiple other sites, as the Russia-Ukraine conflict intensifies amid shifting US diplomatic engagement. The attack came as President Trump signalled a desire to re-engage on the Ukraine issue for the first time in months, following the US-Iran ceasefire deal, with Russian officials expecting the return of White House envoys to Moscow soon.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Labour's Andy Burnham Wins UK Parliamentary By-Election, Positioning Himself as Rival to PM Starmer</div>
+      <div class="nsum">Andy Burnham, the Mayor of Greater Manchester, won a special parliamentary by-election for the Makerfield seat, putting him in a strong position to challenge embattled Prime Minister Keir Starmer for the leadership of the Labour Party. The victory is seen as a significant political moment in Britain, with Burnham's win further intensifying pressure on Starmer's leadership.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 20 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
