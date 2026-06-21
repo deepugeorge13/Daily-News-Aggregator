@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 21, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 21 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 21 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Advances Namma Metro Phase 3 Land Acquisition Across 777 Private Properties</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has acquired 26,811 square metres of land in the first phase of the Namma Metro Phase 3 project, primarily for Corridor 1 stretching from J.P. Nagar Phase 4 to Mysuru Road Metro Station. The ₹156-billion project, set for completion by 2029, is expected to serve 7.85 lakh passengers daily and raise Bengaluru's metro coverage to 222.2 km, with land acquisition coordinated with BBMP to minimise disruption to existing infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsX / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Predicts Five-Day Monsoon Showers Over Bengaluru as Active Monsoon Grips South Karnataka</div>
+      <div class="nsum">The India Meteorological Department has forecast light to moderate rainfall across Bengaluru over the next five days, with cloudy skies and occasional thunderstorms driven by active monsoon activity in southern Karnataka. Maximum temperatures are expected to remain between 27°C and 29°C, offering welcome relief from recent warm and humid conditions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bangalore News Network / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DK Shivakumar Retains Finance Portfolio as New Karnataka Cabinet Begins Settling Into Governance</div>
+      <div class="nsum">Newly sworn-in Karnataka Chief Minister DK Shivakumar has retained key ministries including Finance, Cabinet Affairs, and Intelligence, with G. Parameshwara serving as Deputy Chief Minister handling Revenue. The cabinet, formed following Siddaramaiah's resignation on May 28, is expected to undergo a second expansion phase as the government focuses on public welfare, urban infrastructure, and investor confidence in Bengaluru.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / Republic World / Akashvani News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Leads 12th International Day of Yoga at Kolkata's Red Road Under Theme 'Yoga for Healthy Ageing'</div>
+      <div class="nsum">Prime Minister Narendra Modi led India's national celebration of the 12th International Day of Yoga at the iconic Red Road in Kolkata on June 21, with nearly 35,000 participants joining him for the Common Yoga Protocol session starting at 5 AM. The event, themed 'Yoga for Healthy Ageing', saw over 210 Indian Missions abroad organising simultaneous celebrations at nearly 2,500 locations worldwide, alongside special programmes at 100 iconic heritage sites across India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India Legal / Bar &amp; Bench</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Delhi High Court Upholds Telegram Ban Until June 22 Ahead of NEET-UG 2026 Re-Examination</div>
+      <div class="nsum">The Delhi High Court dismissed Telegram's writ petition challenging the Central government's temporary block on the platform, citing the app's architecture — including large public channels, bot ecosystems, and message-editing features — as enabling rapid dissemination of examination fraud material. The block, imposed under Section 69A of the IT Act on recommendations from the National Testing Agency, remains operative until June 22, one day after the NEET-UG 2026 re-exam held today across approximately 5,400 centres in 551 cities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Shiksha / NTA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NEET-UG 2026 Re-Examination Conducted Nationwide With Unprecedented Security After Paper Leak Controversy</div>
+      <div class="nsum">The National Testing Agency conducted the NEET-UG 2026 re-examination today between 2 PM and 5:15 PM across 565 cities, including 14 international centres, following the cancellation of the original May 3 exam over paper leak allegations. Over 20 lakh students appeared, with the NTA deploying Indian Air Force helicopters for secure transportation of question papers, multi-layer biometric authentication, and isolation facilities for paper setters to ensure exam integrity.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NiftyTrader / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SBI Mutual Fund Secures SEBI Nod for ₹13,000 Crore IPO; Early-July Launch Expected on BSE and NSE</div>
+      <div class="nsum">SBI Funds Management, India's largest asset manager with assets under management of nearly ₹12.5 lakh crore, has received SEBI approval for its landmark ₹13,000 crore IPO, structured entirely as an Offer for Sale by promoters State Bank of India and Amundi. The price band is expected to be announced around July 2–3, making this potentially the largest asset management listing in India and SBI's third subsidiary to list after SBI Life Insurance and SBI Cards.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">InvestingCube / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Accenture Shares Crash 18% on Weak Bookings and Trimmed Outlook, Dragging Indian IT Stocks Down</div>
+      <div class="nsum">Accenture posted its worst single-day stock decline on record — nearly 18% — after cutting its fiscal 2026 revenue growth forecast to 3–4% and reporting a 15% drop in outsourcing bookings, raising fears that AI adoption is not driving new IT spending but merely reallocating existing budgets. The selloff had a direct spillover effect on Indian IT majors, with Infosys, TCS, Wipro, HCLTech and Tech Mahindra falling between 3% and 6% as investors reassessed the sector's near-term outlook.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Dailyhunt / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Petrol and Diesel Prices Fluctuate as Iran Closes Strait of Hormuz, Stoking Energy Market Anxiety</div>
+      <div class="nsum">Petrol and diesel prices in India are fluctuating amid the ongoing conflict in Iran and rising tensions around the Strait of Hormuz, with Iran's military declaring the critical waterway closed on June 21 following continued Israeli strikes in Lebanon. Oil marketing companies including HPCL, IOC, and BPCL saw their shares fall between 2% and 3% on the NSE as global crude markets reacted nervously to the latest escalation threatening energy supply routes.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India Legal / Bar &amp; Bench / NewKerala</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Delhi HC Upholds India's Telegram Block Under IT Act Section 69A Citing Platform's Exam Fraud Vulnerability</div>
+      <div class="nsum">The Delhi High Court ruled that Telegram's technical architecture — featuring large public channels, extensive bot ecosystems, cloud-based storage, and message-editing capabilities — makes it uniquely susceptible to enabling organised examination cheating networks. Applying Supreme Court proportionality principles from the Anuradha Bhasin case, the court held the time-bound block as the 'least restrictive measure' necessary to protect the integrity of the NEET-UG 2026 re-examination.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewKerala / TechnoSports</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Opens Applications for 2026 India AI Startup Accelerator With Bengaluru Bootcamp Kicking Off This Month</div>
+      <div class="nsum">Google has launched applications for its 2026 India AI Startup Accelerator, a three-month equity-free programme targeting startups working on Agentic AI, Multimodal AI, Physical AI, and Sovereign AI, with a week-long in-person bootcamp beginning in Bengaluru in late June. The initiative provides access to Google's advanced models including Gemini, mentorship from DeepMind and Cloud teams, and has a proven track record — past cohort participant Dview reported a four-fold revenue increase after the programme.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechnoSports / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Reach Record $50 Billion in Global Funding, Cementing India as Top-3 AI Investment Destination</div>
+      <div class="nsum">Indian startups have attracted a record $50 billion in global AI funding as of mid-2026, driven by the government's IndiaAI Mission — which earmarked ₹10,371 crore for domestic AI infrastructure — and major pledges of over $3 billion each from Microsoft, Google, and NVIDIA. India now ranks among the top three global destinations for AI investment, with over 1,000 AI startups tracked by NASSCOM and homegrown firms like Sarvam AI leading specialised, language-agnostic model development.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Axios / The Hill</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Declares Strait of Hormuz Closed Again as Israeli Strikes on Lebanon Threaten US-Iran Peace Deal</div>
+      <div class="nsum">Iran's armed forces announced the closure of the Strait of Hormuz on June 21 — just three days after it reopened — citing Israel's continued deadly strikes in southern Lebanon as a violation of the US-Iran memorandum of understanding signed at Versailles on June 17. US Central Command contradicted Iran's claim, stating commercial ship traffic in the strait actually increased on Saturday and that American forces remain present to ensure safe passage, even as VP Vance heads to Switzerland for nuclear negotiations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Yahoo Sports / ESPN / FIFA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIFA World Cup 2026: Germany Clinch Knockout Spot With Stoppage-Time Win; Netherlands Rout Sweden 5-1</div>
+      <div class="nsum">Germany secured their place in the Round of 16 at the 2026 FIFA World Cup with a dramatic 2-1 comeback victory over Ivory Coast in Toronto, with substitute Deniz Undav netting the winner in stoppage time to give Die Mannschaft six points and top spot in Group E. In Group F, the Netherlands delivered a dominant 5-1 demolition of Sweden in Houston, with Brobbey and Gakpo both on the scoresheet, as the tournament in Canada, Mexico, and the USA enters a crucial phase of group-stage action.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Fox News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Italy's PM Meloni Fires Back at Trump Over G7 Photo Claims, Calling His Statements 'Completely Made Up'</div>
+      <div class="nsum">Italian Prime Minister Giorgia Meloni issued a sharp video rebuttal after President Trump publicly claimed she had 'begged' for a photograph at the recent G7 summit, with Meloni declaring 'Italy and I do not beg' and describing his statements as senseless and entirely fabricated. The public spat between the two leaders marks a rare diplomatic rupture between Trump and one of his closest European allies, drawing widespread attention ahead of ongoing negotiations over trade and NATO commitments.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 21 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
