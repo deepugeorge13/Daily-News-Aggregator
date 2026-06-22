@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 22, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 22 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 22 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / India Rail Info</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Receives 13th Yellow Line Train, All 15 Sets Targeted by August 11</div>
+      <div class="nsum">The 13th six-coach train for Bengaluru Metro's Yellow Line was delivered to BMRCL on June 15, 2026, arriving at the Hebbagodi depot where it must complete 750 km of dynamic night testing before entering passenger service. Currently 10 trains run on the 19.75 km Yellow Line at 7-minute peak frequency; once all 15 are operational, that interval is expected to shrink to 4–5 minutes by the line's first anniversary on August 11.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hans India / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Development Minister Sets August 15 Deadline for Pink Line Section, Pushes Blue Line Trials</div>
+      <div class="nsum">Greater Bengaluru Development Minister Gowda directed BMRCL to commission the Kalena Agrahara–Tavarekere elevated Pink Line stretch of 7.5 km across six stations by August 15, 2026, subject to statutory approvals. He also directed trial runs to begin on the KR Pura–Marathahalli Blue Line section by October 2026, with the airport corridor expected to open by June 2027, expanding the metro network from 96 km to roughly 175 km.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / India Rail Info</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Drops Veterinary College Station on Phase 3A Red Line to Cut Costs</div>
+      <div class="nsum">To reduce overall costs of the Namma Metro Phase 3A Hebbal–Sarjapur corridor, BMRCL has decided to drop the proposed Veterinary College Metro Station that was planned between Mekhri Circle and Ganganagar near Hebbal. The move follows an earlier cost-optimisation step that reduced the length of underground stations, as the new Bengaluru Development Minister has pledged closer monitoring to ensure faster project delivery.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms Files Draft Red Herring Prospectus for India's Largest-Ever IPO</div>
+      <div class="nsum">Jio Platforms, the digital and telecom arm of Reliance Industries, filed its DRHP with SEBI for a fresh issue of up to 270 million shares targeting approximately $3.8 billion — set to surpass Hyundai Motor India's $3.3 billion listing as India's biggest-ever IPO. The prospectus earmarks ₹275 billion ($2.9 billion) to prepay foreign-currency debt of its telecom subsidiary Reliance Jio Infocomm, which had 524.4 million subscribers and 268.5 million already on 5G as of March 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Stock Markets to Observe Trading Holiday on June 26 for Muharram</div>
+      <div class="nsum">Indian stock exchanges BSE and NSE will remain closed on June 26 for the Muharram public holiday, marking the second exchange closure in under a month and the 16th scheduled trading holiday for 2026. The closure is the latest in a busy calendar of market shutdowns that investors and traders must account for in their near-term strategies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's West Asia Conflict Fallout Puts Disinvestment Plans on Hold, Centre to Review Timelines</div>
+      <div class="nsum">The Indian central government has put its disinvestment plans on hold for several months as fallout from the West Asia conflict continues to affect markets and investor sentiment, with authorities set to review timelines. The pause reflects broader caution as geopolitical risks, elevated crude oil prices linked to the Strait of Hormuz crisis, and global volatility weigh on India's economic planning.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Next Web / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms IPO to Value Telecom Giant at Over $130 Billion, Eyes Debt Elimination</div>
+      <div class="nsum">Analyst estimates place Jio Platforms' valuation between $131 billion and $180 billion, which would make it one of the most valuable companies ever to list in Asia, with the IPO representing roughly 2.9% of post-issue equity under a March 2026 regulatory change allowing mega-cap firms to list with just 2.5% public float. The company reported operating revenue of approximately ₹1.47 trillion and net profit of ₹300 billion for FY26, with EBITDA rising 18.8% to ₹762.6 billion and margins improving to 51.9%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / The Hindu Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Flipkart Retains Top E-Commerce Spot by User Engagement; Myntra Pulls Ahead in Fashion</div>
+      <div class="nsum">Brokerage data citing Sensor Tower daily active user metrics and industry checks confirmed that Flipkart remained India's leading e-commerce platform by user engagement as of June 2026, while Myntra continued to extend its lead over rivals in the fashion segment. The findings underscore consolidation at the top of India's competitive online retail market even as newer entrants vie for niche categories.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Hormuz Talks Drive Bullion and Oil Outlook for Indian Markets Next Week</div>
+      <div class="nsum">Analysts noted that US-Iran diplomatic developments and oil movement through the Strait of Hormuz will be the primary drivers of bullion and crude price trends for Indian markets in the coming week, following Iran's re-closure of the strait on June 20 over alleged ceasefire violations. Oil prices edged up on Sunday, with US crude rising nearly 3% to $78.70 per barrel and Brent up over 1% to $81.70, directly impacting India's import bill and inflation outlook.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechnoSports / IPO Central</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Cross $50 Billion in Global Funding, Neysa Leads with $1.2 Billion Series B</div>
+      <div class="nsum">Indian startups attracted a record $50 billion in global AI funding by June 2026, driven by the government's IndiaAI Mission and commitments of over $3 billion each from Microsoft, Google, and NVIDIA for India between 2024 and 2025. AI accounted for 38% ($1.48 billion) of the nearly $3.9 billion raised by Indian startups in Q1 2026 alone, with GPU cloud provider Neysa emerging as the standout, raising $1.2 billion in a Series B round in February.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PYMNTS / Financial Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Soaring AI Agent Costs Drive Enterprises to Cheaper Chinese Models as Token War Intensifies</div>
+      <div class="nsum">Large AI labs like OpenAI and Anthropic face growth headwinds as enterprises shift to lower-cost Chinese models including DeepSeek and MiniMax, which now have greater token consumption than US rivals — a reversal since the start of 2026 — driven by China's more efficient AI architectures and cheaper energy costs. Chinese labs charge as little as $2–$3 per million output tokens versus roughly $15 for Anthropic's Claude Sonnet 4.5, a near-sixfold gap that becomes increasingly significant for agentic AI workloads.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Analytics India Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Tackle Real-World Problems at Scale, from Cancer Diagnostics to Enterprise Automation</div>
+      <div class="nsum">A new generation of Indian AI startups — backed by the government's IndiaAI Mission and ICMR — is focusing on large-scale, uniquely Indian challenges including multilingual communication, healthcare access, and enterprise automation for millions of users. Bengaluru-based companies such as Maieutic Semiconductors and Trupeer are among the standout players, building AI copilots for chip design and AI-powered content creation respectively, with the broader sector projected to reach $126 billion by 2030.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Re-Closes Strait of Hormuz as US-Iran Talks Continue in Switzerland Over Hezbollah Ceasefire</div>
+      <div class="nsum">Iran announced on June 20 the re-closure of the Strait of Hormuz — through which roughly 20% of global seaborne oil trade passes — citing Israeli actions in Lebanon as a violation of the recently signed US-Iran memorandum of understanding. US Vice President JD Vance traveled to Switzerland for emergency talks, saying 'great progress has been made,' while an emergency Lebanon session was added to the agenda as Israel and Hezbollah continued trading strikes despite a freshly brokered ceasefire.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia-Occupied Crimea Suspends Civilian Gasoline Sales as Ukraine Intensifies Fuel Supply Attacks</div>
+      <div class="nsum">Officials in Russia-occupied Crimea suspended civilian gasoline sales on June 21 as Ukraine ramped up attacks on fuel supply infrastructure on the Black Sea peninsula. The move signals an escalation in Ukraine's strategy of targeting Russian-held logistics and energy nodes, coming shortly after Ukraine launched one of its biggest drone and missile attacks on Moscow since the full-scale invasion began.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIFA World Cup 2026: Argentina, Belgium, Uruguay in Action on June 22 in Expanded 48-Team Tournament</div>
+      <div class="nsum">June 22 features four matches at the 2026 FIFA World Cup including Belgium vs Iran, Uruguay vs Cape Verde, New Zealand vs Egypt, and defending champions Argentina vs Austria, with multiple nations fighting to secure knockout-round berths in the expanded 48-team format. Cape Verde arrives full of confidence after holding Spain to a goalless draw in one of the tournament's biggest shocks, with Indian fans able to watch live on Zee5 and Unite8 Sports channels.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 22 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
