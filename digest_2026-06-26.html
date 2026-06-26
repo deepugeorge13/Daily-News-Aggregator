@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 26, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 26 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 26 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / India Rail Info</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Receives 13th Yellow Line Train; All 15 Sets Targeted by August 11 Anniversary</div>
+      <div class="nsum">The 13th six-coach train for Bengaluru Metro's Yellow Line was delivered to BMRCL at the Hebbagodi depot on June 15, 2026, and must complete 750 km of dynamic testing before entering passenger service. All 15 trains are targeted to be operational by August 11, 2026 — the Yellow Line's first anniversary — which will improve peak-hour frequency from 7 minutes to 4–5 minutes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BLR Metro Tracker</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Drops Veterinary College Station on Metro Phase 3A Red Line to Cut Costs</div>
+      <div class="nsum">In a cost-optimisation move for the Namma Metro Phase 3A Hebbal–Sarjapur corridor, BMRCL has decided to drop the proposed Veterinary College station, which had been planned between Mekhri Circle and Ganganagar near Hebbal. This follows an earlier step in which the length of underground stations was already reduced, as the new Bengaluru Development Minister has vowed to accelerate execution timelines across all Metro corridors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsfirst Prime / BookNewProperty</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Suburban Rail Project Targets December 2026 Inauguration for Mallige and Kanaka Corridors</div>
+      <div class="nsum">Union Minister V. Somanna confirmed that the Mallige and Kanaka corridors of the Bengaluru Suburban Rail Project (BSRP) — a 149 km commuter rail network with 64 stations across four corridors — are targeted for inauguration by December 2026. The BSRP is funded by a combination of central and state grants alongside a €500 million KfW loan and a €300 million EIB loan, totalling ₹7,438 crore in foreign financing.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Goodreturns</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Observes Muharram on June 26; All Central Offices, Banks and Stock Exchanges Closed</div>
+      <div class="nsum">The Government of India has designated June 26, 2026 as a gazetted public holiday for Muharram (Ashura), resulting in the closure of central government offices, banks, post offices, and both the BSE and NSE for the day. Since the holiday falls on a Friday, it creates a three-day long weekend — Friday through Sunday — for employees and students across much of the country.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook India / Wikipedia / The Wire</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NEET-UG 2026 Re-Exam Held Amid Tight Security After Paper Leak Crisis; CBI Probe Ongoing</div>
+      <div class="nsum">The NEET-UG 2026 re-examination was held on June 21 under heavily fortified security protocols after the original May 3 exam was cancelled on May 12 following a widespread paper leak, with the CBI taking over the investigation. The crisis has claimed at least 13 student lives by suicide, sparked nationwide protests, and prompted the Supreme Court to seek a status report on the implementation of safeguards recommended after the 2024 NEET controversy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / DNA India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Commissions Three New Naval Ships, Inaugurates ₹47,600 Crore Projects in Odisha and West Bengal</div>
+      <div class="nsum">Prime Minister Narendra Modi recently commissioned three indigenously designed naval ships — INS Dunagiri, INS Sanshodhak, and INS Agray — at Syama Prasad Mookerjee Port in Kolkata and led the 12th International Day of Yoga observance from Kolkata's Red Road on June 21. Earlier, he inaugurated and laid the foundation stone for development projects worth over ₹47,600 crore in Mayurbhanj district of Odisha, marking two years of governance milestones.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSE and NSE Closed Today for Muharram; Markets to Resume Monday, June 29</div>
+      <div class="nsum">Indian stock markets, including the BSE and NSE, observed a full holiday on Friday, June 26, 2026, in observance of Muharram, with trading suspended across equity, equity derivatives, and Securities Lending and Borrowing segments. The NCDEX also remained closed for the full session, while the MCX followed a split trading schedule; normal market hours resume on Monday, June 29.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Clears Emirates NBD's ₹26,853 Crore Takeover of RBL Bank; SEBI Approval Imminent</div>
+      <div class="nsum">RBL Bank has secured Reserve Bank of India approval for its proposed stake sale to Emirates NBD, representing one of the largest cross-border banking deals involving an Indian lender, with an open offer at ₹280 per share expected soon after SEBI clearance. The deal, valued at approximately ₹26,000 crore for a controlling 60% stake, is also set to include a merger of Emirates NBD's existing India operations with RBL Bank.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ambedkarchamber.com / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25%, Projects GDP Growth at 6.6% for FY27 Amid Global Uncertainty</div>
+      <div class="nsum">The RBI's Monetary Policy Committee kept the policy repo rate unchanged at 5.25% in its June 2026 statement, projecting real GDP growth for 2026-27 at 6.6% while cautioning that elevated global energy prices — with India's crude oil basket averaging around $110 per barrel in April-May — could stoke inflationary pressure. India's foreign exchange reserves stood at a healthy $682.3 billion as of May 29, 2026, providing approximately 11 months of import cover.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru AI Startup Sarvam Becomes India's Newest AI Unicorn with $234 Million HCLTech-Led Round</div>
+      <div class="nsum">Bengaluru-based Sarvam has raised $234 million at a $1.5 billion valuation — becoming India's newest AI unicorn — with HCLTech leading the round with a $150 million strategic investment, alongside Bessemer Venture Partners, Khosla Ventures, and Peak XV Partners. The fresh capital will fund next-generation AI models focused on agentic, coding, and cybersecurity applications, with Sarvam's models specifically designed for Indian languages and deployed across banking, insurance, government, and defence.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndiaAI / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">MeitY Launches IndiaAI Startups Global Acceleration Program 2026 — 2nd Cohort Now in Paris</div>
+      <div class="nsum">The Ministry of Electronics and Information Technology (MeitY) has launched the second cohort of its IndiaAI Startups Global Acceleration Program, with selected Indian AI startups currently in Paris engaging with the European ecosystem. The inaugural cohort saw 10 startups collectively raise over €42 million, sign 36 strategic partnerships, and gain direct access to EU government bodies and corporates, with five startups establishing legal entities in France.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Semiconductor Mission 2.0 Launched with ₹1,000 Crore Allocation; 5G Now Covers 99.9% of Districts</div>
+      <div class="nsum">The Union Budget 2026-27 announced India Semiconductor Mission 2.0 with a ₹1,000 crore provision for research, training, and workforce development, building on the original ₹76,000 crore mission under which 10 projects across six states with cumulative investments of ₹1.60 lakh crore have been approved. India's 5G services now cover 99.9% of districts, reaching 85% of the population, while data centre capacity stands at 1,280 MW and is projected to grow four-to-five times by 2030.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Deccan Herald / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Venezuela Twin Earthquakes Kill 235, Injure Over 4,300; US Deploys Rescue Teams as State of Emergency Declared</div>
+      <div class="nsum">Back-to-back earthquakes measuring 7.2 and 7.5 in magnitude struck Venezuela's Caribbean coast on June 24, killing at least 235 people and injuring more than 4,300, with the USGS warning that the death toll could ultimately rise into the thousands given the extensive destruction in Caracas and La Guaira. Acting President Delcy Rodríguez declared a state of emergency, while the US, Spain, France, Switzerland, Portugal, Mexico, China, and India all pledged aid and rescue support.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CDC / WHO / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DRC Ebola Outbreak Surpasses 1,000 Cases, Becomes Second Largest on Record; France Reports First Imported Case</div>
+      <div class="nsum">As of June 22, the Democratic Republic of the Congo has confirmed more than 1,000 cases of the Bundibugyo Ebola virus, making this the second-largest Ebola outbreak on record and the fastest-spreading in history, with 291 confirmed deaths in DRC and two in Uganda. France confirmed its first imported case on June 24 after a doctor returned from a humanitarian mission in DRC, while the WHO — which declared a Public Health Emergency of International Concern on May 17 — warns there is no approved vaccine or specific treatment for the Bundibugyo strain.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UK Prime Minister Keir Starmer Resigns, Triggering Political Uncertainty Ahead of New Leadership Race</div>
+      <div class="nsum">UK Prime Minister Keir Starmer has announced his resignation, sending shockwaves through British politics and prompting both celebrations and protests across the country. People in London expressed a mix of frustration, uncertainty, and cautious hope as the governing Labour Party prepares for a leadership contest to determine his successor.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 26 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
