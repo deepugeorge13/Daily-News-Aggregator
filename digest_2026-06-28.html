@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 28, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 28 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 28 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Begins Land Acquisition for Namma Metro Phase 3 Orange Line</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited has launched land acquisition for the highly anticipated Namma Metro Phase 3, covering two corridors totalling 44.65 km — Corridor 1 stretching 32.15 km from J.P. Nagar Phase 4 to Kempapura, and Corridor 2 covering 12.5 km from Hosahalli to Kadabagere. The total project cost is estimated at Rs 156.11 billion, with completion targeted by 2029, and the expanded network is expected to serve 7.85 lakh passengers daily, raising Bengaluru's metro coverage to 222.2 km.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Red Alert for Bengaluru as Monsoon Surge Triggers Waterlogging Across City</div>
+      <div class="nsum">The India Meteorological Department has issued a red alert for Bengaluru, warning of extremely heavy rainfall exceeding 204 mm in a single day as strong moisture-laden winds from the Arabian Sea power the monsoon surge. Severe downpours have already triggered waterlogging on key roads including Sarjapur Road, Silk Board, and Bellandur, with BBMP urging commuters to monitor live traffic updates and civic agencies advising residents to stay indoors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / Bangalore News Network</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bidadi AI City Project Advances as GBDA Floats Rs 26-Crore Infrastructure Tender</div>
+      <div class="nsum">The Greater Bengaluru Development Authority has floated a Rs 26-crore tender for the Bidadi AI City project, signalling forward momentum despite ongoing protests from local stakeholders and land-affected residents. The Bidadi corridor, already a major industrial and automobile manufacturing hub, is being positioned as Karnataka's flagship AI and technology township under the newly installed Chief Minister D.K. Shivakumar's development agenda.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewKerala / Akashvani News / ProKerala</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Addresses Nation in 135th Episode of Mann Ki Baat Today</div>
+      <div class="nsum">Prime Minister Narendra Modi connected with citizens across India and the global Indian diaspora in the 135th episode of his monthly radio programme Mann Ki Baat, broadcast live at 11 AM on June 28, 2026. The programme aired across the entire Akashvani and Doordarshan network as well as digital platforms including the NewsOnAir app and YouTube channels of AIR News, DD News, and the PMO, and was made available in multiple regional languages to reach diverse audiences.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Ministry of External Affairs / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Issues Advisory on Iran, Monitors West Asia Crisis as US Strikes Resume</div>
+      <div class="nsum">India's Ministry of External Affairs issued a fresh advisory on Iran through the Embassy of India in Tehran as the United States conducted new strikes against multiple targets in Iran after President Trump declared the ceasefire had been violated. The ongoing 2026 Iran war, which has disrupted the Strait of Hormuz and roiled global oil markets, is being closely tracked by New Delhi given its strategic and energy security implications for the Indian economy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NITI Aayog / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NITI Aayog Releases India Semiconductor Roadmap, Estimates Rs 135-180 Billion Investment Need</div>
+      <div class="nsum">NITI Aayog released its Future of India's Semiconductor Industry Roadmap, estimating that India will need cumulative semiconductor investments of nearly $135–180 billion over the next decade to build a competitive domestic chip ecosystem. The roadmap recommends that the government commit at least one-third of this amount to de-risk projects and attract large-scale private capital, in line with the broader electronics component PLI framework that has already generated approval for nearly 37,000 jobs in its third tranche.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Herald / Akashvani News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Goldman Sachs Raises India's 2026 GDP Forecast to 6.8% After US-Iran Peace Deal</div>
+      <div class="nsum">Goldman Sachs upgraded India's real GDP growth forecast for calendar year 2026 to 6.8% from 6.5%, citing the sharp decline in crude oil prices following the US-Iran peace deal that has reduced macroeconomic risks for the country. The investment bank also revised its FY27 GDP growth estimate upward to 6.5% from 6.1%, lowered its headline inflation forecast by 0.2 percentage points to 4.4%, and cut its current account deficit estimate to 1.1% of GDP, noting that India's economy grew a robust 7.8% year-on-year in Q1 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NiftyTrader / Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SBI Mutual Fund IPO Set for Early July Launch After Securing SEBI Approval</div>
+      <div class="nsum">SBI Funds Management, India's largest asset manager with a 15.4% market share and over Rs 12.49 lakh crore in assets under management, has secured SEBI's approval and is expected to file its Red Herring Prospectus and announce a price band in the first week of July 2026. The Rs 13,000-crore offering will be a pure offer-for-sale of up to 20.37 crore equity shares, representing approximately 10% of the company's equity base, with State Bank of India holding 61.76% and Amundi India Holding owning 36.26%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nagarro / PR Newswire / ScanX Trade</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Persistent Systems Acquires Nagarro in EUR 81/Share All-Cash Deal to Create USD 2.9 Billion IT Giant</div>
+      <div class="nsum">Pune-based Persistent Systems signed a Business Combination Agreement with Germany's Nagarro SE to launch a voluntary public takeover offer at EUR 81 per share — a premium of approximately 140% to the undisturbed closing price on June 25, 2026 — to form the Persistent-Nagarro Group, a USD 2.9 billion AI-led digital engineering powerhouse with over 46,000 employees across 40+ countries. Persistent held an analyst and investor call on the morning of June 28 to discuss the deal, which is expected to close in Q4 CY2026 or Q1 CY2027 pending approval from Germany's BaFin financial regulator.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WION / Analytics Insight</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise USD 3.94 Billion in Q1 2026, Over Six Times Full-Year 2025 Total</div>
+      <div class="nsum">Indian AI startups recorded a dramatic funding surge in the first quarter of 2026, raising USD 3.94 billion — more than six times the full-year 2025 total — led by Neysa's landmark USD 600 million Series B round to build sovereign GPU computing infrastructure. The government has reinforced this momentum with a USD 1.15 billion Fund of Funds and a Rs 1 trillion Research, Development and Innovation scheme spanning AI, quantum computing, and deep-tech technologies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">19 Indian Startups Raise USD 469 Million in Single Week; AI Startup Sarvam Tops the List</div>
+      <div class="nsum">Between June 15 and June 20, 2026, as many as 19 Indian startups from diverse sectors including AI, Deeptech, Foodtech, Cleantech, Healthtech, and Wealthtech collectively raised over USD 469 million in funding. The week also saw a major M&amp;A development as French cosmetics giant L'Oréal acquired Indian personal care startup Innovist, signalling growing global appetite for Indian consumer-tech brands.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PhonePe / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PhonePe to Introduce Rs 100 Quarterly Fee on Inactive Wallets, Sparking User Backlash</div>
+      <div class="nsum">Fintech giant PhonePe announced it will charge a Rs 100 quarterly maintenance fee on inactive wallets, a move that triggered immediate backlash from users on social media who questioned the fairness of fees on dormant accounts. The development highlights intensifying monetisation pressures across India's digital payments ecosystem, as platforms seek new revenue streams beyond zero-margin UPI transactions amid regulatory caps on interchange fees.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Britannica / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Conducts Fresh Strikes on Iran After Trump Declares Ceasefire Violated, West Asia Tensions Escalate</div>
+      <div class="nsum">The United States conducted additional military strikes against multiple targets inside Iran on June 26–28, 2026, after President Donald Trump accused Tehran of violating the ceasefire terms that had been brokered amid the ongoing 2026 Iran war, which began on February 28 with US-Israeli strikes targeting Iranian military and government sites. Iran's intermittent closure of the Strait of Hormuz has continued to disrupt global energy supply chains, while Israel and Lebanon simultaneously signed a framework agreement with US facilitation as a first step toward a broader peace deal.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Venezuela Earthquake Death Toll Rises to Over 1,400 as International Rescue Teams Comb Rubble</div>
+      <div class="nsum">The death toll from the twin earthquakes — a Mw 7.2 foreshock followed seconds later by a Mw 7.5 mainshock — that struck northwestern Venezuela on June 24, 2026 has climbed to at least 1,430, with more than 3,200 injured and over 50,000 people reported missing, as international rescue teams from more than 30 countries continue to search the rubble. Acting President Delcy Rodriguez declared a state of emergency, the country's main airport sustained damage hampering aid delivery, and the Trump administration announced an additional nine-figure aid package on top of the USD 150 million already committed.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ESPN / Sky Sports / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIFA World Cup 2026 Knockout Stage Kicks Off Today with Round of 32 Matches Across North America</div>
+      <div class="nsum">The 2026 FIFA World Cup knockout stage officially commenced on June 28, 2026, with the newly introduced Round of 32 format featuring 32 qualified teams in single-elimination competition, opening with South Africa vs. Canada at SoFi Stadium in Inglewood, California. The expanded 48-team tournament, co-hosted across 16 cities in the United States, Mexico, and Canada, has already set a record as the most attended World Cup in history, with fan attendance surpassing 3.6 million across the group stage, and the final is scheduled for July 19 at MetLife Stadium in New Jersey.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 28 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
