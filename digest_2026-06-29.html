@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — June 29, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 29 June 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 29 June 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / India Rail Info</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Delivers 13th Train for Namma Metro Yellow Line, All 15 Sets Targeted by August 11</div>
+      <div class="nsum">The 13th six-coach train for Bengaluru Metro's Yellow Line was delivered to BMRCL on June 15, 2026, and must complete 750 km of dynamic night-time testing before entering passenger service. With 14th and 15th trains expected from Titagarh Rail Systems by early July, BMRCL aims to have all 15 trains operational by August 11 — the Yellow Line's first anniversary — improving peak-hour frequency from 7 minutes to 4–5 minutes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Probe Concludes: Commuter's Metal Chain Caused Purple Line Rush-Hour Disruption at Cubbon Park</div>
+      <div class="nsum">BMRCL concluded its investigation into a recent Purple Line service halt, confirming that a commuter's metal chain triggered an automatic safety mechanism at Cubbon Park station during the evening rush hour, causing an 18-minute disruption. Investigators found no mechanical or software faults in the metro system itself, and BMRCL has since urged all passengers to keep bags and jewellery clear of sliding door track gaps to prevent repeat incidents.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Swarajya</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru South Corporation Flags 10 Flood-Prone Spots as Monsoon Deepens, BBMP Under Pressure</div>
+      <div class="nsum">Bengaluru South City Corporation has identified 10 waterlogging-prone locations ahead of the deepening monsoon and directed officials to monitor them closely, deploying six towing vehicles to manage haphazard parking that worsens flooding. BBMP, which has already mapped 211 vulnerable storm-water drains citywide — 58 classified as severely vulnerable — faces continued pressure after pre-monsoon flash floods on May 22 submerged key arteries including Silk Board, Bellandur, and KR Circle.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi on State Visit to Seychelles, Receives 'Guardian of the Blue Horizon' Award</div>
+      <div class="nsum">Prime Minister Narendra Modi is on a state visit to Seychelles from June 27–29, 2026, during which he was conferred the 'Guardian of the Blue Horizon' award by the President of Seychelles, which he dedicated to all nations committed to environmental conservation. The visit marks a deepening of India's Indian Ocean diplomacy and comes days after Modi was recognised as India's longest continuously serving democratically elected Prime Minister.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week / The Researchers</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">First Made-in-India C-295 Military Transport Aircraft Completes Maiden Test Flight from Vadodara</div>
+      <div class="nsum">India's first Airbus C295 military transport aircraft assembled domestically completed its maiden test flight on June 10, 2026, from the Tata-Airbus Final Assembly Line in Vadodara, Gujarat — the first military aircraft ever produced in India by a private-sector company. Assembled by Tata Advanced Systems Limited in partnership with Airbus Defence and Space, the aircraft is the first of 40 to be built under a ₹21,935-crore programme, with delivery to the Indian Air Force expected by September 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India-US Trade Deal 'Very Close' but Won't Be Signed Until Competitive Advantage Is Locked In: Piyush Goyal</div>
+      <div class="nsum">Commerce Minister Piyush Goyal stated on June 25, 2026 that India will not enter into a trade deal with the United States until Washington provides appropriate legal tools to guarantee India a comparative advantage over rival exporters such as Vietnam and Bangladesh. Goyal, speaking in London, said both sides are working through finer details of the arrangement, even as the US has already reduced the effective tariff on Indian goods to 18% from a peak of nearly 50% under an interim framework.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Goldman Sachs</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Goldman Sachs Raises India GDP Forecast to 6.8% for 2026 on Lower Oil Prices After US-Iran Deal</div>
+      <div class="nsum">Goldman Sachs upgraded India's CY2026 GDP growth forecast by 0.3 percentage points to 6.8% year-on-year, citing a sharp decline in crude oil prices following the US-Iran peace deal and stronger-than-expected domestic economic activity in Q1 2026. The investment bank also lowered its retail inflation forecast for FY27 to 4.9% and said India's economy remained resilient despite West Asia conflict disruptions, as fiscal measures absorbed much of the energy cost increase.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE, BSE Resume Trading Monday June 29 After Muharram Holiday; IT and Banking Stocks in Focus</div>
+      <div class="nsum">Indian stock markets, which were closed on Friday, June 26, 2026 for the Muharram public holiday, resume normal trading on Monday, June 29 under standard hours of 9:15 AM to 3:30 PM. In the previous trading session on June 24, the Sensex climbed 791 points to close near 77,046 with IT and banking stocks leading gains, buoyed by falling crude prices and growing expectations of an India-US trade deal.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook Business / RBI Bulletin</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Bulletin: India's Free Trade Deals with US and EU Set to Boost FPI Inflows and Rupee Stability</div>
+      <div class="nsum">The Reserve Bank of India's latest bulletin noted that India's trade deals with the European Union and the United States are likely to play a significant role in the economy in coming years, with foreign portfolio investments and the rupee already staging a comeback following the two announcements. The bulletin also highlighted that the domestic economy remained resilient, with industrial activity strong and the services sector sustaining healthy growth, while the Union Budget 2026-27 reaffirmed the government's commitment to fiscal consolidation.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Former Infosys CEO Vishal Sikka Launches AI Startup Hang Ten Systems with $32 Million Seed Round</div>
+      <div class="nsum">Vishal Sikka, former CEO of Infosys, has launched a new AI startup called Hang Ten Systems, which has raised a $32 million seed round led by Mayfield with a strategic investment from Aramco Ventures, to help enterprises build, modify, and operate software using AI-driven automation. The startup, whose board includes Yahoo co-founder Jerry Yang, is already working with customers including Siemens Gamesa Renewable Energy and Fresenius on AI-native project delivery.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise Over $469 Million in a Single Week, AI Startup Sarvam Tops Funding List</div>
+      <div class="nsum">Between June 15 and June 20, 2026, as many as 19 Indian startups across sectors including AI, Deeptech, Foodtech, Cleantech, and Healthtech raised over $469 million in funding, with AI startup Sarvam topping the list. The period also saw strategic M&amp;A activity, including French cosmetics giant L'Oréal acquiring Indian personal care startup Innovist.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bold News / WION</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Surpass $3.94 Billion in Q1 2026 Funding, More Than Six Times Full-Year 2025 Total</div>
+      <div class="nsum">Indian AI startups raised $3.94 billion in the first quarter of 2026 alone — more than six times the full-year 2025 total — led by Neysa's $600 million funding round and momentum from the AI Impact Summit hosted in India. The surge is backed by the government's IndiaAI Mission and a new ₹1 trillion Research, Development and Innovation scheme spanning AI, quantum computing, and deep-tech technologies.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PBS NewsHour / Al Jazeera / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Strikes US Bases in Kuwait and Bahrain After US Airstrikes, Threatens to Halt Peace Talks</div>
+      <div class="nsum">Iran's Islamic Revolutionary Guard Corps launched ballistic missile and drone attacks on US military sites in Kuwait and Bahrain on Sunday, June 29, after the US struck five Iranian targets in retaliation for an Iranian drone attack on a Panamanian-flagged oil tanker in the Strait of Hormuz. Iran threatened a 'complete halt' to ceasefire negotiations, while US President Trump warned on social media that Iran 'will no longer exist' if attacks continue, placing the fragile US-Iran ceasefire agreement under severe strain.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / CNN / OPB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Venezuela Earthquake Death Toll Rises to 1,430 as Rescue Teams Race Against Time in Caracas and La Guaira</div>
+      <div class="nsum">Twin earthquakes of magnitudes 7.2 and 7.5 struck Venezuela on June 24, 2026, killing at least 1,430 people, injuring over 3,238, and leaving tens of thousands unaccounted for, with the worst destruction in coastal La Guaira and Caracas where more than 1,400 buildings collapsed. The country's main Simón Bolívar International Airport was heavily damaged and all flights cancelled, severely hampering international relief efforts from countries including the US, Colombia, and Mexico.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Fox News / CBS News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">11 Killed as Skydiving Plane Crashes Moments After Takeoff in Northeastern France</div>
+      <div class="nsum">A skydiving plane carrying a pilot and 10 parachutists crashed shortly after takeoff in northeastern France on Sunday, June 29, killing all 11 on board after the single-engine Pilatus PC-6 aircraft suffered a malfunction and fell nearly vertically, narrowly missing a residential area. French Interior Minister Laurent Nunez and Transport Minister Philippe Tabarot traveled to the crash site as investigators opened a probe into the cause of the accident.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 29 June 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
