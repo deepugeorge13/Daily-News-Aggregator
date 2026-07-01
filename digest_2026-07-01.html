@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 1, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 1 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 1 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Gets 7-Day Pothole Deadline as NHAI Monsoon Waterlogging Plans Remain Critically Incomplete</div>
+      <div class="nsum">Three months after instructions to address flooding at 28 sites within BBMP limits, NHAI has prepared plans for just four locations, drawing sharp criticism at a high-level civic review. Karnataka's Chief Secretary directed departments to act immediately, as pre-monsoon rains have already caused waterlogging and key stormwater drain and road restoration works remain significantly behind schedule.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / Metro Rail Guy</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Phase 3 Construction Under Way, Mallige and Kanaka Corridors Targeted for December 2026 Inauguration</div>
+      <div class="nsum">Bangalore Metro Phase 3, spanning two elevated routes totalling 44.65 km in western Bengaluru at an estimated cost of ₹15,611 crore, is progressing with construction expected to run through the early 2030s. Union Minister V. Somanna has confirmed that the Mallige and Kanaka suburban rail corridors are targeted for inauguration by December 2026, advancing the city's integrated public transport ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / Abhee Ventures</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP-BMRCL Joint Peripheral Ring Road Project Worth ₹9,800 Crore to Decongest Bengaluru's Outer Ring Road</div>
+      <div class="nsum">A joint venture between BBMP and BMRCL will develop a 32.15 km integrated road-and-metro corridor along Bengaluru's Outer Ring Road at a cost of ₹9,800 crore, providing a crucial bypass between North and South-East Bengaluru. The project is expected to significantly reduce congestion on the heavily trafficked ORR, while boosting real estate values in corridors from JP Nagar to Hebbal.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ISAS / The Print</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Wins West Bengal in Landslide, Film Star Vijay's TVK Upsets Established Parties in Tamil Nadu in 2026 State Elections</div>
+      <div class="nsum">In a major political upset, the BJP won a landslide victory in West Bengal, defeating Mamata Banerjee's Trinamool Congress after three consecutive terms in power, while actor-turned-politician Vijay's Tamilaga Vettri Kazhagam won 108 seats to emerge as the largest party in Tamil Nadu. The results mark a sweeping shift in India's political landscape, with the BJP now dominating eastern India and the Left losing power in every Indian state after the Congress-led UDF toppled the LDF in Kerala.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian / StaffNews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Central Government Employees Await July 2026 DA Hike; 8th Pay Commission Consultations Continue</div>
+      <div class="nsum">Central government employees and pensioners are anticipating a 2–3 percentage point hike in Dearness Allowance from July 2026, currently pegged at 58% of basic pay under the 7th Pay Commission framework. The 8th Pay Commission, though constituted, has not yet finalised its recommendations, meaning DA revisions remain the primary source of salary relief while employee unions continue to submit demands to the commission.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Rushlane / News on AIR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Delhi EV Policy 2.0 Takes Effect Today: Petrol Two-Wheeler Ban from 2028, ₹15,000 Crore Infrastructure Plan Launched</div>
+      <div class="nsum">Delhi's sweeping EV Policy 2026 came into effect on July 1, mandating that only electric two-wheelers can be registered in the capital from April 2028, while electric cars priced under ₹30 lakh receive full exemption from road tax and registration fees. The government plans to invest ₹15,000 crore over four years and build over 30,000 public charging points across Delhi to support the ambitious transition.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SaveDelete / Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms Files DRHP with SEBI for India's Largest-Ever IPO; Listing Expected Later in 2026</div>
+      <div class="nsum">On June 19, 2026, Reliance Industries chairman Mukesh Ambani confirmed board approval of the draft red herring prospectus for Jio Platforms' IPO — structured as a 100% fresh issue — filed with SEBI the same day, marking a landmark moment for Indian capital markets. The IPO, which will list India's largest telecom and digital company serving 524 million subscribers, is expected to comfortably surpass all previous records and rank among the largest global listings of 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Goldman Sachs</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Goldman Sachs Raises India GDP Growth Forecast to 6.8% for 2026, Citing US-Iran Deal and Lower Crude Prices</div>
+      <div class="nsum">Goldman Sachs upgraded India's calendar year 2026 GDP growth forecast to 6.8%, up from a prior estimate of 6.1%, following the US-Iran interim peace deal that has allowed oil traffic through the Strait of Hormuz to partially resume and pushed Brent crude down roughly 30% this quarter. The bank also lowered its retail inflation projection for FY27 to 4.9% and cut the current account deficit forecast to 1.1% of GDP, citing stronger-than-expected Q1 economic activity and resilient services sector growth.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Reliance's Project Jupiter Revealed: How Jio's IPO Was Secretly Planned Amid Regulatory Shifts and Investor Alignment</div>
+      <div class="nsum">Reliance Industries quietly orchestrated 'Project Jupiter' to prepare Jio's IPO while managing regulatory changes, strict internal secrecy, and alignment with 14 global investors including Google, Meta, KKR, and Saudi Arabia's Public Investment Fund. The plan evolved from an offer-for-sale structure to a primary fresh issue after pricing disagreements, enabling all funds to remain with Jio and positioning the company for what investment banks expect will be India's biggest-ever stock market listing.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Sovereign AI Push Faces Trust and Accountability Gap as Deepfakes and Public-Sector AI Use Rise</div>
+      <div class="nsum">As India scales its sovereign AI ambitions under the IndiaAI Mission, policy experts and industry leaders warn that the country's lack of a standalone AI law — instead relying on the IT Act, DPDP Act, and sectoral rules — is creating accountability gaps, especially as deepfakes and AI use in government services increase. Business Standard reports that the next phase of India's AI governance challenge will be ensuring every AI deployment has clear audit trails, documented decision-making, and continuous monitoring throughout the AI lifecycle.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WION / Drudhh</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $3.94 Billion in Q1 2026, Over Six Times Full-Year 2025 Total, Led by Neysa's $600 Million Round</div>
+      <div class="nsum">Indian AI startups saw a sharp funding surge in early 2026, raising $3.94 billion in just the first quarter alone, primarily driven by Mumbai-based AI cloud platform Neysa's $600 million Series B round earmarked for building sovereign GPU clusters in India. The government has reinforced this momentum with a $1.15 billion Fund of Funds and a ₹1 trillion Research, Development and Innovation scheme spanning AI, quantum computing, and deep-tech, with the centre projecting over $200 billion in sector investment over the next two years.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hans India / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Go Global from Day One as Cloud, AI Tools, and Digital Trust Reshape Startup Playbook</div>
+      <div class="nsum">A new wave of Indian founders — particularly from Bengaluru and Hyderabad — are building for international clients from inception, leveraging AI tools, cloud infrastructure, and digital payments to serve customers in London, Dubai, Singapore, and New York without establishing a domestic client base first. According to the Google and Inc42 Bharat AI Startups Report 2026, India's AI market could become a $126 billion opportunity by 2030, with a potential GDP impact of $1.7 trillion by 2035, as enterprise AI leads growth and consumer AI scales rapidly.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Fox News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Supreme Court Upholds Birthright Citizenship, Delivering Major Defeat to Trump's Immigration Agenda</div>
+      <div class="nsum">The US Supreme Court rejected President Donald Trump's executive order seeking to end birthright citizenship, preserving the constitutional guarantee of automatic citizenship for most children born on American soil in a significant legal setback. The ruling marks one of the most consequential defeats for Trump's immigration agenda and is expected to have lasting implications for future executive action on citizenship policy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Fox News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Putin Admits Fuel Shortages as Ukrainian Strikes on Russian Refineries Trigger Fights at Gas Stations</div>
+      <div class="nsum">Russian President Vladimir Putin publicly acknowledged that Ukrainian long-range drone and missile strikes on Russian oil refineries are causing widespread fuel shortages, as videos circulated online showing physical altercations and long queues at gas stations across Russia. The admission marks a rare concession from the Kremlin and underscores the deepening economic impact of Ukraine's escalating counter-strike campaign on Russian energy infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Fox News / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Attacks Shipping in Strait of Hormuz to Counter US-Oman Southern Corridor, as Brent Crude Slides 30%</div>
+      <div class="nsum">Iran has allegedly attacked commercial vessels in the Strait of Hormuz in an effort to undermine a new southern shipping corridor developed by the United States and Oman as an alternative to the strategically critical waterway. Despite the renewed tensions, Brent crude futures have fallen approximately 30% this quarter following an earlier US-Iran interim peace agreement that allowed partial resumption of Hormuz traffic and eased global oil supply concerns.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 1 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
