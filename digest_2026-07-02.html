@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 2, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 2 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 2 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Monsoon Misery: IT Corridor Paralysed as Whitefield, Yelahanka Underpass Flood</div>
+      <div class="nsum">Heavy evening showers caused severe waterlogging across Bengaluru's IT corridor, flooding key stretches in Whitefield, the Yelahanka underpass, and Hennur-Bagalur Road. The downpours triggered traffic chaos, ride-hailing shortages, and surge pricing across East and Northeast Bengaluru, exposing persistent drainage and transport gaps in the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Suburban Rail Deadline Slips to March 2027 as L&amp;T Cites Land Acquisition Delays</div>
+      <div class="nsum">The Bengaluru Suburban Rail Project's Mallige Line (Benniganahalli–Chikkabanavara) and Kanaka Line (Heelalige–Rajanukunte), originally slated for a 2026 opening, have had their deadline pushed to at least March 2027. Contractor L&amp;T has cited stalled land acquisition and court stay orders from private landowners, while K-RIDE officials report the Mallige Line has achieved only 28 per cent physical progress.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Awards Feasibility Study Contracts for 118-km Namma Metro Phase 4 Expansion</div>
+      <div class="nsum">Bengaluru Metro Rail Corporation (BMRCL) has awarded feasibility study contracts to Hyderabad-based Aarvee Associates to evaluate extending the metro by 50 km in three directions — Challaghatta to Bidadi, Silk Institute to Harohalli, and Bommasandra to Attibele — and constructing a new 68-km line. A separate contract was also awarded to study a 52.41-km extension to Tumakuru, paving the way for a potential Phase 4 approval by state and central governments.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / The Researchers</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">D.K. Shivakumar Sworn In as Karnataka's 18th Chief Minister After Siddaramaiah Steps Down</div>
+      <div class="nsum">Senior Congress leader D.K. Shivakumar was sworn in as Karnataka's 18th Chief Minister on June 3, 2026, following Siddaramaiah's resignation as directed by the Congress high command, fulfilling a long-discussed rotational leadership arrangement. The transition came after multiple rounds of high-level meetings in Bengaluru and New Delhi, with Shivakumar's organisational influence within the party widely credited as a key factor in the decision.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Notifies EPF Scheme 2026, Replacing 74-Year-Old Provident Fund Rules with Digital-First Framework</div>
+      <div class="nsum">The Ministry of Labour and Employment has notified the Employees' Provident Fund (EPF) Scheme, 2026, replacing the EPF Scheme, 1952 under the Code on Social Security, 2020, with immediate effect. The overhaul simplifies partial withdrawal rules into three broad categories, mandates Aadhaar-linked digital compliance for employers, and launches three companion initiatives — Employees' Enrolment Campaign 2026, VISHWAS 2026, and AMNESTY 2026 — to regularise past compliance gaps.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / StaffNews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Central Govt Employees Await July 2026 DA Hike; 8th Pay Commission Consultations Continue</div>
+      <div class="nsum">Central government employees and pensioners are expecting a 2–3 percentage point Dearness Allowance hike in July 2026, building on the current 58–60% DA rate under the 7th Pay Commission, with rising food prices keeping retail inflation elevated. Simultaneously, nationwide consultations for the 8th Pay Commission are progressing, with employee unions submitting demands on minimum pay, fitment factors, and NPS withdrawal rules.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Rupee Hits Near Three-Week Low as Asian Currencies Decline on Global Uncertainty</div>
+      <div class="nsum">The Indian rupee fell to a near three-week low on Wednesday, mirroring broad weakness across Asian currencies amid geopolitical uncertainty and its potential impact on global markets and investor risk appetite. US indices — the Dow, S&amp;P 500, and Nasdaq — also declined at the open, signalling a cautious start to the second half of 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India June Auto Sales Surge: Tata Motors PV Up 69%, M&amp;M Up 37%, Maruti Suzuki Rises 19%</div>
+      <div class="nsum">Major Indian automakers reported strong June 2026 sales data, with Tata Motors' passenger vehicle division surging 69% and noting EV volumes more than doubling in Q1 FY2026, while Mahindra &amp; Mahindra posted a 37% jump driven by its UV and CV segments. Maruti Suzuki recorded a 19% increase, though Hyundai missed analyst estimates, making it a mixed but broadly positive month for the sector.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Pulse by Zerodha / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty Eyes Positive July After June Gains; SEBI Unravels Alleged 200-Entity Insider Trading Network</div>
+      <div class="nsum">Historical data shows Nifty has risen in 18 of the past 25 Julys, with market strategists pointing to monsoon optimism, earnings expectations, and easing crude prices as supportive tailwinds for Indian equities. Separately, SEBI's ongoing probe has traced trading records, bank transactions, WhatsApp chats, and telecom data to unravel an alleged insider trading network spanning more than 200 entities.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trade Brains / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HCLTech Invests ₹1,427 Crore in Sarvam AI, Becomes Lead Investor in India's Largest AI Startup</div>
+      <div class="nsum">HCL Technologies announced a ₹1,427 crore (approximately $150 million) investment in Bengaluru-based Sarvam AI, securing a 10.46% stake and leading the startup's $300 million Series B round, which values Sarvam at around $1.5 billion. The round also drew participation from Nvidia, Prosperity7, Glade Brook, and Bessemer, with HCLTech stating the investment will accelerate development of next-generation agentic AI, coding, and cybersecurity solutions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WION / StartupFeed</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India AI Startups Raise $3.94 Billion in Q1 2026, Over Six Times Full-Year 2025 Total</div>
+      <div class="nsum">Indian AI startups raised $3.94 billion in the first quarter of 2026 alone — more than six times the entire 2025 annual total — led by Neysa's mega sovereign-compute funding round and momentum from the India AI Impact Summit. The government's IndiaAI Mission has further bolstered the ecosystem by onboarding over 38,000 subsidised GPUs for founders and researchers, with analysts projecting at least three new Indian AI unicorns by December 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Whalesbook / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Avendus-Hurun India U30 List 2026: 102 Young Founders Lead ₹2.9 Lakh Crore Startup Ecosystem</div>
+      <div class="nsum">The Avendus Wealth–Hurun India U30 List 2026 identified 102 young entrepreneurs — up from 80 last year — leading companies with a combined valuation of ₹2.9 lakh crore, with an average founder age of just 28. Around 25% of listed founders are now in DeepTech or HardTech sectors such as AI, aerospace, and EVs, reflecting a decisive shift away from traditional consumer-internet models, while Bengaluru remains the primary hub with 21 entrepreneurs on the list.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Fox News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Over 900 Arrested in South Africa as Nationwide Anti-Migrant Protests Turn Violent</div>
+      <div class="nsum">South African police arrested more than 900 people during nationwide anti-immigrant marches on July 1, with 120 demonstrations held across the country — 108 peaceful and 12 requiring law enforcement intervention due to violence and looting. The protests were organised to mark a June 30 'deadline' set by anti-immigrant groups for undocumented foreigners to leave the country, drawing condemnation from the African Union, the United Nations, and multiple African governments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Administration Refuses to Renew USMCA Trade Deal, Launching Decade of Renegotiations</div>
+      <div class="nsum">On the sixth anniversary of the US-Mexico-Canada Agreement (USMCA) taking effect, the Trump administration announced it will not renew the deal, instead beginning what officials described as a decade of negotiations on amendments. The US may ultimately pursue separate bilateral trade agreements with Mexico and Canada — a stark reversal for President Trump, who originally negotiated and signed the USMCA in 2018 after withdrawing from NAFTA.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / CBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Holds Firm on Ceasefire Conditions as Qatar Mediates US-Iran Nuclear Talks</div>
+      <div class="nsum">Iran declared that final nuclear deal talks will not begin until hostilities end in Lebanon and the US releases frozen Iranian funds, as Qatar's Prime Minister met with US envoys to try to bridge the two sides' positions. President Trump separately threatened that Iran would 'no longer exist' if it continued to violate the ceasefire agreement, underscoring the fragile and escalatory nature of the ongoing diplomatic standoff.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 2 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
