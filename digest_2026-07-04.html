@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 4, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 4 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 4 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hans India / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Grants Final Extension: Greater Bengaluru Authority Elections Must Be Held by August 31</div>
+      <div class="nsum">The Supreme Court has extended the deadline for conducting the Greater Bengaluru Authority (GBA) elections from June 30 to August 31, 2026, granting additional time to the Karnataka government and the State Election Commission due to manpower constraints from the ongoing Special Intensive Revision of electoral rolls. The bench made clear this would be the final extension, ending an unprecedented 11-year gap since Bengaluru last had elected local representation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Gets Revised Deadline: Silk Board–KR Pura Stretch Targeted for December 2026</div>
+      <div class="nsum">Deputy Chief Minister DK Shivakumar outlined the updated schedule for BMRCL's Blue Line, with the first stretch between Central Silk Board and KR Pura now targeted to open by December 2026, while the KR Pura–Hebbal section has been pushed to December 2027. The 58-km corridor, estimated to cost ₹15,000 crore, will eventually link commuters directly to Kempegowda International Airport and is expected to significantly ease congestion on the Outer Ring Road.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP–BMRCL Joint ₹9,800-Crore Outer Ring Road Metro-Road Corridor Moves Forward</div>
+      <div class="nsum">A landmark joint venture between BBMP and BMRCL, the ₹9,800-crore integrated road-and-metro corridor will span 32.15 km along the Outer Ring Road from JP Nagar to Hebbal, creating a signal-free route on one of Bengaluru's most congested arterials. The project is expected to boost real estate values along the ORR corridor and significantly reduce commute times for the city's large IT workforce.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMIndia.gov.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Inaugurates Jodhpur Airport Terminal, Launches Modified UDAN Scheme on July 4</div>
+      <div class="nsum">Prime Minister Narendra Modi visited Rajasthan and Gujarat on July 4, 2026, inaugurating the new Terminal Building of Jodhpur Airport and formally launching the Modified UDAN (Ude Desh Ka Aam Nagrik) scheme to boost regional air connectivity across India. The visit is part of the government's ongoing push to expand aviation infrastructure in Tier-2 and Tier-3 cities under the Viksit Bharat initiative.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Indias News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">National Drone Summit 2026 Launches India's First Cooperative-Led Drone Entrepreneurship Platform in New Delhi</div>
+      <div class="nsum">India's first national platform for cooperative-led drone entrepreneurship was launched on July 4, 2026, at The Leela Palace, New Delhi, as the National Drone Summit 2026 brought together government, industry, and rural stakeholders under the theme 'From Policy to Prosperity.' Organised by the Drone Tech Multi-State Co-operative Society in partnership with NSDC, the Summit announced the launch of Advanced Skill Centres across universities, engineering colleges, and ITIs to train India's workforce in drone technology, AI, and robotics.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook India / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Sends Official Delegation to Iran for Khamenei State Funeral Amid West Asia Tensions</div>
+      <div class="nsum">India's official delegation, comprising Minister of State Pabitra Margherita and Bihar Governor Syed Ata Hasnain, travelled to Tehran to attend the state funeral of former Iranian Supreme Leader Ayatollah Ali Khamenei, which began on July 4 and is scheduled through July 9 across Tehran, Qom, and Mashhad. The gesture underlines New Delhi's policy of maintaining diplomatic ties across geopolitical lines even as the region remains tense following the US-Israeli war with Iran.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges 592 Points, Nifty Tops 24,360 as IT Stocks Lead Broad-Based Rally</div>
+      <div class="nsum">Indian equity benchmarks extended gains on July 3, with the BSE Sensex trading up over 591 points at 78,094 and the Nifty 50 climbing to 24,361, driven by strong buying in IT, healthcare, and pharma stocks as oil prices slipped to around $70 per barrel amid US-Iran ceasefire hopes. Analysts at ICICI Direct identified Nifty support at 23,800 and advised investors to 'buy the dip,' citing easing crude prices, receding FII selling, and strong macro tailwinds as key positive drivers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Business India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TVS Motor Posts Record June 2026 Sales of 5.90 Lakh Units, EV Sales Triple Year-on-Year</div>
+      <div class="nsum">TVS Motor Company reported a 47% year-on-year jump in total sales to 590,003 units in June 2026, clocking its highest-ever quarterly sales of 16.31 lakh units in Q1 FY2026-27. Electric two-wheeler sales surged over three-fold to 48,537 units, compared to 14,400 units in June 2025, with the iQube cumulative domestic tally crossing the 10-lakh milestone.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Drishti IAS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India–US Trade Deal Negotiations Race Against July 24 Tariff Deadline</div>
+      <div class="nsum">India and the United States concluded two days of ministerial-level trade talks in late June 2026, reviewing progress on an interim bilateral trade agreement covering market access, digital trade, and non-tariff barriers, but both sides stopped short of confirming all issues were resolved ahead of the July 24 expiry of the 10% US tariff regime. Under the February 2026 framework, the US had agreed to lower the reciprocal tariff on Indian goods from 25% to 18%, while India committed to eliminating tariffs on US industrial goods and pledged to purchase $500 billion of US products over five years.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Soars Over 4X to $676 Million in H1 2026, Hitting Six-Month Deal High</div>
+      <div class="nsum">Indian AI startups raised $676 million across 57 deals in the first half of 2026, a more than four-fold surge from $162 million across 30 deals in H1 2025, according to Inc42's Indian Tech Startup Funding Report H1 2026. The dramatic jump reflects intensifying investor interest in AI, though experts note the figures remain small compared to global AI investment, with OpenAI's $112 billion round alone dwarfing India's total AI funding to date.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">HCLTech / TradeBrains</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HCLTech Invests ₹1,427 Crore in Sarvam AI, Becomes Lead Investor in India's Largest Pure-Play AI Startup</div>
+      <div class="nsum">HCL Technologies announced a ₹1,427-crore (approximately $150 million) investment in Sarvam AI, acquiring a 10.46% stake and becoming the lead investor in its $300 million Series B round that values the Bengaluru startup at around $1.5 billion. The round also includes Nvidia, Prosperity7, Bessemer Venture Partners, and existing backers PeakXV and Khosla Ventures, with HCLTech saying the partnership will accelerate development of next-generation agentic AI and cybersecurity models.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / TechWire Asia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Microsoft Launches $2.5-Billion Frontier Company, Embeds 6,000 Engineers Inside Enterprise Clients for AI Rollouts</div>
+      <div class="nsum">Microsoft announced the formation of Microsoft Frontier Co. on July 2, 2026, a new $2.5-billion operating entity that will embed 6,000 engineers, technical consultants, and sales specialists directly inside large enterprise customers — including Unilever and Novo Nordisk — to help them build and deploy AI systems at scale. The move, led by Rodrigo Kede Lima (formerly president of Microsoft Asia), follows similar initiatives from Amazon, OpenAI, and Anthropic, and signals the industry-wide shift from selling AI models to selling AI implementation as the core product.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Begins Dayslong State Funeral for Slain Supreme Leader Khamenei; US-Iran Peace Talks Paused Until July 9</div>
+      <div class="nsum">Millions of mourners converged on Tehran's Imam Khomeini Grand Mosalla on July 4, 2026, for the start of a multi-day state funeral for Ayatollah Ali Khamenei, who was killed on February 28 in a US-Israeli airstrike, with processions planned through July 9 across Tehran, Qom, Mashhad, and holy cities in Iraq. US-Iran denuclearization negotiations brokered through Qatar have been formally paused during the mourning period, with Qatar confirming indirect talks will resume at the earliest opportunity after the funeral concludes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / PBS NewsHour</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Launches Deadliest Strike on Kyiv in Months, Killing Over 22 in Overnight Missile and Drone Barrage</div>
+      <div class="nsum">Russia launched a massive 11-hour missile and drone assault on Kyiv on July 2, 2026, killing at least 22 civilians and injuring over 100 others across multiple districts, with a nine-storey residential building partially collapsing in the Darnytskyi district and over 52,500 residents sheltering in the capital's metro stations overnight. Ukrainian President Volodymyr Zelenskyy vowed retaliation and condemned the strike as targeting civilian infrastructure, while Poland scrambled jets and Finland restricted airspace in response to the cross-border threat.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Extreme Heat Wave Threatens US July 4th Celebrations as Over 185 Million Face Heat Alerts</div>
+      <div class="nsum">A massive heat dome engulfed more than half of the United States on July 4, 2026 — America's 250th birthday — placing over 185 million people under heat alerts from the Midwest to the East Coast, with forecasters expecting over 300 temperature records to be broken by Saturday. The National Weather Service issued a mix of extreme heat warnings and advisories for dozens of states, with major cities including Boston, New York, Philadelphia, and Washington D.C. bracing for potentially the hottest July 4th on record.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 4 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
