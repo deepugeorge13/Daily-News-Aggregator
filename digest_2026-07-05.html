@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 5, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 5 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 5 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ADB / Public TV English / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ADB Approves $182.89 Million Loan to Transform Karnataka's Public School System</div>
+      <div class="nsum">The Asian Development Bank has approved a $182.89 million loan under the Strengthening Karnataka Public Schools Program, which will establish 500 integrated school clusters offering seamless education from pre-primary through secondary levels. The program aims to improve teacher competencies, STEAM learning, and social inclusion, and is expected to benefit over one million students across the state, aligned with the National Education Policy 2020.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Monsoon Preparedness Under Fire: NHAI Lags, BBMP Faces Seven-Day Pothole Deadline</div>
+      <div class="nsum">Karnataka's Chief Secretary issued a seven-day deadline to BBMP to fix hundreds of potholes from the disaster management fund, after 647 potholes were spotted by the joint traffic commissioner in a single inspection. NHAI has been criticised for drawing up waterlogging mitigation plans for just four of 28 identified flood-prone sites in the city, raising serious concerns about Bengaluru's readiness for the ongoing monsoon season.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Metro Rail Guy / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Airport Link on Track for December 2026 Opening, Ridership Milestone Crossed</div>
+      <div class="nsum">BMRCL's 58.19 km Blue Line connecting Central Silk Board to Kempegowda International Airport, encompassing Phase 2A and 2B, is targeting an opening by December 2026 as construction across all three civil packages progresses. Namma Metro's network ridership recently crossed one million daily trips for the first time following the operationalisation of the Yellow Line, marking a landmark for Bengaluru's public transit system.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Herald / Swarajya Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Modi-Takaichi 16th India-Japan Summit Yields $12.5 Billion in Investment Pledges and AI, Semiconductor Pacts</div>
+      <div class="nsum">Prime Minister Narendra Modi and Japanese PM Sanae Takaichi concluded the 16th India-Japan Annual Summit in New Delhi, signing agreements on artificial intelligence, semiconductors, clean energy, defence co-development, and critical minerals, with Japanese firms committing nearly $12.5 billion through around 120 cooperation agreements. A key outcome was the launch of the Japan-India AI Cooperation Initiative and a joint roadmap for economic security, alongside India's first joint defence co-development hardware project with Japan.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Legacy IAS / NDTV / APSC Adda</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Notifies ₹300/Day Floor Wage Under VB-G RAM G Act, Replacing Two-Decade-Old MGNREGA</div>
+      <div class="nsum">The Central Government has notified a national floor wage of ₹300 per day under the Viksit Bharat-Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, which took effect from July 1, 2026, replacing the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA) of 2005. The new law raises guaranteed employment from 100 to 125 days per year, but has drawn criticism for shifting the Centre-State funding ratio from approximately 90:10 to 60:40, significantly increasing states' financial burden.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi to Visit Indonesia July 6-8 as India Deepens Act East Policy Ties</div>
+      <div class="nsum">Prime Minister Narendra Modi is set to visit Indonesia from July 6-8, 2026, at the invitation of President Prabowo Subianto, further strengthening India's Act East Policy and bilateral ties in the Indo-Pacific region. The visit comes immediately after the successful India-Japan Summit, underscoring India's active diplomatic engagement with Southeast and East Asian partners in the current geopolitical climate.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges 579 Points, Nifty IT Posts Best Single-Day Gain in 14 Months on Crude Easing and US Fed Signals</div>
+      <div class="nsum">Indian equity markets rallied strongly on July 2, with the Sensex rising 579 points to 77,502 and the Nifty50 closing 169 points higher at 24,175, driven by a decline in crude oil prices following positive signs on US-Iran trade talks and dovish remarks from the US Federal Reserve Chair. The Nifty IT index recorded its best intraday performance in 14 months, led by Infosys, Tech Mahindra, and TCS, with investor sentiment also boosted by optimism surrounding outcomes from the India-Japan Summit.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Upstox / Goodreturns</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nestlé India Posts Blockbuster Q4 FY26, Announces Special Dividend of ₹2 Per Share Ahead of July 10 Record Date</div>
+      <div class="nsum">Nestlé India reported a 27% year-on-year jump in consolidated net profit to ₹1,111 crore for Q4 FY26, with revenue surging 23% to ₹6,748 crore, marking one of the company's strongest quarters in nearly a decade. The FMCG giant declared a final dividend of ₹5 per share and an additional special dividend of ₹2 per share for FY26, with both payable from July 30, 2026, and a record date set for July 10, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Akashvani (DD News) / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's FY26 GDP Growth Revised Up to 7.7%, Confirmed as Fastest-Growing G20 Economy; RBI Holds Repo Rate at 5.25%</div>
+      <div class="nsum">India's real GDP expanded by 7.7% in financial year 2026, revised slightly upward from the second estimate of 7.6%, marking the sharpest growth rate since FY2022 and consolidating India as the fastest-growing G20 economy despite US tariff headwinds and elevated energy costs. The Reserve Bank of India, in its first bi-monthly monetary policy for FY27, unanimously voted to hold the repo rate steady at 5.25% with a neutral stance, projecting GDP growth at 6.9% for the current fiscal year.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / MediaNama / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">MeitY to Summon Meta Over Instagram Ads Promoting Child Sexual Abuse Material Following BBC Investigation</div>
+      <div class="nsum">India's IT Minister Ashwini Vaishnaw directed the Ministry of Electronics and Information Technology (MeitY) to summon Meta executives after a BBC Eye investigation published on July 3 found that Instagram was running paid advertisements in India allegedly promoting child sexual abuse material (CSAM) and directing users to Telegram channels selling such content for as little as ₹99. This marks the second regulatory action against Meta in one week, following a separate government notice ordering the company to pause the rollout of WhatsApp's username feature pending consultations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Entrepreneur Bhavin Turakhia Bets $30 Million of His Own Money to Build AI-Native Alternative to Microsoft Office</div>
+      <div class="nsum">Serial entrepreneur Bhavin Turakhia has self-funded a $30 million venture called Neo, built on the premise that workplace software designed before the AI era must be rebuilt from scratch rather than patched with chatbots. The company, which has been in internal use at Turakhia's existing firms including banking software company Zeta, plans to begin rolling out its platform to mid-sized businesses in the coming months, targeting knowledge workers in technology, consulting, and professional services.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Trade Brains</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HCLTech Leads Sarvam AI's $300 Million Series B at $1.5 Billion Valuation as India's Sovereign AI Ambitions Accelerate</div>
+      <div class="nsum">HCL Technologies announced a ₹1,427 crore (approximately $150 million) investment in Sarvam AI, India's largest pure-play AI startup, securing a 10.46% stake and leading its $300 million Series B funding round which values the company at around $1.5 billion. The round also includes investments from Nvidia, Prosperity7, Bessemer Venture Partners, and existing investors PeakXV and Khosla Ventures, with Sarvam recently unveiling its Sarvam-30B and Sarvam-105B large language models at the India AI Impact Summit.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week / Al Jazeera / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Europe's Deadly Heatwave Toll Exceeds 1,300 with Fresh Peak Forecast Around July 10 Across France, Spain, Germany and Italy</div>
+      <div class="nsum">A severe and prolonged heatwave sweeping Europe since late May 2026 has caused over 1,300 excess deaths, shattered temperature records in more than a dozen countries including France, Spain, Germany, and Poland, and caused widespread infrastructure damage including melting roads and traffic signs. The WHO's chief described Europe as the fastest-warming continent, heating at twice the global average, with a fresh surge of heat forecast from July 5 across France, Spain, Germany, Italy, Switzerland, and parts of the UK.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Georgia Public Broadcasting</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China Promotes Two New Generals After Sweeping Anti-Corruption Purge Decimates PLA High Command</div>
+      <div class="nsum">Xi Jinping personally presided over a ceremony on July 3, 2026, promoting Wang Shuguang and air force commander Wang Gang to the rank of general, a move seen as part of a broader effort to reconstitute China's hollowed-out military leadership following an unprecedented multi-year anti-corruption purge. The shake-up follows the removal of more than 10 ministerial-level military officials in 2026 alone, including former CMC Vice Chairman Zhang Youxia, leaving China's Central Military Commission severely depleted and analysts questioning PLA combat readiness.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Approves Mechanism to Export Domestically Produced Weapons to Raise Defence Funds Amid Ongoing Russia War</div>
+      <div class="nsum">Ukraine's parliament approved a legal mechanism to permit the export of domestically produced weapons and military technologies, with the aim of raising funds for its ongoing defence effort against Russia and attracting foreign investment, while requiring that domestic military supply needs remain the first priority. The decision comes as Ukrainian forces continue offensive strikes on Russian targets, including cruise missile strikes on a Volgograd missile production complex and a Pantsir air-defence system in occupied Crimea.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 5 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
