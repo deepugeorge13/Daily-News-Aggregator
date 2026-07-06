@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 6, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 6 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 6 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Airport Link Targets December 2026 Completion as BMRCL Pushes Ahead</div>
+      <div class="nsum">BMRCL's 58.19 km Blue Line, connecting Central Silk Board to Kempegowda International Airport via KR Puram, Hebbal, and Yelahanka, is targeting completion by December 2026. The airport-link project is funded through a $500 million ADB loan and a $318 million JICA loan, and will add 29 stations to Namma Metro's expanding network.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Swarajya Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Under Pressure to Fix Bengaluru's Monsoon Potholes and Waterlogging Crisis</div>
+      <div class="nsum">With the monsoon intensifying across Bengaluru, the BBMP has been directed to repair hundreds of identified potholes within seven days using disaster management funds. Civic activists and residents continue to raise concerns that poorly designed white-topped roads are worsening waterlogging across neighbourhoods such as Koramangala, with the Karnataka High Court also scrutinising the scientific basis of BBMP's road concretisation programme.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Abhee Ventures / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Suburban Rail Project on Track for Phased Completion Between 2026 and 2028</div>
+      <div class="nsum">The ₹15,767 crore Bengaluru Suburban Rail Project (BSRP), managed by K-RIDE, is progressing towards a phased delivery between 2026 and 2028, with the Mallige and Kanaka corridors targeted for inauguration by December 2026. The project is expected to carry nearly 9.84 lakh passengers daily, significantly easing congestion and making suburban zones like Devanahalli, Rajanukunte, and Bidadi practical daily-commute destinations.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NUS-ISAS / Britannica / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Scores Historic Upset in West Bengal; Vijay's TVK Emerges as New Force in Tamil Nadu After 2026 State Elections</div>
+      <div class="nsum">The April 2026 state assembly elections produced seismic results, with the BJP winning a landslide victory in West Bengal, ending the Trinamool Congress's 15-year rule under Mamata Banerjee. In Tamil Nadu, first-time political entrant Chandrasekaran Joseph Vijay's party TVK won 108 seats and is on course to form the government, upending the decades-long DMK-AIADMK duopoly.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMO India / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Inaugurates CG Semi Semiconductor Chip Plant in Sanand, Marking Milestone for India's Semiconductor Mission</div>
+      <div class="nsum">Prime Minister Narendra Modi inaugurated the CG Semi OSAT facility in Sanand, Gujarat on July 4, 2026, marking a major milestone for India's semiconductor push under the national Semiconductor Mission. CG Semi, a subsidiary of CG Power, has invested ₹7,600 crore in the facility, which together with a second plant under construction will have a combined production capacity of 1.5 crore chips per day.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Modi Cabinet Reshuffle Imminent as BJP Reorganises Ahead of UP and Punjab Elections</div>
+      <div class="nsum">Speculation is mounting over an impending central government cabinet reshuffle ahead of critical state elections in Uttar Pradesh and Punjab, with reports indicating the BJP's new leadership team has been finalised after high-level deliberations. The reshuffle is expected to substantially expand the cabinet and redistribute key portfolios before the monsoon session of Parliament, with Amit Shah's possible elevation to Deputy Prime Minister being widely discussed.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Climbs to Highest Level Since May, Closes at 77,764 as IT Stocks Lead Rally</div>
+      <div class="nsum">India's BSE Sensex closed at 77,764 on July 3, 2026 — its highest level since early May — extending gains for a third straight session, buoyed by strong performance from IT stocks including HCL Tech, TCS, and Infosys. Analysts attribute the recovery to easing geopolitical tensions, cooling crude oil prices, and improving expectations of a more accommodative global monetary policy stance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WION / ICFM India / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25%, Cuts FY27 GDP Forecast to 6.6% and Raises Inflation Outlook</div>
+      <div class="nsum">In its June 2026 Monetary Policy Committee meeting, the Reserve Bank of India kept the repo rate unchanged at 5.25% for the second consecutive meeting while maintaining a neutral stance, even as it revised India's FY27 GDP growth forecast downward to 6.6% from 6.9%. The RBI also raised its FY27 CPI inflation forecast to 5.1% from 4.6%, citing elevated energy prices linked to West Asia tensions, rupee depreciation, and global supply chain pressures.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / StartupFeed</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $676 Million in H1 2026, Funding Surges Over 4X Year-on-Year</div>
+      <div class="nsum">Indian AI startups raised $676 million across 57 deals in the first half of 2026, a more than fourfold jump from $162 million raised in H1 2025, according to Inc42's Tech Startup Funding Report. The funding surge is being driven primarily by a stronger pipeline of investable startups rather than simply larger cheque sizes, with sovereign compute, foundational models, and vertical AI tools dominating investor interest.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / StartupFeed</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Boom Hits a Compute Crunch as Demand Outpaces IndiaAI Mission GPU Supply</div>
+      <div class="nsum">Despite the IndiaAI Mission adding 38,000 GPUs at subsidised rates for new model startups, India's booming AI sector is running into a compute crunch as demand from over 1,700 AI-focused companies rapidly outpaces available infrastructure. The mission aims to reach 100,000 public GPUs by December 2026, while an IIT Bombay consortium is building a 1-trillion-parameter Indic model under a ₹988.6 crore grant.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Entrepreneur Bhavin Turakhia Bets $30 Million of Own Money to Build AI-Native Alternative to Microsoft Office</div>
+      <div class="nsum">Indian serial entrepreneur Bhavin Turakhia has bootstrapped $30 million of his own capital to launch Neo, an enterprise AI work platform that combines project management, documents, file storage, and AI into a single product designed from the ground up for the AI era. Turakhia, who previously co-founded Directi, Zeta, and other firms, argues that workplace software designed before AI cannot simply be retrofitted with chatbots and must be rebuilt entirely.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">AI Business Magazine / Analytics India Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI and Krutrim Lead India's Charge in Sovereign AI, Targeting Multilingual and Chip-Level Capabilities</div>
+      <div class="nsum">Sarvam AI, which specialises in building Indic-language AI models for India's unique multilingual environment, and Krutrim — India's first AI unicorn — which develops both AI models and semiconductor chips, are emerging as the top domestic players driving India's sovereign AI agenda. Both companies are building under the IndiaAI Mission framework, with Krutrim running sovereign cloud infrastructure with over 20,000 GPUs and Sarvam targeting all 22 official Indian languages.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Al Jazeera / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Holds Massive State Funeral for Slain Supreme Leader Khamenei; Main Procession in Tehran Today</div>
+      <div class="nsum">Iran's multi-day state funeral for Supreme Leader Ayatollah Ali Khamenei, who was killed in a joint US-Israeli airstrike on February 28, 2026, reached its climax on July 6 with the largest funeral procession yet set to begin at 6 a.m. local time in Tehran, covering the 10-kilometre route from Imam Hossein Square to Azadi Square. Representatives from over 100 countries attended the ceremonies, while Iran's new Supreme Leader Mojtaba Khamenei — the late ayatollah's son — has so far remained absent from public funeral rites.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ESPN / Al Jazeera / ABC7</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIFA World Cup 2026 Round of 16: Portugal vs Spain and USA vs Belgium Headline Monday's Blockbuster Fixtures</div>
+      <div class="nsum">The 2026 FIFA World Cup's round of 16 continues on July 6 with two high-profile matchups: Portugal face Spain in Arlington, Texas, and the United States take on Belgium in Seattle, with top scorer Folarin Balogun eligible to play after FIFA suspended his one-game red card ban. The expanded 48-team tournament, co-hosted by the USA, Canada, and Mexico, has already produced upsets including Brazil's shock elimination by Norway and Vijay's TVK-style emergence of underdog nations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Super Typhoon Bavi Batters Northern Mariana Islands as Pacific Braces for Intense Storm Season</div>
+      <div class="nsum">Super Typhoon Bavi brought intense winds and severe flooding to the Northern Mariana Islands, remote US Pacific territories, as residents scrambled to take shelter from one of the most powerful storms of the 2026 Pacific season. The typhoon follows a broader pattern of escalating extreme weather events this summer, with European nations also grappling with intense heatwaves that led to mass queues outside French supermarkets selling portable air conditioners.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 6 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
