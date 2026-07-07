@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 7, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 7 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 7 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Outlook India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Orange Alert as Monsoon Rains Trigger Flooding and Traffic Chaos Across Bengaluru</div>
+      <div class="nsum">Heavy monsoon downpours have caused severe waterlogging and traffic snarls across Bengaluru, with the IMD issuing an orange alert and prompting work-from-home advisories and school closures. NDRF teams have been deployed for rescue operations in low-lying residential areas hit by floodwaters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Metro Rail Guy / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Phase 3 Construction Underway: 44.65 km Western Bengaluru Corridors Take Shape</div>
+      <div class="nsum">BMRCL's approved Phase 3 project, with two elevated routes totalling 44.65 km in western Bengaluru, is progressing with construction expected to conclude in the early 2030s at an estimated cost of ₹15,611 crore. The expansion is designed to ease congestion across the city and integrate with suburban rail and bus services for last-mile connectivity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">D.K. Shivakumar Takes Charge as Karnataka CM After Siddaramaiah Steps Down Following Three-Year Tenure</div>
+      <div class="nsum">Karnataka Chief Minister Siddaramaiah formally resigned on 28 May 2026, citing a prior agreement with the Congress high command to step down after completing three years in office, paving the way for a leadership transition to Deputy CM D.K. Shivakumar. The change follows months of internal deliberations and a reported power-sharing arrangement within the Karnataka Congress.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Outlook India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Union Cabinet Reviews Severe Northeast Floods and Rainfall Deficit Across India as Monsoon Turns Uneven</div>
+      <div class="nsum">Prime Minister Narendra Modi chaired a Union Cabinet meeting reviewing devastating flood conditions in multiple northeastern states and below-normal rainfall in other regions, with the IMD projecting deficient July rainfall across most of the country. Coastal Karnataka also recorded fatal landslides, with three lives lost in Mangaluru's Nagori area due to a rain-triggered landslide.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee News / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Mumbai Schools Shut for Second Day Under Red Alert as Maharashtra Monsoon Brings Record Downpour</div>
+      <div class="nsum">Mumbai Mayor Ritu Tawde confirmed BMC-run schools would remain closed for at least two days amid a red alert for heavy rain, strong winds, and high tides, with the civic body pushing weather updates to citizens every 30 minutes. The Mumbai Metropolitan Region recorded 90–99 mm of rainfall within a short window, causing severe flooding, suburban train disruptions, and highway gridlocks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Akashvani News / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25%, Projects GDP Growth at 6.9% for FY 2026-27</div>
+      <div class="nsum">RBI Governor Sanjay Malhotra announced that the Monetary Policy Committee unanimously voted to retain the repo rate at 5.25% with a neutral stance, citing persistent energy price risks from the West Asia conflict and evolving global conditions. The central bank projected India's real GDP growth at 6.9% for the current fiscal year and CPI inflation at 4.6%, while keeping the standing deposit facility rate at 5% and the MSF rate at 5.50%.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Extends Winning Streak, Rises Above 78,000 Led by Banking and IT Stocks</div>
+      <div class="nsum">India's BSE Sensex rose about 0.5% to 78,148 in early Monday trade, continuing a fourth consecutive session of gains, driven by strong quarterly business updates from HDFC Bank and Axis Bank and cooling crude oil prices. IndusInd Bank reported 3.3% sequential growth in net advances, while Bajaj Finance posted robust Q1 FY27 AUM and customer acquisition numbers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Surges Over 4X YoY in H1 2026, Reaching $676 Million Across 57 Deals</div>
+      <div class="nsum">Indian AI startups raised $676 million in the first six months of 2026, with deal count hitting a six-month high of 57 — a 90% jump year-on-year — according to Inc42's Indian Tech Startup Funding Report H1 2026. The AI funding surge stands in contrast to an overall 9% YoY decline in broader Indian startup funding to $5.2 billion, as investors concentrate capital into frontier technology.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Groww</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SBI Funds Management IPO Set to Launch on July 13 as India's IPO Pipeline Stays Active</div>
+      <div class="nsum">SBI Funds Management's IPO is slated to open on July 13, 2026, adding to a busy near-term IPO calendar that also includes Kusumgar's issue opening July 8 and several ongoing listings. India's primary markets continue to see strong activity even as late-stage startup funding has slumped 29% in H1 2026, reflecting a shift toward public markets for mature businesses.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / WION News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Boom Runs Into Compute Crunch as Startups Scale Ambitions Against GPU Shortfall</div>
+      <div class="nsum">India's rapidly growing AI startup ecosystem faces a structural compute bottleneck, with Sarvam AI's sovereign language models trained on only a few thousand GPUs — far below the 10,000+ GPU clusters used by global counterparts. While Indian AI startups raised $3.94 billion in Q1 2026 alone, experts warn that deeper domestic capital pools and dedicated compute infrastructure are essential to retain AI talent and compete globally.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Print / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NIC Builds India's First Government AI Data Centre in Delhi With 1.1 AI Exaflop Capacity</div>
+      <div class="nsum">The National Informatics Centre is constructing India's first dedicated AI data centre at Shastri Park, New Delhi, designed to deliver 1.1 AI exaflops of computing power to support government AI workloads, parliamentary databases, and legal information systems. The facility complements the IndiaAI Mission's rollout of 18,000+ affordable AI compute units at up to 40% reduced cost for eligible users.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ESDS / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ESDS Launches Swaraj Cloud, India's First AI-Powered Sovereign Cloud Platform Built Entirely on Domestic Infrastructure</div>
+      <div class="nsum">ESDS Software Solution has unveiled Swaraj Cloud, an AI-powered sovereign cloud platform hosted entirely on India-based data centres, offering enterprise-grade cloud, AI, security, and developer services while ensuring complete data residency within the country. The launch comes as India's data centre capacity, currently at 1,280 MW, is expected to grow four to five times by 2030 driven by rising cloud adoption and AI workloads.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Venezuela Earthquake Death Toll Surpasses 3,500 as Thousands Remain Missing Over Two Weeks On</div>
+      <div class="nsum">The death toll from the twin earthquakes that struck Venezuela on June 24 — measuring 7.5 and 7.2 in magnitude — has climbed to over 3,535 according to a Reuters update on July 6, with nearly 50,000 people still unaccounted for and some 60,000 buildings damaged or destroyed. The World Food Programme has appealed for $50 million to feed 500,000 survivors, while the UNDP estimates physical damage at $6.7 billion based on satellite imagery.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Holds State Funeral for Supreme Leader Khamenei Amid Calls for Revenge Against US and Israel</div>
+      <div class="nsum">Iran began a multi-day funeral procession through Tehran for late Supreme Leader Ayatollah Ali Khamenei, whose flag-draped coffin was driven through massive crowds on the third day of public mourning, with demonstrators calling for revenge against the United States and Israel. Khamenei was killed in an Israeli strike in late February 2026, partly enabled by American intelligence, with Iranian authorities shutting down daily life for the ceremonies extending to Qom.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIFA Controversy: Trump Calls FIFA Chief Over US Striker's Red Card Ban as Belgium Beats USA at World Cup</div>
+      <div class="nsum">FIFA's Disciplinary Committee reversed US striker Folarin Balogun's red card suspension ahead of the USA–Belgium round-of-16 clash, a move that sparked outrage from UEFA and the Belgian football federation, which described the decision as contradicting FIFA's own competition regulations. Despite playing at full strength following the controversial reinstatement, the United States was soundly beaten by Belgium, with Portugal also suffering elimination against Spain the same day.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 7 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
