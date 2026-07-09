@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 9, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 9 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 9 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Monsoon Downpour Floods Bengaluru Roads, Paralyses Traffic on Airport and IT Corridors</div>
+      <div class="nsum">Heavy evening rains flooded major arterial roads across Bengaluru, causing severe waterlogging and traffic gridlock on key stretches including Whitefield and the airport route. Commuters were left stranded for hours as waterlogging was reported at Munisingh Junction and Windsor Manor, exposing persistent drainage gaps in the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Phase 2 Full Rollout Pushed to Late 2026–2027 as Pink and Blue Lines Face Fresh Delays</div>
+      <div class="nsum">BMRCL's much-anticipated Phase 2 expansion continues to miss deadlines, with the Pink Line's completion now officially pushed to December 2026 and the airport-link Blue Line (Phase 2B) quietly revised to early 2027. Officials cite slow approval pipelines, political design changes such as double-decker flyover integrations, and procedural fragmentation as key reasons for the city averaging just 5.2 km of new metro track per year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka CM Announces ₹500 Crore for Suburban Rail, 41 km of New Metro Operational in 2026–27</div>
+      <div class="nsum">The Karnataka government has committed ₹500 crore toward the Bengaluru Suburban Rail Project (K-RIDE), aiming to have 41 km of new metro track operational across the city by the end of the financial year 2026–27. The ₹15,767 crore suburban rail initiative is designed to connect the Bengaluru Metropolitan Region and integrate with Namma Metro at several interchange stations, easing long-distance commuter pressure on city roads.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Open Magazine / Business Today / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Monsoon Session 2026 Set for July 20–August 13; 130th Constitution Amendment Bill and Operation Sindoor Controversy Top Agenda</div>
+      <div class="nsum">President Droupadi Murmu has approved the summoning of both Houses of Parliament for the Monsoon Session 2026, running from July 20 to August 13 with 19 scheduled sittings. Key legislative business includes the JPC report on the controversial 130th Constitution Amendment Bill — which contains a clause on automatic ministerial removal upon judicial custody — alongside expected Opposition privilege proceedings against Defence Minister Rajnath Singh over alleged misstatements on Operation Sindoor casualties.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / Open Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TMC Rebellion Deepens as 20 of 28 Lok Sabha MPs Defect, Merge with NCPI to Back NDA</div>
+      <div class="nsum">In a significant political realignment ahead of the Monsoon Session, 20 of the Trinamool Congress's 28 Lok Sabha MPs have broken from the party and decided to merge with the NCPI while extending support to the BJP-led NDA government. The mass defection is expected to reshape the opposition's floor strength and complicate coordination against the ruling alliance during the upcoming session.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The News Mill / War on the Rocks</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">A Year On, Operation Sindoor Reshapes India's Security Doctrine But Indus Waters Treaty Remains Suspended</div>
+      <div class="nsum">Over a year after India's tri-services Operation Sindoor struck nine terror sites in Pakistan and Pakistan-occupied Jammu &amp; Kashmir in response to the Pahalgam attack, India's foreign ministry has kept the Indus Waters Treaty in abeyance, stating restoration is contingent on Pakistan credibly renouncing support for militant groups — a condition unmet as of July 2026. The operation is now widely regarded as having established a new conventional military deterrence doctrine, with the Indian military accelerating investments in electronic warfare, secure communications, and drone capabilities based on lessons learned.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Multibagg.ai / MSN India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TCS Reports Q1 FY27 Results Today; Brokerages Expect Flat USD Growth, Margin Pressure from Wage Hikes</div>
+      <div class="nsum">Tata Consultancy Services, India's largest IT services exporter, is set to announce its Q1 FY27 (April–June 2026) financial results after market hours on July 9, with its board also set to consider an interim dividend with a record date of July 15. Brokerages have flagged soft constant-currency revenue growth of around 0.3% quarter-on-quarter, with operating margins expected to face pressure from annual wage hikes and AI investments, while investors will closely watch deal ramp-up speed and GenAI monetisation commentary.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu Business / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slumps 1,677 Points on July 8 as US–Iran Tensions Spike Crude Oil Prices; Markets Watch for Recovery</div>
+      <div class="nsum">Indian equity markets saw a sharp broad-based sell-off on July 8, with the Sensex plunging 1,677 points (−2.15%) to close at 76,503.60 and the Nifty 50 shedding approximately 265 points to settle near 23,882, as renewed US–Iran hostilities and a spike in crude oil prices rattled investor sentiment. For July 9, GIFT Nifty signals a flat-to-marginally-positive opening near 23,915, with traders watching key support at 76,259 and TCS Q1 results for a potential sector-wide catalyst.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Banking Finance / RBI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Releases Draft Bank Governance Amendment Directions; India Posts $4.7 Billion Current Account Surplus in April 2026</div>
+      <div class="nsum">The Reserve Bank of India has released draft amendments under the Commercial Banks – Governance Second Amendment Directions, 2026, inviting public comments until July 9, and is separately proposing a Risk-Based Internal Audit framework to strengthen oversight at lenders. On the macroeconomic front, India recorded a current account surplus of $4.7 billion in April 2026 — reversing a $4.8 billion deficit a year earlier — driven by stronger services exports of $18.6 billion and a surge in remittances to $16 billion, even as the merchandise trade deficit widened to $27.9 billion.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Herald / Analytics India Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Picks 20 AI-First Indian Startups for 2026 Accelerator Cohort, Marking Programme's 10th Anniversary</div>
+      <div class="nsum">Google has selected 20 AI-first Indian startups from nearly 2,500 applications for the 2026 edition of its Google for Startups Accelerator: India, marking the initiative's 10th anniversary in the country. The three-month, equity-free programme will give founders access to Google's AI technology stack — including Gemini, Gemma, Imagen, and Cloud TPUs — along with technical mentorship, with this year's cohort spanning agentic AI, legal tech, healthcare, climate, cybersecurity, developer infrastructure, and voice AI sectors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Tracxn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startup VC Funding Records 21% Annual Growth in H1 2026; Fintech Leads with $757M Raised Through April</div>
+      <div class="nsum">Venture capital funding into Indian startups grew 21% year-on-year in the first half of 2026, signalling a revival in investor appetite after a subdued 2024–25. Fintech companies alone raised $757 million across 52 rounds through April 2026, a 13.93% rise compared to the same period in 2025, with Enterprise Applications, FinTech, and Retail emerging as the top-funded sectors across India's ecosystem of over 132 unicorns.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Tracxn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Moneyview Receives SEBI Nod for IPO After Filing DRHP; PhonePe Remains on Hold Amid West Asia Market Volatility</div>
+      <div class="nsum">Digital lending unicorn Moneyview received SEBI approval in late June 2026 to float its IPO comprising a fresh issue of ₹1,500 crore and an offer for sale of up to 13.61 crore equity shares, following its DRHP filing in March 2026. Meanwhile, fintech giant PhonePe has temporarily paused its own IPO plans, citing geopolitical tensions in West Asia and global equity market volatility, even as its operating revenue surged 31% to ₹1,215 crore in FY25.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Launches Second Night of Strikes Against Iran After Trump Declares Ceasefire Over; Crude Oil Surges</div>
+      <div class="nsum">The United States began a second consecutive night of military strikes against Iranian targets after President Trump declared the US–Iran ceasefire over, following Iranian attacks on commercial oil tankers in the Strait of Hormuz. Crude oil prices jumped sharply on the news, global stocks fell, and tanker traffic in the Strait of Hormuz remains vulnerable, adding fresh uncertainty to an already fragile global economic outlook.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China's Nuclear-Armed Submarine Test-Fires Long-Range Ballistic Missile in South Pacific, Draws International Protest</div>
+      <div class="nsum">China's military test-launched a long-range ballistic missile from a nuclear-powered submarine in the South Pacific, triggering protests from regional nations and drawing a statement of serious concern from the United States over Beijing's accelerating nuclear weapons buildup. The test occurred on the same day Australia and Fiji signed a mutual defence treaty explicitly aimed at countering China's expanding influence across Pacific island nations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Marine Le Pen Vows French Presidential Run Despite Electronic Monitoring Sentence for Embezzlement</div>
+      <div class="nsum">Far-right French leader Marine Le Pen announced she will run for the French presidency in 2027, despite being sentenced to wear a court-ordered electronic monitor after her appeal trial upheld an embezzlement conviction. The announcement came amid a volatile French political landscape, with the FIFA World Cup 2026 quarterfinal lineup also confirmed as the tournament enters its final stages across North American venues.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 9 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
