@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 10, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 10 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 10 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hans India / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Minister Orders BMRCL to Commission Pink Line Section by August 15, Targets 175 km Metro Network</div>
+      <div class="nsum">Greater Bengaluru Development Minister Gowda directed BMRCL to commission the Kalena Agrahara–Tavarekere elevated Pink Line section — covering 7.5 km across six stations — by August 15, 2026, subject to statutory approvals. With the upcoming Pink and Blue Line sections, Bengaluru's operational metro network is set to expand from the current 96 km to approximately 175 km.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hans India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Residents Slam GBA Over Road Resurfacing That Is Causing Residential Flooding</div>
+      <div class="nsum">Citizens have raised serious concerns over the Greater Bengaluru Authority's practice of repeatedly laying fresh asphalt over existing road surfaces without milling, causing road levels to rise above house floors and triggering waterlogging in old residential areas during moderate rainfall. Residents allege that contractors are skipping the mandated milling process for cheaper, faster work, while officials continue to turn a blind eye to the violations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL and Indian Railways Sign Agreement for Pedestrian Passage at Yeshwanthpur Station to Ease Multimodal Transit</div>
+      <div class="nsum">Indian Railways and BMRCL have entered into a formal agreement to jointly develop a pedestrian passage at Yeshwanthpur Railway Station, facilitating smoother transit for commuters switching between rail and metro. Additionally, NHAI is collaborating with BMRCL to construct underpasses at Chikkabidarakallu and Madavara metro stations to ease persistent traffic congestion along these corridors.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMIndia.gov.in / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Concludes 3rd India-Australia Annual Summit in Melbourne, Eyes Uranium and Defence Cooperation</div>
+      <div class="nsum">Prime Minister Narendra Modi participated in the 3rd India-Australia Annual Summit hosted by PM Anthony Albanese in Melbourne on July 9, 2026, with India and Australia expanding cooperation in uranium, critical minerals, green hydrogen, defence, and maritime security. The visit follows Modi's landmark state visit to Indonesia, where 20 major outcomes including a BrahMos missile defence deal were signed.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Modi Set for Two-Day State Visit to New Zealand — First by an Indian PM in Nearly Four Decades</div>
+      <div class="nsum">Prime Minister Modi is set to undertake a two-day state visit to New Zealand from July 10–11, 2026, at the invitation of New Zealand PM Christopher Luxon, marking the first trip by an Indian Prime Minister to the country in nearly 40 years. The visit is expected to strengthen bilateral ties across trade, defence, and people-to-people connections.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Goodreturns / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMF Cuts India FY27 GDP Growth Forecast to 6.4% but Raises FY28 Outlook to 6.7%</div>
+      <div class="nsum">The International Monetary Fund has marginally lowered India's FY27 GDP growth forecast to 6.4% while raising its FY28 projection to 6.7%, reinforcing India's standing as the world's fastest-growing major economy. The revision comes amid global uncertainty driven by rising crude oil prices and renewed Middle East tensions stemming from the collapse of the US-Iran ceasefire.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TCS Q1 FY27 Net Profit Rises 5% to ₹13,349 Crore; Revenue Surges 14% on Strong AI Deal Pipeline</div>
+      <div class="nsum">Tata Consultancy Services posted a 5% year-on-year rise in Q1 FY27 net profit to ₹13,349 crore, with revenue growing 14% to ₹72,275 crore, beating street estimates and kicking off the corporate earnings season. The company declared an interim dividend of ₹12 per share and reported annualised AI revenue of US$2.6 billion, including a landmark US$800 million AI-led transformation deal with SKF.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SBI Funds Management Sets IPO Price Band at ₹545–₹574, Targeting ₹11,693 Crore in Largest IPO of 2026</div>
+      <div class="nsum">SBI Funds Management Ltd announced a price band of ₹545 to ₹574 per share for its ₹11,692.91 crore IPO, which is set to be the largest public offering in India so far in 2026. At the upper price band, the company's potential market capitalisation would stand at approximately ₹1.17 lakh crore, with State Bank of India already completing a pre-IPO placement of a 1.42% stake for ₹1,655 crore.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Goodreturns</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex, Nifty Eye Positive Open as GIFT Nifty Jumps 100 Points; Asian Markets Rally on Chip Stock Surge</div>
+      <div class="nsum">Indian benchmark indices are set for a positive open on July 10 as GIFT Nifty traded over 100 points higher at 24,113, buoyed by a global rally in chip and AI shares. Japan's Nikkei and South Korea's Kospi surged over 2% and 4% respectively, while consecutive FII net inflows — including ₹1,962.8 crore on July 8 — are supporting domestic market sentiment.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 Indian AI Startups for 2026 Accelerator — Chosen from Nearly 2,500 Applications</div>
+      <div class="nsum">Google has unveiled its 2026 Google for Startups Accelerator: India cohort, selecting 20 AI-first startups from nearly 2,500 applications as the programme marks its 10th anniversary in the country. The three-month, equity-free accelerator spans sectors including agentic AI, healthcare, climate technology, legal tech, and cybersecurity, offering founders access to Google's full AI stack and technical mentorship.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Tech Startup Funding Rises 12% to $7.2 Billion in H1 2026, But Deal Count Falls 43%</div>
+      <div class="nsum">India's technology startup ecosystem attracted $7.2 billion in funding in the first half of 2026, a 12% year-on-year increase, but total funding rounds declined sharply by 43% to 652, reflecting a trend of fewer but larger bets by investors. AI-native startups Neysa and Sarvam achieved unicorn status in under three years, the fastest of the five new unicorns minted in H1 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NPCI / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Biometric UPI Transactions Hit Record 611 Million in June, Worth ₹25,416 Crore</div>
+      <div class="nsum">Biometric-authenticated UPI transactions surpassed 611 million in June 2026 — totalling ₹25,416 crore in value — as fingerprint and facial recognition-based PIN-free payments see rapid adoption across India, according to the National Payments Corporation of India. NPCI says the feature, which also supports RuPay Credit Card on UPI for PIN-free credit payments, is expected to grow further as more banks and UPI apps roll out the capability.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NBC News / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Declares US-Iran Ceasefire Over at NATO Summit; Fresh Strikes Hit 90 Targets as Oil Prices Surge</div>
+      <div class="nsum">President Trump declared the US-Iran ceasefire effectively over at the NATO summit in Ankara, Turkey, after Iran's IRGC struck commercial tankers in the Strait of Hormuz, prompting the US military to hit roughly 90 Iranian targets and reimpose oil sanctions. Iran retaliated with missile and drone strikes on US military bases in Bahrain and Kuwait, sending oil prices up 6% on fears of a full resumption of hostilities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Meets Zelenskyy at NATO Summit, Offers Ukraine License to Manufacture Patriot Air Defence Systems</div>
+      <div class="nsum">On the sidelines of the NATO summit in Ankara, President Trump met Ukrainian President Volodymyr Zelenskyy and said the US would provide Ukraine a licence to manufacture Patriot air defence systems domestically. The meeting was overshadowed by Trump's dramatic ceasefire declaration with Iran and fresh threats against Spain over defence spending, which dominated the summit.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Fox News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China Test-Fires Long-Range Ballistic Missile from Submarine in South Pacific as Australia and Fiji Sign Mutual Defence Treaty</div>
+      <div class="nsum">Chinese state media confirmed that a nuclear-powered submarine successfully test-launched a long-range ballistic missile in the South Pacific, a move immediately criticised by Australia and described as provocative. The launch occurred on the same day Australia and Fiji signed a mutual defence treaty explicitly aimed at countering growing Chinese military influence across the Pacific region.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 10 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
