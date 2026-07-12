@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 12, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 12 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 12 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Deccan Chronicle</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Lokayukta Unearths ₹49.83 Crore in Assets in Statewide Raids on 10 Officials</div>
+      <div class="nsum">The Karnataka Lokayukta conducted simultaneous raids at 53 locations across seven districts — including Bengaluru, Raichur, Chitradurga, Shivamogga, Kalaburagi and Tumakuru — targeting 10 government officials accused of possessing disproportionate assets. The sweeping anti-corruption operation uncovered cash, gold ornaments, luxury vehicles, agricultural land, residential and commercial properties worth nearly ₹49.83 crore, with cases registered under the Prevention of Corruption Act and investigations ongoing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hans India / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line (Silk Board–KR Puram) Enters Final Phase, Trial Runs Targeted for October</div>
+      <div class="nsum">Bengaluru's long-awaited Blue Line Metro project has entered its final construction phase, with BMRCL gearing up to begin trial operations on the 19-km Silk Board–KR Puram corridor — passing through HSR Layout, Bellandur, Marathahalli and Doddanekkundi — later this year. Metro authorities are targeting trial runs in October subject to completion of pending engineering works, with commercial services potentially beginning by end of December, offering a major alternative to road travel in the city's congested IT corridor.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / WeRIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka SIR Voter Enumeration Reaches 82% Coverage; Several Bengaluru Segments Lag Behind</div>
+      <div class="nsum">Karnataka's Special Intensive Revision (SIR) of electoral rolls has reached 82% coverage statewide, but multiple Bengaluru assembly segments are trailing significantly, with Bommanahalli recording the lowest distribution rate at 35.01%, followed by Bangalore South at 39.95% and Govindarajanagar at 40.25%. Election officials have flagged the gaps ahead of upcoming state polls, urging ward-level outreach to ensure full enumeration form distribution across lagging urban constituencies.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / Google News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Legendary Playback Singer S. Janaki Passes Away at 88 in Mysuru</div>
+      <div class="nsum">Veteran South Indian playback singer S. Janaki, whose six-decade career spanned thousands of songs across Telugu, Tamil, Kannada, Malayalam and Hindi films, passed away at Apollo Hospital in Mysuru at the age of 88 after battling health complications. The music fraternity across India mourned the loss of one of the most iconic voices in Indian cinema, remembered also for famously declining the Padma Bhushan in 2013, saying the recognition had come too late.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / Al Jazeera / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">15 Indian Tourists Killed as Speedboat Capsizes Near Phu Quoc Island in Vietnam</div>
+      <div class="nsum">A speedboat carrying 32 Indian tourists and four crew members capsized on Saturday afternoon shortly after leaving Hon May Rut Ngoai Island near Phu Quoc, Vietnam's largest island, killing 15 people less than 400 metres from shore; 21 survivors were rescued and the injured hospitalised. Prime Minister Narendra Modi expressed condolences and said the Indian Embassy was providing all possible assistance, while Vietnam's PM ordered an investigation; many of the victims are believed to be from Tamil Nadu and Telangana.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google News / India Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Demands Iran Publicly Declare Strait of Hormuz Open as Ceasefire Collapses</div>
+      <div class="nsum">Senior US officials demanded that Iran issue a public statement confirming the Strait of Hormuz is open to commercial shipping, warning that without safe passage guaranteed, nuclear negotiations will never proceed. President Trump declared the ceasefire with Iran 'over' following a new round of US strikes on Iranian targets after Tehran attacked three commercial vessels in the strait, raising alarm in India over oil supply disruptions and the safety of Indian nationals in the Gulf region.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / The Hindu Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Rises 828 Points to Close at 77,569 on TCS Earnings Boost and Easing Oil Prices</div>
+      <div class="nsum">India's BSE Sensex jumped 828 points, or 1.08%, to close at 77,569 on Friday, led by a broad rally in technology stocks after Tata Consultancy Services reported a $9.5 billion order book and $2.6 billion in annualised AI revenue for the June quarter, lifting sentiment across the IT sector. Tech Mahindra, Infosys, HCL Tech and Reliance Industries were among the top gainers, while investors also welcomed easing crude oil prices; market participants now await June inflation data and broader Q1 earnings results.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Outlook Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Forex Reserves Surge $7.26 Billion to $674.19 Billion, RBI Data Shows</div>
+      <div class="nsum">India's foreign exchange reserves jumped by $7.26 billion to $674.193 billion during the week ended July 3, 2026, reversing a prior-week drop of $5.654 billion, with foreign currency assets rising $4.51 billion and gold reserves climbing $2.669 billion to $105.2 billion, according to Reserve Bank of India data. The kitty remains well below the all-time high of $728.49 billion recorded in late February before the onset of the Middle East conflict, which had compelled the RBI to sell dollars to defend the rupee.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / ANI / ffnews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Biometric UPI Payments Cross 611 Million Transactions in June, Totalling ₹25,416 Crore: NPCI</div>
+      <div class="nsum">Biometric-authenticated UPI transactions surpassed 611 million in June 2026 — worth ₹25,416 crore — as fingerprint and facial recognition-based PIN-free payments gain rapid adoption across India's digital payments ecosystem, according to the National Payments Corporation of India. The feature, which supports both person-to-person and person-to-merchant transactions and is now available on RuPay Credit Card on UPI, is expected to see further growth as more banks and UPI apps enable the authentication option.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Picks 20 Indian AI-First Startups for 2026 Accelerator, Marking Programme's 10th Anniversary</div>
+      <div class="nsum">Google has selected 20 Indian AI-first startups from nearly 2,500 applications for the 2026 cohort of its Google for Startups Accelerator: India, spanning sectors including agentic AI, healthcare, climate tech, legal technology, cybersecurity, fintech and developer infrastructure. The three-month, equity-free programme — marking the 10th anniversary of Google's accelerator initiatives in India — will provide founders with access to Google's AI stack, cloud infrastructure, technical mentorship and go-to-market support to help them scale globally.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Becomes India's Newest AI Unicorn with $234 Million Funding Round Led by HCLTech</div>
+      <div class="nsum">Bengaluru-based Sarvam AI, India's government-backed sovereign AI startup and builder of the Sarvam-30B and Sarvam-105B large language models under the IndiaAI Mission, reached unicorn status after closing a $234 million funding round led by HCLTech. The company, which open-sourced both models trained entirely on Indian compute infrastructure in February 2026 and supports 22 Indian languages, is now deploying its AI stack in partnership with UIDAI, SBI Life Insurance and state governments, positioning itself as India's full-stack sovereign AI platform.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Analytics India Magazine / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Market Could Reach $126 Billion by 2030, With 170+ Active AI Startups: Google-Inc42 Report</div>
+      <div class="nsum">According to the Bharat AI Startups Report 2026 published jointly by Google and Inc42, India's AI market could become a $126 billion opportunity by 2030 with a potential GDP impact of $1.7 trillion by 2035, underpinned by over 170 AI startups that have collectively raised more than $2.6 billion to date. Enterprise AI is expected to lead this growth, with groups such as Reliance Industries, Tata Group and Larsen &amp; Toubro deepening partnerships with global players like OpenAI and NVIDIA to build India's compute strength.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Time / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Declares US-Iran Ceasefire 'Over' After Mutual Strikes; Mediators Scramble to Revive Talks</div>
+      <div class="nsum">President Donald Trump declared the US-Iran ceasefire 'over' after the US military struck over 80 Iranian targets — including air defence systems, coastal radar sites and more than 60 IRGC small boats — in retaliation for Iranian attacks on three commercial vessels in the Strait of Hormuz; Iran retaliated with drone and missile strikes on US bases in Bahrain and Kuwait. Senior US officials demanded Iran publicly declare the Strait of Hormuz open as a precondition for resuming nuclear talks, with the mid-August deadline on the Islamabad Memorandum of Understanding now in serious doubt.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Yahoo Sports / CBS Sports / ESPN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">France, Spain and England Reach FIFA World Cup 2026 Semifinals; Argentina Face Switzerland in Final Quarterfinal</div>
+      <div class="nsum">Three quarterfinals at the 2026 FIFA World Cup — co-hosted by the United States, Canada and Mexico — produced clear winners on July 9–11: France defeated Morocco 2-0, Spain edged Belgium 2-1 with Mikel Merino the hero, and England beat Norway 2-1 in extra time at Hard Rock Stadium in Miami. Argentina and Switzerland played their quarterfinal Saturday night at Arrowhead Stadium in Kansas City, with the winner set to face England in a semifinal in Atlanta on July 15.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inquirer Global Nation / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EU Moves to Regulate Children's Access to Social Media as Global Restrictions Spread</div>
+      <div class="nsum">The European Union announced plans to regulate children's access to social media platforms, joining a growing list of countries — including Australia, Norway and several others — that have already implemented or proposed similar age-based restrictions. The move reflects mounting international consensus on protecting minors from the harms of social media, as policymakers worldwide grapple with questions of mental health, data privacy and algorithmic influence on young users.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 12 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
