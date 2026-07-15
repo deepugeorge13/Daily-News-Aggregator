@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 15, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 15 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 15 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Logical Indian / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Launches Citywide Drive to Clear 1,581 Abandoned Vehicles from Bengaluru Roads</div>
+      <div class="nsum">The Bruhat Bengaluru Mahanagara Palike began a city-wide clearance drive from July 10 to remove 1,581 abandoned vehicles identified across all eight BBMP zones, conducted in coordination with the Bengaluru Traffic Police. Officials have issued notices to registered vehicle owners asking them to reclaim or remove their vehicles before towing operations begin, as part of a broader Safe Footpath and Encroachment Clearance Campaign.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Blue Line Airport Metro on Track for December 2026 Completion as Station Finishing Contracts Awarded</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited has awarded key station finishing contracts for the 56 km Blue Line (Phase 2A and 2B), which will connect Silkboard, KR Puram, and Kempegowda International Airport across 30 stations. The Phase 2A section is expected to open no sooner than Q4 2026, with the full airport line targeted for December 2026, though delays related to rolling stock availability remain a concern.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru-Based Zetwerk Gets SEBI Nod for ₹4,200 Crore IPO at $4 Billion Valuation</div>
+      <div class="nsum">Bengaluru-headquartered contract manufacturing platform Zetwerk Manufacturing Businesses Ltd received SEBI approval on July 10 for its initial public offering, targeting a fundraise of approximately ₹4,200 crore at a $4 billion valuation. The company, which serves defence, energy, electronics, and aerospace sectors, reported estimated FY26 revenue of ₹15,900 crore — up 24% year-on-year — and an order book exceeding ₹12,000 crore.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / PTI / The Federal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India-UK Comprehensive Economic and Trade Agreement Comes into Force on July 15</div>
+      <div class="nsum">The landmark India-UK Free Trade Agreement, formally known as the Comprehensive Economic and Trade Agreement (CETA) and signed on July 25, 2025, officially came into force today, marking the sixth free trade agreement implemented by the Modi government. The deal liberalises 99% of UK tariffs and 90% of Indian tariffs, is forecast to boost bilateral trade by £25.5 billion annually in the long run, and unlocks duty-free access for nearly 99% of Indian exports to the UK market.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Britannica / ISAS NUS / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Wins West Bengal in Historic Upset; Actor Vijay's TVK Emerges in Tamil Nadu — 2026 State Election Results Reshape India's Political Map</div>
+      <div class="nsum">Results declared on May 4 from the April 2026 state assembly elections produced seismic outcomes, with the BJP winning a landslide in West Bengal, ending Mamata Banerjee's Trinamool Congress government's 15-year rule, while film star Vijay's Tamilaga Vettri Kazhagam (TVK) won 108 seats in Tamil Nadu, putting it on the cusp of forming a government in its very first election. The BJP also retained Assam for a third successive term, while the Congress-led UDF returned to power in Kerala, effectively wiping out all Left-governed states in India for the first time.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / RBI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Governor Malhotra Urges Banks to Deploy AI for Efficiency and Cybersecurity at Half-Yearly Meeting</div>
+      <div class="nsum">RBI Governor Sanjay Malhotra chaired the central bank's half-yearly meeting with heads of public and private sector banks on July 14, where key discussions included adoption of RBI's AI-powered MuleHunter fraud detection platform, the Unified Lending Interface, and CBDC popularisation. The Governor urged banks to leverage advanced technologies including AI to expand reach, reduce costs, and enhance customer experience, while ensuring robust cybersecurity and strong internal controls.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha / Zee Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SBI Funds Management ₹9,813-Crore IPO Opens; India's Largest AMC Eyes July 21 Listing</div>
+      <div class="nsum">The IPO of SBI Funds Management Limited — India's largest asset management company by quarterly average AUM — opened for subscription on July 14 and closes today, July 16, with a price band of ₹545–₹574 per share and a total issue size of ₹9,813 crore. The grey market premium is hovering between ₹89–₹100, signalling a potential 15–18% listing gain when the stock is expected to debut on the BSE and NSE on July 21.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Banking Finance / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Records $4.7 Billion Current Account Surplus in April 2026, Reversing Year-Earlier Deficit</div>
+      <div class="nsum">India posted a current account surplus of $4.7 billion in April 2026, a sharp reversal from the $4.8 billion deficit recorded in the same month a year earlier, driven by a surge in net services exports to $18.6 billion and remittances jumping to $16 billion from $9.4 billion, according to preliminary RBI data. Foreign direct investment (FDI) more than doubled to $11.4 billion on the capital account, though net FPI outflows of $8.7 billion partially offset the gains.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NewsBytesApp</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Rupee Hits One-Month Low at 95.76 as Hormuz Tensions and FII Selling Weigh on Indian Markets</div>
+      <div class="nsum">The Indian rupee slipped to its lowest level in over a month, trading at 95.76 per US dollar, as geopolitical tensions in the Strait of Hormuz and persistent foreign institutional investor selling weighed on sentiment. Indian government bonds also fell in early trade, mirroring a selloff in US Treasuries, while the benchmark Sensex dropped over 600 points intraday amid global uncertainty.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Best Startup India / Startup Feed</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Becomes Unicorn After Raising $234 Million Series B; Indian AI Startup Funding Tops $1 Billion in H1 2026</div>
+      <div class="nsum">Sarvam AI, which builds full-stack AI covering 22 Indian languages for banking, government, healthcare, and telecom, achieved unicorn status after closing $234 million at a $1.5 billion valuation in the largest Series B in Indian AI history, led by HCLTech with $150 million alongside Bessemer Venture Partners, Khosla Ventures, and Peak XV Partners. Indian AI startup funding crossed $1,067 million in H1 2026 — up 33% year-on-year — with deal count rising to 157 from 112, as investors shift capital toward frontier technology including sovereign models and AI infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Analytics India Mag / Lapaas Voice</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 Indian AI-First Startups for Its 2026 Accelerator Programme from 2,500 Applications</div>
+      <div class="nsum">Google has chosen 20 Indian AI-first startups for its 2026 Google for Startups Accelerator: India programme, selecting them from nearly 2,500 applications across sectors including agentic AI, healthcare, climate technology, developer tools, enterprise software, and digital infrastructure. The three-month, equity-free programme provides selected founders with access to Google AI and Gemini technologies, Cloud infrastructure credits, technical mentorship, and global go-to-market support.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / IndiaAI Mission</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IndiaAI Mission Onboards 38,000+ GPUs for Subsidised Access, Slashing Compute Costs for Indian AI Founders</div>
+      <div class="nsum">The IndiaAI Mission, a ₹10,372 crore programme run by the Ministry of Electronics and Information Technology (MeitY), has onboarded more than 38,000 GPUs for shared use at subsidised rates, dramatically reducing the single largest cost item for AI startup founders building in India. This government compute initiative, combined with growing enterprise AI demand, has been a key driver behind India's AI startup funding surge to over $1 billion in H1 2026 and has supported the emergence of multiple new unicorns including Sarvam AI.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Al Jazeera / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Reinstates Naval Blockade of Iran, Launches Fresh Strikes as Strait of Hormuz Crisis Intensifies</div>
+      <div class="nsum">The United States resumed its naval blockade against Iran on July 14 and carried out a third consecutive night of strikes on Iranian targets including sites at Bushehr, Jask, and Bandar Abbas, after Iran attacked commercial vessels transiting the US-protected sea lane hugging the Omani coast. Crossings through the Strait of Hormuz have dropped by more than half from the previous week, with Brent crude climbing above $83 a barrel, as President Trump also announced a 20% toll on all cargo transiting the strait under US military protection.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BBC News / CNN / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UK Labour Leadership Race Enters Final Stretch as Andy Burnham Emerges as Frontrunner to Succeed Starmer</div>
+      <div class="nsum">Nominations for the UK Labour Party leadership contest, triggered by Keir Starmer's resignation on June 22, closed on July 16, with former Greater Manchester Mayor Andy Burnham the clear frontrunner to become Britain's next Prime Minister — the country's seventh in ten years. Starmer resigned after Labour's dismal performance in May 2026 local elections, a mounting revolt within his parliamentary party, and Burnham's decisive by-election win in Makerfield which cleared his path back into Parliament.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Bangkok Metropolitan Administration</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bangkok Music Bar Fire Death Toll Rises; Over 70 Injured with Dozens in Critical Condition</div>
+      <div class="nsum">A deadly fire at a music bar in Bangkok, Thailand, killed multiple people and left more than 70 injured, with 24 of them still in critical condition as of July 14, according to a statement from the Bangkok Metropolitan Administration. Forensic investigators are focusing on the ceiling above the performance stage as a potential origin point, while officials noted that many victims were trapped in windowless bathrooms near a rear exit.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 15 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
