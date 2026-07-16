@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 16, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 16 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 16 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BWSSB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BWSSB Emergency Pipeline Repairs Halt Cauvery Water Supply for 12 Hours Today Across Nandini Layout, Jakkur, Kalyan Nagar, and Mysore Road</div>
+      <div class="nsum">The Bangalore Water Supply and Sewerage Board has suspended Cauvery Stage IV Phase II supply from 6 AM to 6 PM today to carry out emergency repairs on a leaking scour valve on the 2,700 mm diameter main distribution pipeline, affecting several north, east, and south Bengaluru localities. BWSSB has urged residents in affected areas — including Nandini Layout, Jakkur, Kalyan Nagar, and Mysore Road — to store adequate water in advance, with supply expected to resume only by late evening.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / BookNewProperty</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Leads India's Q1 2026 Startup Funding with $823 Million Across 89 Deals, Extending Its Innovation Edge Over Delhi NCR and Mumbai</div>
+      <div class="nsum">Bengaluru attracted the highest startup funding of any Indian city in Q1 2026, drawing $823 million across 89 deals and outpacing Delhi NCR and Mumbai, underpinned by its ecosystem of over 16,000 startups, 2.5 million software engineers, 880+ Global Capability Centres, and approximately one-third of India's AI talent. Strong investor confidence is translating directly into demand for commercial and residential real estate, with more than 100 new projects expected to launch across the city's key corridors in the 2026–27 cycle.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / Trade Brains</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">North Bengaluru Property Prices Surge Up to 133% Since 2021 as Airport Metro and KIADB Aerospace Park Reshape the Corridor</div>
+      <div class="nsum">Land and apartment values in the Yelahanka–Devanahalli–Bagalur belt have risen as much as 133% since 2021, driven by the imminent Blue Line airport metro arrival and KIADB Aerospace Park expansion, making north Bengaluru the city's deepest new-project pipeline for 2026 with dozens of high-rise and plotted developments on the way. South Bengaluru micro-market Kaggalipura posted the steepest single-year gain at 52% year-on-year appreciation, as Bengaluru also accounted for 25% of all new home launches across India in Q1 2026.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / ANI / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Summons Iranian Envoy After Hormuz Attacks Kill One Indian Seafarer; MEA Lodges Strongest Protest and Demands Immediate Halt</div>
+      <div class="nsum">India's Ministry of External Affairs summoned Iran's Deputy Chief of Mission in New Delhi and issued its "strongest protest" after Iranian attacks on two commercial vessels in the Strait of Hormuz — MT Al Bahiyah, carrying 12 Indians, and MT Mombasa, carrying 18 Indians — left one sailor dead and at least 11 others injured, two in critical condition. The MEA described the strikes as "acts of violence targeting seafarers and disrupting free navigation," called for an immediate cessation of attacks on commercial shipping, and urged both Iran and the United States to de-escalate and return to dialogue.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / PTI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cabinet Approves 7 Decisions Worth Over ₹2 Trillion Including Semiconductor Manufacturing Expansion and Varanasi Elevated Corridor</div>
+      <div class="nsum">The Union Cabinet cleared seven major project approvals collectively valued at more than ₹2 trillion, covering semiconductor manufacturing capacity expansion under India's chip incentive programme and the long-awaited Varanasi elevated road corridor to decongest one of Uttar Pradesh's most traffic-choked cities. The semiconductor approvals are expected to attract international equipment and materials suppliers, generate thousands of skilled jobs, and advance India's goal of domestic chip production ahead of the 2028 target.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sonam Wangchuk Enters 17th Day of Hunger Strike at Jantar Mantar, Down 8.2 kg, as Ladakh Statehood Demand Intensifies</div>
+      <div class="nsum">Climate activist and educator Sonam Wangchuk was in his 17th consecutive day of an indefinite hunger strike at Delhi's Jantar Mantar as of July 14, having lost 8.2 kg, demanding restoration of Ladakh's statehood and inclusion under the Sixth Schedule of the Constitution — protections removed when the region was bifurcated into a Union Territory in 2019. Opposition leaders and civil society groups have rallied at the site, urging the central government to open dialogue before Wangchuk's deteriorating health forces a medical emergency.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / Zee Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SBI Funds Management ₹9,813-Crore IPO Closes Today; Grey Market Premium of ₹89–100 Points to 15–18% Listing Gain on July 21</div>
+      <div class="nsum">India's largest AMC by quarterly average AUM, SBI Funds Management Limited, closes its record ₹9,813-crore IPO (price band ₹545–₹574) for public subscription today after a three-day window, with a grey market premium of ₹89–₹100 signalling an anticipated listing gain of 15–18% when the stock is set to debut on BSE and NSE on July 21. Robust institutional demand throughout the subscription period has made this the most closely watched public-sector financial services listing of the year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Elevation Capital Closes $500 Million Fund IX to Back India's Next Generation of Early-Stage AI Startups</div>
+      <div class="nsum">Elevation Capital, one of India's most active early-stage venture firms, closed its ninth India-focused fund at $500 million on July 14 with a sharp focus on seed and Series A investments in AI-native startups building products for domestic and global markets, targeting sectors including enterprise AI, fintech, healthcare, defence, and space technology. Combined with its $400 million fund from last August, Elevation now commands approximately $900 million in deployable capital — the largest early-stage VC war chest in India — arriving as domestic AI startup funding has already crossed $1 billion in H1 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Gas Exchange Files for BSE IPO as Parent IEX Divests Stake to Comply with SEBI Minimum Public Shareholding Norms</div>
+      <div class="nsum">Indian Gas Exchange (IGX), India's online natural gas trading platform, has filed its draft red herring prospectus for a listing on the Bombay Stock Exchange, with parent Indian Energy Exchange (IEX) selling a portion of its holding to meet SEBI's regulatory minimum public shareholding requirements. IGX reported strong profit and revenue growth in fiscal 2026, driven by rising industrial, power-generation, and city gas distribution demand, and the proceeds are expected to fund product expansion and deepen market liquidity on the exchange.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Analytics India Magazine / Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Mukesh Bansal's Nurix AI Acquires Verloop.io, Creating Unified Voice-and-Chat Platform Handling 20 Million Monthly Customer Interactions</div>
+      <div class="nsum">Nurix AI — founded by Myntra and Cult.Fit co-founder Mukesh Bansal and backed by General Catalyst, Accel, and Prosus with $27.5 million in funding — acquired Verloop.io, the enterprise chat automation company founded in 2015 by Gaurav Singh, to merge its NuPlay voice AI product with Verloop.io's platform that processes over 20 million customer service interactions monthly across banking, fintech, retail, and telecom. The combined end-to-end conversational AI platform will serve enterprise clients across India and the Middle East, with Gaurav Singh joining Nurix's leadership team to lead product strategy and enterprise go-to-market.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">AIM / StartupTalky / Tracxn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India AI Startup Funding Crosses $1 Billion in H1 2026 Across 157 Deals, Up 33% Year-on-Year as Ecosystem Matures</div>
+      <div class="nsum">Indian artificial intelligence startups raised more than $1 billion in equity funding across 157 deals in the first half of 2026, a 33% jump in capital and a 40% rise in deal count from 112 in H1 2025, fuelled by investor confidence in AI-native applications, sovereign language models, and enterprise automation — with marquee raises including Sarvam AI's $234 million Series B leading the charge. The surge has been underpinned by IndiaAI Mission's subsidised access to more than 38,000 GPUs under the ₹10,372-crore MeitY programme, dramatically lowering the compute cost barrier for Indian founders.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / NSE / BSE</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">L&amp;T Technology Services Q1 FY27 Net Profit Rises ~13% Year-on-Year; Shares Jump 6% on AI-Led Engineering Services Beat</div>
+      <div class="nsum">L&amp;T Technology Services reported approximately 13% year-on-year growth in net profit for the April–June 2026 quarter, with revenue from operations rising 11.5%, beating analyst estimates as AI-driven engineering services in automotive, aerospace, and semiconductor verticals delivered a broad-based recovery. LTTS shares rallied nearly 6% on the NSE following the results announcement, extending the stock's outperformance relative to the Nifty IT index and reinforcing the narrative of a strong cycle for deep-engineering R&amp;D outsourcing.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / ABC News / Wikipedia / Britannica</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Declares Iran Ceasefire "Over"; US Resumes Naval Blockade and Strikes as Iran Claims Sole Control of the Strait of Hormuz</div>
+      <div class="nsum">President Donald Trump officially declared the US-Iran ceasefire memorandum of understanding "over" after Iran attacked commercial vessels in the Strait of Hormuz, prompting the US to reinstate its naval blockade on July 15 and launch a third consecutive night of strikes on Iranian targets including Bushehr, Jask, and Bandar Abbas — while also announcing a 20% toll on all cargo transiting under US military protection. Iran responded by claiming sole control of the strait and launching fresh waves of attacks across the Gulf, pushing Brent crude above $83 per barrel and slashing Hormuz crossings by more than half from the prior week.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / FIFA / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Argentina Beats England 2-1 in Dramatic World Cup Semifinal Comeback; Faces Spain in Sunday's Final</div>
+      <div class="nsum">Argentina mounted a stunning late comeback in Atlanta on July 15 — Enzo Fernández equalising in the 85th minute and Lautaro Martínez heading home in the 92nd, both from Lionel Messi assists — to defeat England 2-1 in the 2026 FIFA World Cup semifinal after Anthony Gordon had put England ahead in the 55th minute. The defending champions will meet Spain — 2-0 winners over France in Tuesday's semifinal — in Sunday's final, while England face France in the third-place bronze medal match on Saturday in Miami.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Inquirer / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Burkina Faso, Mali, and Niger Begin Formal ICC Withdrawal; Sara Duterte Impeachment Trial Opens in Philippine Senate</div>
+      <div class="nsum">The International Criminal Court confirmed that Burkina Faso, Mali, and Niger have triggered a one-year formal withdrawal process from the ICC, citing perceived institutional bias against African nations and aligning with the military governments that have ruled all three countries since their respective coups. In the Philippines, the Senate impeachment trial of Vice President Sara Duterte opened today on charges of corruption and misuse of confidential funds, in a high-stakes political confrontation with President Ferdinand Marcos Jr. that analysts say could reshape the country's 2028 presidential contest.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 16 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
