@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 17, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 17 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 17 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka CM Unveils Ambitious 500-km Bengaluru Metro Expansion Backed by ₹1.5 Lakh Crore Urban Budget</div>
+      <div class="nsum">Karnataka's Chief Minister announced a massive 500-kilometre long-term expansion of the Namma Metro network, anchored by a ₹1.5 lakh crore mega urban development budget unveiled at the KATALYST CONNECT summit on July 8, 2026. The plan aims to attract 500 new Global Capability Centres and create 3.5 lakh jobs by 2029, while the Pink Line's elevated section from Kalena Agrahara to Tavarekere is now targeted to open by August 15, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink and Blue Lines Miss Deadlines Again; New Targets Set for Late 2026 and 2027</div>
+      <div class="nsum">BMRCL has revised deadlines for Bengaluru's Pink Line and Blue Line metro corridors, with the Pink Line's 7.5-km elevated section now slated for August 15 — a delay from the earlier May-June 2026 target — and the underground section pushed to March 2027. The minister also instructed BMRCL to begin trial runs on KR Puram-Marathahalli and Marathahalli-HSR Layout sections of the Outer Ring Road corridor by October 2026, with work at Marathahalli and Silk Board stations flagged as potential risk points.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / OneIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru South Corporation Flags 10 Flood-Prone Spots as City Brace for Peak Monsoon</div>
+      <div class="nsum">Ahead of peak monsoon season, the Bengaluru South City Corporation has identified 10 chronic waterlogging hotspots and directed officials to monitor them closely, with towing drives, traffic management plans, and road safety interventions planned. The proactive BBMP measure follows perennial concerns about Outer Ring Road and other areas that flood annually, inundating apartment basements and prompting raft rescues in prior monsoon seasons.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Open Magazine / Business Today / Free Press Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Monsoon Session Set for July 20–August 13; JPC on Constitution Amendment Bill Meets Today</div>
+      <div class="nsum">India's Parliament Monsoon Session 2026 is scheduled to commence on July 20 and run through August 13, following President Droupadi Murmu's approval of the government's recommendation. A Joint Parliamentary Committee examining the 130th Constitution Amendment Bill — which includes a controversial clause on automatic removal of ministers in judicial custody — met on July 17 to finalise and adopt its report ahead of the session.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / The National News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Bars Seafarers from Strait of Hormuz Voyages After Two Killed in Iranian Attacks on UAE Tankers</div>
+      <div class="nsum">India's Directorate General of Maritime Administration (DGMA) issued an emergency advisory barring ship owners and managers from deploying Indian seafarers on vessels transiting the Strait of Hormuz, following the deaths of two Indian sailors in recent Iranian missile strikes on UAE supertankers. The Ministry of External Affairs strongly condemned the attacks, summoned Iran's Deputy Ambassador, and activated a whole-of-government 'Seafarer-First' response, including a vessel-by-vessel dashboard to track all 300,000-plus Indian sailors working globally.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Free Press Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NCP (Sharad Pawar) to Back Women's Reservation and Delimitation Bills, Dealing Blow to INDIA Bloc Ahead of Monsoon Session</div>
+      <div class="nsum">In a significant political development, the Nationalist Congress Party led by Sharad Pawar is expected to support the Women's Reservation Bill and Delimitation Bill in the upcoming Monsoon Session of Parliament, despite not being part of the ruling NDA, dealing a setback to the opposition INDIA bloc. The government is simultaneously redrafting the stalled Constitution (131st Amendment) Bill, now considering a proposal to uniformly increase Lok Sabha seats across all states by 50%, amid continuing resistance from southern states over population-linked representation.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex, Nifty End Flat on July 17 as Reliance, JSW Steel and Federal Bank Announce Q1 Results</div>
+      <div class="nsum">Indian equity markets ended virtually unchanged on Thursday, with the BSE Sensex closing at 77,186.87 and the Nifty50 edging up a mere 5.75 points to 24,072.75, weighed down by mixed global cues, geopolitical uncertainty, and a weak rupee. Investor attention on July 17 shifts to Reliance Industries, JSW Steel, Federal Bank, Havells India, and Oberoi Realty, all of which are scheduled to report their June 2026 quarter earnings.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Wipro Posts 10.3% Revenue Growth; Tech Mahindra Surges 31.7% in Net Profit for Q1 FY27</div>
+      <div class="nsum">Wipro reported IT services revenue growth of 10.3% year-on-year to ₹24,452.9 crore for the June 2026 quarter, though its IT services operating margin fell 130 basis points to 16%, with dollar revenue up 1% YoY at $2,614.5 million. Tech Mahindra delivered a stronger performance, posting a 31.7% jump in net profit to ₹1,486.3 crore and revenue growth of 17.7% YoY to ₹15,711.9 crore, with EBIT margins expanding 330 basis points to 14.4%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Banking Finance India / RBI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Plans e-Kuber 3.0 Launch and AI-Driven Central Banking Ecosystem in FY2026-27 Agenda</div>
+      <div class="nsum">The Reserve Bank of India has unveiled a comprehensive agenda for FY2026-27, including plans to launch its next-generation core banking system e-Kuber 3.0, an alternative payment infrastructure, and a unified enterprise platform. The central bank also plans to develop an AI-driven ecosystem to enhance central banking operations and support India's leadership within BRICS finance discussions, while exploring currency swap frameworks with SAARC nations.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Coding Startup Emergent Hits Unicorn Status with $130M Series C at $1.5 Billion Valuation</div>
+      <div class="nsum">Emergent, an Indian AI coding startup, has raised $130 million in a Series C funding round led by private equity firm Creaegis, achieving a $1.5 billion post-money valuation — a five-fold jump in just six months. The deal, which also saw participation from Khosla Ventures, SoftBank's Vision Fund 2, Lightspeed, and Y Combinator, brings Emergent's total funding to $230 million as it targets entrepreneurs and SMEs looking to build tech products without traditional developer teams.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $7.4 Billion in H1 2026, Driven by CRED-Meta Deal and AI Sector Surge</div>
+      <div class="nsum">Indian startups collectively raised $7.4 billion in the first half of 2026, a milestone partly lifted by a landmark CRED-Meta deal, according to Entrackr data, as AI, fintech, and healthtech continued to attract the bulk of investor capital. India's AI startup segment alone has raised over $1 billion in equity funding across 38 rounds so far in 2026, with 34 new AI companies founded this year, reflecting continued global confidence in India's innovation ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs as India Pushes Sovereign AI Agenda Under IndiaAI Mission</div>
+      <div class="nsum">Sarvam AI, selected by the Indian government to build the country's first homegrown sovereign large language model under the IndiaAI Mission, unveiled two powerful new LLMs — Sarvam-30B and Sarvam-105B — at the India AI Impact Summit 2026. The government has simultaneously onboarded over 38,000 high-end GPUs available at ₹65 per hour and deployed over 40 petaflops of computing capacity under the National Supercomputing Mission, aiming to democratise AI access for startups, researchers, and public institutions nationwide.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Gulf Business / The National / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Strait of Hormuz Crisis Escalates; Iran Strikes Gulf States as US Conducts Fresh Airstrikes</div>
+      <div class="nsum">The 2026 Strait of Hormuz crisis intensified this week as US forces conducted multi-hour airstrikes targeting Iranian military capabilities near Bandar Abbas and coastal areas, while Iran's IRGC struck US military sites in Bahrain, Kuwait, and Jordan and threatened to shut down the Bab el-Mandeb strait as a second front. Iran declared the Strait of Hormuz a 'red line,' commercial shipping companies increasingly declined transits even under US military escort, and oil prices remained volatile as analysts warned of compounding disruption across two of the world's most critical energy chokepoints.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / ESPN / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Argentina vs Spain: 2026 FIFA World Cup Final Set for New Jersey as Messi's Side Stage Stunning Comeback</div>
+      <div class="nsum">Argentina secured their place in the 2026 FIFA World Cup Final with a dramatic 2-1 comeback win over England, powered by Lionel Messi's enduring brilliance, setting up a much-anticipated showdown against Spain and teenage sensation Lamine Yamal at Gillette Stadium in New Jersey. Spain, having recorded six consecutive clean sheets en route to the final, enter as favourites, while Argentina and Messi are widely regarded as underdogs making one final bid for glory at the tournament hosted across the US, Canada, and Mexico.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Wikipedia / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Venezuela Death Toll from Earthquakes Rises to 2,295 as Acting President Declares National Mourning</div>
+      <div class="nsum">Venezuelan acting president Delcy Rodríguez declared seven days of national mourning as the death toll from recent devastating earthquakes climbed to 2,295, with rescue operations still under way across affected regions. Separately, global perceptions continued to shift in July 2026, with surveys showing improved views of China and declining favorability ratings for the United States, reflecting ongoing geopolitical tensions stemming from the Iran conflict and trade policy uncertainty under President Trump's administration.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 17 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
