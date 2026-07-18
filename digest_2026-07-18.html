@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 18, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 18 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 18 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Construction World / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL and BMTC Launch Six Dedicated Metro Feeder Bus Services Across Bengaluru</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation (BMRCL), in coordination with BMTC, has launched six dedicated metro feeder bus services to enhance first-and-last-mile connectivity for commuters. The services link Electronic City, Hosa Road, K R Pura, and Benniganahalli metro stations with nearby residential and commercial hubs, operating from 5:30 AM to 9:10 PM.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Phase 2A Station Finishing Contracts Awarded; Opening Targeted for Q4 2026</div>
+      <div class="nsum">BMRCL has awarded key station finishing contracts for the 56-km Bangalore Metro Blue Line, covering 13 elevated stations across the Silk Board–KR Pura corridor. Both contract packages are set to be completed within 16 months, with Phase 2A expected to open no sooner than Q4 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TV9 Kannada / Oneindia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Monsoon Brings Relief: Bengaluru AQI Drops to 54 as Karnataka Cities Record Cleaner Air</div>
+      <div class="nsum">Bangalore's air quality improved significantly on July 18 as the monsoon season drove down pollution levels, with the city's average Air Quality Index recorded at 54. Mysuru and Mangaluru reported the cleanest air among major Karnataka cities, reflecting a broader improvement in air quality across the state.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / US News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Holds Firm in US Trade Talks as July 24 Tariff Deadline Looms</div>
+      <div class="nsum">India and the US failed to reach a consensus on a bilateral trade agreement in recent talks, with New Delhi holding out for better terms as the interim 10% US tariff arrangement is set to expire around July 24. Commerce Minister Piyush Goyal indicated that India will not implement a deal unless a clear advantage is ensured, reflecting a hardened position despite the risk of higher levies on Indian exports.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / PTI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Outlines Reform-Driven Vision, Cites Record ₹12.2 Lakh Crore Capex in Budget 2026-27</div>
+      <div class="nsum">Prime Minister Narendra Modi outlined an ambitious economic transformation roadmap, describing the Union Budget 2026-27's record capital expenditure of ₹12.2 lakh crore as a strategic choice focused on long-term productivity. He highlighted major allocations for railways, highways, freight corridors, and ports, and noted that India now has Free Trade Agreements with 38 partner nations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine President Zelenskyy Fires Popular Defence Minister Mykhailo Fedorov</div>
+      <div class="nsum">Ukraine's President Volodymyr Zelenskyy dismissed Defence Minister Mykhailo Fedorov, who was widely credited with driving battlefield innovation through the expanded use of drones. The firing sent shockwaves through Kyiv's defence establishment, as Fedorov had been one of the most prominent faces of Ukraine's technology-driven war effort against Russia.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Rebounds 0.8% on IT Earnings Boost; Investors Await Reliance, HDFC Bank Results</div>
+      <div class="nsum">India's BSE Sensex rose approximately 0.8% to 77,778 on Friday, rebounding on the back of stronger-than-expected quarterly revenue from Tech Mahindra, which lifted IT stocks across the board. Investor focus remained on upcoming earnings from heavyweights including Reliance Industries, HDFC Bank, and ICICI Bank, while Wipro's quarterly results missed estimates.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HSBC Upgrades Indian Equities to Neutral; FPIs Buy $1.6 Billion Worth of Indian Shares in July</div>
+      <div class="nsum">Global brokerage HSBC upgraded Indian equities from Underweight to Neutral, citing easing crude oil prices that have reduced earnings risks and rupee-stabilisation measures that have drawn foreign investors back to the market. Foreign portfolio investors have purchased Indian shares worth $1.6 billion so far in July 2026, with HSBC also raising its year-end Sensex target.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Startup Feed</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Crosses $1 Billion in H1 2026, Up 33% Year-on-Year</div>
+      <div class="nsum">Indian AI startups raised $1,067 million (₹10,190 crore) between January and June 2026, a 33% jump over the same period in 2025, according to Venture Intelligence data. Sarvam led all rounds with a $234 million Series B backed by HCLTech, Bessemer, Khosla Ventures, and Peak XV Partners, as venture capital shifted decisively toward frontier technologies such as sovereign models and compute infrastructure.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / Analytics India Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches Major AI Initiative for Indian Developers and Startups at I/O Connect India 2026</div>
+      <div class="nsum">At the Google I/O Connect India 2026 summit, the tech giant unveiled new AI education programmes, healthcare collaborations, cybersecurity initiatives, and expanded infrastructure for Indian enterprises. Key announcements included the Google DeepMind AI Research Foundations curriculum — a free 56-hour programme to train learners on large language models — to be rolled out in partnership with NASSCOM and IISc Bengaluru.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China Launches WAICO — a 29-Nation AI Cooperation Alliance — Challenging US Dominance</div>
+      <div class="nsum">China formally established the World Artificial Intelligence Cooperation Organisation (WAICO) on July 16, with 29 founding member nations including Indonesia, Brazil, South Africa, Russia, and Pakistan, headquartered in Shanghai. Speaking at the World AI Conference, President Xi Jinping called for no single country to dominate AI and pledged 5,000 AI training opportunities for developing nations, positioning Beijing as a rival to US-led global AI governance efforts.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Startup Feed India / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Startup Ecosystem Matures: 207,000+ Recognized Startups, Fintech and Healthtech Lead Growth</div>
+      <div class="nsum">India's startup ecosystem, which marked its 10th anniversary under the Startup India programme in January 2026, now boasts over 207,000 recognized startups with more than 21.9 lakh direct jobs and 100+ unicorns. The IndiaAI Mission under MeitY has onboarded more than 38,000 GPUs for shared use at subsidised rates, accelerating innovation across fintech, healthtech, and applied AI sectors.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Xi Jinping at World AI Conference: China Champions Open-Source AI and Global Cooperation Over US Dominance</div>
+      <div class="nsum">Chinese President Xi Jinping used the World Artificial Intelligence Conference in Shanghai to frame China as the champion of a new global AI order, urging nations to oppose any single country's domination of the technology. The remarks coincided with the launch of WAICO, a 29-nation AI cooperation body headquartered in Shanghai, which analysts say Beijing will use to shape AI governance standards at the UN.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Strikes on Iran Continue as Qatar and Kuwait Fend Off Fresh Attacks Amid Widening Middle East Conflict</div>
+      <div class="nsum">The United States continued its military strikes on Iran, with Qatar and Kuwait also coming under fresh attacks as regional hostilities expanded. The US blockade of Iranian ports remained in effect after President Trump reversed course on plans to charge a toll in the Strait of Hormuz, deepening an already volatile conflict that is rattling global energy markets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bangkok Music Bar Fire Death Toll Rises; Band Members Among Victims of Deadly Flash Blaze</div>
+      <div class="nsum">The death toll from a devastating flash fire at a Bangkok music bar climbed past 30, with four of the six core members of the band performing at the time of the blaze confirmed among the victims. The tragedy, which occurred on July 13, has prompted calls for stricter fire-safety regulations at entertainment venues across Thailand.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 18 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
