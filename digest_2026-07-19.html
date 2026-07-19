@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 19, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 19 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 19 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Country and Politics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CM Shivakumar Pledges Rs 1.5 Lakh Crore for Bengaluru Infrastructure, Eyes 500-km Metro Network</div>
+      <div class="nsum">Karnataka Chief Minister D.K. Shivakumar, speaking at the KATALYST CONNECT GCC Leaders' Meet, announced an ambitious Rs 1.5 lakh crore infrastructure push for Bengaluru covering a 40-km tunnel road, a 44-km double-decker flyover, and a 133-km flyover network. He also reaffirmed a target to expand Namma Metro connectivity to 500 km and attract 500 new Global Capability Centres to the state by 2029, creating 3.5 lakh high-quality jobs.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WeRIndia / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP MP Tejasvi Surya Pushes for Immediate Launch of Banashankari Skywalk Project in Bengaluru</div>
+      <div class="nsum">Bengaluru South MP Tejasvi Surya has written to Karnataka Development Minister Krishna Byre Gowda demanding the immediate implementation of the long-pending Banashankari Skywalk project, warning that it should not be sidelined in favour of the proposed B-SMILE flyover. The letter highlights the urgent need for pedestrian safety infrastructure in the busy Banashankari area.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Today / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Phase 2 Airport Corridors (Mallige &amp; Kanaka Lines) Targeted for Inauguration by December 2026</div>
+      <div class="nsum">Union Minister V. Somanna has confirmed that the Mallige and Kanaka corridors of Namma Metro Phase 2, which will connect Bengaluru city to Kempegowda International Airport via Hebbal, are on track for inauguration by December 2026. BMRCL is simultaneously progressing on integrating the metro network with Indian Railways at Yeshwanthpur and NHAI underpasses at key junctions to improve last-mile connectivity.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Siasat Daily / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Monsoon Session to Take Up Vande Mataram Protection Bill, Making Insult a Punishable Offence</div>
+      <div class="nsum">The Central Government has listed the Prevention of Insults to National Honour (Amendment) Bill, 2026 for introduction and passage during the Monsoon Session of Parliament beginning July 20, proposing up to three years in prison for anyone who deliberately insults or obstructs the singing of Vande Mataram. The amendment would place the national song on the same statutory footing as the national anthem, the national flag, and the Constitution.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Google News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India MEA Condemns Iran's Attacks on Vessels Carrying Indian Seafarers in Strait of Hormuz</div>
+      <div class="nsum">India's Ministry of External Affairs issued a strong condemnation after Iranian strikes on vessels in the Strait of Hormuz endangered Indian seafarers aboard the targeted ships. The development has raised concerns about the safety of the large number of Indian nationals working in the international maritime sector amid the escalating US-Iran conflict over control of the strategic waterway.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IAMAI Launches E-Commerce Council of India (ECCI) with Amazon, Flipkart, Uber and 70+ Members</div>
+      <div class="nsum">The Internet and Mobile Association of India (IAMAI) formally launched the E-Commerce Council of India (ECCI) on July 17, onboarding 70–80 member companies including Amazon, Flipkart, Meesho, Uber, Rapido, Swiggy, and eBay to create a unified industry body for digital commerce policy advocacy. The council will focus on key pillars including product and service e-commerce, digital trade, logistics, mobility, MSME enablement, and travel tech.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / ICICI Direct</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges to 78,151 as IT and Financial Stocks Lead Weekly Rally</div>
+      <div class="nsum">India's BSE Sensex closed at 78,151 on Friday, up approximately 1.25%, powered by strong gains in IT and banking stocks after Tech Mahindra reported better-than-expected quarterly revenue and offered an upbeat demand outlook. Reliance Industries, HDFC Bank, and ICICI Bank also attracted buying interest ahead of their quarterly results, while Brent crude hovered near $85 per barrel amid Middle East tensions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CRISIL Upgrades Vedanta, Vedanta Aluminium and Vedanta Oil &amp; Gas to AA+ After Historic Demerger</div>
+      <div class="nsum">Credit rating agency CRISIL has upgraded the long-term ratings of Vedanta Ltd, Vedanta Aluminium Metal, and Vedanta Oil &amp; Gas to 'CRISIL AA+/Stable', reflecting significantly stronger business and financial risk profiles following the conglomerate's historic corporate demerger. The four newly carved-out entities — Vedanta Aluminium Metal, Vedanta Oil &amp; Gas, Vedanta Power, and Vedanta Iron &amp; Steel — officially debuted on BSE and NSE on June 15, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $7.4 Billion in H1 2026, Highest First-Half Total Since 2022, Led by AI and Fintech</div>
+      <div class="nsum">Indian startups raised approximately $7.39 billion in funding in the first half of 2026, the strongest H1 since 2022, with AI infrastructure startup Neysa topping the chart at $1.2 billion and fintech unicorn CRED raising $900 million in a Meta-led round. Bengaluru remained the dominant startup hub, capturing $3.8 billion across 287 deals, accounting for over 51% of total national startup funding in the period.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Bloomberg / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Skyroot Aerospace's Vikram-1 Successfully Completes India's First Private Orbital Rocket Mission</div>
+      <div class="nsum">Hyderabad-based Skyroot Aerospace launched its Vikram-1 rocket from the Satish Dhawan Space Centre in Sriharikota on July 18, successfully deploying all customer payloads into a 450-km low-Earth orbit on its debut 'Mission Aagaman', making India the third country after the US and China to achieve private orbital launch capability. Prime Minister Narendra Modi hailed the milestone, while Skyroot — India's first space-tech unicorn — plans to scale to monthly launches and introduce the upgraded Vikram-1U with strap-on boosters in early 2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / MediaNama</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Biggest Digital Platforms Form Digital Commerce Coalition to Engage on Policy</div>
+      <div class="nsum">Five of India's largest digital commerce platforms — Eternal (Zomato), Swiggy, Zepto, Amazon India, and Meesho — launched the Digital Commerce Coalition (DCC) in June, a dedicated industry body to engage with the government on regulatory and policy issues affecting online marketplaces, gig workers, and delivery networks. The coalition's agenda centres on strengthening consumer trust, responsible AI-driven innovation, expanding economic participation for small businesses, and driving sustainable commerce practices.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Jumps Over 4x YoY in H1 2026, Minting Six New Unicorns Including Neysa and Sarvam</div>
+      <div class="nsum">Artificial intelligence emerged as the defining theme of India's startup ecosystem in H1 2026, with AI startup funding surging more than 4x year-on-year to $2.07 billion across 99 deals, accounting for nearly 28% of all startup capital raised in the period. AI-native startups Neysa and Sarvam reached unicorn status in under three years, among the fastest billion-dollar journeys in Indian startup history, driven by investor interest in AI infrastructure, sovereign compute, and Indian-language foundation models.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Launches 8th Night of Strikes on Iran as Conflict Over Strait of Hormuz Intensifies</div>
+      <div class="nsum">US CENTCOM confirmed a fresh round of strikes on Iran targeting surveillance sites, military logistics infrastructure, underground weapons storage, and maritime capabilities, using fighter jets, drones, and warships — the eighth consecutive night of offensive operations. The escalating conflict, which began after an Iranian attack killed two US soldiers, is now primarily a battle for control of the Strait of Hormuz, through which about a fifth of the world's oil supply previously passed freely.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / FIFA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIFA World Cup 2026 Final Set: Argentina vs Spain in Blockbuster Title Match</div>
+      <div class="nsum">Argentina and Spain advanced to the FIFA World Cup 2026 final, with France and England contesting the third-place playoff — marking the first time in history that the four highest-ranked teams in FIFA's World Rankings have all reached the semi-finals simultaneously. Cities across India, including Delhi and Bengaluru, extended restaurant and eatery hours through the night to accommodate fans watching the historic final.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia Current Events / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Venezuelan Death Toll from Earthquakes Rises to 2,295 as Acting President Declares National Mourning</div>
+      <div class="nsum">Venezuelan acting president Delcy Rodríguez declared seven days of national mourning as the death toll from a devastating series of earthquakes climbed to 2,295, making it one of the deadliest natural disasters in the country's modern history. International aid organisations have mobilised relief operations, with rescue teams still working through rubble in the worst-affected regions.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 19 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
