@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 24, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 24 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 24 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Closes Tender for Whitefield Purple Line Extension to Boost Train Frequency</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has closed a tender for a 482-metre Whitefield Purple Line extension designed to serve as a turnback and stabling area for trains. The infrastructure upgrade aims to reduce turnaround bottlenecks, allowing for higher train frequency and shorter wait times for Bengaluru commuters on the tech corridor.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Construction World / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL and BMTC Launch Six Dedicated Metro Feeder Bus Services Across Bengaluru</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL), in coordination with the Bangalore Metropolitan Transport Corporation (BMTC), has launched six dedicated metro feeder bus services to enhance first and last mile connectivity for metro commuters. The services link Electronic City, Hosa Road, K R Pura and Benniganahalli metro stations with nearby residential, commercial and employment hubs.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Urbanacres</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Monsoon Rains Expose Chronic Drainage Gaps, Waterlogging Hits Multiple Zones</div>
+      <div class="nsum">Heavy monsoon rainfall has caused widespread waterlogging across south Bengaluru and the CBD, crippling traffic and exposing the city's poor stormwater drainage infrastructure despite BBMP assurances of rain-readiness. Residents across at least 10 residential layouts reported floodwater gushing into homes, with arterial stretches including Bannerghatta Road remaining submerged after even moderate spells.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsgram / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Monsoon Session Paralysed as Both Houses Repeatedly Adjourned Amid CJP Protest Row</div>
+      <div class="nsum">The ongoing Monsoon Session of Parliament 2026 has been severely disrupted, with both Lok Sabha and Rajya Sabha adjourned repeatedly just minutes into proceedings amid Opposition uproar over the police crackdown on the CJP's 'Chalo Sansad' protest march. Opposition leaders including Rahul Gandhi and Priyanka Gandhi were detained by Delhi Police while protesting outside the Prime Minister's residence over the NEET paper leak controversy and the injuries sustained by student protesters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsgram / PTC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Announces Draft Bill for Stricter Anti-Paper-Leak Laws Amid NEET Controversy</div>
+      <div class="nsum">Prime Minister Narendra Modi announced on July 24 that the Central government has prepared a comprehensive draft bill introducing stricter provisions and stringent punishments for examination paper leak cases. The proposal is set to be discussed in the Union Cabinet and is expected to be introduced in the ongoing Monsoon Session of Parliament next week.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / DNP India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Moves to Reintroduce Constitution Amendment Bill Proposing 850 Lok Sabha Seats and 33% Women's Reservation</div>
+      <div class="nsum">The Centre is likely to reintroduce the Constitution (131st Amendment) Bill during the Monsoon Session, which proposes increasing the strength of the Lok Sabha to 850 seats and implementing 33 per cent reservation for women. The bill was defeated in April after the government fell short of the required two-thirds majority in Parliament.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Goodreturns / 5paisa</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex and Nifty Slide for Fourth Straight Session as Crude Oil Surges Above $98 and FIIs Sell</div>
+      <div class="nsum">Indian benchmark indices closed lower for a fourth consecutive session on Thursday, with the Nifty 50 declining 0.53% to 23,869 and the Sensex falling 0.47% to 76,391, slipping below the crucial 24,000 mark. Rising crude oil prices hovering near a six-week high above $98 per barrel, persistent FII selling, a weaker rupee, and geopolitical tensions in West Asia are expected to keep sentiment subdued on Friday as well.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Eternal (Zomato) Q1 FY27 Net Profit at Rs 92 Crore, Misses Estimates; Revenue Surges 182% YoY</div>
+      <div class="nsum">Zomato's parent company Eternal reported a consolidated net profit of Rs 92 crore for the quarter ended June 30, 2026, falling well below analysts' estimates of Rs 258 crore as intense competition and continued investments in quick-commerce business Blinkit weighed on profitability. Revenue, however, surged 182 per cent year-on-year to Rs 20,211 crore, driven by strong food delivery and quick commerce growth.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Pulse by Zerodha / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Maharashtra State Discom MSEDCL Appoints Eight Bankers for Landmark IPO, May Raise Up to Rs 10,000 Crore</div>
+      <div class="nsum">Maharashtra State Electricity Distribution Company (MSEDCL), which operates under the brand Mahavitaran, has appointed eight investment bankers for its proposed initial public offering that could potentially raise between Rs 8,000 and Rs 10,000 crore. The offering will mark the first-ever IPO by the Maharashtra government and a state-run electricity distribution company.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / WebSenor</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru AI Startup Emergent Leads $297 Million Indian Startup Funding Surge with $130 Million Round</div>
+      <div class="nsum">Indian startups raised over $297 million across 19 deals in the week of July 13–18, 2026, a 125% jump week-on-week, with Bengaluru-based AI software creation platform Emergent leading the chart with a $130 million funding round from Creaegis, MNI Ventures, and Khosla Ventures. The week's total was one of the stronger funding weeks of 2026, with three rounds crossing $20 million and AI startups dominating investor attention.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Industrial Front / Tracxn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Startup Funding Hits $9.71 Billion in H1 2026, Six New Unicorns Minted Including Sarvam AI</div>
+      <div class="nsum">India's startup ecosystem raised $9.71 billion across 1,040 rounds in the first half of 2026, representing a 21% annual growth rate that outpaced tighter global market conditions. At least six startups achieved unicorn status in H1 2026, including AI players Sarvam AI and Neysa, which secured a $1.2 billion Series B for AI infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Lapaas Voice / Tracxn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 Indian AI Startups for 2026 Accelerator Programme Spanning Agentic AI to Climate Tech</div>
+      <div class="nsum">Google has selected 20 Indian AI startups for its 2026 Accelerator Programme, offering participants access to Gemini technologies, Google Cloud credits, technical architecture guidance, and go-to-market support. The 2026 cohort represents startups building AI solutions across sectors including agentic AI, healthcare, climate technology, enterprise software, and digital infrastructure.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / Rigzone</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Brent Crude Surges Near $100 as Houthi Attacks on Red Sea Tankers Escalate US-Iran Conflict</div>
+      <div class="nsum">Brent crude traded near $100 a barrel on July 24 after Houthi attacks on tankers in the Red Sea opened a new front in the Middle East conflict, while President Donald Trump threatened to extend US strikes on Iran and warned of a 'massive attack' if tanker assaults continue. The global benchmark is up more than 13% this week after briefly surging above triple digits in the previous session for the first time in two months.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euro Weekly News / CNN / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Andy Burnham Enters 10 Downing Street as UK's Seventh Prime Minister in a Decade</div>
+      <div class="nsum">Andy Burnham walked through the door of 10 Downing Street on July 20, 2026 as Britain's seventh prime minister in a decade, after King Charles invited him to form a government following his unopposed confirmation as Labour leader. Burnham, who left the Greater Manchester mayoralty before winning a by-election on June 19, has pledged policy changes ranging from devolution from London to an overhaul of the Treasury.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / NBC News / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Spain Wins FIFA World Cup 2026, Defeating Argentina 1-0 in Extra Time at MetLife Stadium</div>
+      <div class="nsum">Spain claimed the FIFA World Cup 2026 title by defeating Argentina 1-0 in extra time at MetLife Stadium in New Jersey, with substitute Ferran Torres scoring the decisive goal in the 106th minute to seal an unbeaten tournament campaign. Two million fans took to the streets of Madrid to celebrate, while FIFA is poised to net over $9 billion in revenue from the expanded 48-team tournament.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 24 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
