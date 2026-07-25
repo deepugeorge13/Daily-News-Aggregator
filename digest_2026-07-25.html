@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 25, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 25 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 25 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Siasat</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Lokayukta Raids 53 Locations, Unearths Rs 49.83 Crore in Assets from 10 Officials</div>
+      <div class="nsum">The Karnataka Lokayukta Police conducted simultaneous raids at more than 53 locations across the state against 10 government officials in disproportionate assets cases, covering Bengaluru, Chitradurga, Kalaburagi, Shivamogga, Raichur, and Tumakuru districts. Searches revealed immovable assets worth Rs 37.95 crore and movable assets worth Rs 11.88 crore, with further investigation underway under the Prevention of Corruption Act.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Closes Tender for 482-Metre Whitefield Purple Line Extension to Boost Train Frequency</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) closed a key tender for a 482.8-metre extension beyond Whitefield station on the Purple Line, designed to serve as a turnback and stabling area for trains. The infrastructure upgrade aims to eliminate turnaround bottlenecks at the busy tech corridor terminal, enabling higher train frequency and shorter wait times for commuters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Targeted for August 2026 Launch as Network Tops 96 km</div>
+      <div class="nsum">The Pink Line (Nagawara–Kalena Agrahara), Namma Metro's 21.25-km second north-south corridor, is targeting a Phase 1 launch in August 2026, with Phase 2 expected by December 2026. The existing operational network stands at 96.10 km across three lines, with Namma Metro recording an average daily ridership of over 9.16 lakh in April 2026.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DNP India / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Monsoon Session 2026 Disrupted by CJP Sansad Chalo Protest; Both Houses Adjourned Repeatedly</div>
+      <div class="nsum">The Monsoon Session of Parliament 2026, scheduled to run until August 13 across 19 sittings, was thrown into turmoil as the Cockroach Janta Party's (CJP) 'Chalo Sansad' march over alleged NEET 2026 irregularities led to police action against protesters, with a young woman left on ventilator at RML Hospital. Opposition members disrupted both Houses to demand accountability over the NEET paper leak and the resignation of Union Education Minister Dharmendra Pradhan.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Print / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DRDO Successfully Conducts Maiden Flight Test of Indigenous 'Kusha' Long-Range Surface-to-Air Missile</div>
+      <div class="nsum">India's Defence Research and Development Organisation (DRDO) successfully completed the maiden flight test of the 'Kusha' Long-Range Surface-to-Air Missile from APJ Abdul Kalam Island off the coast of Odisha on July 23, intercepting a high-speed, high-altitude electronic target. The Rs 21,700-crore Kusha system features three interceptor variants with ranges up to 400 km, capable of neutralising fighter jets, cruise missiles, UAVs, and large aircraft, with Defence Minister Rajnath Singh calling it a 'giant leap' in India's air defence capability.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google News / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sonam Wangchuk Ends 26-Day Hunger Strike as CJP Protest Continues into Second Day in Delhi</div>
+      <div class="nsum">Activist Sonam Wangchuk ended his 26-day hunger strike after the Delhi High Court ordered his transfer to Medanta Hospital, citing the need for continuous medical care. The CJP-led protest movement, which galvanised India's youth over education system failures, continued into a second day at Jantar Mantar, with demonstrators demanding Wangchuk's unconditional release and Rs 1 crore compensation for families of NEET aspirants who died by suicide.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slides to Lowest Since June 2026 as Surging Oil Prices and Weak Earnings Weigh on Markets</div>
+      <div class="nsum">India's BSE Sensex extended its losing streak, falling to around 76,245 — its lowest level since June 2026 — as surging global crude oil prices and weaker-than-expected corporate earnings dampened investor sentiment. Notable laggards included Infosys, which declined after reporting below-forecast quarterly results, along with Swiggy, InterGlobe Aviation, and Bluestone Jewellery, while a near-record-low rupee added to concerns over higher import costs.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Industrial Front / Websenor</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $431 Million in Third Week of July 2026 as AI Sector Leads VC Surge</div>
+      <div class="nsum">Indian startups raised $431 million across 23 deals in the third week of July 2026 — the fourth highest weekly total for Indian startups this year — marking a sharp rebound from the previous week's $107 million. AI startup Emergent led the funding surge by securing $130 million from Creaegis, MNI Ventures, and Khosla Ventures, reflecting growing investor confidence in India's AI and deep-tech ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Cryptobriefing / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Mints Two AI Unicorns in Under a Month: Sarvam AI at $1.5B and Emergent at $1B+</div>
+      <div class="nsum">Bengaluru-based Sarvam AI closed $234 million in Series B funding at a $1.5 billion post-money valuation — the largest Series B in Indian AI history — led by HCLTech, which acquired a roughly 10.46% stake for $150.7 million, alongside Bessemer, Khosla, and Peak XV Partners. Agentic AI platform Emergent followed shortly after in July 2026 with a $130 million Series C that also pushed its valuation past the billion-dollar mark, making India one of the fastest-growing AI unicorn markets globally.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Startupfeed / Venture Intelligence</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Crosses $1 Billion in H1 2026, Up 33% Year-on-Year</div>
+      <div class="nsum">Indian AI startups raised $1.067 billion across 157 deals in the first half of 2026, a 33% jump from $802 million in H1 2025, driven by a decisive shift toward frontier technology — sovereign models, compute infrastructure, and coding agents — rather than thin application-layer products. Sarvam AI and Emergent together accounted for roughly 28% of the half-year total, reflecting a trend toward high-conviction, large-cheque bets on companies building India's foundational AI stack.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Dailyhunt</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Groww Foundation Backs 19 IIT Bombay Student Projects Spanning AI, Robotics, Agritech, and Deeptech</div>
+      <div class="nsum">Groww Foundation selected 19 projects by 35 students from IIT Bombay for the inaugural cohort of its INV.ENT innovation programme, chosen from nearly 400 submissions spanning agri-tech, robotics, climate technology, assistive technology, edtech, and defence. Three teams were named Grand Challenge Fellows and are eligible for milestone-based grants of up to Rs 25 lakh each, while 16 teams will receive proof-of-concept grants and access to a 15,000 sq ft innovation lab at IIT Bombay.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Industrial Front / Startupfeed</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Yotta Data Services Raises $150 Million at $4.4 Billion Valuation to Scale AI Cloud to 85,000 Nvidia Blackwell GPUs</div>
+      <div class="nsum">Yotta Data Services, backed by the Hiranandani Group, raised $150 million at a $4.4 billion valuation — single-handedly accounting for more than two-thirds of all Indian startup capital deployed in the week ending July 9 — to scale its AI cloud to 85,000 Nvidia Blackwell GPUs by year-end. The raise is seen as evidence of growing institutional confidence in India's sovereign AI ambitions, with Yotta serving government entities, global AI model builders, and inference providers seeking compute capacity outside the US and China.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / CNBC / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Oil Tops $100 a Barrel After Houthi Rebels Attack Saudi Tankers in Red Sea, Trump Threatens Iran</div>
+      <div class="nsum">Brent crude surged past $100 per barrel for the first time since May after Iran-backed Houthi rebels in Yemen claimed drone and missile strikes on two Saudi oil tankers in the Red Sea, closing off another major energy export route already choked by the near-shutdown of the Strait of Hormuz. U.S. President Donald Trump threatened 'major military punishment' on Iran and the Houthis, warning that any future tanker damage would be paid for using frozen Iranian assets held by the United States, as oil prices climbed more than 30% for the month.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Former Israeli Military Chief Gadi Eisenkot Surges in Polls, Emerges as Netanyahu's Main Rival Ahead of October Elections</div>
+      <div class="nsum">Former Israeli military Chief of Staff Gadi Eisenkot, who lost a son during the Gaza war and leads the new centrist party Yashar, is now polling ahead of Prime Minister Benjamin Netanyahu's Likud party, potentially giving him the right to form a coalition after October 27 elections. Eisenkot, 66, is projecting an image as a political outsider with deep security credentials, while Netanyahu's campaign is leaning on anti-Arab rhetoric and claims that his military actions against Iran and its proxies saved Israel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">U.S.-Iran Conflict Widens as American Strikes Continue for 11th Straight Night While Gulf States Face Iranian Attacks</div>
+      <div class="nsum">The U.S. entered its eleventh consecutive night of strikes on Iran, while Tehran expanded its offensive against Gulf states, targeting critical infrastructure including water desalination plants in the region. Pakistan stepped up diplomatic efforts in an attempt to salvage an interim deal between Washington and Tehran, as the Middle East conflict showed no signs of de-escalating and energy markets remained under severe strain.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 25 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
