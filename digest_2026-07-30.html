@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 30, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 30 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 30 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bengaluru Metro / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Targets August 15 Opening After RDSO Clearance</div>
+      <div class="nsum">The 6-station elevated section of the Namma Metro Pink Line (Kalena Agrahara to Tavarekere) cleared RDSO speed trials in June 2026 and is targeting an August 15, 2026 inauguration, pending a final CMRS safety inspection. The 21.26-km full Pink Line — Bengaluru's first driverless metro corridor — will run from Kalena Agrahara to Nagawara, with the 12-station underground section targeted for December 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bengaluru Metro / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Confirms Blue Line Airport Metro on Track for Late 2026–2027 Launch</div>
+      <div class="nsum">Bengaluru Metro Rail Corporation Limited (BMRCL) confirmed the Blue Line — connecting Silk Board to K R Pura and onward to Kempegowda International Airport — remains on schedule for a phased rollout in late 2026 to 2027. Once operational, three lines (Purple, Green, Yellow) are already running, and the full eight-line network of 168 stations across approximately 150 km will be Bengaluru's most extensive rapid-transit build-out yet.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Industrial Output Grows 5.1% in May, Fastest Pace in Five Months; Karnataka Sectors Benefit</div>
+      <div class="nsum">India's industrial production data released this week showed output grew 5.1 per cent in May 2026, up from 4.9 per cent in April, marking the fastest pace of growth in five months. The improvement was primarily driven by strong growth in the electricity and gas supply sector, a development that directly benefits Karnataka's power-intensive IT and manufacturing corridors around Bengaluru.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Open The Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Monsoon Session 2026 Underway: Government Pushes 7 Key Bills Amid Opposition Disruptions</div>
+      <div class="nsum">The Parliament Monsoon Session 2026, running from July 20 to August 13, saw both Houses disrupted by Opposition protests over multiple issues including the NEET UG paper leak, proposed delimitation, and the FCRA Amendment Bill. The government has tabled seven priority bills — including the Foreign Contribution (Regulation) Amendment Bill, 2026 and the Viksit Bharat Shiksha Adhishthan Bill, 2025 — while the Opposition has announced a joint legislative resistance strategy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMIndia.gov.in / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Highlights 7.7% GDP Growth at Monsoon Session Opening, Credits Reform Momentum</div>
+      <div class="nsum">Prime Minister Narendra Modi, addressing the media ahead of the Monsoon Session, stated that despite the ongoing West Asia conflict, India registered 7.7 per cent growth, attributing it to the government's rapid policy reforms and the enterprise of Indian innovators and entrepreneurs. He called for smooth parliamentary functioning, framing the session as a key opportunity to sustain India's development trajectory.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PRS India / Open The Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Opposition Plans Joint Strategy to Block Delimitation Bill in Ongoing Monsoon Session</div>
+      <div class="nsum">Leaders of Opposition parties in both Rajya Sabha and Lok Sabha convened on the opening day of the Monsoon Session to chalk out a joint strategy, with Congress leader Jairam Ramesh announcing strong resistance to the Delimitation Bill, alleging the Centre lacks the required two-thirds majority. The opposition also said it would oppose the Viksit Bharat Shiksha Adhishthan Bill and proposed amendments to the National Food Security Act.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Newstrack</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI July 2026 Bulletin: India Economy Stays Resilient With Strong Industrial and Services Growth</div>
+      <div class="nsum">In its July 2026 bulletin, the Reserve Bank of India said economic activity remained strong through June 2026, with industries and the services sector both showing steady growth despite global uncertainty. The RBI also noted that both exports and imports recorded healthy growth in Q1 FY2026-27, and flagged that the operational launch of the India-UK Comprehensive Economic and Trade Agreement could further boost trade.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Government Conducts ₹20,000 Crore Bond Buyback via RBI to Ease Debt Repayment Pressure</div>
+      <div class="nsum">The Indian government conducted a ₹20,000 crore buyback of government securities through an RBI-managed auction on July 28, covering four G-secs maturing between October 2026 and February 2027. By retiring bonds early, the government aims to reduce near-term repayment obligations and manage its debt profile more efficiently, with the auction using the multiple-price method.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deloitte Insights</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Forex Reserves Rise to $676.24 Billion; Rupee Stabilises Above 94 Per US Dollar</div>
+      <div class="nsum">India's foreign exchange reserves increased by $1.08 billion to $676.24 billion in the week ended July 17, 2026, according to RBI data, with Foreign Portfolio Investment also turning positive in June and continuing into July. The Indian rupee, which hit an all-time low of 96.8 per US dollar in May 2026 amid the West Asia conflict and oil-price pressures, has since regained ground and is now hovering above 94 per US dollar.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WebSenor / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Lead VC Surge With $431 Million Raised Across 23 Deals in Third Week of July 2026</div>
+      <div class="nsum">Indian startups raised a total of $431 million across 23 deals in the third week of July 2026 — the fourth-highest weekly total for Indian startups this year — with AI companies drawing the lion's share of investor attention. Emergent led the pack by securing $130 million from Creaegis, MNI Ventures, and Khosla Ventures, while other AI-driven firms like Reo.Dev and Groyyo also closed significant rounds.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Industrial Front / Newskart</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Yotta Data Services Raises $150 Million at $4.4 Billion Valuation to Scale AI Cloud to 85,000 GPUs</div>
+      <div class="nsum">Yotta Data Services, backed by the Hiranandani Group, raised $150 million at a $4.4 billion valuation — the single largest deal of the week ended July 9, 2026 — to scale its AI cloud infrastructure to 85,000 Nvidia Blackwell GPUs by year-end. The raise underscored a broader July 2026 trend of infrastructure-first AI investing, with India startup funding reaching $9.71 billion across 1,040 rounds in H1 2026, a 21% annual growth rate.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Healthtech Startup Plazza Raises $15 Million Series A to Expand AI-Powered Pharmacy Network</div>
+      <div class="nsum">Bengaluru-based healthtech startup Plazza raised $15 million in a Series A round co-led by Accel, Elevation Capital, and Nexus Venture Partners, to strengthen its technology stack and expand its AI-powered inventory intelligence and rapid medicine-delivery platform. The startup plans to use the capital to grow its pharmacy network into new geographies, building on its position as a technology-led pharmacy retail and quick-delivery platform.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US and Iran Pause Hostilities for Third Consecutive Day as Qatar and Pakistan Mediate Ceasefire Talks</div>
+      <div class="nsum">The United States and Iran maintained a fragile pause in hostilities for a third day as mediators from Qatar and Pakistan worked to restart formal ceasefire negotiations, with President Trump stating the US halted strikes at Iran's request while warning attacks would resume without a deal. Iran's Foreign Ministry denied any direct negotiations with the US, saying talks were ongoing only with Oman regarding the Strait of Hormuz, which remains well below normal shipping traffic levels.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / IQAir</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Europe Wildfire Crisis: Over 330,000 Displaced in France and Spain as Fourth Heatwave Looms</div>
+      <div class="nsum">Wildfires in France and Spain have forced roughly 330,000 people to evacuate, with Spain recording its largest wildfire ever — burning more than 500 square kilometres near Ávila — while French authorities ordered nearly 4,000 evacuations from Atlantic coast tourist sites near Bordeaux. As of July 29, firefighters had partially contained Spain's largest blaze and temporarily stabilised the main French fire line, but a fresh 40°C heatwave has raised fears of a renewed surge.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Magnitude 6+ Earthquake Strikes Japan's Kyushu Island, Causing Damage and Injuries</div>
+      <div class="nsum">A significant earthquake shook Japan's southern main island of Kyushu late on July 28, 2026 local time, causing structural damage and multiple injuries across the affected region. Emergency crews were deployed to assess the damage, including at a shopping centre in Kashima, Kumamoto prefecture, which was visibly damaged in aerial imagery captured after the quake.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 30 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
