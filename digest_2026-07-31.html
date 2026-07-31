@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — July 31, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 31 July 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 31 July 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / Metro Rail News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Yellow Line Resumes After Huskur Station Disruption; BMRCL Deploys Extra Staff</div>
+      <div class="nsum">Bengaluru's newly operational Yellow Line faced a major disruption with services suspended for nearly two hours following a technical incident near Huskur station. BMRCL confirmed late-night restoration of all trains, deployed additional staff at key interchanges like Jayadeva and RV Road, and advised commuters to watch for minor residual delays.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / Metro Rail News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Closes Tender for 482-Metre Purple Line Extension Beyond Whitefield to Ease Peak-Hour Congestion</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited closed a crucial tender for a 482.8-metre turnback and stabling extension beyond Whitefield Metro Station on the Purple Line, aimed at solving turnaround bottlenecks on the busy tech corridor. The project, with an 18-month completion target, is designed to reduce gaps between trains during peak hours and improve headways for thousands of daily commuters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Wikipedia (BMRCL)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Underground Section Targets September 2026 Opening as Construction Enters Final Phase</div>
+      <div class="nsum">BMRCL is advancing towards the opening of the 13.76-km underground section of the Pink Line (Nagawara–Kalena Agrahara) by September 2026, following the earlier inauguration of the 7.5-km elevated stretch. The Pink Line, with 18 stations planned across 21.25 km, is set to be the next major milestone for Bengaluru's rapidly expanding metro network after the Yellow Line.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LawStreet / ForumIAS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FCRA Amendment Bill 2026 Faces Fierce Opposition in Monsoon Session as Civil Society Raises Alarm</div>
+      <div class="nsum">The Foreign Contribution (Regulation) Amendment Bill, 2026 — introduced in Lok Sabha on March 25 and listed for passage during the Monsoon Session — has triggered a Kerala Assembly resolution demanding its withdrawal, along with opposition from churches, Amnesty International, and three UN Special Rapporteurs. The bill proposes creating a Designated Authority to manage assets of organisations whose FCRA registration has lapsed, and reduces maximum penalty for violations from five years to one year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Free Job Alert / Insights on India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Intensifies UNSC Permanent Membership Campaign Through New SHANTI Framework at UN</div>
+      <div class="nsum">India stepped up its push for a permanent seat on the United Nations Security Council by highlighting the need for comprehensive UNSC reforms through its SHANTI initiative — standing for Security, Humanitarian Assistance, ANti-terrorism, Technology, and Infrastructure. The campaign underscores India's broader foreign policy positioning as Parliament's Monsoon Session continues with a packed legislative agenda.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook India / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Lok Sabha JPC on One Nation One Election Gets Fresh Extension Into Monsoon Session 2026</div>
+      <div class="nsum">The Lok Sabha extended the tenure of the 41-member Joint Parliamentary Committee examining the Constitution (129th Amendment) Bill, 2024, and the Union Territories Laws (Amendment) Bill, 2024 — the twin bills aimed at enabling simultaneous national and state elections. The motion to extend the JPC's mandate until the final week of Monsoon Session 2026 was adopted by voice vote, as the committee continues deliberations with legal and constitutional experts.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Closes Higher at 77,928 on Auto Earnings Boost; M&amp;M Surges 2.2% After Strong Q1 Results</div>
+      <div class="nsum">Indian equity indices closed slightly higher on July 30 as upbeat earnings from auto manufacturers offset concerns over higher energy prices and volatile bond markets, with the BSE Sensex adding 0.4% to 77,928 and the NSE Nifty 50 rising 0.3% to 24,317. Mahindra &amp; Mahindra led gains with a 2.2% jump after delivering strong June-quarter results, while Adani Ports was the top loser, falling 3.41%.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Grants Banks Flexibility to Link Bulk Deposit Rates to Liquidity Profile Under Revised LCR Framework</div>
+      <div class="nsum">The Reserve Bank of India on July 30 gave banks greater flexibility in pricing bulk deposits, allowing them to offer differential interest rates based on the liquidity characteristics of such deposits under the Liquidity Coverage Ratio framework, effective October 1, 2026. Banks will now be required to disclose bulk deposit interest rates on their websites by 10:00 AM every business day, while the broader principle of uniformity in deposit pricing across branches is retained.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Zepto Pauses IPO Plans Amid Valuation Gap, to Raise Rs 1,000 Crore in Pre-IPO Round from Existing Investors</div>
+      <div class="nsum">Quick commerce startup Zepto has put its IPO on hold and begun work on a pre-IPO placement of approximately Rs 1,000 crore (around $105 million) from existing investors including Glade Brook, General Catalyst, Goodwater Capital, and Nexus Venture Partners. The move comes amid a widening gap between Zepto's valuation expectations and those of institutional investors, placing it among a growing group of new-age tech companies that have extended their IPO timelines in 2026.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Marvell / Yahoo Finance / Semiconductor For You</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Marvell Technology Announces $250 Million India Investment, Expands Bangalore AI Semiconductor Facility</div>
+      <div class="nsum">US chip giant Marvell Technology announced plans on July 29 to invest $250 million in India over the next three years, marking its 20th anniversary of operations in the country by unveiling a new wing at its Bangalore headquarters and expanding its Hyderabad presence. As part of the investment, Marvell plans to double its Indian headcount and deepen its focus on advanced semiconductor solutions for AI, cloud, and data infrastructure applications.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Industrial Front</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Physical AI Sector Attracts $155 Million in 2026 as Robotics and Real-World Data Investments Surge</div>
+      <div class="nsum">A new report from Entrackr reveals that Indian startups in the physical AI space — spanning robotics, autonomous systems, and real-world data platforms — have attracted $155 million in funding in 2026, signalling strong institutional interest in deep-tech beyond software. The trend mirrors a broader global shift toward infrastructure-first AI investing, with India's overall startup funding reaching $9.71 billion across 1,040 rounds in H1 2026, a 21% annual growth rate.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Insights on India / Ekamias Academy</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Lok Sabha Delimitation Debate Heats Up as Proposal to Expand House to 850 Seats Triggers Constitutional Questions</div>
+      <div class="nsum">A proposal to increase Lok Sabha strength to around 850 seats following the 2026 delimitation exercise has ignited a major parliamentary and public debate about India's federal balance and democratic representation. Critics have raised concerns about quality of legislative functioning and regional equity, while proponents argue the expansion is necessary to reflect India's significant population growth since constituency boundaries were frozen by the 42nd Constitutional Amendment in 1976.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Havana Times / 10things.news</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Strikes Dozens of IRGC Targets Inside Iran as Middle East Conflict Widens; Jordan Intercepts Iranian Missile</div>
+      <div class="nsum">The Pentagon confirmed it struck dozens of Islamic Revolutionary Guard Corps targets inside Iran — including military command centres and drone facilities — in retaliation for Tehran targeting US bases in Jordan, while the US also issued fresh sanctions designating 10 entities and 8 tankers. Jordan said it intercepted an Iranian missile attack, and a drone separately struck a US-owned gas storage tanker at Egypt's Mediterranean port of Damietta, with regional leaders warning the conflict risks spreading further.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / World Radio (WORLD)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Japan Earthquake Rescue Crews Race to Find Survivors After Magnitude 7.1 Quake Strikes Kumamoto, Kyushu</div>
+      <div class="nsum">Rescue workers continued urgent operations in Japan's Kumamoto Prefecture on July 30 after a magnitude 7.1 earthquake struck Kyushu's southern main island, causing significant damage including the destruction of an AEON Mall in Kashima. Time was running out to find survivors as aftershocks hampered efforts and extreme heat complicated conditions for rescue teams on the ground.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">10things.news / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Southern Europe Wildfires Force Mass Evacuations as Spain and France Declare Climate Emergency</div>
+      <div class="nsum">Hundreds of thousands of people have been forced from their homes as powerful and fast-moving wildfires swept across Spain and France, with firefighters battling blazes near Blagon and other areas in southwestern France. European leaders described the disaster as a stark manifestation of the accelerating climate crisis, with the fires revealing the growing inability of existing infrastructure to cope with extreme heat events reshaping the continent.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 31 July 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
