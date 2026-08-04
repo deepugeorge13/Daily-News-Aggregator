@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 4, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 4 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 4 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India Rail Info / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Yellow Line Targets Full Fleet Operations Ahead of First Anniversary on August 11</div>
+      <div class="nsum">All 15 trainsets for Bengaluru Metro's Yellow Line (RV Road–Bommasandra) have now been delivered to BMRCL's Hebbagodi depot, with the full fleet targeted to be operational by August 11, 2026 — the line's first anniversary. Once all 15 trains are in service, peak-hour frequency on the 19.75 km Electronic City corridor is expected to improve from 7 minutes to 4–5 minutes, significantly benefiting daily tech-hub commuters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Closes Tender for 482-Metre Whitefield Purple Line Extension to Boost Train Frequency</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has closed bids for a critical 482.8-metre stabling and turnback extension beyond Whitefield station on the Purple Line, aimed at reducing turnaround bottlenecks on the busy tech corridor. The infrastructure upgrade will not add new passenger stations but will allow smoother train reversals, enabling higher frequencies and shorter wait times for commuters during peak hours.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">nextias.com / MyBharat</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Gears Up for India's 80th Independence Day Celebrations on August 15</div>
+      <div class="nsum">Across Karnataka, schools, government offices, and civic bodies are preparing for India's 80th Independence Day on August 15, 2026, with flag-hoisting ceremonies, patriotic programmes, and youth engagement drives being organised. The national theme centres on indigenous technologies — including 6G trials, the Semiconductor Mission, and AI — along with green transition and Atmanirbhar defence, and the PM's speech will be real-time translated into 22 Indian languages via the Digital India Bhashini AI platform.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Goodreturns</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC Meeting Concludes Today; Repo Rate Expected to Stay Unchanged at 5.25%</div>
+      <div class="nsum">The Reserve Bank of India's three-day Monetary Policy Committee meeting (August 3–5, 2026) wraps up today, with Governor Sanjay Malhotra set to announce the policy decision at 10 AM. An overwhelming consensus among economists, backed by a Business Standard poll, expects the MPC to hold the repo rate steady at 5.25% for the fourth consecutive meeting, citing elevated inflation, global geopolitical uncertainties, and a cautious data-dependent approach.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">nextias.com / rashtraparv.mod.gov.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Counts Down to Historic 80th Independence Day; Red Fort Ceremony to Feature Indigenously Built Defence Equipment</div>
+      <div class="nsum">India is 11 days away from celebrating its landmark 80th Independence Day on August 15, 2026, with the Red Fort ceremony set to feature, for the first time, entirely indigenously built defence equipment. The Ministry of Defence, in partnership with MyGov, has launched citizen engagement competitions around the event's themes of Viksit Bharat, AI, green transition, and self-reliance in defence.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">AngelOne / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Q1 FY27 Earnings Season in Full Swing; Markets Eye GDP Data and RBI Guidance</div>
+      <div class="nsum">India's Q1 FY27 (April–June 2026) earnings season is in its final leg this week, with mid-cap and small-cap companies reporting results amid investor focus on RBI rate guidance and macroeconomic signals. Key data releases — including July CPI inflation, IIP numbers on August 12, and Q1 FY27 GDP estimates on August 31 — are expected to shape market direction for the rest of the financial year.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Goodreturns</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC August 2026: Repo Rate Poised for Fourth Consecutive Hold at 5.25%</div>
+      <div class="nsum">The RBI's Monetary Policy Committee is concluding its August 3–5 meeting today, with Governor Sanjay Malhotra scheduled to announce the decision at 10 AM; most economists and a Business Standard poll unanimously expect a status quo at 5.25%, the rate unchanged since December 2025. Rising inflationary pressures, high crude oil prices linked to the West Asia conflict, and the US Federal Reserve's tight monetary policy are all cited as reasons for the central bank to maintain a cautious, wait-and-watch stance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Capital Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Full-Year FY26 GDP Growth Clocks 7.7% — Strongest Since Post-Covid Rebound</div>
+      <div class="nsum">India's economy expanded 7.7% in FY2025-26, the fastest full-year growth rate since the post-Covid rebound in FY2022, buoyed by strong services (9.3%), manufacturing (7.3%), and construction (8.4%) output in the final quarter. Despite headwinds from the West Asia energy shock and a weaker rupee, the economy showed resilience, with private consumption growing 8.7% and India retaining its position as the fastest-growing major economy among G20 nations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Best Startup India / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $7.4 Billion in H1 2026, Strongest First Half Since 2022; AI Funding Up 4x</div>
+      <div class="nsum">Indian startups raised $7.4 billion in the first half of 2026, the strongest H1 performance since 2022, with AI funding surging more than 4x year-on-year and six startups — including Sarvam AI ($1.5B) and Neysa ($1.2B) — achieving unicorn status. India's Physical AI sector alone attracted $155 million in 2026 as robotics and real-world data applications gained significant traction with investors.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Swarajya Mag / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Launches Epoch Builder Platform for Indian-Language LLMs; Private Preview from August 2026</div>
+      <div class="nsum">Bengaluru-based Sarvam AI on July 30 rolled out its Epoch Builder Edition — a developer and enterprise platform for building, fine-tuning, and deploying large language models tailored to Indian languages — with new 7B and 70B-parameter multilingual models trained on 2 trillion tokens covering over 10 Indian languages including Kannada, Hindi, Tamil, and Bengali. The platform enters private preview this month, with general availability planned for Q4 2026, and comes alongside partnerships with three IITs and two state governments for pilot projects in education and public service delivery.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Lapaas Voice</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 Indian AI Startups for 2026 Play Accelerator, Chosen from 2,500+ Applications</div>
+      <div class="nsum">Google has announced its 2026 Google Play Accelerator India cohort of 20 AI-powered startups spanning healthcare, education, agritech, fintech, gaming, and enterprise productivity, selected from nearly 2,500 applications. The three-month, equity-free programme will provide founders access to Google's AI technologies, cloud infrastructure, technical mentorship, and global expertise to help them scale products both within India and internationally.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Physical AI Sector Attracts $155 Million in 2026 as Robotics and Real-World Data Startups Surge</div>
+      <div class="nsum">Indian Physical AI startups — spanning industrial robotics, autonomous systems, and real-world data collection — have collectively attracted $155 million in funding in 2026, signalling growing investor confidence in the sector beyond software-only AI plays. Key players like Mowito (industrial robotics AI) and Blurgs AI (defence surveillance) are leading the charge, while India has now crossed 4,500 active AI startups, ranking third globally after the US and China.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Washington Post / TASS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran War Talks in Limbo: Trump Claims Negotiations Ongoing, Tehran Denies Direct Talks</div>
+      <div class="nsum">The status of the 2026 Iran war remained in a diplomatic deadlock on August 3–4, as US President Donald Trump insisted that ceasefire talks with Tehran were actively underway, while Iran's Foreign Ministry publicly denied holding any direct negotiations with Washington. The US abandoned a planned massive military strike on Iran, but continues to threaten further action, as regional mediators Qatar and Pakistan work to bridge the gap between the two sides.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">RBC-Ukraine / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Escalates Attacks on Ukraine; Strikes Hit Odesa Infrastructure and Dnipro Food Warehouses</div>
+      <div class="nsum">Russia launched a fresh wave of strikes on Ukraine on August 3, targeting infrastructure in the Odesa region and sparking a major fire at food warehouses in Dnipro, while three people including a child were killed in an attack near Kryvyi Rih. Ukraine, in turn, struck drone bases, warehouses, and communications hubs in Crimea and inside Russia, with Kyiv warning of a global hunger risk as Russian attacks continue to menace its key Black Sea port of Odesa.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UK Parliament Library / CSIS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Nuclear Deal Framework Signed in Geneva; 60-Day Ceasefire and Hormuz Reopening Agreed</div>
+      <div class="nsum">The United States and Iran reached a landmark agreement in June 2026 — formalised in Geneva — on a framework that includes a 60-day ceasefire and the reopening of the critical Strait of Hormuz to maritime traffic, paving the way for negotiations on Iran's nuclear programme. Iran has pledged to reiterate its commitment to never acquire nuclear weapons, and both sides agreed to lift respective blockades on the strait, though the ceasefire has faced repeated violations since its declaration.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 4 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
