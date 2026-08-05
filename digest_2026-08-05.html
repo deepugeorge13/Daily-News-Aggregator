@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 5, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 5 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 5 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Elections Set to End Bengaluru's 11-Year Municipal Poll Drought</div>
+      <div class="nsum">The 2026 Greater Bengaluru Authority elections are scheduled for August 2026 across the five newly formed city corporations under the apex Greater Bengaluru Authority, ending an unprecedented 11-year gap since the last BBMP election in 2015. The Greater Bengaluru Governance Act, 2024 — which came into force in 2025 — dissolved the BBMP structure and replaced it with this new governance framework, marking the biggest restructuring of Bengaluru's urban administration since 2007.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Closes Tender for Whitefield Purple Line Extension to Boost Train Frequency</div>
+      <div class="nsum">Bengaluru Metro Rail Corporation Limited (BMRCL) has closed the tender for a 482-metre Whitefield Purple Line extension, a critical infrastructure upgrade designed to serve as a turnback and stabling area for trains, reducing bottlenecks at terminal stations. The upgrade is expected to allow for higher train frequency and shorter wait times for commuters at Kadugodi and Hopefarm stations, with construction set to begin shortly after the contract is awarded.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Homebazaar / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Targets August 2026 Opening on Nagawara–Kalena Agrahara Corridor</div>
+      <div class="nsum">The Pink Line (Phase 1) of Namma Metro, spanning 21.25 km between Nagawara and Kalena Agrahara with 18 stations, is planned for inauguration in August 2026, adding a crucial second North–South corridor to Bengaluru's growing metro network. The Blue Line airport corridor (Phase 2A/2B) linking the city centre to Kempegowda International Airport via Hebbal remains on track for a 2026–2027 completion, further expanding the network beyond its current 96.10 km operational length.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tribune India / Daily Pioneer</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NDA Parliamentary Party Meets on August 5 Amid Speculation of Major Policy Announcement</div>
+      <div class="nsum">The BJP called a meeting of all NDA MPs in the GMC Balayogi Auditorium on August 5, sparking intense political speculation about a landmark government announcement, given that August 5 also marks the anniversaries of Article 370 abrogation (2019) and the Ram Mandir bhoomi pujan (2020). While the agenda was not officially disclosed, speculation ranges from major governance reform bills to significant socio-economic policy changes during the ongoing Monsoon Session of Parliament.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tribune India / Olympics.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Finishes Fourth at Glasgow CWG 2026 With 39 Medals, PM Modi Hails Contingent</div>
+      <div class="nsum">India concluded the 2026 Commonwealth Games in Glasgow with a total of 39 medals — 13 gold, 17 silver, and 9 bronze — finishing fourth in the overall medal table, with boxing leading the campaign by winning 10 medals including 7 golds, the most by any nation in the sport at a single Games. Prime Minister Narendra Modi praised the athletes for their exceptional skill and dedication, while Scotland formally handed over the Commonwealth Games flag to India, which will host the centenary 2030 edition in Ahmedabad.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Appeals to Citizens to Conserve Fuel and Foreign Exchange Amid West Asia Energy Crisis</div>
+      <div class="nsum">Prime Minister Narendra Modi made seven public appeals urging Indians to reduce consumption of imported fuel through carpooling and public transport, cut back on foreign travel, and avoid excessive gold purchases for at least one year, as crude oil prices remain elevated above $100 per barrel due to the West Asia conflict. The PM also called for a revival of work-from-home practices and championed the 'Vocal for Local' movement to reduce dependence on imported commodities amid the ongoing Strait of Hormuz disruption.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / AngelOne</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC Announces August 2026 Rate Decision Today; Repo Rate Expected to Hold at 5.25%</div>
+      <div class="nsum">RBI Governor Sanjay Malhotra announced the Monetary Policy Committee's August 2026 decision at 10 AM today, following a three-day meeting (August 3–5), with an overwhelming market consensus that the benchmark repo rate would be held unchanged at 5.25% and the neutral policy stance maintained. The RBI projected India's real GDP growth for FY27 at 6.6% and CPI inflation at 5.1%, while flagging continued uncertainty from West Asia geopolitical tensions, elevated crude prices, and disruptions to global supply chains.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Univest</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr Reddy's Labs Shares Hit 52-Week Low After Q1 FY27 Profit Slumps 69% on US Generics Pressure</div>
+      <div class="nsum">Dr Reddy's Laboratories reported a sharp 69.1% year-on-year decline in net profit to Rs 436 crore for Q1 FY27, with revenue falling 4.6% YoY to Rs 8,455 crore, driven by US generics pricing pressure, a semaglutide API provisioning issue, and elevated freight costs linked to the Middle East conflict. The weak results sent the stock tumbling to a 52-week low, with Goldman Sachs subsequently cutting its price target on the pharma major citing sustained margin pressure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Economy Projected to Grow 6.8–7.2% in 2026 Despite Global Headwinds from Iran War</div>
+      <div class="nsum">India remains one of the fastest-growing major economies globally, with growth projected between 6.8% and 7.2% for 2026, according to the Department of Financial Services, even as the West Asia conflict and Strait of Hormuz disruption continue to strain energy imports and widen the current account deficit. Markets and the rupee had shown resilience earlier this year on the back of a positive US-India trade agreement and RBI policy outcomes, though analysts warn that sustained crude prices above $100/barrel could pressure the fiscal position in H2 FY27.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Lapaas Voice</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 Indian AI Startups for 2026 Play Accelerator Cohort From 2,500 Applications</div>
+      <div class="nsum">Google has selected 20 AI-powered Indian startups for the 2026 Google Play Accelerator India programme, chosen from nearly 2,500 applications, spanning sectors including healthcare, education, agritech, gaming, fintech, and agentic AI. The three-month, equity-free programme will provide founders with access to Google's AI technologies, cloud infrastructure, and technical mentorship to help them scale products for both Indian and global markets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Agentic AI Startup Kily Raises Rs 30 Crore Led by Sorin Investments With Razorpay Participation</div>
+      <div class="nsum">Agentic enterprise AI startup Kily secured a Rs 30 crore investment round led by Sorin Investments, with participation from Razorpay and Wyser Capital, as investor appetite for AI-native business infrastructure companies continues to accelerate in India. The funding will be directed toward expanding Kily's enterprise AI platform, which is aimed at helping brands improve growth, profitability, and operational efficiency across e-commerce and quick commerce channels.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">AI-Native Legal Startup NYAI Closes $1.5 Million Seed Round to Build India's Legal Compliance Infrastructure</div>
+      <div class="nsum">NYAI, an AI-native legal infrastructure startup, has raised $1.5 million (approximately Rs 13 crore) in a seed funding round from a consortium of Indian family offices and strategic angel investors, with the capital earmarked for expanding its technology platform, compliance offerings, and adoption among enterprises, listed companies, and law firms. The startup is building a proprietary repository of Indian statutory and regulatory content to power AI-driven legal compliance at scale.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Congress.gov / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Strait of Hormuz Crisis Deepens as Iran Blocks Global Shipping, Threatening 27% of World Oil Trade</div>
+      <div class="nsum">The 2026 Strait of Hormuz crisis, triggered by the US-Israel military campaign against Iran that began in February 2026, has seen Iranian forces declare the strait closed, attacking merchant ships and laying sea mines — disrupting roughly 27% of global seaborne crude oil trade and 20% of LNG exports. Iran has selectively granted passage to friendly nations including India, China, and Russia, while the US has launched a naval blockade of Iran and escort operations, with analysts warning that sustained disruption into August could push crude prices back into triple-digit territory.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Geopolitical Monitor</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia's Ballistic Missiles Strike Five Kyiv Districts as Ukraine-Russia War Takes Renewed Naval Turn</div>
+      <div class="nsum">Russian ballistic missiles tore into five districts of the Ukrainian capital Kyiv before dawn on August 1, 2026, in one of the most intense strikes on the city in recent months, according to AP reports. Analysts also note that the Russia-Ukraine war has simultaneously taken a noticeably naval turn, with attacks intensifying in the Black Sea region, while Ukraine continues to face air-defence resource constraints exacerbated by US attention being diverted to the Iran conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Geopolitical Monitor</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indonesian Ferry Fire Kills 5, Leaves 41 Missing as Vessel Carrying 271 Passengers Ablaze Off Madura</div>
+      <div class="nsum">An Indonesian ferry carrying 271 people caught fire in waters off Madura island on August 3, 2026, killing at least five people and leaving 41 others unaccounted for, according to Indonesian maritime authorities. Emergency rescue operations were launched immediately, with coast guard and naval vessels deployed to the site as search efforts for missing passengers continued.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 5 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
