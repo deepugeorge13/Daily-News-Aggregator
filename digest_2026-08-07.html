@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 7, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 7 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 7 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NativePlanet / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Safety Tests Completed, August Launch Window Confirmed</div>
+      <div class="nsum">BMRCL conducted crucial Independent Safety Assessment (ISA) tests on August 5 and 6, 2026, evaluating advanced signalling systems on the Pink Line's 7.5-km elevated corridor along Bannerghatta Road. The August 15 launch target has shifted to late August, pending clearance from the Commissioner of Metro Railway Safety (CMRS) following a successful inspection.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WeRIndia / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Lokayukta Raids 10 Officials Across 7 Districts, Unearths Crores in Disproportionate Assets</div>
+      <div class="nsum">The Karnataka Lokayukta carried out simultaneous raids on the residences and offices of 10 government officials spread across seven districts, including Bengaluru, in connection with alleged disproportionate assets. The statewide operation unearthed cash, gold, luxury properties, agricultural land, and other valuables worth crores of rupees.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NativePlanet / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Closes Tender for Whitefield Purple Line Extension to Boost Train Frequency</div>
+      <div class="nsum">BMRCL closed bidding for a 482-metre Whitefield Purple Line extension designed to serve as a vital turnback and stabling area for trains, aimed at reducing turnaround bottlenecks. The upgrade is expected to allow higher train frequency and shorter wait times for commuters on the busy tech-corridor route.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMIndia.gov.in / NewsonAir</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Calls on Citizens to Celebrate National Handloom Day on August 7</div>
+      <div class="nsum">Prime Minister Narendra Modi called upon citizens to mark National Handloom Day on August 7 by actively promoting India's rich and diverse handloom traditions. The appeal was made as the government continues its push to support domestic weavers and the broader textile sector under the Viksit Bharat vision.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMIndia.gov.in / NewsonAir</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Union Cabinet Approves GOBARdhan National Circular Bioenergy Scheme Worth ₹23,731 Crore</div>
+      <div class="nsum">The Union Cabinet, chaired by Prime Minister Modi, approved the GOBARdhan National Circular Bioenergy Scheme with a total outlay of ₹23,731 crore, aimed at converting agricultural and organic waste into biogas and bio-CNG. The scheme is expected to bolster rural incomes, reduce stubble burning, and advance India's clean energy targets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMIndia.gov.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Marks Seven Years of Article 370 Abrogation, Reaffirms J&amp;K Development Agenda</div>
+      <div class="nsum">Prime Minister Narendra Modi marked the seventh anniversary of the historic abrogation of Articles 370 and 35(A) on August 5, describing it as a defining milestone in India's journey towards inclusive development. The PM highlighted the significant infrastructure, tourism, and economic strides made in Jammu &amp; Kashmir since the reorganisation.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Forbes India / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC Holds Repo Rate Unchanged at 5.25%, Retains Neutral Stance Amid West Asia Tensions</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee unanimously voted to keep the policy repo rate unchanged at 5.25% at its August 3–5 meeting, citing global uncertainty and volatility linked to the continuing conflict in West Asia. Despite heightened external risks, the committee noted that India's growth remains resilient and inflation shows no signs of broad-based pressure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / TechTimes</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Shiprocket Files RHP for ₹1,617 Crore IPO Opening August 12, Priced at ₹92–₹97 per Share</div>
+      <div class="nsum">E-commerce logistics platform Shiprocket filed its Red Herring Prospectus on August 5, 2026, setting a price band of ₹92–₹97 per share for a ₹1,617.48 crore IPO opening on August 12. The listing is part of what analysts are calling India's busiest IPO month of 2026, with over 24 companies targeting nearly ₹35,000 crore in primary market issuances.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Air India Names Ex-Ethiopian Airlines Chief Tewolde Gebremariam as New CEO</div>
+      <div class="nsum">Air India has appointed Tewolde Gebremariam, the former chief of Ethiopian Airlines, as its new Chief Executive Officer, marking a significant leadership change at the Tata Group-owned carrier. The appointment comes as Air India continues its wide-scale transformation and fleet expansion drive following its privatisation.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">StartupFeed / Venture Intelligence</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Tops $1 Billion in H1 2026, Up 33% Year-on-Year</div>
+      <div class="nsum">Indian AI startups raised $1,067 million between January and June 2026, a 33% jump from $802 million in H1 2025, with deal count rising to 157 from 112, according to Venture Intelligence data. Sarvam AI led the pack with $234 million in funding backed by HCLTech, Bessemer, Khosla, and Peak XV, as investors pivoted capital toward sovereign models and compute infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">River Mobility Raises $120 Million in Series C Led by Elev8 and Claypond Capital</div>
+      <div class="nsum">Electric two-wheeler startup River Mobility secured $120 million in a Series C funding round led by Elev8 and Claypond Capital, signalling continued investor appetite for India's EV sector. The raise is among the largest in India's clean mobility space in 2026 and will be used to scale production and expand into new markets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Fintech MobiKwik Swings into Profit for Q1 FY27, Registers Third Consecutive Profitable Quarter</div>
+      <div class="nsum">Fintech company MobiKwik reported a net profit of ₹7.6 crore for Q1 FY27, compared to a net loss of ₹42 crore a year ago, driven by strong growth in its payments business and improved lending profitability. The company has now registered profitability for three consecutive quarters, marking a major turnaround for the listed fintech.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UN News / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UN Warns West Bank Settler Violence Hits All-Time High as Israeli Military Raids Intensify</div>
+      <div class="nsum">The UN's human rights office OHCHR reported approximately 190 Israeli settler attacks per month in the first four months of 2026 — the highest rate ever recorded — putting the West Bank on a trajectory to exceed 2,000 attacks by year-end. Israeli forces also intensified military operations, raiding at least 20 towns and villages, demolishing homes, and arresting dozens of Palestinians, drawing condemnation from Arab states.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Explosive Drone Found at Leipzig Airport in Suspected Sabotage Incident</div>
+      <div class="nsum">German regional police and prosecutors confirmed that an airport employee discovered a drone carrying an unknown explosive device near the south runway of Leipzig/Halle Airport on August 5, 2026. A bomb-disposal robot was deployed to examine the object, and the detonator was successfully removed, with authorities investigating the incident as a suspected act of sabotage.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bangladesh's Sheikh Hasina Marks Two Years in Exile, Addresses Supporters Remotely</div>
+      <div class="nsum">Former Bangladesh Prime Minister Sheikh Hasina, who fled the country by helicopter in August 2024 following two months of protests that left nearly 1,400 people dead according to the UN, marked the second anniversary of her ouster with a remote address to supporters. Her speech comes amid ongoing political tensions in Bangladesh under the country's interim government.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 7 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
