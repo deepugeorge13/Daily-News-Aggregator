@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 8, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 8 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 8 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Misses August 15 Target; Safety Approvals Still Pending</div>
+      <div class="nsum">The Bangalore Metro Pink Line's inaugural 7-km elevated stretch on Bannerghatta Road has missed its August 15 launch deadline as BMRCL awaits Railway Board approval for the signalling system and a subsequent Interim Speed Certificate from RDSO. The Commissioner of Metro Railway Safety is expected to conduct a physical inspection in late August before passenger services can begin on the six-station corridor between Kalena Agrahara and Tavarekere.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Native Planet / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Closes Tender for 482-Metre Whitefield Purple Line Extension to Boost Train Frequency</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited has closed bids for a critical 482.8-metre extension beyond Whitefield station on the Purple Line, designed to serve as a turnback and stabling area for trains. The infrastructure upgrade aims to eliminate turnaround bottlenecks and allow shorter headways for daily commuters on the busy IT corridor.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Releases ₹26,447 Crore to BMRCL for Metro Phases 2, 2A/2B and 3; Blue Line at 72.5% Progress</div>
+      <div class="nsum">MP P C Mohan informed Parliament that the central government has released ₹26,447.27 crore to BMRCL to fund the ongoing construction of metro Phases 2, 2A/2B and 3 across Bengaluru. The 58.19-km Blue Line connecting Silk Board to Kempegowda International Airport has recorded 72.5% physical progress and 70.17% financial progress, with trial runs on the KR Pura–HSR Layout section expected to begin in October.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Ministry of Parliamentary Affairs / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Monsoon Session 2026 Enters Final Week; Legislative Business in Focus</div>
+      <div class="nsum">The Monsoon Session of Parliament 2026, scheduled from July 20 to August 13, is in its final stretch with 19 sittings planned for legislative business and other key national matters. With Independence Day falling on August 15, there are no scheduled sittings on August 13 and 14, making this week critical for passing pending bills.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NextIAS / Rashtraparv</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nation Gears Up for 80th Independence Day on August 15; Theme Focuses on Viksit Bharat and Indigenous Tech</div>
+      <div class="nsum">India is days away from celebrating its 80th Independence Day on August 15, 2026, with the theme centred on a Developed India encompassing indigenous technologies including 6G trials, the Semiconductor Mission, AI, and an Atmanirbhar Defence — notably, all equipment at the Red Fort ceremony will be indigenously built for the first time. The AI-based translation tool Digital India Bhashini will translate Prime Minister Modi's address in real time into over 22 Indian languages.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / FADA / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Registers Record 3.28 Lakh EV Sales in July 2026, Up 66% Year-on-Year: FADA</div>
+      <div class="nsum">India recorded its highest-ever monthly electric vehicle retail sales in July 2026 with 3,27,901 units, a 66% year-on-year surge, as EVs now account for nearly one in every eight vehicles sold, according to the Federation of Automobile Dealers Associations. Electric two-wheelers crossed the two-lakh mark for the first time with an 11.2% market share, while passenger EVs grew 83% year-on-year, though supply constraints ahead of the festive season remain a concern.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Upstox</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SBI Q1FY27 Net Profit Jumps 10.2% to ₹21,121 Crore; NII Rises 15%, Asset Quality Improves</div>
+      <div class="nsum">State Bank of India, India's largest lender, reported a standalone net profit of ₹21,121 crore for the April–June 2026 quarter, up 10.23% year-on-year from ₹19,160 crore, driven by a 14.88% surge in net interest income to ₹46,992 crore. Whole-bank advances grew 18.63% year-on-year while the gross NPA ratio improved 36 basis points to 1.47%, sending SBI shares up over 3.5% on Friday.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">StartupTalky / IPO Watch / TechTimes</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Shiprocket Files ₹1,617 Crore IPO at ₹7,000 Crore Valuation; Issue Opens August 12</div>
+      <div class="nsum">Gurugram-based e-commerce logistics startup Shiprocket has finalised a trimmed ₹1,617.48 crore IPO — a 31% reduction from its earlier proposed size — with a price band of ₹92–97 per share, valuing the company at approximately ₹7,000 crore. The issue opens on August 12 and closes on August 14, with listing expected on BSE and NSE on August 19, marking one of the flagship tech-startup public offerings of India's busiest IPO month in 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bajaj Finance Shares Crash 5%, Wiping ₹33,000 Crore from Market Cap</div>
+      <div class="nsum">Shares of Bajaj Finance tumbled approximately 5% on Friday, erasing roughly ₹33,000 crore from the NBFC giant's market capitalisation, making it one of the worst single-session performers among large-cap financial stocks. The sharp decline came amid broader market volatility and investor concerns following quarterly results, with analysts watching the company's asset quality and credit growth outlook closely.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Deeptech Startup Consint.AI Raises ₹22 Crore Series A to Expand AI Fraud Detection Platform</div>
+      <div class="nsum">Bengaluru-based deeptech startup Consint.AI has secured ₹22 crore in a Series A round led by BIG Global Investment JSC, Equanimity Ventures Trust II, and Seafund Venture India, to scale its AI platform focused on fraud, waste, and abuse detection in insurance and banking. The company's platform has already analysed over 100 million transactions and identified fraud worth more than ₹1,000 crore, and will use the fresh capital to accelerate international expansion and build a dedicated foundational AI model.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Lapaas Voice / AI Startup Impact</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 Indian AI-First Startups for 2026 Accelerator Programme from 2,500 Applications</div>
+      <div class="nsum">Google has chosen 20 Indian AI-first startups for its 2026 Google for Startups Accelerator: India — a three-month, equity-free programme offering access to Gemini technologies, Google Cloud infrastructure, and technical mentorship from engineers and AI experts. The cohort spans sectors including agentic AI, healthcare, climate technology, developer tools, and enterprise software, reflecting the growing maturity of India's AI startup ecosystem which now counts over 4,500 active AI startups.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Industrial Front / AI Startup Impact</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Yotta Data Services Raises $150 Million, Plans Scale-Up to 85,000 Nvidia Blackwell GPUs to Power India's AI Cloud</div>
+      <div class="nsum">Hiranandani Group-backed Yotta Data Services led India's startup funding charts with a landmark $150 million raise at a $4.4 billion valuation, accounting for over two-thirds of all startup capital deployed in the week ended July 9, 2026. The data centre company plans to scale its Shakti AI cloud to 85,000 Nvidia Blackwell GPUs by fiscal year-end, positioning India as a global AI compute hub.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / CNN / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Strait of Hormuz Crisis: Iran-Oman Talks Offer Fragile Hope as Tanker Attacks and Diplomatic Confusion Continue</div>
+      <div class="nsum">Periodic Iranian attacks on commercial shipping and retaliatory US strikes have severely disrupted traffic through the Strait of Hormuz for most of the past five months, with tanker traffic having dropped by approximately 70% at its nadir, as of early August 2026. Iran and Oman have agreed on the geographic route for a proposed safe shipping corridor, though diplomatic confusion persists as Tehran and Washington give contradictory accounts of whether formal reopening negotiations are underway, while Brent crude rose 2.7% on renewed uncertainty.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Missile and Drone Strikes Kill At Least 15 in Kyiv and Surrounding Region</div>
+      <div class="nsum">Russian missile and drone strikes overnight killed at least 15 people and wounded 42 across Kyiv and the surrounding region, with firefighters battling multiple warehouse and building fires in the aftermath. The attacks mark one of the deadliest overnight bombardments on the Ukrainian capital in recent weeks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel's Far-Right Government Accelerates West Bank Settlement Activity Ahead of October Election</div>
+      <div class="nsum">Israeli Jewish settlers are intensifying settlement construction across the West Bank, supported by Israel's far-right government, which faces a potential loss of power in an October election. Volunteer night watches by Palestinians in towns such as Sinjil have become a feature of daily life as settler violence and land seizures increase, drawing international concern about the accelerating erosion of Palestinian territory.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 8 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
