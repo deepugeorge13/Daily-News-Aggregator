@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 9, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 9 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 9 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Swarajya Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Awaits Final Safety Approvals as BMRCL Eyes August Launch</div>
+      <div class="nsum">The first phase of Bengaluru's Pink Line — a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road with six stations — is pending its Interim Speed Certificate from the RDSO after Railway Board approval of the signalling system. BMRCL's new Managing Director confirmed that CMRS officials are already in the city conducting technical inspections of newly delivered trainsets, with four more sets in production at Titagarh Rail Systems.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Greater Bengaluru Authority Elections Scheduled for August 2026, Ending 11-Year Municipal Poll Gap</div>
+      <div class="nsum">The 2026 Greater Bengaluru Authority elections are set to be held this month across 712 sq km covering five newly established City Corporations under the apex GBA body, marking the first municipal poll since the 2015 BBMP election. The Greater Bengaluru Governance Act, 2024, replaced the old BBMP structure with the new city governance system centred around the Greater Bengaluru Authority.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Homebazaar / Abhee Ventures</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Network on Course to Hit 175 km as Blue Line Airport Corridor Targets 2026-27 Completion</div>
+      <div class="nsum">Bengaluru's metro network is on track for a major expansion aiming to extend its total length to 175 km, with the Phase 2A and 2B Blue Line connecting the city centre to Kempegowda International Airport via Hebbal being the flagship corridor. The Yellow Line, which was inaugurated on 10 August 2025 by PM Modi and now serves Electronic City with 16 stations over 19.15 km, has already triggered a surge in buyer demand along its corridor, according to a Cushman &amp; Wakefield Q1 2026 Marketbeat report.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Speaks to JD Vance, Discusses Ways to Deepen India-US Ties</div>
+      <div class="nsum">Prime Minister Narendra Modi held talks with US Vice President JD Vance on August 9, 2026, to explore ways of deepening bilateral ties between India and the United States. The conversation is seen as part of ongoing diplomatic engagement as both nations continue to negotiate trade and strategic cooperation frameworks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Government Clarifies UPI to Remain Free; MDR May Apply to Large Merchants Later</div>
+      <div class="nsum">The Indian government issued a clarification on August 9, 2026, reaffirming that Unified Payments Interface transactions will continue to be free for consumers and small merchants. Officials indicated, however, that a Merchant Discount Rate could potentially be applied to large merchants at a future date as the digital payments ecosystem matures.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Amar Ujala / The India Moves</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nation Gears Up for 80th Independence Day on August 15; Central Home Minister Tours Puducherry</div>
+      <div class="nsum">With India's 80th Independence Day on August 15, 2026 approaching, the Central Home Minister undertook a visit to Puducherry on August 9 as part of pre-Independence Day events across the country. Rahul Gandhi also held a public programme in Prayagraj, with heavy monsoon rainfall continuing to disrupt life in several states, drawing government attention to relief operations.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / INDmoney</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr Reddy's Labs Shares Tank 9% to 52-Week Low After Weak Q1 FY27 Results</div>
+      <div class="nsum">Dr Reddy's Laboratories shares plunged 9% to a 52-week low on August 8-9, 2026, after the pharma major reported a steep 68.67% year-on-year fall in net profit to Rs 444.30 crore for Q1 FY27. Revenue from operations also came in at Rs 8,070.50 crore for the June 2026 quarter, with the company also announcing the termination of its Novartis India brand distribution agreement effective September 30, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Equity Indices End Volatile Week on Positive Note as Oil Prices Fall and Geopolitical Risks Ease</div>
+      <div class="nsum">Indian equity markets closed the week ending August 8, 2026 on an upbeat note, recovering from early volatility triggered by the new closing auction system and concerns over global macro headwinds. Falling global oil prices and easing geopolitical tensions lifted investor sentiment, with mid- and small-cap sectors showing significant strength and both domestic and foreign institutional investors snapping up Indian equities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $252 Million in Week of August 3-8, 2026; River Mobility Tops the List</div>
+      <div class="nsum">Indian startups collectively raised $252 million across multiple rounds during the week of August 3 to August 8, 2026, taking the total for 2026 so far to $8.2 billion across 590 rounds. Funded sectors spanned EVs, legaltech, proptech, AI, enterprise AI, healthtech, fintech, defence tech, and climate tech, with Bengaluru-based startups — including Mitti Labs, Pinegap, and Kily — among the notable recipients.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru AI Startup Pinegap Raises $8 Million to Automate Equity Research for Hedge Funds</div>
+      <div class="nsum">Pinegap, a Bengaluru-based startup, raised $8 million (approximately Rs 76.4 crore) in a Series A round led by Stellaris Venture Partners during the week ending August 8, 2026. The company builds AI agents that automate equity research tasks for hedge funds and institutional investors, and plans to use the funds to expand its sales and engineering teams.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechChannel News / Nasscom</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">AI and ML Now Power 74% of India's Deep Tech Startups, Nasscom Emerge 50 Report Reveals</div>
+      <div class="nsum">Artificial intelligence and machine learning have cemented their position as the cornerstone technology of India's deep tech startup landscape, with 74% of applicants incorporating these capabilities, according to Nasscom's Emerge 50 League of 10 announcements for 2026. The industry body unveiled its list spotlighting ten startups pushing boundaries across strategically vital technological frontiers, spanning domains from defence tech to climate solutions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Legal AI Startup NYAI Raises $1.5 Million Seed Round to Build Indian Legal Infrastructure Platform</div>
+      <div class="nsum">AI-native legal infrastructure startup NYAI raised $1.5 million (about Rs 13 crore) in a seed funding round from a consortium of Indian family offices and strategic angel investors. The company plans to use the capital to expand its technology platform, build compliance offerings, and increase adoption among enterprises, listed companies, and law firms, with a portion earmarked for expanding its proprietary repository of Indian statutes.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of Israel / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Senate Approves Sweeping Russia Sanctions Package in Show of Support for Ukraine</div>
+      <div class="nsum">The United States Senate overwhelmingly approved a punishing package of sanctions against Russia, the result of a year-long campaign to reinforce US support for Ukraine and increase pressure on President Vladimir Putin as the grinding war continues. The move comes amid ongoing conflict, with Russian missile and drone strikes continuing to cause casualties and infrastructure damage across Ukraine.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israeli Settler Activity Escalates in West Bank as October Election Looms for Netanyahu Government</div>
+      <div class="nsum">Israeli Jewish settler activity in the occupied West Bank has intensified, supported by Israel's far-right government, which faces a possible loss of power in an October 2026 election. Volunteers monitoring settler attacks on Palestinians have reportedly had their entry permits revoked by Israeli authorities, according to reports emerging this week.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Brazil-Argentina Diplomatic Row Deepens as Brasilia Recalls Buenos Aires Ambassador</div>
+      <div class="nsum">Brazil has requested the recall of Argentina's ambassador and reduced diplomatic representation to Charge d'Affaires level after Argentine President Javier Milei publicly called Brazilian President Luiz Inacio Lula da Silva a thief. The escalating diplomatic spat marks a significant deterioration in relations between South America's two largest economies.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 9 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
