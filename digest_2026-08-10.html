@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 10, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 10 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 10 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Misses August 15 Launch Target, Safety Inspections Ongoing</div>
+      <div class="nsum">The BMRCL's Pink Line Phase 1 — a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road with six stations — has missed its most recent August 15 opening deadline as the Commissioner of Metro Rail Safety (CMRS) continues technical inspections of newly delivered trainsets and signalling integration. The Centre has released ₹26,447 crore to BMRCL for Phases 2, 2A/2B and 3, with the 58.19 km Blue Line (Silk Board–KIA via Hebbal) recording 72.5% physical and 70.17% financial progress as of early August 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Battles Potholes and Waterlogging as Monsoon Rains Intensify</div>
+      <div class="nsum">Heavy rains have lashed parts of Bengaluru, flooding low-lying areas including Hoodi, Sai Layout and stretches of the Outer Ring Road, while exposing the city's fragile drainage infrastructure. BBMP has deployed pumping units and filled nearly 3,900 of 4,545 flagged potholes this monsoon, but commuters say craters have resurfaced on key roads including Magadi Road, Dr Rajkumar Road and areas in RR Nagar, with IMD forecasting heavy rain to continue over the next six days.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IMD Bengaluru / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Heavy Rain Warning for Bengaluru Urban and Surrounding Districts</div>
+      <div class="nsum">The India Meteorological Department has forecast light to moderate rain with sustained winds of 30–40 kmph over Bengaluru Urban and Rural districts through mid-August, with heavy spells likely in Shivamogga, Chikkamagaluru, Kodagu and Hassan. The ongoing monsoon has already caused significant waterlogging and traffic disruptions at multiple key junctions including Thanisandra–Nagawara, Hebbal–Airport Road and the Outer Ring Road near Babusapalya.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Print</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jharkhand Students Storm Vidhan Sabha in Ranchi Over Recruitment Exam Irregularities</div>
+      <div class="nsum">Thousands of students and job aspirants in Ranchi marched on the Jharkhand state Assembly on August 10, demanding a CBI probe into alleged malpractices in JPSC and JSSC recruitment examinations, with police imposing prohibitory orders and installing razor wire near the assembly premises. The agitation, now in its 17th day with an indefinite satyagraha at Jaipal Singh Munda Stadium, intensified after a sixth round of talks between the government and student leaders failed to break the deadlock on Sunday.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi and Cabinet Pay Tribute on 84th Anniversary of Quit India Movement</div>
+      <div class="nsum">Prime Minister Narendra Modi led the nation in paying tribute to freedom fighters on August 9, the 84th anniversary of the historic Quit India Movement, saying their courage and sacrifice remain an inspiration for every Indian. Union Home Minister Amit Shah echoed the sentiment, calling on citizens to put national interests first by promoting Atmanirbhar Bharat and working towards the 'Viksit Bharat' goal as India approaches its Independence Day celebrations on August 15.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MeitY / Outlook India / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Issues Stern Warning to Meta, Demands Algorithm Changes and Indian Law Compliance</div>
+      <div class="nsum">The Ministry of Electronics and Information Technology directed Meta — whose senior executives including Global Affairs head Joel Kaplan met Minister Ashwini Vaishnaw in New Delhi in early August — to align its content policies with Indian law, revamp algorithms to curb deepfakes and anti-India propaganda, and comply with data localisation requirements. The government reiterated a zero-tolerance stance on Child Sexual Abuse Material and warned that platforms operating in India must follow the Indian constitution, not US-based policies, or risk losing safe harbour legal protection.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Federal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FPIs Pour ₹12,921 Crore into Indian Equities in First Week of August, Buying Streak Continues</div>
+      <div class="nsum">Foreign Portfolio Investors maintained their buying momentum in Indian equities, investing ₹12,921 crore in the first week of August 2026, driven by improving macroeconomic conditions, expectations of US rate cuts, lower crude oil prices and a stable rupee. The inflow follows a ₹20,200 crore investment in July, marking a sharp turnaround after four consecutive months of heavy selling that had seen FPIs withdraw a cumulative ₹2.41 lakh crore from Indian markets in 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Investing.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr Reddy's Shares Slump to 52-Week Low After Q1 FY27 Results Miss Estimates</div>
+      <div class="nsum">Dr Reddy's Laboratories shares fell sharply — touching near their 52-week low — after the pharma major reported fiscal Q1 FY27 revenue of $853 million and earnings that missed Wall Street estimates, weighed down by semaglutide-related costs and lower lenalidomide sales. While the company's underlying base business grew at a double-digit pace across major markets, margin pressure and the earnings shortfall led to investor concern, with the stock hitting a 52-week low in the aftermath of the results announcement.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sahi / NSE</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE Set to Launch Futures and Options on New Nifty India FPI 150 Index from August 12</div>
+      <div class="nsum">The National Stock Exchange will introduce futures and options contracts on the newly designed Nifty India FPI 150 Index starting August 12, 2026, following approval from the Securities and Exchange Board of India. The index tracks 150 large and liquid Indian companies available to foreign portfolio investors without breaching ownership limits, with financial services holding the largest sectoral weight at 26.15% as of June 2026, and the new derivatives aimed at giving FPIs a better hedging tool.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IANS / The India Looks / TechChannel.news</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nasscom Names India's 10 Most Promising Deep-Tech Startups; AI Dominates with 74% Adoption</div>
+      <div class="nsum">Nasscom unveiled its Emerge 50 League of 10 for 2026 at the Nasscom Future Forge summit in Bengaluru, spotlighting ten deep-tech startups building breakthrough technologies across AI, quantum computing, semiconductors, space, synthetic biology and clean energy — with AI and machine learning adopted by 74% of applicants across all 750 submissions. Nasscom noted that the 2026 applicant pool marks a significant shift from early-stage experimentation toward commercial deployment, with 83% of applicants having reached Technology Readiness Level 6 or above and 39% fully commercialised.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Nasscom</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nasscom Calls for India to Urgently Build Hardware Capabilities for Next Deep-Tech Phase</div>
+      <div class="nsum">Nasscom Vice-Chairman Srikanth Velamakanni warned at the Nasscom Future Forge 2026 event that India's software capabilities have reached a ceiling and the country must urgently invest in developing its hardware and deep-tech architecture to remain competitive globally. Deep-tech funding in India climbed to $1.6 billion in 2025, up from $1.1 billion in 2023, but the number of funding rounds fell from 350 to 274, signalling that investors are making fewer but larger, more focused bets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Lapaas Voice / Analytics Insight</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 Indian AI Startups for 2026 Accelerator Cohort Spanning Agentic AI to Climate Tech</div>
+      <div class="nsum">Google selected 20 Indian AI-first startups for its 2026 Google for Startups Accelerator: India programme — chosen from nearly 2,500 applications — providing equity-free access to Google's AI technologies, Gemini, cloud infrastructure and mentorship from Google engineers and product specialists. The 2026 cohort spans a diverse set of sectors including agentic AI, healthcare, climate technology, developer tools and digital infrastructure, coinciding with the 10th anniversary of Google's accelerator initiative in India.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Netanyahu Rejects Trump's 15-Point Gaza Peace Plan, Refuses IDF Withdrawal Before Hamas Disarms</div>
+      <div class="nsum">Israeli Prime Minister Benjamin Netanyahu publicly declared at a Cabinet meeting on August 9 that Israel rejects the 15-point Gaza roadmap put forward by President Trump's Board of Peace, insisting that IDF forces will not withdraw from Gaza until Hamas is completely and genuinely disarmed. The declaration deepened tensions with Washington, which has touted a 'historic' Hamas agreement to lay down arms, while Netanyahu demanded full weapons decommissioning as a precondition, with over 73,000 people killed in Gaza since October 2023.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Britannica / Congress.gov</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran-Oman Strait of Hormuz Negotiations Continue as Pentagon Warns of Dangerously Low Munitions</div>
+      <div class="nsum">Iran and Oman are in advanced talks to finalise a framework for commercial shipping through the Strait of Hormuz, with Tehran insisting that reopening the strait is contingent on the US meeting additional conditions being conveyed through intermediaries, even as conflict has abated since July's peak. Senior US military commanders have warned that the Pentagon has exhausted nearly 80% of its THAAD interceptors, leaving munitions stockpiles dangerously low, prompting the Pentagon to press the US defence industry to accelerate weapons production.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Gold Holds Gains and US Stocks Jump as Soft Jobs Data Fuels Rate-Cut Hopes</div>
+      <div class="nsum">Global financial markets responded positively as US employers unexpectedly cut 23,000 jobs in the latest payroll report, raising hopes that the Federal Reserve can hold off on further rate hikes and boosting equities and gold prices simultaneously. Gold held gains as the soft jobs data eased rate-hike concerns, while US stocks rallied, with market participants closely watching the Federal Reserve's next move amid ongoing uncertainty tied to the US-Iran conflict's impact on global energy and trade.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 10 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
