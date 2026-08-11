@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 11, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 11 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 11 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / India Rail Info</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Yellow Line Marks First Anniversary With All 15 Trains Now Operational</div>
+      <div class="nsum">August 11, 2026 marks the first anniversary of Bengaluru Metro's Yellow Line, with BMRCL confirming that all 15 trains are now operational on the 19.75 km Electronic City corridor. When fully in service, peak-hour frequency is expected to improve from 7 minutes to just 4–5 minutes, significantly boosting capacity for commuters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Metro Pink Line Awaits Final Safety Nod; Blue Line Records 72.5% Physical Progress</div>
+      <div class="nsum">The Pink Line's first phase — a 7 km elevated stretch on Bannerghatta Road between Kalena Agrahara and Tavarekere — continues to await CMRS safety approval after missing its August 15 target. Meanwhile, Parliament data revealed the Centre has released ₹26,447 crore to BMRCL for Phases 2, 2A/2B and 3, with the 58.19 km Blue Line (Silk Board–KIA) clocking 72.5% physical and 70.17% financial progress.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / NammaWard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Publishes Voter Roll Data for Nearly 50 Lakh Bengaluru Electors Ahead of Civic Polls</div>
+      <div class="nsum">The Greater Bengaluru Authority published electoral information for 49,53,020 electors identified under ASSDDO categories during Special Intensive Revision 2026, making the data available on its official website as of August 6. The long-awaited GBA civic elections — the first since the BBMP was dissolved in September 2025 and replaced by five city corporations — are now imminent, ending an 11-year gap since the last Bengaluru municipal poll.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Millennium Post / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Passes Bankers' Books Evidence Bill 2026, Replacing 135-Year-Old Law</div>
+      <div class="nsum">The Rajya Sabha passed the Bankers' Books Evidence Bill, 2026 by voice vote on Monday, a day after the Lok Sabha cleared it on August 5, replacing the colonial-era Bankers' Books Evidence Act of 1891. The new law formally recognises electronic, digital, and virtual banking records as admissible and legally enforceable evidence in courts, aligning India's legal framework with its modern digital banking ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Rahul Gandhi Condemns Police Action on Jharkhand Protesting Students on Day 17 of Agitation</div>
+      <div class="nsum">Opposition leader Rahul Gandhi called the use of force — including lathicharges and tear gas — against students protesting in Jharkhand wrong, demanding accountability as demonstrations entered their 17th consecutive day. The agitation stems from a growing recruitment row, with the former exam chief facing arrest amid allegations of irregularities in the state's public employment process.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Air India 300-Foot Plunge Probe Widens; BEA and Airbus to Join AAIB Investigation</div>
+      <div class="nsum">Investigators probing the sudden 300-foot plunge of an Air India flight are widening their inquiry to examine turbulence data and other possible causes behind the dramatic mid-flight drop. France's BEA and Airbus have been invited to join India's AAIB in the probe into the Phuket–Delhi flight incident, signalling the multinational scale of the safety investigation.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Issues Sweeping New Loan Recovery Rules, Banning Harassment and Capping Agent Call Hours</div>
+      <div class="nsum">The Reserve Bank of India issued its Responsible Business Conduct Fourth Amendment Directions, 2026 on August 6, consolidating recovery conduct standards across all commercial banks, NBFCs, and housing finance companies into a single unified framework. Key provisions include restricting recovery agent calls strictly to 8 AM–7 PM, prohibiting device-locking as a collection tool, and mandating that lenders compensate borrowers for losses caused by non-compliant recovery practices, with compliance required by January 1, 2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ola Electric Q1 FY27 Revenue Plunges 45% to ₹455 Crore; Emkay Sees 27% Further Downside</div>
+      <div class="nsum">Ola Electric reported a steep 45% year-on-year revenue decline to ₹455 crore for Q1 FY27, with shares falling 6% on the results, as the EV maker continues to grapple with weakening demand and intensifying competition from Bajaj Auto and TVS Motor. Emkay Global downgraded the stock and sees a 27% further downside, reflecting ongoing structural challenges despite the company's cost-restructuring efforts.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / FM Sitharaman</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FM Sitharaman Announces MDR Will Apply Only to Select Merchant UPI Transactions Going Forward</div>
+      <div class="nsum">Finance Minister Nirmala Sitharaman announced that the Merchant Discount Rate (MDR) will in future apply only to certain categories of merchant UPI transactions, a move aimed at balancing the sustainability of India's digital payments infrastructure with the interest of small businesses. The announcement comes as India marks 35 years of economic liberalisation, with the IT, telecom, pharma, and auto sectors identified as the biggest winners of the 1991 reforms.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Trillion-Parameter Model Roadmap at Epoch 2026, Launches 12 Products</div>
+      <div class="nsum">Bengaluru-based Sarvam AI confirmed at its inaugural Epoch 2026 developer conference on July 30 that it is building a foundational model exceeding one trillion parameters from scratch, with co-founder Pratyush Kumar announcing the model will go live within six months. The company also launched 12 products including the Epoch Builder Edition platform — opening for private preview in August 2026 — and Saaras V4, a speech recognition system covering all 22 scheduled Indian languages.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Print / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Becomes Unicorn After HCLTech-Led Series B Closes, Plans San Francisco AI Research Office</div>
+      <div class="nsum">Sarvam AI crossed the unicorn threshold in June 2026 after closing its Series B funding round led by HCLTech, with Bessemer Venture Partners, Nvidia, and Amazon also participating. The company plans to use the capital to accelerate frontier model research and development, including setting up a San Francisco office to attract global AI talent, while repaying the Indian government's IndiaAI Mission grant of ₹246.72 crore.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tracxn / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $11.4 Billion in Over 1,200 Equity Rounds in 2026 So Far</div>
+      <div class="nsum">India's startup ecosystem has raised $11.4 billion across 1,210 equity funding rounds in 2026 through August, according to Tracxn data, as investor appetite remains robust for AI, fintech, healthtech, and SaaS verticals. India is home to over 720,000 startups — the third-largest startup hub globally — with 131 unicorns and more than $630 billion raised cumulatively across all funding rounds.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Business Standard / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Drone Strike on Nizhnekamsk Oil Hub Kills 13, Including a Child, in One of War's Deadliest Civilian Attacks</div>
+      <div class="nsum">A massive Ukrainian drone strike on the Russian petroleum city of Nizhnekamsk in Tatarstan killed at least 13 people — including a child and seven Uzbek nationals — and wounded 75 others in one of the deadliest civilian casualty events of the four-year war. Ukraine's General Staff confirmed its forces targeted the Taneco oil refinery, sparking a fire, as part of a sustained campaign to degrade Russia's refining capacity and pressure Moscow toward negotiations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Japan Times / TT News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Appoints Hard-Line Ex-IRGC Commander Mohsen Rezaee to Lead Supreme National Security Council Amid Hormuz Talks</div>
+      <div class="nsum">Iran promoted former Revolutionary Guard commander Mohsen Rezaee to head its Supreme National Security Council as Oman-mediated negotiations on restoring shipping through the Strait of Hormuz entered what Tehran described as a 'very close' final stage. The leadership reshuffle raises uncertainty about the diplomatic trajectory, with Rezaee replacing a fellow hard-liner and Iran continuing to reject direct talks with the United States while insisting on concessions before the strategic waterway reopens.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">British Columbia Declares State of Emergency as Wildfires Force Thousands to Evacuate Across the Province</div>
+      <div class="nsum">British Columbia declared a province-wide state of emergency as rapidly spreading wildfires forced thousands of residents to evacuate their homes, with aerial footage showing thick smoke blanketing large swathes of central and eastern areas. Helicopters and ground crews are working to reinforce containment lines as the fires continue to burn across multiple fronts amid dry, windy weather conditions.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 11 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
