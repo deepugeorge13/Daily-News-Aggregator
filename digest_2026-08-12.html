@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 12, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 12 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 12 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Awaits Final Safety Nod as August 15 Launch Target Missed</div>
+      <div class="nsum">The Bengaluru Metro Pink Line's elevated stretch from Kalena Agrahara to Tavarekere has missed its latest launch deadline of August 15, with BMRCL's new Managing Director confirming that the Commissioner of Metro Rail Safety (CMRS) is still inspecting newly delivered trainsets and verifying signalling integration. The Centre has released ₹26,447.27 crore to BMRCL for Phases 2, 2A/2B and 3, with the 58.19-km Blue Line airport corridor recording 72.5% physical progress as of early August 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Spends ₹741 Crore on Bengaluru Civic Upkeep Yet Roads and Drains Remain in Crisis</div>
+      <div class="nsum">Bengaluru residents and civic groups are slamming the Greater Bengaluru Authority (GBA) over poorly maintained roads and choked stormwater drains despite a massive ₹741 crore budget allocation for civic infrastructure upkeep in 2026. Activists and experts point to BBMP's white-topping practices and inadequate drainage design as key contributors to recurring urban flooding across the city during the monsoon season.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">One India / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Braces for 80th Independence Day; Security Tightened Across Bengaluru</div>
+      <div class="nsum">With India's 80th Independence Day just three days away on August 15, Bengaluru has ramped up security measures across the city, including restricted zones near key civic and government installations. Military and security-force bands are performing at multiple locations across Karnataka from August 8–15, and the state government is coordinating large-scale flag-hoisting ceremonies at district and taluk levels.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Eagle / NextIAS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Gears Up for 80th Independence Day on August 15 with 'Viksit Bharat' and Atmanirbhar Defence Theme</div>
+      <div class="nsum">India is set to celebrate its 80th Independence Day on August 15, 2026, with Prime Minister Narendra Modi expected to address the nation from the Red Fort for the twelfth consecutive time, with the event centred on themes of indigenous technologies, green transition, and Atmanirbhar Defence — for the first time, all equipment used at the Red Fort will be completely domestically produced. A landmark cultural highlight this year is the first rendition of Vande Mataram from the Red Fort ramparts, commemorating 150 years of the national song, with around 5,000 special guests including Olympiad medal-winners and young innovators attending the ceremony.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Ministry of Home Affairs</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's PRAHAAR Counter-Terrorism Doctrine Enters Implementation Phase</div>
+      <div class="nsum">India's first comprehensive national counter-terrorism strategy, PRAHAAR, released by the Ministry of Home Affairs in February 2026, is now in its active implementation phase, integrating counter-terrorism, counter-radicalisation, cybersecurity, and coordinated whole-of-government security response mechanisms into a single unified framework. The doctrine — whose name is an acronym covering Prevention, Response, Aggregating Internal Capacities, Human Rights-based approach, Attenuation of enabling conditions, and Resilience — represents India's most ambitious internal security policy overhaul in decades.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Money View / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Government Eyes ₹2.5 Lakh Crore Credit Guarantee Scheme to Shield MSMEs from West Asia Crisis Impact</div>
+      <div class="nsum">The Indian government is considering launching a ₹2.5 lakh crore credit guarantee scheme modelled after the pandemic-era Emergency Credit Line Guarantee Scheme (ECLGS) to support businesses, particularly MSMEs, adversely affected by the ongoing West Asia crisis and elevated US-Iran tensions. The proposed scheme would offer a 90% credit guarantee on loans up to ₹100 crore, helping lenders manage potential defaults and ensuring liquidity for firms facing high input and logistics costs.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / CBS News / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Judge Dismisses Criminal Charges Against Gautam Adani; Two-Year Legal Saga Ends</div>
+      <div class="nsum">A US federal judge in New York's Eastern District dismissed all criminal fraud and bribery charges against Indian billionaire Gautam Adani and his nephew Sagar Adani on August 10, 2026, after the Justice Department moved to drop the prosecution — though the judge sharply criticised the DOJ's handling of the case and refused to dismiss charges against five co-defendants. Adani Group stocks surged on Indian bourses following the verdict, with Gautam Adani calling the decision a vindication of his faith in &quot;truth, fairness and the rule of law.&quot;</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Net Direct Tax Collections Surge 23% to ₹8.11 Lakh Crore Till August 10</div>
+      <div class="nsum">India's net direct tax collections rose 23.09% year-on-year to ₹8.11 lakh crore in the current financial year up to August 10, 2026, driven by a 23% jump in non-corporate (personal income) tax receipts to ₹5.07 lakh crore and a nearly 20% rise in corporate tax collections to ₹2.70 lakh crore. Securities transaction tax (STT) collections surged 51% to ₹33,824 crore, reflecting sustained buoyancy in India's capital markets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trak.in / Business Today / Scanx Trade</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Persistent Systems Shareholders Greenlight $1.45 Billion Nagarro Acquisition at AGM</div>
+      <div class="nsum">Persistent Systems shareholders formally approved the landmark acquisition of German digital engineering firm Nagarro SE at the company's 36th Annual General Meeting on August 3, 2026 — the largest deal in Persistent's history — with the combined entity expected to generate nearly $3 billion in annual revenue and employ over 46,000 professionals across 40+ countries. The Pune-based IT firm aims to use the acquisition to significantly expand its European presence, AI engineering capabilities, and SAP services, as it targets $5 billion in annual revenue by 2031.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CIO Eletsonline / Trak.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">OpenAI Unveils GPT-5.6 Model Family with Sol, Terra and Luna Variants in Limited Preview</div>
+      <div class="nsum">OpenAI has introduced a limited preview of its new GPT-5.6 model family, comprising GPT-5.6 Sol, GPT-5.6 Terra, and GPT-5.6 Luna, marking a significant step-up in the company's frontier model lineup and generating intense interest from Indian enterprise AI adopters and startups. The release is expected to accelerate AI integration across India's fast-growing SaaS and digital engineering sectors, coming alongside Persistent Systems' Nagarro acquisition, which will bring aboard Nagarro's accredited OpenAI reseller status and AI-focused engineering services.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI's Sovereign LLMs Sarvam-30B and Sarvam-105B Gain Traction as India Pushes IndiaAI Mission</div>
+      <div class="nsum">Sarvam AI, chosen by the central government to build India's first homegrown sovereign large language model under the IndiaAI Mission, unveiled its two flagship LLMs — Sarvam-30B and Sarvam-105B — at the India AI Impact Summit 2026 earlier this year, and uptake among government institutions and startups is accelerating. India's AIKosh platform, the national AI dataset and model repository, now hosts 7,541 datasets and 273 AI models across 20 sectors, with over 3.85 lakh visits, reflecting growing momentum in the country's public AI infrastructure push.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Cyber Milo / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Policy Enforcement Heats Up: First Fines Levied on Fintech Platforms for Compliance Lapses in Q3 2026</div>
+      <div class="nsum">India's AI regulatory framework entered a new phase in Q3 2026, with MeitY levying the first formal penalties on two fintech platforms that failed to meet mandatory data localisation and real-time transaction-monitoring requirements under the country's AI policy for SaaS firms above ₹5 crore ARR. The enforcement regime, which began with advisory notices in Q1 2026, now includes stringent sector-specific rules — including 24-hour breach notification windows for fintech and seven-year patient-consent audit trails for healthtech — signalling a sharp escalation in India's digital governance posture.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NBC News / WSLS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">North Korea Fires Second Ballistic Missile in a Week Ahead of US-South Korea Ulchi Freedom Shield Drills</div>
+      <div class="nsum">North Korea launched a ballistic missile from its eastern coastal Wonsan area toward the Sea of Japan on August 12, 2026 — its second such test in under a week — with the missile flying more than 700 kilometres before landing outside Japan's exclusive economic zone. The launches are widely seen as Pyongyang's protest against the upcoming Ulchi Freedom Shield joint military exercises between the US and South Korea, which are set to begin on August 17.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Space.com / NASA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Europe's First Total Solar Eclipse Since 1999 Sweeps Across Greenland, Iceland and Spain on August 12</div>
+      <div class="nsum">A total solar eclipse is traversing Greenland, Iceland, northern Spain, and northeastern Portugal today, August 12, 2026 — mainland Europe's first total solar eclipse in 27 years — with the moon's shadow racing from the Arctic at 15:34 GMT and blotting out the sun for up to 2 minutes and 18 seconds along the path of totality. Approximately 15 million people, mostly in Spain, live within the path of totality, while a partial eclipse is visible to roughly 980 million people across much of Western Europe, northwestern Africa, and parts of North America.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / US News &amp; World Report</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UN Reports 2.4 Million Afghan Girls Still Barred from Secondary School Five Years After Taliban Takeover</div>
+      <div class="nsum">A United Nations agency report released on August 11, 2026 reveals that five years after the Taliban's takeover of Afghanistan, approximately 2.4 million girls remain excluded from secondary education, with no signs of the ban being lifted. Separately, the UN estimates that more than 16,000 civilians detained by Russia during its war in Ukraine are still being held, as international pressure mounts on Moscow ahead of the next round of US-brokered peace talks.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 12 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
