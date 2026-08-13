@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 13, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 13 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 13 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">AngelOne / The Print / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Bandh Today: Cauvery Water Dispute Shuts Bengaluru for 12 Hours</div>
+      <div class="nsum">A statewide Karnataka bandh called by Kannada activist Vatal Nagaraj is underway on August 13, running from 6 AM to 6 PM, over unresolved inter-state water disputes including the Mekedatu, Mahadayi, and Kalasa Banduri projects. Over 2,000 pro-Kannada organisations are backing the shutdown, with KSRTC bus cancellations, reduced BMTC services, highway blockades at Attibele, and hotel and business closures reported across Bengaluru.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Greater Bengaluru Authority Elections: City Braces for First Municipal Poll in Over a Decade</div>
+      <div class="nsum">The 2026 Greater Bengaluru Authority elections are scheduled to be held across the five newly established city corporations under the apex Greater Bengaluru Authority, marking the first municipal poll since the 2015 BBMP election — an unprecedented gap of 11 years. The Greater Bengaluru Governance Act, 2024, which came into force in 2025, dissolved the old BBMP structure and replaced it with this new city governance framework covering the 712 sq km Bengaluru urban area.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Electric Air Taxi Startup Sarla Aviation Clears Key Regulatory Hurdle</div>
+      <div class="nsum">Bengaluru-headquartered electric air taxi startup Sarla Aviation has received Design Organisation Approval (DOA) from the aviation safety regulator, a critical milestone that will allow the company to transition to full commercial production. The approval signals a major step forward for India's nascent urban air mobility sector, with Sarla also announcing new commercial signing agreements this week.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / NextIAS / Vajiramandravi</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Counts Down to 80th Independence Day: PM Modi Launches Har Ghar Tiranga Drive</div>
+      <div class="nsum">India is two days away from celebrating its 80th Independence Day on August 15, 2026, with the theme centred on 150 years of Vande Mataram and the vision of Viksit Bharat 2047. PM Narendra Modi released a video message urging citizens to join the Har Ghar Tiranga campaign, while the Red Fort ceremony will, for the first time, feature Vande Mataram being sung from the ramparts and all indigenous equipment on display under the Atmanirbhar Defence initiative.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Lok Sabha / PaisaMarket</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Lok Sabha Passes UPI Charges Bill 2026: Merchants to Bear Limited MDR, Consumers Exempt</div>
+      <div class="nsum">Parliament has passed the UPI Charges Bill 2026, which introduces a limited Merchant Discount Rate (MDR) for select merchant categories while explicitly exempting consumers from any direct transaction fees on UPI payments. PhonePe's CEO and government officials confirmed that users of Google Pay, PhonePe, and Paytm will not face charges under the new framework, though merchant-side implementation timelines are still being worked out.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NextIAS / Rashtraparv</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">80th Independence Day to Debut AI-Powered Real-Time Translation of PM's Red Fort Address</div>
+      <div class="nsum">This year's Independence Day celebrations will feature Digital India Bhashini, an AI-based translation tool, translating the Prime Minister's Red Fort address in real time into 22 or more Indian languages so that citizens across every linguistic region can follow the speech in their mother tongue. The 80th Independence Day also coincides with the Parsi New Year Navroz, and unprecedented cultural festivities are expected across Maharashtra and Gujarat.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Bloomberg / Upstox</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">N Chandrasekaran Resigns as Tata Sons Chairman, Succession Battle Opens</div>
+      <div class="nsum">Tata Sons Chairman N Chandrasekaran announced on August 12 that he will step down when his current term ends in February 2027, after months of boardroom deadlock over his proposed third term — with Noel Tata reportedly withholding support citing weak financial performance at some group companies. Shares of TCS, Tata Steel, Tata Motors, and Tata Power fell sharply on Wednesday following the announcement, and the board has been asked to begin a succession process ahead of the Tata Sons AGM on August 18.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / GIFT Nifty</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Face Muted Open as GIFT Nifty Signals Negative Start; Asia Rebounds</div>
+      <div class="nsum">GIFT Nifty futures were quoted at 24,447.50, down 26 points, pointing to a subdued opening for Indian benchmarks on August 13 despite a broad Asian market recovery led by tech stocks and South Korea's Kospi surging 3.76% on Samsung and SK Hynix gains. Brent crude snapped a six-day rally after OPEC+ forecast lower demand for 2026, with the August futures contract quoted at $87.96 per barrel on the ICE.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Upstox / Forbes India / Mint</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's July CPI Inflation Rises to 4.45%, Pushed Higher by Food Prices</div>
+      <div class="nsum">India's retail inflation climbed to 4.45% in July 2026 from 4.38% in June, according to NSO data released on August 12, with food inflation accelerating to 5.52% from 5.32% in the prior month. The reading marks a second consecutive month above the RBI's 4% medium-term target, and economists now expect CPI to harden further to around 4.7% in August and potentially cross 5% in September due to the ongoing West Asia conflict and El Niño risks to the monsoon.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $252 Million in a Week; River Mobility Tops Funding Charts</div>
+      <div class="nsum">Indian startups collectively raised $252 million during the week of August 3–8, 2026, bringing the year-to-date total to $8.2 billion across 590 rounds, with River Mobility leading the fundraise. The funded sectors spanned EVs, AI, enterprise tech, insurtech, defence tech, climate tech, and quick commerce, reflecting broad investor appetite despite only two rounds crossing the $20 million mark this week.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google and Lightspeed Launch Joint AI Accelerator to Scale Indian Startups</div>
+      <div class="nsum">Google and Lightspeed Venture Partners have announced a joint programme designed to help Indian startups move from AI experimentation toward practical and scalable deployment, combining Google's engineering capabilities with Lightspeed's deep consumer technology and fintech investing experience. The initiative is aimed at closing the execution gap between India's fast-growing AI ambitions and the actual deployment of secure, sovereign AI foundations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / SUSE</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SUSE Summit Mumbai 2026: 90% of Indian IT Leaders Ready to Hike AI Budgets, Survey Finds</div>
+      <div class="nsum">Enterprise open-source firm SUSE unveiled its flagship SUSE Summit Mumbai 2026 under the theme 'Shape Your Resilient Future', releasing a Digital Resilience report showing that 62% of Indian respondents identify digital sovereignty as a strategic priority — well above the 52% global average. The report also found 90% of Indian IT leaders are prepared to increase AI budgets, even as organisations continue to face a gap between ambition and the deployment of secure AI infrastructure.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Al Jazeera / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran War Keeps Oil Markets on Edge; Brent Snaps Six-Day Rally at $87.96</div>
+      <div class="nsum">Brent crude snapped a six-day rally on August 13 after OPEC+ forecast lower demand for 2026 as elevated prices linked to the ongoing US-Iran conflict weighed on consumption outlooks, with futures quoted at $87.96 per barrel. The conflict, which began in late February 2026, has caused repeated disruptions to Strait of Hormuz shipping and earlier sent Brent prices to multi-year highs before a partial easedown on ceasefire hopes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Frees American Military Veteran After Four Years of Alleged Wrongful Detention</div>
+      <div class="nsum">Russia released an American military veteran on August 12, 2026, allowing his return to the United States after four years of what his family and US officials describe as wrongful incarceration and abusive treatment. The release comes amid broader diplomatic tensions between Washington and Moscow as US weapons stockpiles have dwindled and Ukraine-Russia ceasefire talks remain stalled.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Turkey Parliament Approves Conditional Pardon for Kurdish Militants in Historic Peace Move</div>
+      <div class="nsum">Turkey's parliament approved legislation on August 11, 2026, granting a conditional pardon to thousands of Kurdish militants as part of the government's ongoing peace initiative with the insurgent group. The move is seen as one of the most significant steps in decades toward resolving Turkey's long-running Kurdish conflict, though implementation details and security guarantees remain under negotiation.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 13 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
