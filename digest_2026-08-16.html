@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 16, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 16 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 16 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Misses August 15 Launch Date, Awaits Final Safety Approvals</div>
+      <div class="nsum">The Pink Line's first phase — a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road — has missed its most recent target of August 15, with BMRCL's new MD stating the authority hopes to complete the approval process in stages before opening the corridor to passengers. The Centre has released ₹26,447 crore to BMRCL for Phases 2, 2A/2B and 3, while the 58.19 km Blue Line (Silk Board–KIA via Hebbal) records 72.5% physical and 70.17% financial progress.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India Rail Info / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">All 15 Yellow Line Trains Now Operational, Peak-Hour Frequency to Drop to 4–5 Minutes</div>
+      <div class="nsum">Bengaluru Metro's Yellow Line marked its first anniversary on August 11, 2026, with all 15 trains targeted to be in service, improving peak-hour frequency from 7 minutes to 4–5 minutes. The line's daily ridership has averaged 9,16,461 as of April 2026, with a single-day record of over 10.48 lakh passengers set on the inauguration anniversary.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / Abhee Ventures</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP–BMRCL Joint ₹9,800 Crore Integrated Road-Metro Corridor on Outer Ring Road Progresses</div>
+      <div class="nsum">A joint venture between BBMP and BMRCL, the ₹9,800 crore integrated road-and-metro corridor will span 32.15 km along the Outer Ring Road from JP Nagar to Hebbal, creating a signal-free route on one of the city's most congested arteries. The project is designed to simultaneously address road traffic congestion and public transport demand, with real estate analysts projecting significant property value appreciation along the entire ORR corridor.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / One India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Delivers 13th Consecutive Independence Day Address, Champions Viksit Bharat by 2047</div>
+      <div class="nsum">Prime Minister Narendra Modi addressed the nation from the ramparts of the Red Fort on August 15 for his 13th consecutive Independence Day speech — making him the second PM after Nehru to achieve this milestone — with the celebrations themed around the 150-year legacy of Vande Mataram and the role of youth in transforming India into a developed nation by 2047. In a historic first, Vande Mataram was sung at the Red Fort on Independence Day after 80 years, while nearly 5,000 special guests including women entrepreneurs, young innovators, and farmers attended the ceremony.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CBDT's FAST-DS Foreign Asset Disclosure Scheme Comes Into Force Today, Deadline December 31</div>
+      <div class="nsum">The Central Board of Direct Taxes' Foreign Assets of Small Taxpayers–Disclosure Scheme (FAST-DS) 2026, announced in the Union Budget, comes into force on August 16, offering eligible taxpayers a one-time window until December 31, 2026, to voluntarily declare undisclosed foreign assets and income in exchange for immunity from prosecution under the Black Money Act. The scheme targets students, young professionals, IT employees, and returning NRIs, with undisclosed foreign assets or income capped at ₹1 crore for the primary category, subject to a combined tax-and-penalty levy of 60 per cent.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Calls for Hypersonic, Drone Capabilities; India Must Become Global Military Equipment Supplier</div>
+      <div class="nsum">Prime Minister Narendra Modi, in his Independence Day address, called for greater national capabilities in hypersonic technology, drones, and counter-drone systems, stressing that India must emerge as a global supplier of advanced military equipment. The call came a day after India marked 35 years since the 1991 economic liberalisation, with analysts reviewing which sectors emerged as the biggest winners of the reforms era.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Sheds 490 Points Over Five Sessions Through August 14; 23 BSE 500 Stocks in Daily Decline</div>
+      <div class="nsum">The BSE Sensex fell 490 points across five consecutive sessions through August 14, with 23 BSE 500 stocks declining every day during the stretch. Eleven stocks dropped more than 5% in the period, led by Aditya Birla Fashion and Retail, PhysicsWallah, and Techno Electric &amp; Engineering.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tribune India / Asianet Newsable</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CBDT's FAST-DS Scheme Opens August 16 for Undisclosed Foreign Assets, Targets Small Taxpayers</div>
+      <div class="nsum">The Foreign Assets of Small Taxpayers–Disclosure Scheme (FAST-DS), announced in the 2026-27 Union Budget, takes effect August 16, allowing taxpayers to declare undisclosed foreign assets and income online until December 31, 2026, with immunity from the Black Money Act. Taxpayers declaring assets up to ₹1 crore face a combined 60% tax-and-levy charge, while a separate category for assets up to ₹5 crore acquired from already-taxed income requires only a flat fee of ₹1 lakh.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Urges Farmers to Leverage FTAs to Build Global Agro Brands as India Marks 35 Years of Liberalisation</div>
+      <div class="nsum">Prime Minister Modi called upon Indian farmers to leverage Free Trade Agreements to build globally competitive agricultural brands, as the country simultaneously marks 35 years of the 1991 economic liberalisation. India's growth is projected between 6.8–7.2% for 2026, maintaining its position as one of the fastest-growing major economies in the world, according to the Department of Financial Services.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ExplainX.ai / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Anthropic Opens Bengaluru Office as India Becomes Claude's Second-Largest Market Globally</div>
+      <div class="nsum">On India's 80th Independence Day, Anthropic opened a Bengaluru office, citing India as Claude's second-largest market in the world — a milestone that underscores India's rapid AI adoption. This follows Sarvam AI's open-sourcing of its Sarvam 30B and 105B foundation models in February 2026, the first Indian foundation models trained end-to-end on IndiaAI Mission compute, as India's sovereign AI ecosystem moves from policy headlines to shipped products.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / Accel</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Yulu Raises $93 Million as It Eyes IPO; Accel Closes $550 Million India Fund for AI and Fintech</div>
+      <div class="nsum">Bengaluru-based electric micro-mobility startup Yulu raised $93 million in fresh funding as it prepares for a potential IPO, signalling continued investor confidence in India's sustainable urban transport sector. Separately, marquee venture firm Accel closed a $550 million India-focused fund to back startups in AI, fintech, and manufacturing, reflecting robust capital flows into the Indian tech ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Tracxn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Physical AI Sector Attracts $155 Million in 2026 as Robotics and Real-World Data Gain Traction</div>
+      <div class="nsum">Indian Physical AI — covering robotics, automation, and real-world data platforms — attracted $155 million in funding in 2026, as investors pivot toward tangible AI applications beyond software, according to a report by Entrackr. The broader Indian AI startup landscape now counts 2,902 companies, with 317 new firms founded in 2026 alone and 605 having secured funding, of which 127 have reached Series A or higher.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Wikipedia Current Events</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">At Least Eight Dead in Japan as Heavy Rains Cause Widespread Flooding and Traffic Disruption</div>
+      <div class="nsum">At least eight people died in Japan as heavy rains flooded roads and disrupted traffic across the country, with emergency services stretched thin amid the crisis. The extreme weather event in Japan coincided with Europe's fifth heatwave of the summer, with firefighters in Britain, France, and Croatia battling simultaneous blazes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia Current Events / AFP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Taliban Marks Five Years in Power in Afghanistan; Girls' Education Remains Devastated</div>
+      <div class="nsum">August 15 marked the fifth anniversary of the current Taliban rule in Afghanistan, a milestone drawing international attention to the regime's devastating impact on girls' education, with schools for females remaining largely shut across the country. Reports also highlight a lesser-discussed consequence: the Taliban's restrictions are increasingly disrupting the educational opportunities available to boys as well.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia Current Events / AFP via The Straits Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Amazon Deforestation Falls to Lowest Level Since Satellite Monitoring Began, Down 37% Year-on-Year</div>
+      <div class="nsum">Brazil's National Institute for Space Research reported that deforestation of the Amazon rainforest fell to 2,874 square kilometres from August 2025 to July 2026, a 37% annual decline and the lowest level recorded since the institute's satellite monitoring programme began in 2016. The landmark figure represents a significant environmental achievement and comes amid renewed international pressure on Brazil to meet its climate commitments ahead of upcoming global summits.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 16 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
