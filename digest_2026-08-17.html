@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 17, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 17 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 17 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / homebazaar.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Misses August 15 Launch Deadline, CMRS Safety Inspections Ongoing</div>
+      <div class="nsum">Bengaluru's BMRCL-operated Pink Line, whose Phase 1 covers a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road, has missed yet another launch target of August 15. The Commissioner of Metro Rail Safety (CMRS) is currently inspecting newly delivered trainsets and verifying their integration with the signalling system before passenger services can begin.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Swarajya Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP Under Fire as Monsoon Potholes and Waterlogging Grip Bengaluru</div>
+      <div class="nsum">Heavy monsoon rains have returned Bengaluru's chronic pothole and waterlogging woes to the spotlight, with traffic police identifying over 113 waterlogging-prone spots across the city. The BBMP's Chief Secretary directed the civic body to repair potholes within seven days using disaster management funds, while the BWSSB faces disciplinary action for unresolved drainage failures.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / PC Mohan MP (Parliament Update)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Releases ₹26,447 Crore to BMRCL; Blue Line Airport Corridor Hits 72.5% Physical Progress</div>
+      <div class="nsum">As per a parliamentary update shared by MP P.C. Mohan on August 7, 2026, the Central Government has released ₹26,447.27 crore to BMRCL for Metro Phases 2, 2A/2B, and 3. The 58.19 km Blue Line connecting Silk Board to Kempegowda International Airport via Hebbal has recorded 72.5% physical progress and 70.17% financial progress.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Republic World / Bloomberg / The Logical Indian</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi's 80th Independence Day Address Unveils Saptadhara Reforms, AI Push for 1 Crore Youth</div>
+      <div class="nsum">Speaking from the Red Fort on August 15, 2026, PM Narendra Modi unveiled the 'Saptadhara' — seven pillars of India's strength — and announced six major initiatives anchored in his Viksit Bharat vision, including AI training for 1 crore young Indians, seven to eight semiconductor plants within two years, and a 100 GW nuclear power target by 2047. He also announced a major shift in India's energy policy, lifting restrictions on offshore oil and gas exploration across 98% of offshore areas.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Republic World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Modi Calls for Identifying 'Dimagi Naxals', Says Armed Maoist Rebellion Largely Eliminated</div>
+      <div class="nsum">In his Independence Day address, PM Modi declared that India had largely succeeded in eliminating the armed Naxalite insurgency that challenged state authority for decades across central and eastern India. However, he warned that 'dimagi Naxals' — ideological backers of the Maoist movement — had established themselves in positions of power and needed to be 'identified and isolated'.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Marks 35 Years of Economic Liberalisation with Debate on Unfinished Reform Agenda</div>
+      <div class="nsum">As 2026 marks 35 years since the landmark 1991 Narasimha Rao–Manmohan Singh reforms, economists and policymakers are reviewing India's transformation from a licence-raj economy to the world's third-largest in purchasing power parity terms, with an 8.5% share of global GDP. Business Standard and other outlets have flagged that key reforms in land, labour, agriculture, and further FDI liberalisation remain incomplete, even as India's economy has multiplied eightfold since liberalisation.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Closes at 78,009 on August 14 as RBI Loan-Pricing Proposal Pressures Bank Stocks</div>
+      <div class="nsum">India's BSE Sensex ended at 78,009.25 on Friday, August 14, slipping marginally as investors stayed cautious amid persistent Middle East tensions, elevated crude oil prices, and renewed foreign outflows. Sentiment was further dampened by a Reserve Bank of India proposal on loan-pricing changes that could reduce banks' pricing flexibility and pressure loan yields and margins.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Proposes Loan-Pricing Rule Changes; Banks Race for Dollar Deposits as FCNR(B) Swap Window Curtailed</div>
+      <div class="nsum">The Reserve Bank of India has put forward loan-pricing rule changes that analysts say could squeeze bank margins, sending financial stocks lower in the week ending August 14. Simultaneously, Indian banks are scrambling for dollar deposits as the RBI curtails its FCNR(B) swap window, adding pressure to liquidity management for lenders.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">N. Chandrasekaran to Step Down as Tata Sons Chairman in February 2027</div>
+      <div class="nsum">N. Chandrasekaran, who has led Tata Sons since 2017 and overseen the conglomerate's sweeping transformation, has reportedly asked the board to decide his successor ahead of his planned departure in February 2027. The news adds a major corporate governance story to Tata Group watchers as the conglomerate manages over 30 listed companies including TCS, Tata Motors, and Air India.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Startupfeed.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $1.07 Billion in H1 2026, Sarvam Leads with $234 Million Round</div>
+      <div class="nsum">Indian AI startups raised $1,067 million across 157 deals in the first half of 2026, a 33% jump year-on-year, with Sarvam AI's $234 million round — backed by HCLTech, Bessemer, Khosla, and Peak XV — setting the pace for frontier-tech investment. Deal count surged from 112 to 157, reflecting a decisive shift by venture capital towards foundation models and deep-tech, fuelled in part by the government's $1.25 billion IndiaAI Mission.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ixigo Sells 17.39% Stake in Electric Bus Startup FreshBus for ₹36.6 Crore</div>
+      <div class="nsum">Le Travenues Technology, the parent company of travel booking platform ixigo, has agreed to divest its 17.39% stake in electric intercity bus startup FreshBus to Twelve Stone LLP — an entity led by FreshBus founder Sudhakar Reddy Chirra — for ₹36.6 crore, effective August 13, 2026. Post-transaction, ixigo's stake will fall from 25.66% to 8.27% and FreshBus will cease to be an associate company of ixigo.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tracxn / valueaddvc.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IndiaAI Mission Onboards 38,000 GPUs; AI Companies in India Cross $1.34 Billion in 2026 Funding</div>
+      <div class="nsum">India's AI ecosystem has crossed $1.34 billion in equity funding across 66 rounds in 2026 so far, making it the highest single-year total in the sector's history in India, according to Tracxn data. The government's IndiaAI Mission, a Rs 10,372 crore programme run by MeitY, has now onboarded over 38,000 GPUs at subsidised rates to support AI startups, with at least five teams selected to build sovereign large language models across India's 22 official languages.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / France 24 / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Launches Largest Drone Attack of War, Sending 600 Drones Toward Moscow; At Least 6 Killed in Russia</div>
+      <div class="nsum">Ukraine launched one of its largest aerial assaults of the war on August 16, 2026, firing hundreds of drones across Russia — including approximately 600 detected headed toward Moscow — killing at least six people and sparking a massive fire at a Wildberries logistics warehouse in Podolsk. Russia's Ministry of Defence claimed to have destroyed 822 Ukrainian drones overnight, while a retaliatory Russian missile strike on Kyiv damaged a landmark book market and wounded six people.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">RBC Ukraine / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Proposes Black Sea Ceasefire to Russia Through Third-Party Mediator; Moscow Yet to Respond</div>
+      <div class="nsum">Ukraine has conveyed a proposal to Russia through a third-party mediator to halt attacks on civilian vessels and targets in the Black Sea, according to reports from August 13–14, 2026, amid ongoing mutual accusations over attacks on grain shipments and port infrastructure. Moscow has not yet responded to Kyiv's initiative, with analysts warning that continued Black Sea strikes could significantly affect global food prices.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Washington Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Zelenskyy Submits Fresh Peace Proposals to US; Russia Demands Ukraine Cede Four Regions</div>
+      <div class="nsum">Ukrainian President Volodymyr Zelenskyy confirmed on August 12, 2026, that Kyiv has handed Washington new proposals aimed at ending the nearly five-year-old war with Russia, as US negotiators were expected to visit both countries. Russia reiterated its position that any settlement must involve Ukraine fully ceding four regions Moscow claims as its own, along with resolving what it calls the conflict's 'root causes', keeping the diplomatic gap wide.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 17 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
