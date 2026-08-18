@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 18, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 18 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 18 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Awaits Final Safety Approvals for Bannerghatta Road Stretch</div>
+      <div class="nsum">The first phase of Bengaluru Metro's Pink Line, covering a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road with six stations, is pending Railway Board approval for its signaling system. BMRCL anticipates receiving the nod within days, after which RDSO will issue the Interim Speed Certificate enabling passenger services to begin.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India Rail Info / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Yellow Line Marks First Anniversary with All 15 Trains Now Operational</div>
+      <div class="nsum">Bengaluru Metro's Yellow Line celebrated its first anniversary on August 11, 2026, with all 15 trains targeted to be fully operational on the 19.75 km Electronic City corridor. With the full fleet in service, peak-hour frequency on the line is expected to improve from 7 minutes down to 4–5 minutes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / Abhee Ventures</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP-BMRCL Joint Peripheral Ring Road Project Set to Decongest Bengaluru Outer Ring Road</div>
+      <div class="nsum">A ₹9,800 crore joint venture between BBMP and BMRCL will build a 32.15 km integrated road and metro corridor along the Outer Ring Road, providing a crucial bypass for traffic moving between North and South-East Bengaluru. The project is also planned for integration with Namma Metro to further enhance urban mobility across the city.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Pledges Chip Plants, Nuclear Reactors and AI Skilling of 1 Crore Youth in 80th Independence Day Address</div>
+      <div class="nsum">Prime Minister Narendra Modi used his Independence Day speech at the Red Fort on August 15 to renew India's pledge to become a developed nation by 2047, announcing an AI skilling initiative targeting one crore youth within a year. His address also outlined plans for semiconductor manufacturing and new nuclear reactors as part of India's Viksit Bharat growth push.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Appoints Pralhad Joshi as New Education Minister After Weeks of Student Protests Over Exam Scandals</div>
+      <div class="nsum">The Modi government named Pralhad Joshi as the new Education Minister following the resignation of the previous minister amid weeks of Gen Z-led protests over exam paper leaks. The student movement drew international attention, with multiple deaths by suicide reported among affected candidates, intensifying pressure on the government to overhaul the national examination framework.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Announces Ex-Gratia Relief for Victims of Birbhum Fire Tragedy in West Bengal</div>
+      <div class="nsum">Prime Minister Narendra Modi expressed deep anguish over loss of lives in a fire tragedy in Birbhum, West Bengal, announcing Rs 2 lakh from the PM National Relief Fund for the next of kin of each deceased. An additional Rs 50,000 was announced for those injured in the mishap, with the Monsoon Session of Parliament also underway in New Delhi.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slips 281 Points on August 17 as IT Stocks Drag; Crude Oil Rise Adds Pressure</div>
+      <div class="nsum">India's BSE Sensex closed at 77,728 points on Monday, August 17, falling 281 points or 0.36 percent, extending the previous session's losses amid rising crude oil prices and persistent geopolitical tensions in the Middle East. IT heavyweights led the decline, with Infosys down 2.83 percent, Sun Pharma off 2.54 percent, and HCL Technologies shedding 2.32 percent.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate Steady at 5.25%, Projects India GDP Growth at 6.7% for FY2026-27</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee held the repo rate unchanged at 5.25 percent with a neutral stance in its August 2026 review, in line with market expectations. The central bank projected India's GDP growth at 6.7 percent for the current financial year, while forecasting headline inflation at 5 percent, slightly lower than its earlier estimate of 5.1 percent.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Marks 35 Years of Economic Liberalisation; Financial Sector Celebrates Reforms That Reshaped the Economy</div>
+      <div class="nsum">India's financial and business community is marking the 35th anniversary of the 1991 liberalisation reforms this week, with analysts highlighting which sectors emerged as the biggest winners from the opening of the economy. Banks are simultaneously racing for dollar deposits as the RBI curtails its FCNR (B) swap window, adding a fresh policy dimension to the anniversary discussions.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ExplainX.ai / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Anthropic Opens Bengaluru Office as India Becomes Claude's Second-Largest Global Market</div>
+      <div class="nsum">Anthropic has opened an office in Bengaluru, with India now ranked as Claude's second-largest market in the world as of August 2026. This milestone comes alongside India's IndiaAI Mission deploying around 18,693 subsidized GPUs, and Sarvam AI shipping its open-source Sarvam 105B foundation model that outperforms GPT-4, Claude, and Gemini on Indian-language benchmarks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / ExplainX.ai</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Announces AI Skilling of 1 Crore Indian Youth; BharatGen and Sarvam AI Mark Year of Sovereign Model Milestones</div>
+      <div class="nsum">On India's 80th Independence Day, PM Modi announced an initiative to skill one crore youth in artificial intelligence within one year, signalling a major national push. This follows BharatGen — a nine-institution, ₹988.6 crore consortium led by IIT Bombay covering all 22 scheduled languages — shipping its AI stack and Sarvam AI hosting its first flagship conference Epoch 2026 in Bengaluru in late July.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Cyber Milo / IndiaAI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Policy 2026 Framework Mandates Impact Assessments and Data Localisation for SaaS Vendors</div>
+      <div class="nsum">India's 2026 AI policy framework introduces three core obligations for SaaS vendors operating in the country: mandatory AI impact assessments, data localisation for training datasets, and real-time audit logging of model decisions. Analysts project the framework will redirect $1.2 billion of venture capital toward compliant AI platforms, while non-compliance could trim annual recurring revenue by up to 18 percent.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Colombia Earthquake Death Toll Rises to 265 in Pereira with Nearly 500 Still Missing</div>
+      <div class="nsum">The death toll from the Colombia earthquake climbed to 265 in Pereira by August 12, 2026, with almost 500 people still missing as emergency rescue teams made a final push to find survivors. Rescuers pulled a dog alive from rubble in Cali days after the quake, as international relief efforts continued across the affected region.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Taliban Rule Marks 5-Year Anniversary in Afghanistan Amid Deepening Education Crisis</div>
+      <div class="nsum">August 15, 2026 marked the fifth anniversary of Taliban rule in Afghanistan, with the group's devastating ban on girls' education remaining firmly in place and drawing renewed global condemnation. Reports highlighted that beyond girls' schooling, the Taliban's educational restrictions have also significantly curtailed opportunities for boys across many provinces.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Japan Hit by Unprecedented Rainfall; Chiba Prefecture Receives Highest-Ever Rain Warning</div>
+      <div class="nsum">Unprecedented rainfall battered Japan in mid-August 2026, leaving at least four people dead and flooding large parts of Chiba prefecture, east of Tokyo. Authorities issued the region's highest-level rain warning for the first time on record, while landslide alerts and widespread power cuts affected thousands of residents across the area.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 18 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
