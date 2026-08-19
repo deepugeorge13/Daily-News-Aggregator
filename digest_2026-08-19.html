@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 19, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 19 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 19 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Free Press Journal / Inshorts</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">H1N1 Scare at Bengaluru's Clarence High School: 500+ Students Ill, Classes Shifted Online</div>
+      <div class="nsum">More than 500 students and 21 staff members at Clarence High School in Bengaluru's Richards Town fell ill with fever, cough, and body aches amid a seasonal flu-like outbreak, with at least two cases confirmed as H1N1. The school suspended offline classes through August 18 as a precaution and raised complaints with civic authorities over unhygienic street-food stalls and waste accumulation near its premises.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Deccan Herald / India Rail Info</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Metro Pink Line Awaits Final Safety Clearance; Blue Line Deadlines Reset Under New BMRCL Leadership</div>
+      <div class="nsum">BMRCL is anticipating Railway Board approval for the signalling system on the Pink Line's 7 km elevated stretch between Kalena Agrahara and Tavarekere, after which RDSO will issue the Interim Speed Certificate to allow passenger operations. Fresh deadlines have been assigned to both the Pink and Blue Lines under new BMRCL leadership, with the Kalena Agrahara–Tavarekere stretch now targeted for opening in August 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bangalore News Network</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Governor Administers Oath to Six New Additional Judges of Karnataka High Court</div>
+      <div class="nsum">The Honourable Governor of Karnataka administered the oath of office to six newly appointed Additional Judges of the Karnataka High Court in a formal ceremony. The appointments are aimed at strengthening the judicial capacity of the high court to address the growing pendency of cases in the state.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BJP.org / The Hindu / Britannica</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Asks Congress to Withdraw Support to Hemant Soren Government in Jharkhand; Rahul Gandhi Slams Police Action</div>
+      <div class="nsum">The BJP escalated its political offensive by demanding that the Congress party withdraw its support from Chief Minister Hemant Soren's government in Jharkhand amid ongoing youth-led protests over public recruitment irregularities. Opposition leader Rahul Gandhi condemned the use of force against student protesters, stating that peaceful protest is a constitutional right and demanding accountability from the government.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PBS NewsHour / Time / The Globe and Mail</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Gen Z 'Cockroach Movement' Puts BJP on the Defensive as BJP Revamps Youth Outreach Strategy</div>
+      <div class="nsum">India's ruling BJP is recalibrating its communications strategy to reach young voters after the youth-led 'Cockroach Janata Party' movement — sparked by a NEET exam leak and a senior official's disparaging remarks comparing unemployed youth to cockroaches — shook the political establishment. The satirical CJP movement, whose Instagram page has surpassed 25 million followers, has expanded from students to veteran activists and opposition politicians, including Rahul Gandhi, who was detained at a sit-in in New Delhi.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Congress.gov / CRS / NewsBytes</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Sweeps West Bengal Assembly Elections, Ending 15 Years of TMC Rule; Mamata Banerjee Refuses to Resign</div>
+      <div class="nsum">The BJP convincingly won the 2026 West Bengal Assembly elections, taking more than 70% of seats to rout Mamata Banerjee's All India Trinamool Congress after 15 years in power, further consolidating the party's dominance across Indian states. Trinamool Congress chief Mamata Banerjee refused to resign following the defeat, even as the BJP moved to form the new state government.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Extends Losing Streak to Third Straight Session, Falls 493 Points on Geopolitical Oil Price Concerns</div>
+      <div class="nsum">The BSE Sensex fell 492.70 points, or 0.63%, to settle at 77,235.46 on Tuesday, August 18, marking a third consecutive session of losses as elevated crude oil prices and rising tensions in West Asia weighed heavily on investor sentiment. The Nifty 50 also declined, closing at 24,155, with market participants closely tracking geopolitical developments for further cues.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata Sons Postpones AGM for First Time in History as Key Trust Faces Regulatory Freeze; Chandrasekaran Exit Looms</div>
+      <div class="nsum">Tata Sons adjourned its 108th Annual General Meeting — the first such adjournment in the company's history — after failing to meet the required quorum, linked to a Charity Commissioner freeze on Sir Ratan Tata Trust (SRTT) over an alleged governance violation. The disruption comes days after Chairman N Chandrasekaran announced he would not seek a third term, triggering a leadership transition at the helm of one of India's largest conglomerates.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Telecom Tariff Hike on the Horizon: Analysts Flag Subtle Moves by Airtel and Jio as Signal of Impending Price Revision</div>
+      <div class="nsum">Indian telecom analysts are signalling that a sector-wide tariff hike is imminent, after Bharti Airtel removed select entry-level prepaid data plans and Reliance Jio reintroduced its Jio Prime membership at ₹300, offering protection against price hikes until September 2027. In ARPU terms, Bharti Airtel leads the industry at ₹264, followed by Reliance Jio at ₹215.6 and Vodafone Idea at ₹177, with analysts expecting hikes to narrow the gap and boost operator revenues.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Quantum Computing Report / YourStory / The Quantum Insider</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's QpiAI Inaugurates India's First 8-Inch Quantum Chip Foundry, Targets 10,000-Qubit Processors by 2027</div>
+      <div class="nsum">Full-stack quantum and AI startup QpiAI has inaugurated an 8-inch quantum processing unit (QPU) manufacturing facility in Jakkur, Bengaluru, capable of fabricating flip-chip superconducting processors with up to 128 physical qubits. The company, backed by a $32 million Series A co-led by Avataar Ventures and India's National Quantum Mission, plans to expand the foundry to fabricate single QPUs containing up to 10,000 physical qubits by 2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PharmEasy Parent API Holdings Turns Debt-Free After Repaying ₹1,050 Crore in Outstanding Debt</div>
+      <div class="nsum">Digital healthcare platform API Holdings, the parent company of PharmEasy, Thyrocare, and Docon, has become debt-free after repaying outstanding debts worth ₹1,050 crore, funded through proceeds from a partial stake sale in Thyrocare Technologies and internal accruals. The milestone marks a significant financial turnaround for the startup, which had been under pressure from lenders following a prolonged post-IPO downturn.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Swiggy Launches 'Guru' — a 24x7 AI Business Partner for Restaurant Partners in 20+ Indian Languages</div>
+      <div class="nsum">Food delivery giant Swiggy has launched Guru, a conversational AI business partner designed to help restaurant partners make data-driven decisions, optimise sales funnels, and resolve operational queries around the clock. Available in more than 20 vernacular languages including Hindi, Kannada, and Telugu, Guru enables restaurants to manage advertising and discount campaigns through a conversational interface.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Just Security / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jared Kushner Holds Rare Meeting with Hamas in Egypt; Trump Calls on Israel to Halt Gaza Airstrikes</div>
+      <div class="nsum">Jared Kushner met with Hamas leadership in Egypt in a rare diplomatic effort to revive the stalled Gaza ceasefire, with the discussion focusing on the US 'Board of Peace' plan and clarifying American expectations of both parties. Even as Kushner met with Israeli PM Netanyahu, President Trump publicly called on Israel to stop its airstrikes in Gaza, citing Hamas's agreement to disarm — creating a visible tension in the US diplomatic position.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Just Security / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Launches 620 Drones at Moscow Overnight; Russian Missile Strike Kills 10 in Kharkiv Region</div>
+      <div class="nsum">Ukraine launched 620 drones at Moscow and surrounding areas overnight, according to Moscow Mayor Sergei Sobyanin, in one of the largest aerial assaults of the war. In a retaliatory exchange, a Russian missile attack killed 10 people in a village in Ukraine's Kharkiv region, underscoring the continued intensity of frontline hostilities despite ongoing US-mediated diplomatic efforts.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UN / Inquirer.net</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">World Humanitarian Day 2026 Observed at UN Geneva as Global Aid Community Marks August 19</div>
+      <div class="nsum">The United Nations marked World Humanitarian Day on August 19, 2026 with a special session at the Palais des Nations in Geneva, bringing together international aid organisations and policymakers to highlight the growing scale of humanitarian crises worldwide. The annual observance, held on the anniversary of the 2003 Baghdad Canal Hotel bombing, underscored the record numbers of people in need of humanitarian assistance across conflict zones and climate-affected regions.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 19 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
