@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 20, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 20 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 20 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line CMRS Safety Inspection Concludes, Passenger Launch Expected by September 2026</div>
+      <div class="nsum">The Commissioner of Railway Safety (CMRS) completed its final inspection of the 7.5-km elevated Pink Line stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road during August 12–14, 2026, marking the last statutory hurdle before passenger services can begin. BMRCL, which had originally targeted August 15 for commissioning, now expects to open the six-station elevated section by September 2026, with the 13.76-km underground section slated for December 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">H1N1 Outbreak Reported at Bengaluru Schools; BBMP Issues Health Advisory</div>
+      <div class="nsum">An H1N1 influenza outbreak has been detected at schools in Bengaluru, prompting the Bruhat Bengaluru Mahanagara Palike (BBMP) to issue a civic health advisory urging parents and school managements to monitor symptoms and maintain hygiene protocols. Health officials are conducting surveillance across affected zones to contain further spread among students and staff.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Parliament Update</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Releases ₹26,447 Crore to BMRCL for Metro Phases 2, 2A/2B and 3; Blue Line Hits 72.5% Progress</div>
+      <div class="nsum">The Central government has disbursed ₹26,447.27 crore to BMRCL for Phases 2, 2A/2B, and 3 of Namma Metro, as reported in Parliament by MP P C Mohan on August 7, 2026. The 58.19-km Blue Line connecting Silk Board to Kempegowda International Airport via Hebbal has recorded 72.5% physical progress, with trial runs on the KR Pura–HSR Layout section expected to begin by October 2026.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / The Print</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Revamps Youth Outreach Strategy as Gen Z Cockroach Protest Movement Continues to Simmer</div>
+      <div class="nsum">India's ruling BJP is overhauling its communications strategy to woo young voters after youth-led protests—sparked by exam paper leaks and high unemployment—shook the political establishment in July 2026, with protest organizers branding themselves the 'cockroach' movement after a senior official's disparaging remarks. Even as the party seeks to reconnect with young Indians, police continue to arrest protest organizers on public order charges, deepening the rift between the government and Gen Z.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / The Express Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Youth Unemployment Crisis Deepens: Nearly 40% of College Graduates Jobless, Azim Premji Report Finds</div>
+      <div class="nsum">The State of Working India 2026 report published by Azim Premji University found that nearly 40% of young college graduates are unemployed, underlining a structural crisis that analysts say is one of Prime Minister Modi's biggest political vulnerabilities. The underlying shortage of 'secure, well-paid jobs' has been identified by economists as the core driver behind the sweeping Gen Z protests that forced the resignation of the Education Minister in July 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Time / Politics Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Post-2026 State Elections, BJP Expands Political Map but Faces Generational Accountability Challenge</div>
+      <div class="nsum">Following the 2026 state election cycle, the BJP has broadened its electoral footprint, yet analysts warn that the rise of youth-led political movements signals a growing accountability challenge that electoral wins cannot resolve. The 'cockroach' movement, which began after exam scandals and unemployment grievances, has introduced a new symbolic repertoire of protest that political observers say could shape the road to the 2029 general elections.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slides Near 77,200 as Middle East Tensions and RBI Move Weigh on Indian Markets</div>
+      <div class="nsum">India's BSE Sensex closed flat-to-weak around the 77,200–77,300 range on August 18–19, 2026, dragged down by a risk-off mood triggered by escalating geopolitical tensions in West Asia, with Brent crude climbing above $91 per barrel on fears the US-Iran ceasefire had expired without renewal. Selling pressure was concentrated in IT and FMCG stocks—Infosys, HCL Tech, and Asian Paints led losses—while major lenders also slipped after the RBI closed its special FCNR(B) swap facility ahead of schedule.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata Sons AGM Adjourned as Ratan Tata Trust Blocked from Nominating Representative; Chandrasekaran Exit in Focus</div>
+      <div class="nsum">The Annual General Meeting of Tata Sons was forced to adjourn after the Sir Ratan Tata Trust, a key shareholder, was unable to nominate a representative due to a regulatory restriction imposed by Maharashtra's Charity Commissioner. The meeting had been called to consider the directorship of Tata Sons Chairman N Chandrasekaran, who has decided not to seek another term when his current tenure ends in February.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Telecom Tariff Hike Imminent: Airtel Removes Entry-Level Plans, Jio Reintroduces Prime Membership</div>
+      <div class="nsum">Analysts believe a fresh round of telecom tariff hikes is on the horizon after Bharti Airtel removed select entry-level prepaid data plans across 28–60 day validity, while Reliance Jio reintroduced the Jio Prime membership, signalling coordinated pricing moves across the sector. Bharti Airtel leads in ARPU at ₹264, ahead of Reliance Jio at ₹215.6 and Vodafone Idea at ₹177, with the expected hike seen as a key revenue lever for all three operators.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">explainx.ai / Inshorts / The Print</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Targets Trillion-Parameter Foundation Model, Expanding Full-Stack AI Platform After Epoch 2026 Conference</div>
+      <div class="nsum">Bengaluru-based Sarvam AI announced at its Epoch 2026 developer conference in late July that it is building a foundational model with over one trillion parameters from scratch, with co-founder Pratyush Kumar pledging a six-month launch timeline, and followed the announcement with twelve product launches spanning infrastructure, enterprise agents, and developer tools. The company, which raised $234 million at a $1.5 billion valuation, is positioning itself as India's sovereign AI platform, with partnerships spanning Swiggy for Voice AI, Microsoft for an Indic LLM on Azure, and the IndiaAI Mission's subsidized GPU compute.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / GSMA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's 5G Adoption Projected to Hit 62% by 2030, Outpacing Asia-Pacific Average: GSMA Report</div>
+      <div class="nsum">A new GSMA Mobile Economy Asia Pacific 2026 report projects India's 5G adoption will reach 62% by 2030, significantly ahead of the Asia-Pacific regional average of 50%, underlining India's rapid mobile network transition. The report also highlighted India's focus on cybersecurity, a 6G spectrum roadmap, and the Digital Personal Data Protection Rules as key pillars supporting the country's broader digital economy ambitions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / explainx.ai</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raised $676 Million in H1 2026, Nearly Four Times H1 2025 Levels</div>
+      <div class="nsum">Indian AI startups raised $676 million in the first half of 2026, nearly four times the capital raised in the same period the previous year, according to Inc42's Indian Tech Startup Funding Report H1 2026, reflecting surging investor confidence in the sector. The funding boom is being driven by applications spanning AI-powered healthcare, edtech, enterprise productivity, and deeptech, with founders increasingly deploying capital into difficult real-world AI integration challenges rather than using AI merely as a surface feature.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Washington Post / CNN / Democracy Now</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israeli Airstrikes Kill at Least 10 in Gaza, Casting Fresh Doubt on Ceasefire Progress Days After Kushner Visit</div>
+      <div class="nsum">Deadly Israeli airstrikes in Gaza on August 19–20, 2026, killed at least 10 people across two strikes, including a 13-year-old boy and his father, just two days after US negotiators reportedly asked Israel to draw down attacks in the territory. The strikes came a day after Trump envoy Jared Kushner concluded talks with Prime Minister Netanyahu and Hamas officials in Egypt, with Hamas calling the attacks a 'clear defiance of mediators' efforts' and demanding the US compel Israel to honor the ceasefire roadmap.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Havana Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UAE Detects Missile Threat as US-Iran Strait of Hormuz Standoff Intensifies; Trump Rules Out Talks with Tehran</div>
+      <div class="nsum">The UAE's National Emergency Crisis and Disaster Management Authority detected and intercepted a missile threat targeting the country on August 18, 2026, amid ongoing Iranian hostilities linked to the months-long Strait of Hormuz crisis that began in late February. President Trump flatly denied any talks were underway or scheduled with Iran, even as Qatar voiced support for Oman-mediated diplomatic efforts and called a ceasefire and freedom of navigation 'the only way forward.'</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Havana Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Federal Judge Revokes Temporary Protected Status for 5,000 Ethiopian Immigrants, Clearing Path for Deportations</div>
+      <div class="nsum">A US District Judge in Boston sided with the Trump administration on August 19, 2026, to revoke Temporary Protected Status (TPS) for more than 5,000 Ethiopian immigrants, lifting the final legal block on efforts to end TPS for individual countries. The ruling follows the Supreme Court's earlier termination of TPS protections for Haitian and Syrian immigrants, with the Trump administration now having moved to end TPS for at least 13 of 17 qualifying countries since returning to office.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 20 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
