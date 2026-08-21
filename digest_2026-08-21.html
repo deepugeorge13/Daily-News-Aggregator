@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 21, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 21 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 21 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Nativeplanet</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Awaits Final Safety Approvals as August Deadline Slips</div>
+      <div class="nsum">The Pink Line's first phase — a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road — has missed its August 15 inauguration target as BMRCL awaits Railway Board approval for the signalling system and an Interim Speed Certificate from RDSO. The Centre has so far released ₹26,447 crore to BMRCL for Phases 2, 2A/2B and 3, while the 58 km Blue Line (Silk Board–KIA) has recorded 72.5% physical and 70.17% financial progress.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Goodreturns / IMD–KSNDMC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Multi-Day Alert for Bengaluru as Active Monsoon Brings Thunderstorms and Strong Winds</div>
+      <div class="nsum">The India Meteorological Department and Karnataka State Natural Disaster Monitoring Centre have issued weather warnings from August 20–24 for thunderstorms, lightning, squally conditions and winds of 30–40 kmph across Karnataka, including Bengaluru. The city recorded 3.1 mm of rainfall in the preceding 24 hours, with relative humidity at 85%, as Kodagu, Chikkamagaluru, Shivamogga and Hassan continue to receive heavy rainfall in the Malnad ghat areas.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bangalore News Network</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Governor Administers Oath to Six New Additional Judges of High Court</div>
+      <div class="nsum">Karnataka Governor Thaawarchand Gehlot administered the oath of office to six newly appointed Additional Judges of the Karnataka High Court, strengthening the bench's capacity to address the state's pending caseload. The swearing-in ceremony was held at Raj Bhavan, Bengaluru, and was attended by senior members of the judiciary and legal fraternity.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / NTV Telugu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Chairs Third High-Level Meeting with Central Government Secretaries, Urges Focus on Building Tomorrow's India</div>
+      <div class="nsum">Prime Minister Narendra Modi on August 20 chaired his third high-level meeting with secretaries to the Government of India, urging top officials to think beyond immediate priorities and work towards the long-term vision of a Viksit Bharat by 2047. The meeting followed Japan's Defence Minister calling on PM Modi the same day, signalling active diplomatic and administrative engagements in the run-up to the Monsoon Session of Parliament.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Business Standard / Dawn / AFP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nine Killed Including Bangladeshi Nationals in Kolkata Hotel Fire, PM Modi Announces Ex-Gratia</div>
+      <div class="nsum">A fire broke out at the budget Shika Inn hotel on Mirza Ghalib Street in central Kolkata in the early hours of August 19, killing nine people including a child, with investigators suspecting a faulty air conditioner as the cause; about 30 people were evacuated safely. Prime Minister Modi expressed deep sorrow, announced ex-gratia relief from the PMNRF for victims' families, and called for the speedy recovery of the injured.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Q1 FY27 GDP Growth Seen at 7–8% Despite West Asia Conflict Headwinds</div>
+      <div class="nsum">SBI Research has estimated India's GDP growth at approximately 8% for Q1 FY27, higher than the RBI's own projection of 7%, citing broad-based momentum in services, manufacturing and robust bank credit growth of 17.7%. India Ratings &amp; Research, however, projected a slower 6.8% growth for the full FY27, citing risks from fuel and food inflation linked to the ongoing West Asia conflict, a weakening rupee, and potential El Niño impact on agriculture.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex and Nifty Eye Positive Open on August 21 as GIFT Nifty Signals Recovery</div>
+      <div class="nsum">On Friday, August 21, GIFT Nifty signals a mildly positive opening for Indian equity benchmarks after the Nifty50 bounced back from a key support zone near 24,000, with analysts eyeing the 24,250–24,450 range as the next resistance zone. Asia-Pacific markets traded mixed following a steep overnight decline on Wall Street, as elevated US Treasury yields and geopolitical uncertainty over the US–Iran conflict continue to cap gains.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Foreign Investors Pull Record $25 Billion from Indian Equities in 2026 Amid Oil Price Surge</div>
+      <div class="nsum">Foreign portfolio investors have withdrawn a record $25 billion from Indian markets so far in 2026, with sentiment weighed down by elevated crude oil prices, rising global bond yields, and geopolitical uncertainty surrounding the US–Iran conflict and fears over the Strait of Hormuz. The BSE Sensex closed August 20 at 77,452, gaining 0.71% on the day, but remains down 5.55% compared to the same period last year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $676 Million in H1 2026, Nearly Four Times Year-Ago Levels</div>
+      <div class="nsum">According to Inc42's Indian Tech Startup Funding Report for H1 2026, Indian AI startups have raised $676 million in the first six months of the year, nearly four times the amount raised in the same period last year, reflecting a surge in investor confidence in the sector. The IndiaAI Mission, backed by a ₹10,300 crore outlay, is simultaneously supporting around 20 indigenous sovereign AI model proposals and building a public dataset platform with subsidised GPU access for startups.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Next AI Layer: From Healthcare Data to Enterprise Workflows, New Startups Move Beyond GPT Clones</div>
+      <div class="nsum">Inc42's latest edition of AI Startups to Watch highlights Indian founders building AI infrastructure, domain-specific data pipelines, and enterprise workflow tools rather than replicating general-purpose models — signalling a maturing AI ecosystem ahead of India's 80th Independence Day. The IndiaAI Mission is backing 12 large and 8 small language models as part of its sovereign AI push, while also providing subsidised compute access and a public dataset platform to reduce key bottlenecks for Indian AI builders.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Dailyhunt</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NASSCOM Signs Agentic AI and Deeptech MoU with Dubai Authority; T-Hub Selects Eight Indian Startups for Japan Market Entry</div>
+      <div class="nsum">NASSCOM has signed a memorandum of understanding with Dubai's technology authority to establish a framework for collaboration in agentic AI and deeptech, covering market access, B2B meetings, and innovation initiatives for Indian companies expanding into the UAE. Separately, T-Hub and Japan's Oki Electric Industry have shortlisted eight Indian deeptech startups — out of more than 150 applicants — for a programme focused on water infrastructure and logistics, aimed at helping them enter the Japanese market.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">AI Voice Startup Wispr Raises $280 Million, Valuation Nearly Triples to $2 Billion</div>
+      <div class="nsum">AI voice startup Wispr has raised $280 million in a fresh funding round, nearly tripling its valuation to $2 billion, underscoring strong investor appetite for voice-AI infrastructure plays in both Indian and global markets. The funding comes amid a broader surge in AI investment in India, where deep-tech and agentic AI companies are increasingly attracting large-ticket backing from domestic and international venture funds.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PBS NewsHour / AP / Japan Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">North Korea Fires Barrage of ~10 Ballistic Missiles Hours After Trump Floats Kim Meeting</div>
+      <div class="nsum">North Korea launched approximately 10 short-range ballistic missiles toward the Sea of Japan on August 20, just hours after U.S. President Donald Trump announced plans to meet North Korean leader Kim Jong Un later this year, in what analysts described as a deliberate rebuff of the diplomatic overture. South Korea's Joint Chiefs of Staff detected the launches from the Pyongyang capital region, and the missiles flew roughly 300 km each, falling outside Japan's exclusive economic zone.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Washington Times / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sheikh Hasina Vows to Return to Bangladesh in December Despite Death Sentence</div>
+      <div class="nsum">Former Bangladeshi Prime Minister Sheikh Hasina, living in exile in New Delhi since being ousted in August 2024, announced on August 5 that she plans to return to Bangladesh in December 2026, declaring she is prepared to face arrest or imprisonment despite her in-absentia death sentence for crimes against humanity. Bangladesh's newly elected BNP government under Prime Minister Tarique Rahman has reiterated its demand that India extradite Hasina, while India's Ministry of External Affairs says it is still 'examining the matter.'</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Wikipedia – Current Events</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Europe Gripped by Record Summer of Five Heat Waves; Amazon Deforestation Hits Nine-Year Low</div>
+      <div class="nsum">Europe has endured five separate heat waves this summer, breaking continental temperature records and sparking drought and wildfires, with political parties across the continent capitalising on voter anxiety about extreme weather linked to human-made climate change. Meanwhile, Brazil's National Institute for Space Research reported that Amazon deforestation fell to 2,874 sq km between August 2025 and July 2026 — a 37% annual decline and the lowest level recorded since satellite monitoring began in 2016.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 21 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
