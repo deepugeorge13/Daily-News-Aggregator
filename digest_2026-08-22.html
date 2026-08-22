@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 22, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 22 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 22 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Misses August 15 Launch, Final Safety Approvals Still Awaited</div>
+      <div class="nsum">The first phase of Bengaluru's Pink Line — a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road with six stations — has missed its most recent target launch date of August 15. BMRCL's new Managing Director stated that the Commissioner of Metro Rail Safety (CMRS) is currently inspecting newly delivered trainsets and verifying their integration with the signaling system before passenger services can begin.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / Metro Rail News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru-Based River Mobility Raises $120 Million, Tops India Startup Funding Chart for August</div>
+      <div class="nsum">Bengaluru-based electric two-wheeler maker River Mobility led Indian startup funding in the first week of August 2026, raising $120 million from Elev8 Venture Partners and Claypond Capital — accounting for nearly 48% of the total $252 million raised by 23 Indian startups that week. The funding underscores Bengaluru's continued dominance as India's primary EV and deep-tech startup hub.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NoBroker / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BBMP-BMRCL Joint ₹9,800 Crore Peripheral Ring Road-Metro Corridor Project Gains Momentum</div>
+      <div class="nsum">A joint venture between BBMP and BMRCL, the ₹9,800 crore Peripheral Ring Road project will span 32.15 km along the Outer Ring Road and feature an integrated road and metro corridor connecting North and South-East Bengaluru. The project is expected to significantly decongest the Outer Ring Road and boost real estate values from JP Nagar to Hebbal, with Cushman &amp; Wakefield recording a 12% rise in housing demand near new metro corridors in Q1 2026.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / News on Air</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Union Cabinet Holds Briefing on Key Policy Decisions, Approvals Across Multiple Sectors</div>
+      <div class="nsum">The Union Cabinet held its latest briefing on August 19, 2026, covering decisions across infrastructure, social welfare, and economic policy. The Cabinet has been on an active legislative and approval calendar through August, with briefings also held on August 6 and July 31, reflecting the government's push on key pre-monsoon session priorities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Marks 35 Years of Economic Liberalisation with Policy Retrospectives and New Reform Debates</div>
+      <div class="nsum">As India completes 35 years since the landmark 1991 economic reforms, analyses across major publications are assessing which sectors — including IT, telecom, pharma, and aviation — emerged as the biggest winners of liberalisation. India now has over 1.34 billion telephone subscribers with a tele-density of 94.3%, while the government faces fresh calls to deepen the next phase of structural reforms amid global headwinds.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / India.gov.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SC Takes Up CBSE Language Policy Case; Anti-Reservation Protests Flare Across India</div>
+      <div class="nsum">The Supreme Court has taken up a case concerning CBSE's language policy, adding to a volatile week for education-related legal and civic disputes in the country. Separately, anti-reservation protests have been reported across multiple states, appearing as a prominent trending issue on major national news platforms ahead of upcoming state assembly elections.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / ICICI Direct</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Ends Week at 77,522 as Crude Oil Prices and Global Bond Pressure Cap Gains</div>
+      <div class="nsum">The BSE Sensex closed Friday, August 21, marginally lower at 77,522 points, with the week's performance dragged by losses in Maruti Suzuki, Infosys, and Tech Mahindra, while Power Grid, Nestle India, and Kotak Mahindra Bank provided support. Elevated crude oil prices hovering near one-month highs remained a key concern for Indian equities, given their potential impact on inflation and India's import bill.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndiaBonds / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25% in August MPC Meet, Flags West Asia Conflict and Inflation Risks</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee unanimously held the repo rate at 5.25% at its August 3–5 meeting, maintaining a neutral stance amid global volatility driven by persistent inflation and the resumption of conflict in West Asia in July. The RBI highlighted sharp market swings, a hawkish US Federal Reserve, and volatile oil prices as significant downside risks to the global economic outlook.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">StartupTalky / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Atomberg Files ₹450 Crore IPO Draft With SEBI; Gold Hits Record ₹1,61,030 Per 10g</div>
+      <div class="nsum">Consumer appliance maker Atomberg Technologies filed its draft red herring prospectus with SEBI for an IPO comprising a ₹450 crore fresh issue along with an offer for sale of up to 7.65 crore shares, with investors A91 Partners, Temasek, and Jungle Ventures taking a partial exit. Meanwhile, 24K gold in India touched a fresh record high of ₹1,61,030 per 10 grams on August 21, as Comex prices surged sharply.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">StartupTalky / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Rolls Out AI-Powered JEE and NEET Prep Tools; Zomato Co-Founder Goyal's Temple Wearable Targets $500 Million Valuation</div>
+      <div class="nsum">Google launched AI-powered preparation tools specifically for JEE and NEET aspirants in India, marking a major push into the high-stakes education segment. Separately, Zomato co-founder Deepinder Goyal unveiled a miniaturised version of his brain-monitoring wearable device Temple, designed to measure cerebral blood flow, with the startup seeking fresh funding at a $500 million valuation ahead of a commercial launch planned for end-2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Tracxn</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise Record $1.34 Billion in 2026 So Far, Surpassing All Prior Annual Totals</div>
+      <div class="nsum">Indian AI startups have raised $1.34 billion in equity funding across 66 rounds in 2026 up to August, making it the highest-funded year for AI in India on record, according to Tracxn data. In the first half of 2026 alone, Indian AI startups raised $676 million — nearly four times the amount raised during the same period in the previous year, reflecting a sharp acceleration in investor conviction in the sector.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NASSCOM Signs MoU with Dubai for Agentic AI and Deeptech Collaboration; T-Hub Selects 8 Indian Startups for Japan Market Entry</div>
+      <div class="nsum">NASSCOM signed a memorandum of understanding with Dubai establishing a framework for collaboration in agentic AI and deeptech, including market access for Indian companies seeking to expand into the UAE, with a focus on accelerating private-sector adoption of advanced AI. In a separate initiative, T-Hub and Japan's Oki Electric Industry selected eight Indian deeptech startups — chosen from over 150 applications — to validate technologies and explore commercial opportunities in Japan through the PACE solution accelerator.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / NBC News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Evergrande Founder Hui Ka Yan Sentenced to Life in Prison by Chinese Court for Fraud</div>
+      <div class="nsum">A Shenzhen court sentenced Hui Ka Yan, founder of China Evergrande Group, to life in prison on August 20 for financial fraud, bribery, and embezzlement, with the companies fined a combined $2.3 billion for inflating assets and concealing over $300 billion in liabilities. More than 50 Evergrande executives, including Hui's sons, were also handed prison terms of up to 18 years, marking the culmination of one of China's largest corporate collapses.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Jerusalem Post / Washington Times / Long War Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel Strikes Syrian Airbase at Abu al-Duhur to Block Turkish Military Deployment, Escalating Israel-Turkey Tensions</div>
+      <div class="nsum">Israel carried out eight airstrikes on the Abu al-Duhur military airbase in northwestern Syria's Idlib province on August 17–18, saying Syria was on the verge of breaching a security status quo by permitting Turkish troops to deploy near Aleppo. Turkey condemned the strikes as reckless and a violation of Syrian sovereignty, while the US expressed deep concern and has been working to broker trilateral de-escalation talks between Syria, Israel, and the United States.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / OPB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Prince Harry and Meghan to Return to UK for Extended Stay This Fall, Will Not Resume Royal Duties</div>
+      <div class="nsum">Prince Harry and his wife Meghan, the Duke and Duchess of Sussex, have decided to return to the United Kingdom for an extended stay beginning this autumn, their spokesperson confirmed on August 20. The couple will not, however, resume their roles as working members of the British Royal Family, maintaining the arrangement that has been in place since their 2020 departure from royal duties.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 22 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
