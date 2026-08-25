@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 25, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 25 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 25 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BengaluruMetro.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Misses August 15 Deadline, Launch Now Expected Late August or Early September</div>
+      <div class="nsum">The 7.5-km elevated section of Bengaluru's Pink Line between Kalena Agrahara and Tavarekere has missed yet another launch target after the CMRS safety inspection concluded on August 14 without granting clearance, with the signalling system's Independent Safety Assessment (ISA) certificate still pending. BMRCL officials now indicate a late August or early September 2026 opening window once the final ISA certificate and formal CMRS clearance are received.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MetroRailNews.in / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Releases ₹26,447 Crore to BMRCL for Metro Phases 2, 2A/2B and 3; Blue Line Hits 72.5% Progress</div>
+      <div class="nsum">The Central Government has released ₹26,447.27 crore to BMRCL for ongoing metro phases, with the 58.19-km Blue Line corridor from Silk Board to Kempegowda International Airport via Hebbal recording 72.5% physical progress and 70.17% financial progress. BMRCL is also pursuing a feasibility-approved Yellow Line extension of 10.5 km with 9 new stations from Bommasandra to Attibele, bringing Bengaluru closer to a cross-border metro connection with Tamil Nadu.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BlitzIndiaMedia / Ministry of Tribal Affairs</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Mysuru Hosts Three-Day National Conclave on Tribal Languages and Museums</div>
+      <div class="nsum">The Ministry of Tribal Affairs opened a three-day National Conclave on Tribal Languages and Museums in Mysuru on August 24, focusing on documentation, preservation, and revitalisation of tribal languages across India. The Karnataka leg of the conclave is being seen as a significant cultural event for the state, with Mysuru selected as the venue to highlight its historical and cultural significance to tribal heritage.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BlitzIndiaMedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EAM Jaishankar Meets Putin in Moscow, Russia Offers to Boost Fertiliser Exports to India</div>
+      <div class="nsum">External Affairs Minister S. Jaishankar co-chaired the 27th session of the India-Russia Inter-Governmental Commission in Moscow on August 24, where Russian President Vladimir Putin offered to increase fertiliser supplies to India's agricultural sector and noted that bilateral trade rose in the first half of 2026 after a decline in 2025. Jaishankar stressed that addressing the widening trade imbalance — which has grown from $6.6 billion to over $50 billion in Russia's favour — is a foremost priority, with India aiming for $100 billion in bilateral trade by 2030.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BlitzIndiaMedia / Govt of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's July 2026 Merchandise Exports Hit Record $44.24 Billion, Up 19.63% Year-on-Year</div>
+      <div class="nsum">India's merchandise exports reached $44.24 billion in July 2026, the highest ever recorded for any July, rising 19.63% year-on-year and marking a new milestone for the country's trade performance. Petroleum products and electronics together accounted for approximately 68% of the entire year-on-year increase, underscoring the growing role of these sectors in India's export growth story.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BlitzIndiaMedia / PIB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Marks National Space Day, Calls on Space Startups to Draw Global Talent to India</div>
+      <div class="nsum">On National Space Day (August 23), commemorating Chandrayaan-3's historic lunar south pole landing in 2023, Prime Minister Modi met with CEOs and founders of 20 space startups and urged them to build an ecosystem strong enough to attract global talent to India rather than losing it abroad. The message reinforced the government's push to make India a global hub for space-tech innovation, backed by policy reforms and increased private participation in the sector.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Equity Capital Market on Track for Record August with Nearly $10 Billion in Deals Priced</div>
+      <div class="nsum">India's equity capital market is heading for its best month on record in August 2026, with almost $10 billion in deals priced, led by the government's blockbuster $3.2 billion sale of shares in Life Insurance Corporation of India. The record dealmaking has been fuelled by the growing heft of domestic mutual funds and insurers, strong retail investor participation, and a return of global funds, with Manipal Health Enterprises' $958 million IPO also boosting the monthly tally.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India Infoline / Chittorgarh</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Government Completes ₹31,410 Crore LIC Stake Sale via OFS, Largest Disinvestment of FY27</div>
+      <div class="nsum">The Government of India sold up to a 6.5% stake in Life Insurance Corporation of India via an Offer for Sale at a floor price of ₹382 per share, raising approximately ₹31,410 crore in what is set to be the largest contributor to the government's FY27 disinvestment receipts. The sale, which closed earlier in August, also helps LIC inch toward the SEBI-mandated public shareholding target of 10% by May 2027 and 25% by 2032.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Pulse by Zerodha / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Housing Sales in India's Top 8 Cities Fall 6.1% Year-on-Year in Q2 2026 Amid Elevated Prices</div>
+      <div class="nsum">Residential housing sales across India's top eight cities declined 6.1% year-on-year to 91,729 units in the second quarter of 2026, even as average property prices remained above ₹10,000 per square foot in most markets. The dip signals a moderation in demand after the strong post-pandemic housing upcycle, with affordability pressures cited as a key factor dampening buyer sentiment in premium and mid-segment markets.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Healthify Merges with US-Based Berry Street to Build AI Metabolic Health Platform</div>
+      <div class="nsum">Bengaluru-based healthtech startup Healthify (formerly HealthifyMe), backed by Khosla Ventures, has merged with US nutrition-care company Berry Street in an all-stock deal to build what the companies describe as the largest insurance-covered AI metabolic health platform in the United States. The combined entity will operate under the Berry Street brand in the US and the Healthify brand in India, co-led by founders Tushar Vashisht and Noah Kotlove, with the deal driven by surging demand for nutrition support among users of GLP-1 weight-loss drugs.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Battery Smart Raises $19.5 Million at $430 Million Valuation in Latest Funding Round</div>
+      <div class="nsum">Indian EV battery-swapping startup Battery Smart has raised $19.5 million in a fresh funding round at a valuation of $430 million, reinforcing investor confidence in India's electric-vehicle infrastructure sector. The round comes as the startup expands its network of battery-swapping stations across Indian cities to support the growing fleet of electric two- and three-wheelers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / IndiaAI Mission</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's IndiaAI Mission Selects 12 Startups Including Sarvam AI and BharatGen for Homegrown LLM Development</div>
+      <div class="nsum">Under the IndiaAI Mission, 12 startups and institutions — including Sarvam AI, Gnani AI, BharatGen (IIT Bombay), Fractal Analytics, and Tech Mahindra Maker's Lab — have been selected to develop large multimodal AI models trained on Indian data and languages to ensure self-reliance in AI. India has also onboarded over 38,000 high-end GPUs available at ₹65 per hour — roughly one-third of the global average cost — to democratise access to AI computing infrastructure for startups and researchers.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR / CSMonitor</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Treasury Launches 'Economic D-Day' Operation Against Iran, Threatens Secondary Sanctions on Trade Partners</div>
+      <div class="nsum">US Treasury Secretary Scott Bessent on August 24 announced Operation Economic Outcast, a sweeping sanctions campaign dubbed 'Economic D-Day' aimed at severing Iran's remaining financial lifelines, with warnings to all countries and entities that continue doing business with Tehran. Iran's leadership threatened to halt all oil exports from the Persian Gulf and treat foreign support for US sanctions as an 'act of war', while Bessent stopped short of immediately imposing secondary sanctions, framing the announcement as a 'warning shot'.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Washington Post / Al Jazeera / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Imposes 50% Tariffs on $20 Billion in Canadian Goods After Trade Talks Collapse</div>
+      <div class="nsum">The United States imposed 50% tariffs on approximately $20 billion worth of Canadian exports — including cars, dairy, alcohol, wine, and furniture — after a potential US-Canada trade deal fell apart at the last minute, with the White House citing Canada's 'discriminatory treatment' of US products. Canadian Prime Minister Mark Carney called the move 'a miscalculation' and announced retaliatory tariffs on US goods to take effect on September 8, vowing to match the duties 'dollar for dollar'.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Morning Star / Havana Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bangladesh Tribunal Orders Three Journalists Jailed Amid Mass Uprising Trial; Indonesia Wildfires Spread</div>
+      <div class="nsum">A special tribunal in Dhaka ordered three journalists — including the editor-in-chief of Ekattor Television and the editor of daily Bhorer Kagoj — to remain jailed pending trial over their alleged roles in coverage related to the 2024 mass uprising that ousted former Prime Minister Sheikh Hasina. Separately, Indonesia intensified ground and aerial firefighting operations on August 24 as massive blazes in central and western parts of the country scorched thousands of acres of forests and peatland, creating choking haze that blanketed cities and crossed international borders.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 25 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
