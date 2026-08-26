@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 26, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 26 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 26 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail Guy / metrorailnews.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Awaits Final Safety Approvals as BMRCL Pushes for August Launch</div>
+      <div class="nsum">The Bangalore Metro Pink Line's first phase — a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road — has missed several launch dates, including the August 15 Independence Day target. BMRCL's new Managing Director stated that the Railway Board's approval for the signalling system is expected imminently, after which the Research Designs and Standards Organisation (RDSO) will issue the Interim Speed Certificate before passenger services can begin.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Monsoon Pothole Menace Returns, BBMP Scrambles to Fill Over 6,000 Craters</div>
+      <div class="nsum">Incessant monsoon rains have washed away recently patched asphalt across Bengaluru, with potholes resurfacing on key stretches including Magadi Road, Dr Rajkumar Road, and roads in RR Nagar, drawing a flood of complaints to BBMP. The civic body has acknowledged filling close to 3,900 of the 4,545 potholes flagged by Bengaluru Traffic Police, with officials citing fewer than 15 dry working days over the past 90 days as the main impediment to faster repairs.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Government of Karnataka</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka CM DK Shivakumar Expands Cabinet with New Portfolio Allocations</div>
+      <div class="nsum">The Government of Karnataka effected fresh portfolio allocations following the Governor's notification of 12 August 2026, as part of a cabinet expansion under Chief Minister DK Shivakumar, who assumed office on 3 June 2026 succeeding Siddaramaiah. One inductee, Gayathri Shanthegowda — cleared by the Congress high command for the August expansion — had not yet taken her ministerial oath pending her own swearing-in as an MLC.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / NextIAS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Marks 80th Independence Day with 'Naya Bharat' Theme and All-Indigenous Display at Red Fort</div>
+      <div class="nsum">Prime Minister Narendra Modi addressed the nation from the ramparts of the Red Fort on 15 August 2026 for the twelfth consecutive year, delivering a speech highlighting India's growing role of women in nation-building and calling on Indian pharma companies to enter the global top five. In a historic first, all equipment used in the Red Fort Independence Day ceremony was indigenously built in India, underscoring the government's Atmanirbhar Bharat defence push.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / CBDT</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CBDT ITR Deadline of August 31 Looms for Non-Audit Business Taxpayers</div>
+      <div class="nsum">The Central Board of Direct Taxes extended the income tax return filing deadline from July 31 to August 31, 2026 for non-audit businesses and professionals — including freelancers, consultants, and small business owners filing ITR-3 and ITR-4 — under amendments introduced by the Finance Act 2026. Tax experts have urged eligible taxpayers not to wait until the last day, warning that portal congestion and last-minute errors could delay refund processing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">FocusEconomics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25% for Fourth Consecutive Meeting, Lifts GDP Growth Forecast</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee unanimously held the policy rate at 5.25% at its August 3–5 meeting, marking the fourth successive pause, with Governor Sanjay Malhotra attributing a brief rise in inflation above the 4% target to temporary supply-side factors linked to the Hormuz Strait energy shock. The RBI simultaneously raised its FY 2026 GDP growth projection to 6.7% from 6.6%, citing resilient domestic demand and robust exports.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Press Insider / AirInsight</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Air India Posts Record $2.8 Billion Annual Loss, Seeks Fresh Funds from Tata and Singapore Airlines</div>
+      <div class="nsum">Air India Group disclosed a net loss of approximately $2.8 billion for the fiscal year ending March 2026 — its worst-ever result — driven by route disruptions from the Iran conflict, Pakistan airspace closure, supply chain delays in cabin refurbishment, and the aftermath of the Dreamliner crash. The Tata-owned carrier has sought shareholder support from Tata Sons and Singapore Airlines, which owns a 25.1% stake, while CEO Campbell Wilson's resignation further clouds the turnaround timeline.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IRFC Faces Rs 549 Crore GST Show-Cause Notice; TCS, ICICI Bank Among Stocks to Watch on August 26</div>
+      <div class="nsum">Indian Railway Finance Corporation received a show-cause notice worth Rs 549 crore from GST authorities, with the key dispute centred on an alleged excess input tax credit of Rs 305.38 crore for FY23, though the company stated there is no immediate financial impact. Several other stocks are in focus on Wednesday including TCS, ICICI Bank, Piramal Finance, and Can Fin Homes — whose board meets August 29 to consider raising up to Rs 5,000 crore via private placement.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Marks 35 Years of Economic Liberalisation; Fertiliser Stocks Rally on Russia Supply Pledge</div>
+      <div class="nsum">India this week commemorated the 35th anniversary of the 1991 economic liberalisation, with analysts examining which sectors emerged as the biggest long-term winners from opening up the economy. Separately, fertiliser stocks were in focus after Russian President Vladimir Putin pledged to increase fertiliser supplies to India, adding a fresh catalyst to a sector already supported by strong domestic agricultural demand.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">imfounder.com / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Cross $1 Billion in H1 2026 Funding; Sarvam AI Leads with $234 Million Round</div>
+      <div class="nsum">Indian AI startups raised $1.067 billion across 157 deals in the first half of 2026 — up 33% year-on-year — with Bengaluru-based Sarvam AI leading the pack on a $234 million round built around multilingual models covering all 22 official Indian languages. Capital is also spreading beyond language models into chips and vision systems, signalling a maturing of India's AI ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">imfounder.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Maharashtra Announces Rs 500 Crore AI Startup Venture Fund and 12 New Incubators Under AI Policy 2026</div>
+      <div class="nsum">Maharashtra unveiled its AI Policy 2026, proposing a dedicated Rs 500 crore AI Startup Venture Fund and the establishment of 12 new AI incubators across the state, alongside fresh incentives designed to attract domestic and global AI industry players. The policy is being seen as a direct attempt to compete with Karnataka's Bengaluru as India's premier AI innovation hub.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Meta Releases Glimmer Open-Weight AI Model as Zuckerberg Champions Accessible AI</div>
+      <div class="nsum">Meta released Glimmer, a new open-weight AI model that anyone can download and run on their own hardware, contrasting it with the company's more powerful Muse Spark model locked behind proprietary APIs. The release was accompanied by a letter from CEO Mark Zuckerberg arguing that AI should be 'for everyone' rather than controlled by a handful of frontier labs, a move that intensifies competition with OpenAI and Google.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Washington Post / Blakes</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Canada Pledges Dollar-for-Dollar Counter-Tariffs as US-Canada Trade War Deepens</div>
+      <div class="nsum">Canada pledged to roll out dollar-for-dollar counter-tariffs on scores of US goods after trade negotiations between Washington and Ottawa collapsed over the weekend, following President Trump's signing of proclamations imposing 50% tariffs on a broad range of Canadian products that took effect on August 22. The escalating trade war is adding fresh shocks to US midterm elections already dominated by consumer price concerns, with analysts warning of significant disruption to North American supply chains.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indonesia Battles Catastrophic Wildfires as Haze Blankets Sumatra and Kalimantan, Spreading to Malaysia</div>
+      <div class="nsum">Massive forest and peatland fires have scorched over 36,000 hectares across 10 Indonesian provinces, generating choking haze that has blanketed cities in Sumatra and Kalimantan and crossed borders into Malaysia and Brunei. Indonesian police have arrested 72 people suspected of starting the blazes, while President Prabowo Subianto toured fire-affected regions and deployed 30 cloud-seeding aircraft over Kalimantan and 22 water-bombing helicopters over Sumatra to intensify firefighting operations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UK PM Burnham Visits Kyiv on Ukraine Independence Day, Pledges SCALP Missile Parts</div>
+      <div class="nsum">British Prime Minister Andy Burnham travelled to Kyiv on August 25 to mark Ukraine's Independence Day, where he announced that UK defence firm MBDA will release details on British-made components for the SCALP cruise missile to allow Ukraine to assemble the weapons domestically. The visit underscored continued Western support for Ukraine's defence capabilities amid the ongoing conflict.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 26 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
