@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 27, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 27 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 27 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Civic Bodies Launch Citywide Clean-Up of Trash-Filled Vacant Plots from August 27</div>
+      <div class="nsum">Bengaluru civic authorities kicked off a major clean-up drive on August 27 to clear garbage from vacant plots after only 20% of property owners complied with the August 22 deadline. GBA, revenue officials, and BSWML are coordinating efforts, with the cost of cleaning to be recovered from non-compliant property owners on the orders of Minister Krishna Byre Gowda.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bengaluru Metro / Deccan Herald / One India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Awaits Final Safety Clearance for Late-August or September Launch</div>
+      <div class="nsum">BMRCL's 7.5-km elevated Pink Line stretch between Kalena Agrahara and Tavarekere has cleared RDSO speed trials and CMRS physical inspection, but the sole remaining bottleneck is the Independent Safety Assessment (ISA) certificate for the CBTC signalling system. All six elevated stations are physically complete, and BMRCL expects to launch the corridor for passengers in late August or early September 2026 once the certificate is issued.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Releases ₹26,447 Crore to BMRCL for Metro Phases 2, 2A/2B and 3; Blue Line Hits 72.5% Physical Progress</div>
+      <div class="nsum">The Central Government has disbursed ₹26,447.27 crore to Bangalore Metro Rail Corporation Limited to fund the ongoing Phase 2, 2A/2B, and Phase 3 expansion projects. The 58.19-km Blue Line connecting Silk Board to Kempegowda International Airport has recorded 72.5% physical progress and 70.17% financial progress, with trial runs on the KR Pura–Marathahalli stretch planned for October 2026.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PM India / Mumbai Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Addresses Khelo India Dialogue on National Sports Day, Connects Youth to Viksit Bharat Vision</div>
+      <div class="nsum">Prime Minister Narendra Modi addressed the 'Khelo India Dialogue' via video conferencing on August 27 at 11 AM, engaging youth from two colleges in every district across all states and Union Territories. The event, organised by Mera Yuva Bharat as part of National Sports Day celebrations, focused on sports, youth leadership, civic duty, and building a Developed India by 2047.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Monsoon Session 2026 of Parliament Concludes with 12 Bills Passed, Including Public Examinations Amendment Act</div>
+      <div class="nsum">The Monsoon Session 2026 of Parliament, which ran from July 20 to August 13, concluded with 12 bills passed by both Houses in 19 sittings over 25 days. Key legislation included the Public Examinations (Prevention of Unfair Means) Amendment Bill, 2026, and bills replacing the Supreme Court (Number of Judges) Amendment Ordinance and the Income-Tax (Amendment) Ordinance, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / PM India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Urges Citizens to Reduce Gold Purchases and Foreign Travel to Conserve Foreign Exchange Amid West Asia Crisis</div>
+      <div class="nsum">Prime Minister Narendra Modi made seven public appeals urging citizens to avoid discretionary foreign spending, including refraining from buying gold for a year and curtailing foreign travel, as India navigates the economic fallout from the ongoing West Asia crisis. The appeals come as India contends with elevated energy prices, supply chain disruptions, and pressure on the rupee driven by the regional conflict.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsDrum / HDFC Sky</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Falls 183 Points, Nifty Drops 0.52% on August 26 as IT Stocks Drag; Markets Open Cautiously on August 27</div>
+      <div class="nsum">Indian benchmark indices closed lower on Wednesday, August 26, with the BSE Sensex shedding 183.16 points to settle at 77,472.94 and the Nifty 50 dropping 126.80 points to 24,207.75, weighed down by profit-booking and weakness in IT stocks including Infosys and Tech Mahindra. Ahead of August 27, GIFT Nifty indicated a range-bound and cautious opening, with firm US and European market closes offering some underlying support to cyclical and banking stocks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Upstox / Q7 Trading Solutions</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate Steady at 5.25% in August MPC Meeting, Raises FY27 GDP Forecast to 6.7%</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee unanimously kept the benchmark repo rate unchanged at 5.25% in its August 2026 meeting, maintaining a neutral stance as it cited elevated inflation risks from higher food and fuel prices, West Asia conflict, and supply chain disruptions. In a positive signal, the RBI revised its FY27 real GDP growth forecast upward to 6.7%, reflecting resilient domestic demand, strong credit growth, and robust government infrastructure spending.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Electronics Components Push: Manufacturing Moves Beyond Assembly Toward Self-Reliant Ecosystem</div>
+      <div class="nsum">India's next phase of manufacturing growth is shifting from final assembly to deeper localisation of components, materials, and equipment, with policy debates centring on whether subsidies and tariffs can create a globally competitive ecosystem. Analysts are closely watching whether domestic sectors can sustain competitiveness once support measures are wound down, as India marks 35 years since its landmark 1991 economic liberalisation.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $676 Million in H1 2026, Nearly Four Times Year-Ago Levels</div>
+      <div class="nsum">According to Inc42's Indian Tech Startup Funding Report for H1 2026, Indian AI startups raised $676 million in the first six months of the year, almost four times the amount raised in the same period last year, reflecting a sharp acceleration in investor appetite. The funding boom is accompanied by a qualitative shift, with founders deploying capital into deeptech healthcare, enterprise productivity, AI-powered cinematic content, and education rather than surface-level AI features.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dubai Chambers Signs AI and Trade MoUs with NASSCOM and FKCCI During High-Level Bengaluru Visit</div>
+      <div class="nsum">Dubai Chambers signed two memoranda of understanding with NASSCOM and the Federation of Karnataka Chambers of Commerce and Industry (FKCCI) during a high-level delegation visit to Bengaluru, aimed at strengthening cooperation in Agentic AI and expanding trade and investment between Dubai and India. The delegation, led by Dubai Chambers President Mohammad Ali Rashed Lootah, held eight meetings with Indian business organisations and multinational companies during the visit.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Cloud / TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches AI Day for Startups India 2026, Focuses on Agentic AI, Sovereign AI, and Edge Intelligence</div>
+      <div class="nsum">Google Cloud's AI Day for Startups India 2026 is a multi-city event series designed to help early-stage Indian startups move from AI experimentation to execution by integrating Agentic AI workflows, Multimodal AI, and Sovereign AI solutions for localised models. The initiative also spotlights Physical AI and Edge Intelligence to bring cognition to hardware, with hands-on sessions using Google AI tools including the Gemini API, Gemma, and Veo.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nepal Flash Floods Kill Dozens as Climate-Linked Disaster Devastates Nuwakot District</div>
+      <div class="nsum">Flash floods linked to climate change struck Nepal's Nuwakot district, with damaged houses standing precariously near the swollen, debris-choked banks of the Trishuli River as of August 26. PM Modi spoke with Nepalese Prime Minister Balendra Shah to convey condolences, while experts noted the region's increasing vulnerability to extreme weather events.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Canada Announces Dollar-for-Dollar Countertariffs Against the United States</div>
+      <div class="nsum">Canadian Prime Minister Mark Carney announced that Canada will impose countertariffs mirroring US trade actions dollar for dollar, escalating the ongoing trade dispute between the two nations. The announcement, made on August 26, signals a significant hardening of Canada's position in response to US tariff measures that have strained North American trade relations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Senate Passes Sweeping Russia Sanctions Bill 86–11, Authorising Tariffs of Up to 100% on Buyers of Russian Energy</div>
+      <div class="nsum">The United States Senate voted 86–11 to pass a bill imposing comprehensive sanctions on Russia's energy revenues, financial institutions, senior officials, and shadow fleet in response to the ongoing invasion of Ukraine. The legislation also authorises tariffs of up to 100% on countries that are major buyers of Russian oil and gas, and will now head to the House of Representatives for a vote.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 27 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
