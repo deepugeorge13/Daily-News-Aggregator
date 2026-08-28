@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 28, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 28 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 28 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / NativePlanet</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Misses August 15 Launch Deadline, Awaits Railway Board Signal Clearance</div>
+      <div class="nsum">The Bengaluru Metro Pink Line's Phase 1 — a 7 km elevated stretch between Kalena Agrahara and Tavarekere on Bannerghatta Road — has missed yet another target date, with BMRCL now awaiting Railway Board approval for its signalling system and an Interim Speed Certificate from RDSO before passenger services can begin. New BMRCL MD Jaffer confirmed the approval process will be completed in stages, while the Centre has released ₹26,447 crore to BMRCL for Phases 2, 2A/2B and 3 of the network's expansion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NativePlanet / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Floats Tender for 482-Metre Whitefield Purple Line Extension to Boost Train Frequency</div>
+      <div class="nsum">Bangalore Metro Rail Corporation Limited has closed a crucial tender for a 482.8-metre turnback and stabling extension beyond the Whitefield terminal on the Purple Line, a critical upgrade aimed at eliminating train reversal bottlenecks on the busy tech corridor. The infrastructure upgrade is not intended for passenger boarding but will allow smoother train movements and significantly reduce peak-hour headways for commuters travelling to and from Whitefield.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bengaluru North City Corporation / Greater Bengaluru Authority</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Launches Weekly Sahaaya 2.0 Civic Grievance Camps Across Bengaluru to Clear Backlog of Complaints</div>
+      <div class="nsum">The Greater Bengaluru Authority, under the leadership of DK Shivakumar and Krishna Byre Gowda, is holding weekly outreach camps every Friday from 7–9 AM where citizens can directly register civic grievances — covering roads, streetlights, solid waste, hazardous trees, stray dogs, parks, and e-Khata services — via the Sahaaya 2.0 portal. All complaints registered are forwarded to the concerned departments, with status updates communicated to citizens through SMS, ensuring greater accountability in civic service delivery across the city.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Congress.gov / CRS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Sweeps West Bengal Assembly Elections 2026, Now Commands Power in 16 States</div>
+      <div class="nsum">Spring 2026 assembly elections in West Bengal saw the BJP win more than 70% of seats, routing Mamata Banerjee's AITC after 15 years in power, dramatically reshaping India's political map. The ruling NDA now controls 16 states directly, with allied Chief Ministers in four more, while the Congress party is reduced to governing only four state governments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsonAir / Government of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">New Income Tax Rules 2026 Notified, to Come Into Effect Next Month with Stricter Disclosures</div>
+      <div class="nsum">The Government has formally notified the Income Tax Rules 2026, which are set to come into effect from October 1, 2026, and introduce stricter disclosure requirements while simultaneously simplifying tax procedures by reducing the total number of rules in force. The overhaul marks the most comprehensive restructuring of India's tax procedural framework in years, aimed at enhancing compliance across individuals and corporate entities alike.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Election Commission of India / NewsonAir</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Election Commission Mandates Pre-Certification of Political Ads on Digital and Electronic Media Ahead of State Polls</div>
+      <div class="nsum">The Election Commission of India has issued a sweeping order requiring pre-certification of all political advertisements across electronic and digital media platforms ahead of upcoming assembly elections in Assam, Kerala, Tamil Nadu, and West Bengal, as well as by-elections in six states. The directive is part of a broader effort to regulate political messaging in the digital era and curb the spread of unverified campaign content before polling dates.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Finnovate / Q7 Trading Solutions</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25% in August Policy, Raises GDP Forecast to 6.7% and Cuts Inflation Estimate</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee kept the repo rate unchanged at 5.25% in its August 2026 review, simultaneously upgrading India's GDP growth forecast to 6.7% while lowering its inflation projection, signalling a cautiously neutral but flexible monetary stance. The RBI's strategy has centred on deploying targeted tools — including a concessional FCNR(B) swap facility that mobilised approximately $36.7 billion — rather than using interest rate hikes as a first line of defence for the rupee.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Drops Over 400 Points From Day's High as Nifty Falls Below 24,200; Defence and Pharma Buck the Trend</div>
+      <div class="nsum">Indian equity markets witnessed sharp intraday selling pressure on August 28, with the Sensex falling over 400 points from its session high and the Nifty50 slipping below the 24,200 mark amid broad-based weakness, particularly in auto, media, and oil &amp; gas sectors. Nifty India Defence and Nifty Pharma stood out as the day's bright spots, gaining 0.44% and 0.35% respectively, even as the overall market struggled with the impact of the newly introduced Closing Auction Session (CAS) system weighing on near-term trading activity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Rupee Holds Near 95.68 Per Dollar as RBI Intervention and Foreign Inflows Provide a Floor</div>
+      <div class="nsum">The Indian rupee steadied near 95.68 per US dollar this week, with the RBI continuing its active intervention through dollar sales to prevent excessive depreciation, even as elevated oil prices and global risk-off sentiment applied downward pressure on the currency. Foreign portfolio investors provided a significant offset, purchasing more than $2.5 billion of Indian equities in August, extending a positive reversal after nearly $28 billion of outflows over the prior four months.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tech Startups / Silicon Republic</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">L&amp;T and Nvidia Deploy 10,000 Blackwell GPUs at Chennai Data Centre, Creating India's Largest Single-Cluster AI Installation</div>
+      <div class="nsum">Larsen &amp; Toubro, in partnership with Nvidia, is building India's largest single-cluster AI computing installation at an L&amp;T data centre campus in Chennai, deploying approximately 10,000 Nvidia B300 GPUs capable of supporting large-scale AI model training and inference. The project, part of Nvidia CEO Jensen Huang's ambition to enable 'AI factories at national scale', is designed to give India domestic frontier compute capacity, supporting local startups, enterprises, and international AI companies seeking additional infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $676 Million in H1 2026, Nearly Four Times Year-Ago Levels</div>
+      <div class="nsum">According to Inc42's H1 2026 Indian Tech Startup Funding Report, AI startups in India raised $676 million in the first six months of 2026, a near four-fold surge compared to the same period in 2025, reflecting rapidly accelerating investor confidence in the country's AI ecosystem. The capital is being deployed across domains including enterprise productivity, deeptech healthcare, edtech, and AI-native financial infrastructure, with founders increasingly focused on building for Indian purchasing behaviour and local distribution.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Value Add VC / NVIDIA Blog</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IndiaAI Mission Crosses 38,000 Subsidised GPUs; Netweb Launches Made-in-India Grace Blackwell Supercomputing Systems</div>
+      <div class="nsum">India's $1.25 billion IndiaAI Mission has now empanelled over 38,000 GPUs — including Nvidia H100 and H200 chips — through private partners like Jio, Tata, Yotta, and CtrlS, offering subsidised access at roughly $1 per GPU-hour to startups and researchers. Building on this momentum, Netweb Technologies has launched its Tyrone Camarero AI Supercomputing systems built on the NVIDIA Grace Blackwell architecture and manufactured in India under the 'Make in India' mission, featuring four Nvidia Blackwell GPUs and two Grace CPUs per unit.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Washington Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Glacial Collapse Triggers Catastrophic Nepal-Tibet Floods; Over 390 Dead, 1,400 Including 142 Indians Still Missing</div>
+      <div class="nsum">A glacier collapse in the mountainous Nepal-Tibet border region triggered a devastating torrent of floodwater and mud that killed more than 390 people across Nepal and China, with over 1,400 people — including hundreds of foreign tourists and pilgrims — still unaccounted for. Nepal's Ministry of Tourism confirmed that 142 Indian nationals are among the missing foreigners, prompting urgent rescue operations across the affected Rasuwa, Nuwakot, and Dhading districts, while China fears 'major casualties' in Tibet's Gyirong County.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Sanctions on Iran Intensify as Ceasefire Violations Continue and Strait of Hormuz Remains Tense</div>
+      <div class="nsum">The United States is intensifying economic pressure on Iran through a new round of sanctions, following the collapse of Pakistan-mediated Islamabad Talks and ongoing violations of the April 2026 ceasefire by both sides in the US-Iran conflict. A tanker was struck by an unknown projectile in the Strait of Hormuz this week, reigniting fears of a wider shipping crisis, while Brent crude prices climbed toward $92 a barrel amid growing uncertainty over the key waterway.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / UN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UN COP17 Desertification Summit Concludes in Ulaanbaatar with 196 Nations Pledging Action on Land Degradation</div>
+      <div class="nsum">The UN Convention to Combat Desertification's COP17 summit wrapped up in Ulaanbaatar, Mongolia, on August 28, 2026, after bringing together representatives from 196 countries and the European Union to forge commitments on tackling land degradation, drought, and desertification. The summit concluded against a backdrop of alarming environmental events globally, including massive wildfires in Indonesia that have scorched wide areas of forest and peatland in Sumatra and Kalimantan, creating choking haze across multiple cities.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 28 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
