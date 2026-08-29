@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 29, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 29 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 29 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Launches ₹8,000 Crore Drive to Resurface 2,500 km of Bengaluru Roads</div>
+      <div class="nsum">Development Minister Krishna Byre Gowda announced that the Karnataka government is undertaking road-improvement works covering approximately 2,500 km across Bengaluru at an estimated cost of ₹8,000 crore, including asphalt resurfacing and white-topping. He reviewed works under all five city corporations of the Greater Bengaluru Authority and directed officials to accelerate execution with strict quality control.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / OneIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Greater Bengaluru Authority Elections Scheduled for August 2026 Across Five City Corporations</div>
+      <div class="nsum">The 2026 Greater Bengaluru Authority elections are set to be held across the five newly established city corporations — Bengaluru Central, North, South, East, and West — covering the 712 sq km city area using the First-Past-the-Post system. The polls mark a historic restructuring of city governance following the dissolution of the BBMP and the creation of the GBA as the apex civic body.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / Elets eGov</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Budget 2026-27 Unveils Second Airport, 41 km Metro Expansion and ₹40,000 Crore Tunnel Roads for Bengaluru</div>
+      <div class="nsum">Chief Minister Siddaramaiah presented a ₹4,48,004 crore state budget featuring a major infrastructure push for Bengaluru, including plans for a second airport, a 41 km Namma Metro expansion, and a ₹40,000 crore tunnel road network. A dedicated allocation of ₹1,225 crore was also announced for civic improvements such as road upgrades, urban planning, and strengthening municipal services across the city.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India to Acquire US-Made Javelin Anti-Tank Missile System in Major Defence Deal</div>
+      <div class="nsum">India has decided to purchase the US-manufactured Javelin anti-tank guided missile system in a significant boost to the army's anti-armour capabilities. The deal is part of India's broader push to modernise its land forces and deepen its defence partnership with the United States.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV / The Indian Express</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Minister B. Nagendra Resigns from Cabinet a Second Time Over Corruption Scandal</div>
+      <div class="nsum">Karnataka cabinet minister B. Nagendra resigned in tears for the second time over the same corruption scandal, marking a fresh political embarrassment for the state government. The resignation reignited opposition demands for accountability and a deeper probe into the alleged financial irregularities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Indian Express</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Penguin Drops Sonia Gandhi Memoir After She Rejected Proposed Changes and Deletions</div>
+      <div class="nsum">Publisher Penguin has dropped plans to release former Congress president Sonia Gandhi's memoir after she rejected edits and deletions sought by the publisher. The development has drawn widespread attention to questions of editorial independence and the political sensitivity surrounding the book's content.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Siasat Daily / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SEBI Clears Jio Platforms' ₹37,700 Crore IPO, Poised to Be India's Largest-Ever Listing</div>
+      <div class="nsum">Jio Platforms Ltd, the digital services arm of Mukesh Ambani's Reliance Industries, received SEBI's final approval on August 28 to proceed with an IPO that could raise approximately USD 3.8 billion, making it India's largest-ever stock market listing. The company plans to issue around 27 crore fresh equity shares representing about 2.9% of its post-issue equity base, with proceeds earmarked for debt servicing and broader corporate objectives.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Industrial Output Growth Eases to 6.7% in July as Three Key Sectors Slow</div>
+      <div class="nsum">India's industrial production growth moderated to 6.7% in July 2026, as output from three major sectors showed a slowdown compared to the previous month. The data comes amid ongoing monitoring by policymakers balancing domestic demand with the impact of global trade pressures, including US tariff actions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr. Reddy's Labs Shares Tank 9% to 52-Week Low After Weak Q1 Results; Pharma Peers Also Slide</div>
+      <div class="nsum">Shares of Dr. Reddy's Laboratories fell as much as 9% to hit a 52-week low following a disappointing Q1 performance, dragging down broader pharma sentiment on Dalal Street. Fellow pharma companies Glenmark, Biocon, and Aurobindo also slipped around 3% amid concerns over US President Trump's proposed generic drug tariff plan targeting Indian pharmaceutical exports.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ExplainX.ai</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Anthropic Opens Bengaluru Office as India Becomes Claude's Second-Largest Global Market</div>
+      <div class="nsum">US AI company Anthropic has opened an office in Bengaluru, citing India's emergence as the second-largest market worldwide for its Claude AI assistant. The move underscores India's rapid AI adoption, with open-source models now being trained on Indian soil and a nine-institution academic consortium working across all 22 scheduled languages.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Dailyhunt</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru-Based Sarla Aviation Receives DGCA Design Organisation Approval for Electric Air Taxi</div>
+      <div class="nsum">Bengaluru-headquartered electric air taxi startup Sarla Aviation announced it has received Design Organisation Approval (DOA) from the DGCA, a key regulatory milestone enabling the company to transition towards full commercial production. The company also signed new industry partnerships with Manipal Hospitals, Tata Elxsi, and Jio-bp to accelerate its growth in the urban air mobility space.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Aum Ventures Raises ₹225 Crore First Close for New ₹750 Crore Indian Deeptech Fund</div>
+      <div class="nsum">Aum Ventures has achieved the first close of a new ₹750 crore fund at ₹225 crore, dedicated to backing Indian deeptech startups across sectors receiving growing policy support. The fundraise adds significant private capital to India's deeptech ecosystem at a time when government programmes and the IndiaAI Mission are also channelling public investment into the space.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / The Print</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nepal Flash Flood Death Toll Rises Past 579; India Airlifts 10 Tonnes of Emergency Relief</div>
+      <div class="nsum">A devastating flash flood near the Nepal-China border has killed at least 579 people, with over 1,300 still missing — more than half of them foreign nationals — in what is being described as one of Nepal's worst disasters since the 2015 earthquakes. India dispatched 10 tonnes of humanitarian aid including medicines, blankets, and temporary shelters aboard an IAF C-130J aircraft, with External Affairs Minister S. Jaishankar speaking directly to his Nepalese counterpart to extend further assistance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Envoy Criticises Israel Over Gaza Attacks, Warns Next War Looms if Ceasefire Plan Rejected</div>
+      <div class="nsum">The official overseeing President Trump's Gaza ceasefire plan publicly criticised Israel for its continued attacks on the Palestinian territory and warned that failure to accept the US proposal would lead to a new war. Israeli airstrikes continued to hit targets in central Gaza, including near a food-aid warehouse in Deir al-Balah, amid stalled negotiations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Fire at Islamabad Hospital Nursery Kills 14 Newborn Babies</div>
+      <div class="nsum">A fire broke out early Wednesday in the newborn nursery of a major government hospital in Pakistan's capital Islamabad, killing 14 babies according to hospital officials and the government. The tragedy has prompted widespread grief and calls for urgent safety reforms across public healthcare facilities in Pakistan.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 29 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
