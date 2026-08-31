@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — August 31, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 31 August 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 31 August 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LiveLaw / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka HC Directs BBMP to File Affidavit on Road Repair Mechanism as Pothole Crisis Deepens</div>
+      <div class="nsum">The Karnataka High Court directed the Bruhat Bengaluru Mahanagara Palike to file an affidavit detailing its mechanism to tackle Bengaluru's perennial pothole menace, after BBMP counsel submitted that 10,202 potholes had been identified and repaired since April 2026. The bench, comprising Chief Justice Vibhu Bakhru and Justice K.S. Hemalekha, is hearing a 2015 public interest litigation seeking directions for filling potholes on major and arterial roads and removing encroachments on stormwater drains.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The News Minute / LiveLaw</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court's August 31 Deadline for Greater Bengaluru Civic Polls Arrives — No Further Extensions Granted</div>
+      <div class="nsum">Today marks the Supreme Court's final deadline for the Karnataka government and State Election Commission to complete the election process for the five municipal corporations in the Greater Bengaluru Authority area, with the apex court having previously made clear no further extension would be granted. The BBMP council's term lapsed in September 2020, making this over six years without an elected body governing India's tech capital.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Homebazaar</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Still Awaiting Final Safety Clearance; Blue Line Airport Corridor Hits 72.5% Physical Progress</div>
+      <div class="nsum">The BMRCL Pink Line's Phase 1 — a 7 km elevated stretch on Bannerghatta Road between Kalena Agrahara and Tavarekere — has missed multiple launch deadlines including August 15, and is now pending final Railway Board signalling approval and an Interim Speed Certificate from RDSO before passenger services can begin. Meanwhile, the 58 km Blue Line (Silk Board–KIA Airport) has recorded 72.5% physical progress and 70.17% financial progress, with trial runs on the Outer Ring Road section between KR Pura and HSR Layout expected to begin in October.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Finance Ministry to Kick Off Union Budget 2027-28 Preparations from October 12, Pre-Budget Consultations Planned Through November</div>
+      <div class="nsum">The Finance Ministry will formally begin preparations for the Union Budget 2027-28 starting October 12, with pre-budget meetings scheduled through mid-November, according to official sources. Finance Minister Nirmala Sitharaman, who earlier this week addressed a business roundtable in Chicago highlighting India's broad-based growth and reform momentum, is expected to lead the stakeholder consultation process.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / APAC Media</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GST Council to Meet on September 12 to Consider Easing Blocked Input Tax Credit and Refund Rules</div>
+      <div class="nsum">The GST Council is scheduled to convene on September 12 and is likely to take up proposals for easing blocked input tax credit rules, reforming refund norms, and enabling transfer of unutilised ITC, measures that industry has long sought. The meeting comes amid fresh concerns over rising CNG prices in Delhi, which climbed to Rs 86.98 per kg from August 29 due to higher imported spot LNG prices linked to renewed disruption around the Strait of Hormuz.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">APAC Media / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Merchandise Exports Cross $200 Billion Mark in FY27, Growing Over 15% Led by Petroleum and Electronics</div>
+      <div class="nsum">India's merchandise exports surpassed the $200-billion mark in the current financial year by August 21, growing by more than 15 per cent, according to government estimates, with exports in the third week of August alone valued at over $25 billion. The latest figures have strengthened market expectations that India could cross the $500-billion mark in merchandise exports for the full financial year 2026-27.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Bajaj Broking</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate at 5.25% as Inflation Rises; FY27 GDP Growth Projected at 6.7%</div>
+      <div class="nsum">The Reserve Bank of India held its policy repo rate steady at 5.25% at its latest Monetary Policy Committee meeting, citing rising inflationary pressures even as GDP growth for FY2026-27 is projected at 6.7%. Markets are trading cautiously with Gift Nifty signalling a muted start to the week as crude oil stays above $91 and geopolitical tensions in West Asia continue to weigh on sentiment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Mercom India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Hero MotoCorp to Invest ₹1,758 Crore to Raise Ather Energy Stake to 32.8%, Transaction Set for Completion by September 3</div>
+      <div class="nsum">Hero MotoCorp's board approved an investment of up to ₹1,758 crore to purchase additional shares in Bengaluru-based electric two-wheeler maker Ather Energy from an existing shareholder, raising its fully diluted stake from 29.88% to approximately 32.8%. The announcement sent Ather Energy shares surging nearly 5% on Friday, reflecting strong investor confidence in India's fast-growing electric two-wheeler market, where EV sales hit 837,453 units in Q2 2026 — a 52.3% year-on-year jump.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Pharma Stocks Extend Losses as Trump's Generic Drug Tariff Plan Looms; Dr Reddy's Hits 52-Week Low</div>
+      <div class="nsum">Shares of major Indian pharmaceutical companies including Dr Reddy's Laboratories, Glenmark, Biocon, and Aurobindo Pharma slid 3–9% this week as markets continued to react to US President Donald Trump's plan to impose tariffs of up to 200% on imported generic medicines starting in 2028, with a two-year duty-free window beginning August 1, 2026. Analysts at Motilal Oswal noted that while the immediate impact is limited due to the transition period, Indian pharma companies need to diversify export destinations and adjust long-term strategies.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsBytesApp / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $1.56 Billion Across 206 Deals in 2026 So Far, Nearly Matching Full-Year 2025 Total</div>
+      <div class="nsum">Indian AI startups have raised $1.56 billion across 206 deals so far in 2026 by August, driven by larger growth-stage investments, global demand, and stronger revenue traction from leading players like Sarvam AI ($300 million led by HCLTech) and Emergent ($130 million). Several other startups including Ema, mstack AI, Simplismart, and UnifyApps are now in advanced talks for fresh rounds of $50–$80 million each, signalling sustained momentum into the second half of the year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Agentic AI Startup Runable Raises $21 Million Series A Led by Susquehanna and Nexus</div>
+      <div class="nsum">Bengaluru-based agentic AI startup Runable has closed a $21 million Series A funding round co-led by Susquehanna International Group and Nexus Venture Partners, one of the larger early-stage AI deals of the week. The raise comes as Indian startup funding activity for the week of August 24–29 saw continued flow across fintech, EV, and AI sectors, according to Entrackr's weekly funding tracker.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Cloud / NASSCOM / Dailyhunt</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dubai Chambers Signs MoUs with NASSCOM and FKCCI to Accelerate Agentic AI Collaboration and Indian Tech Market Access</div>
+      <div class="nsum">Dubai Chambers signed two memoranda of understanding with NASSCOM and the Federation of Karnataka Chambers of Commerce and Industry (FKCCI), establishing a framework for collaboration in agentic AI and deeptech, including market access for Indian companies seeking to expand into Dubai. The agreements cover knowledge sharing, B2B meetings, and innovation initiatives, and support Dubai's broader objective of accelerating private-sector adoption of Agentic AI.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NBC News / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nepal-Tibet Flood Death Toll Climbs Past 800 With Over 3,000 Still Missing as Rescue Operations Continue</div>
+      <div class="nsum">The death toll from catastrophic flash floods and mudslides triggered by a massive Himalayan landslide along the Nepal-China border on August 27 has risen above 800, with more than 3,000 people still missing and poor weather continuing to hamper aerial rescue operations across Nepal and China's Tibet region. Over 90,000 people have been affected by the disaster according to the Nepal Red Cross, with India having deployed an 11-member tunnel rescue team to assist Nepali authorities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Al Jazeera / Taipei Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iceland Votes 52.8% to Reject Resuming EU Membership Talks in Closely Fought Referendum</div>
+      <div class="nsum">Icelanders voted 52.8% to 47.2% against reopening European Union accession negotiations in a Saturday referendum, dealing a blow to Prime Minister Kristrún Frostadóttir's centre-left government, which had campaigned on the vote as a strategic necessity amid Arctic security tensions and economic pressures. Concerns over protecting Iceland's vital fishing industry — which makes up nearly 47% of the country's exports — proved decisive, with opposition leader Gudrun Hafsteinsdottir declaring the result a vote for Icelandic sovereignty.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / Al Jazeera / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Manhunt Underway in Switzerland After Woman Killed and Five Injured in Shooting at Aarau Rave Party</div>
+      <div class="nsum">A 22-year-old Italian woman was killed and five people wounded, some seriously, when a gunman or gunmen opened fire in the early hours of Sunday at the Aarauer Rave, an annual techno party attended by around 3,500 people at a covered horse racetrack in Aarau, in Switzerland's Aargau canton. Swiss police launched a major operation, cordoning off large parts of the town and deploying an army helicopter, with the attacker's identity and motive remaining unknown as of Monday morning.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 31 August 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
