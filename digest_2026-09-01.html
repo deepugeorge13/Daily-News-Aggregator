@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 1, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 1 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 1 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Metro Rail Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Underground Section on Track for September 2026 Launch</div>
+      <div class="nsum">The 13.76-km underground stretch of Bengaluru's Pink Line (Dairy Circle to Nagawara) is projected for completion this month, completing the full 21.3-km north-south corridor in two phases. BMRCL completed third-rail testing and signal system validations earlier this year, with the elevated section from Kalena Agrahara to Tavarekere having opened in March 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Civic Body Elections Imminent as All Five Bengaluru City Corporations Await First-Ever Polls</div>
+      <div class="nsum">The five newly constituted city corporations under the Greater Bengaluru Authority — North, South, East, West, and Central — have had no elected mayors or deputy mayors since their formation in September 2025, ending the predecessor BBMP's tenure. The Supreme Court had directed the Karnataka government to complete the elections by June 30, 2026, making the holding of these civic polls the most pressing urban governance issue in the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DQ India / Country and Politics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Launches KEO AI PC 2026, Plans Initial Deployment of 1,000 Devices in Government Schools</div>
+      <div class="nsum">Karnataka Chief Minister D.K. Shivakumar launched the KEO AI PC — an open-source, RISC-V-based computer developed by KEONICS — describing it as a move to democratise AI education for every government-school student across the state. The government plans an initial rollout of 1,000 units priced at ₹18,999 each, with the devices supporting AI literacy, coding, and Karnataka State Board curriculum for Classes 6–10.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsable / Asianet News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Fencing Squad Begins Asian Games Camp at NIS Patiala Ahead of Aichi-Nagoya 2026</div>
+      <div class="nsum">The Fencing Association of India announced its national squad — headlined by the returning star CA Bhavani Devi — for the Asian Games in Aichi-Nagoya, with athletes assembling at the Netaji Subhash National Institute of Sports in Patiala for a preparatory camp running September 1–15. The contingent will depart directly for Japan on September 16 for final pre-competition acclimatisation before the Games open on September 19.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Vaibhav Sooryavanshi Scripts History as Youngest Duleep Trophy Half-Centurion</div>
+      <div class="nsum">Teen cricket sensation Vaibhav Sooryavanshi created a historic record by becoming the youngest-ever half-centurion at the Duleep Trophy, underlining his rapid rise as one of India's most exciting young batting talents. The achievement comes just weeks before the West Indies are scheduled to tour India for three ODIs and five T20Is, starting September 27.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News On Air / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Revises FY2026-27 GDP Growth Forecast to 6.7% Amid Global Headwinds</div>
+      <div class="nsum">Reserve Bank of India Governor Sanjay Malhotra announced that India's real GDP growth projection for FY2026-27 has been revised to 6.7 per cent, citing better-than-expected Q1 performance but cautioning that West Asian conflict and global trade uncertainty continue to pose downside risks. The central bank also confirmed that polymer banknotes are on track to enter circulation at the start of the next financial year.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / NewsBytesApp</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SEBI Clears Jio Platforms IPO; India's Largest-Ever Listing Set for September 2026</div>
+      <div class="nsum">India's capital market regulator SEBI has granted regulatory approval to Jio Platforms — the Meta- and Google-backed digital and telecom arm of Reliance Industries — for its much-anticipated IPO, with the company planning to issue up to 270 million shares to partly retire subsidiary debt. The listing is expected to rank among the world's largest digital platform IPOs, with analysts valuing Jio between $130 billion and $180 billion, and will coincide with the anticipated NSE IPO to mark a landmark month for India's primary markets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Chronicle / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's GDP Growth Hits Six-Quarter High of 8.2% in Q2 FY26, RBI Revises Full-Year Forecast Upward</div>
+      <div class="nsum">India's GDP expanded at 8.2 per cent year-on-year in the second quarter of FY2026, the fastest pace in six quarters, driven by strong private consumption and the GST rate rationalisation carried out in September 2025. The RBI raised its full-year FY26 growth forecast to 7.4 per cent while maintaining its repo rate at 5.25 per cent, with Governor Sanjay Malhotra characterising the current phase as a 'Goldilocks' period of high growth and low inflation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / India Briefing</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $676 Mn in H1 2026, Nearly Four Times Year-Ago Levels</div>
+      <div class="nsum">Indian AI startups secured $676 million in funding during the first six months of 2026 — almost four times the amount raised in the same period last year — as per Inc42's Indian Tech Startup Funding Report for H1 2026. The surge is being fuelled by the IndiaAI Mission's ₹10,300-crore outlay backing around 20 indigenous sovereign AI model proposals, alongside growing partnerships between Reliance, Tata, and L&amp;T with global giants such as OpenAI and NVIDIA.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Kan &amp; Krishme / India Policy Hub</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's IT Amendment Rules 2026 Usher In 'Active Moderation Era' for AI-Generated Content</div>
+      <div class="nsum">MeitY's Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Amendment Rules, 2026 — effective from February 20, 2026 — introduced India's first binding AI-specific compliance obligations, requiring social media platforms to apply due diligence to synthetically generated content including deepfakes. Legal experts note that the framework creates heightened liability exposure for platforms, with digital rights advocates raising concerns that mandatory labelling requirements and compressed takedown timelines could inadvertently chill legitimate speech.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / CIO Eletsonline</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 AI-First Indian Startups for 2026 Accelerator Programme Demo Day</div>
+      <div class="nsum">Google chose 20 AI-first startups from over 2,500 applicants for its Google for Startups Accelerator: India 2026 cohort, which is culminating this September in a Demo Day where participating companies will showcase solutions to investors and industry leaders. The cohort — covering agentic AI workflows, multimodal AI, sovereign AI, and physical AI — reflects the country's rapidly maturing AI ecosystem, which is now home to over 2,800 artificial intelligence companies having collectively raised $6.57 billion in funding.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Swarajya Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Unveils Sarvam-30B and Sarvam-105B LLMs at India AI Impact Summit 2026</div>
+      <div class="nsum">Bengaluru-based Sarvam AI — chosen by the central government in April 2025 to build India's first homegrown sovereign large language model under the IndiaAI Mission — unveiled two new models, Sarvam-30B and Sarvam-105B, at the India AI Impact Summit 2026. The startup, backed by Peak XV Partners and Khosla Ventures and having raised $41 million to date, is at the forefront of India's push to develop indigenous foundational AI models for population-scale deployment.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Japan Times / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Asian Games Aichi-Nagoya 2026 Enters Final Preparations With 15,000 Athletes Expected From September 19</div>
+      <div class="nsum">Organisers of the 2026 Asian Games in Japan's Aichi-Nagoya region have confirmed that preparations are entering their final stage, with around 15,000 competitors and officials expected across 43 sports and 468 events when the Games open on September 19. In a unique accommodation setup, athletes will be housed on a docked cruise liner and shipping container-style units rather than a traditional village, with India having requested on-land lodging for its 700-plus-strong contingent.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / MEI NUS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-China Tensions Intensify Over Iran War as Beijing Faces Sanctions for Dual-Use Technology Transfers</div>
+      <div class="nsum">The ongoing 2026 Iran war — triggered by coordinated US-Israeli airstrikes on February 28 — has drawn China into a diplomatic and economic confrontation with Washington, with the US levying sanctions against Chinese companies accused of processing Iranian crude oil and providing satellite intelligence to Tehran. China has maintained a posture of diplomatic mediation, with Foreign Minister Wang Yi conducting calls with Gulf state leaders, while stopping short of any direct military involvement in the conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Geopolitical Monitor / Geopolitical Futures</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CIA Director Ratcliffe Holds Moscow Talks on Ukraine War Ceasefire as Kazakhstan Revives Istanbul Process</div>
+      <div class="nsum">CIA Director John Ratcliffe travelled to Moscow on August 25, 2026 for talks aimed at finding a path to ending the Russia-Ukraine war, in a meeting described as deliberately high-profile and intended to signal US seriousness about negotiations. Separately, Kazakhstan's President Tokayev has raised the possibility of reviving the Istanbul diplomatic process as an additional framework to help de-escalate the nearly four-year-old conflict.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 1 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
