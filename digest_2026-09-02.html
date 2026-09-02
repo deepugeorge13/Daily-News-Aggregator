@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 2, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 2 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 2 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bangalore Metro Pink Line Awaits Final Safety Approvals as Blue Line Races Ahead</div>
+      <div class="nsum">BMRCL's newly appointed Managing Director Jaffer PC has confirmed that the Pink Line's first phase — a 7 km elevated stretch on Bannerghatta Road — is pending Railway Board approval for its signalling system, with clearance expected within days. Meanwhile, the 58 km Blue Line (Silk Board–KIA) has recorded 72.5% physical progress, with trial runs on the Outer Ring Road section between KR Pura and HSR Layout expected to begin in October.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA City Corporation Elections Due in 2026 as Mayor Posts Remain Vacant for a Year</div>
+      <div class="nsum">All five Bengaluru City Corporations — East, West, North, South, and Central — constituted under the Greater Bengaluru Authority on 2 September 2025, are marking their first anniversary today with Mayor and Deputy Mayor posts still vacant pending elections. The 2026 GBA corporation elections are now due, and the GBA has published its final electoral rolls, raising anticipation for the first polls under the new governance structure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka CM Shivakumar Retains Finance and Key Portfolios in August Cabinet Reshuffle</div>
+      <div class="nsum">Chief Minister D K Shivakumar finalised portfolio allocations for 23 ministers on 12 August 2026, retaining Finance, Cabinet Affairs, Intelligence, and Urban Local Bodies under himself. Congress supporters have since continued to gather outside Shivakumar's Bengaluru residence, demanding ministerial berths for remaining MLAs including Indi MLA Yashavanta Patil.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NTA / Vedantu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NEET UG 2026 Re-Exam Counselling Underway After 11.21 Lakh Candidates Qualify</div>
+      <div class="nsum">The National Testing Agency declared Re-NEET UG 2026 results on 16 July 2026, with 11.21 lakh out of nearly 20 lakh candidates qualifying for MBBS, BDS, AYUSH, and allied medical courses — the re-exam having been held on 21 June after the original May 3 paper was cancelled over leak allegations. The Medical Counselling Committee's All India Quota counselling has been open since 4 August 2026, with states running their 85% quota admissions in parallel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News On Air / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Forms Seven Empowered Groups to Manage Long-Term West Asia Conflict Fallout</div>
+      <div class="nsum">Prime Minister Narendra Modi announced the constitution of seven empowered groups to address the long-term impacts of the ongoing West Asia conflict, covering fuel, fertilisers, gas, supply chains, and inflation, urging a 'Team India' approach with state governments. India has maintained that it is in constant contact with Iran, Israel, and the United States to stress diplomatic de-escalation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / Tribune India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Q1 FY27 GDP Surges to 7.8%, Defying West Asia Shock</div>
+      <div class="nsum">India's economy expanded at a stronger-than-expected 7.8% in the April–June quarter of FY2026-27, surpassing the RBI's earlier estimate of 7%, driven by manufacturing growth of 9.2% and services expansion of 10%. Economists at CareEdge Ratings have raised their full-year FY27 growth projection to 7.3% in light of the strong Q1 print, though they cautioned that geopolitical tensions and El Niño risks could moderate growth ahead.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / SEC Filing</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HDFC Bank CEO Sashidhar Jagdishan Declines Reappointment, to Retire October 26</div>
+      <div class="nsum">HDFC Bank MD &amp; CEO Sashidhar Jagdishan informed the bank's board on 29 August 2026 that he would not seek reappointment, with his retirement effective 26 October 2026, triggering an immediate search for a successor. Analysts at Macquarie Capital noted the exit adds uncertainty at a time when investor confidence is already fragile and the post-HDFC merger balance-sheet recalibration remains incomplete.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr. Reddy's Labs Shares Sink 9% to 52-Week Low After Disappointing Q1 Results</div>
+      <div class="nsum">Shares of Dr. Reddy's Laboratories fell 9% to a 52-week low following a weak Q1 showing, while fellow pharma stocks Glenmark, Biocon, and Aurobindo also slipped 3% amid concerns over US President Trump's proposed tariffs on generic drugs. The sector-wide sell-off comes as Indian pharmaceutical exporters assess the potential impact of a tariff regime that could significantly raise the cost of generic medicines in the United States.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Business World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">InsuranceDekho and RenewBuy Officially Merge to Create India's Largest AI-Enabled Insurance Platform</div>
+      <div class="nsum">Gurugram-based insurtechs InsuranceDekho and RenewBuy announced their formal merger on 1 September 2026, forming a pan-India AI-enabled insurance distribution platform with over 6 lakh digital partners, a premium book exceeding ₹66,000 million, and coverage across 98.57% of India's pin codes. The combined entity, operating under the InsuranceDekho brand led by Ankit Agrawal, is targeting an IPO by March 2027 with an estimated valuation of ₹9,500 crore.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UPI Sets New All-Time Record with 24.51 Billion Transactions in August 2026</div>
+      <div class="nsum">India's Unified Payments Interface processed a record 24.51 billion transactions in August 2026, according to data released by the National Payments Corporation of India on 1 September 2026. The milestone marks a significant leap from the 20 billion transactions first crossed in August 2025, underscoring accelerating digital payment adoption across consumers and businesses in India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google / Elets CIO</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google for Startups Accelerator India 2026 Cohort of 20 AI-First Startups Nears Demo Day</div>
+      <div class="nsum">Google selected 20 AI-first Indian startups from over 2,500 applications for its Google for Startups Accelerator: India 2026 programme, covering sectors from legal tech and healthcare radiology to climate and finance. The accelerator, running from June to September 2026 and marking the 10th anniversary of Google's accelerator initiative, culminates in a Demo Day where startups will showcase solutions to investors and industry leaders.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Startup Success Stories</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startup Funding Nears $1 Billion in August After July Slowdown</div>
+      <div class="nsum">Indian startup ecosystem funding approached $1 billion in August 2026, recovering from a slowdown in July, according to data compiled by Entrackr. Key deals in the month included battery-swapping startup Yuma Energy raising $35 million from Magna International and spacetech startup Kepler Aerospace closing an $8 million seed round led by Blue Ashva Capital.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nepal-China Border Flood Death Toll Reaches 750 with Over 3,000 Still Missing</div>
+      <div class="nsum">Catastrophic flash floods triggered by a glacial landslide at the Nepal-China border on 27 August 2026 have killed at least 750 people, with more than 3,000 still unaccounted for as rescue operations shift to search and recovery. The United States announced $3.6 million in humanitarian aid for Nepal, and a barrier lake formed near the flood zone has overflowed but stabilised, according to Chinese officials.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week / Multibagg AI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Asia Conflict Continues to Strain India's Energy Security and Diplomatic Balancing Act</div>
+      <div class="nsum">The ongoing conflict involving Iran, the United States, and Israel in West Asia has escalated to include strikes in the UAE, with Indian policymakers focused on securing energy supplies through the Strait of Hormuz — which carries nearly 50% of India's crude imports. Foreign portfolio investors withdrew roughly ₹2.7 lakh crore from Indian equities in the first half of 2026, with the West Asia turbulence and oil-price channel cited as key contributors to global risk aversion toward India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">GIS Reports / Hudson Institute</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Visits Israel Amid West Asia Crisis in Diplomatic Push for De-escalation</div>
+      <div class="nsum">Indian Prime Minister Narendra Modi met Israeli Prime Minister Benjamin Netanyahu at Ben Gurion International Airport in February 2026, as New Delhi continued its policy of strategic engagement with all parties in the ongoing West Asia conflict. India has maintained deliberate diplomatic ambiguity — engaging Iran, Israel, and the US simultaneously — reflecting its doctrine of strategic autonomy while protecting its national interests in the region.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 2 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
