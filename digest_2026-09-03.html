@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 3, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 3 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 3 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BengaluruMetro.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Awaits Final Safety Clearance for Imminent Opening</div>
+      <div class="nsum">The 7.5-km elevated section of Bengaluru's Namma Metro Pink Line, running from Kalena Agrahara to Tavarekere along Bannerghatta Road, has completed its CMRS safety inspection but is pending the Independent Safety Assessment certificate for its signalling system. BMRCL expects to launch the six-station elevated stretch in early September 2026 once the certificate is granted, while the 13.76-km underground section from Dairy Circle to Nagawara remains targeted for December 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka CM Siddaramaiah Launches KEO AI PC 2026, Plans 1,000-Device Rollout in Government Schools</div>
+      <div class="nsum">Chief Minister D K Shivakumar launched the KEO AI PC 2026, an AI-enabled personal computer, with an initial plan to deploy 1,000 devices across government schools in Bengaluru and Karnataka. The initiative is part of the state government's broader push to integrate artificial intelligence into public education infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Greater Bengaluru Authority</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Five New City Corporations Mark First Anniversary Under Greater Bengaluru Authority</div>
+      <div class="nsum">The five city corporations — North, South, East, West, and Central — constituted under the Greater Bengaluru Authority (GBA) on 2 September 2025 to replace the BBMP have completed their first year of existence. All five corporations continue to be administered by IAS-appointed commissioners with mayoral and deputy mayoral positions still vacant, as civic elections for the new bodies are expected in 2026.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Air Force / Organiser / NewSX</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Air Vice Marshal Shakti Sharma Scripts History as First Non-Medical Woman to Reach Two-Star Rank in Indian Defence Services</div>
+      <div class="nsum">On September 1, 2026, Air Vice Marshal Shakti Sharma became the first woman officer from a non-medical background in the Indian Defence Services to attain the rank of Air Vice Marshal or equivalent, assuming charge as Assistant Chief of the Air Staff (Education) at Air Headquarters. Commissioned into the IAF Education Branch in 1994, she also holds the distinction of being the first woman officer from the Tri-Services to have commanded a Sainik School.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Free Press Journal / Asianet Newsable / The News Mill</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Likely to Visit SRCC on Teachers' Day to Interact with Gen Z Students at Centenary Celebrations</div>
+      <div class="nsum">Prime Minister Narendra Modi is expected to visit Shri Ram College of Commerce (SRCC) on September 5, coinciding with Teachers' Day, as the institution marks its centenary year in 2026. A direct interaction with Gen Z students is planned as a key highlight of the visit, aligning with the BJP's broader youth outreach programme aimed at strengthening communication with younger voters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bihar Government Issues Fish Consumption Advisory After Nepal Floods Wash Fish Downstream Into State</div>
+      <div class="nsum">The Bihar government has issued a public advisory urging residents to avoid eating fish that may have been washed into the state from flood-affected areas of Nepal, citing potential contamination risks. The advisory comes as the catastrophic Nepal-Tibet floods, which have claimed over 1,000 lives, continue to send debris and displaced aquatic life across the border.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Chronicle / Business Today / NDTV Profit</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HDFC Bank Fast-Tracks CEO Search as Jagdishan Confirms Exit; Kaizad Bharucha Emerges as Frontrunner</div>
+      <div class="nsum">India's largest private bank, HDFC Bank, has begun fast-tracking its CEO succession process after incumbent MD and CEO Sashidhar Jagdishan confirmed he will not seek another term and is set to retire on October 26, 2026. Deputy Managing Director Kaizad Bharucha and Chief Credit Officer Jimmy Tata have emerged as the leading internal candidates, though the bank is also searching for external candidates in line with RBI requirements.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr. Reddy's Labs Shares Plunge 9% to 52-Week Low After Weak Q1 Results; Pharma Stocks Broadly Under Pressure</div>
+      <div class="nsum">Dr. Reddy's Laboratories shares fell 9% to a 52-week low after the company reported disappointing first-quarter earnings, dragging broader pharmaceutical sector stocks lower. Peers Glenmark, Biocon, and Aurobindo also slipped around 3% following US President Trump's announcement of new tariff plans targeting generic drug imports.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Forex Swap Window Draws $136.37 Billion as FCNR(B) Deposits Lead Inflows</div>
+      <div class="nsum">The Reserve Bank of India's foreign exchange swap window has attracted $136.37 billion in total, with Foreign Currency Non-Resident (Bank) deposits leading the inflows, signalling robust external funding appetite. Meanwhile, the government has defended its GDP growth estimates, stating that recent revisions reflect updated data rather than any artificial inflation of growth figures.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Surges Over 4X Year-on-Year to $676 Million in H1 2026</div>
+      <div class="nsum">Indian AI startups raised $676 million in the first half of 2026, nearly four times the $162 million raised in the same period of 2025, with deal count surging 90% year-on-year to 57 transactions, according to Inc42's Indian Tech Startup Funding Report H1 2026. The funding boom is being driven by a stronger pipeline of investable startups, with around 66% of institutional investors stating that the IndiaAI Mission had directly influenced their AI investment thesis.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Cloud / Blog</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Announces 20 AI-First Startups for Its Google for Startups Accelerator India 2026 Class</div>
+      <div class="nsum">Google has announced the 20 groundbreaking AI-first startups selected for the Google for Startups Accelerator: India 2026 cohort, marking the 10th anniversary of the programme and chosen from approximately 2,500 applications. The cohort spans high-impact sectors including climate, healthcare, legal tech, developer workflows, and finance, with startups provided access to Google's AI stack alongside technical and go-to-market mentorship.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tracxn / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Startup Ecosystem Attracts Record $1.34 Billion in Equity Funding Through August 2026</div>
+      <div class="nsum">Artificial intelligence companies in India have raised a record $1.34 billion in equity funding across 66 rounds through August 2026, representing a 143% jump compared to the $550 million raised in the same period of 2025, according to data from Tracxn. With 317 new AI startups founded so far in 2026, India's AI market is projected to become a $126 billion opportunity by 2030, according to a joint Google and Inc42 report.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / Yahoo Finance / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US and Iran Exchange Fresh Military Strikes, Pushing Brent Crude Back Above $95 a Barrel</div>
+      <div class="nsum">The United States launched a new round of airstrikes against Islamic Revolutionary Guard Corps targets inside Iran on September 1-2, 2026, prompting Tehran to retaliate with ballistic missiles and drone strikes against US military bases in Jordan and Bahrain. Oil markets surged in response, with Brent crude rising to approximately $95.40 a barrel — its largest single-day gain in weeks — as fears over supply disruptions through the Strait of Hormuz intensified.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / AP / UN News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nepal-Tibet Flood Death Toll Passes 1,000 as Rescue Teams Race to Reach Cut-Off Communities</div>
+      <div class="nsum">The death toll from the catastrophic Nepal-Tibet floods, triggered by a glacier collapse along Nepal's border with China on August 26, surpassed 1,000 with more than 4,200 people still missing as of September 1, 2026, making it Nepal's deadliest natural disaster since the 2015 earthquake. Rescue teams are battling blocked highways and downed communication networks to reach isolated communities, with 65,000 people requiring emergency water, sanitation, and hygiene support.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Touts US-Venezuela Oil Deal as Geopolitical Tensions Continue to Reshape Global Energy Markets</div>
+      <div class="nsum">US President Donald Trump has publicly championed a new oil agreement with Venezuela, describing it as a landmark energy deal, as the administration seeks alternative crude supply sources amid the ongoing US-Iran conflict that has disrupted Strait of Hormuz shipping. The Venezuela deal comes as global oil markets remain on edge, with traders monitoring further escalation of US-Iran hostilities and OPEC+ supply decisions for September.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 3 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
