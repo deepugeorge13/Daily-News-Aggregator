@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 4, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 4 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 4 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BengaluruMetro.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Set for Launch Along Bannerghatta Road This September</div>
+      <div class="nsum">BMRCL's long-awaited Pink Line Phase 1, a 7.5-km elevated stretch with six stations from Kalena Agrahara to Tavarekere along Bannerghatta Road, is targeted for commissioning in September 2026. The opening will add a third interchange to Namma Metro's network, with the deeper 13.76-km underground section from Dairy Circle to Nagawara following around March 2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The News Minute / Elets eGov</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Corporations Finalise 2026-27 Budgets with ₹1,225 Crore Civic Infrastructure Push</div>
+      <div class="nsum">Bengaluru's five Greater Bengaluru Authority corporations have completed their first comprehensive fiscal mapping for 2026-27, with the state allocating ₹1,225 crore to improve roads, urban planning, and municipal services across the city. Key projects include road widening on Subramanyapura Road, 30.5 km of new road works in North Bengaluru, and the long-pending Ejipura Elevated Corridor now due for completion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Urban Acres / Karnataka Govt</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Plans Five New Urban Centres Beyond Bengaluru to Ease City's Growth Pressure</div>
+      <div class="nsum">The Karnataka government has unveiled plans to develop five urban centres outside Bengaluru, targeting stronger infrastructure and economic activity to decelerate the mounting congestion and civic strain on the state capital. The initiative is part of a broader state strategy to distribute population and investment more evenly across Karnataka's urban landscape.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PMIndia.gov.in / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Belgian PM Bart De Wever Concludes Official Visit to India, Strengthening Bilateral Ties</div>
+      <div class="nsum">Belgian Prime Minister Bart De Wever wrapped up a three-day official visit to India from September 2–4, 2026, at the invitation of PM Narendra Modi, marking his first trip to the country. De Wever, who previously served as Mayor of Antwerp, has longstanding ties with India through the city's large Indian community and the historic India-Belgium diamond trade.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">FreeJobAlert / MoE</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Posts Robust 7.8% GDP Growth in Q1 FY27; Fiscal Deficit Tracks Below 5-Year Average</div>
+      <div class="nsum">India recorded a stronger-than-expected GDP expansion of 7.8% in the April–June 2026 quarter, with the fiscal deficit for April–July 2026 coming in at 34.5% of the full-year FY27 target — below the typical 40–50% average, reflecting improved GST revenue collections. GST collections for July 2026 hit ₹2.03 lakh crore, the second highest ever, underscoring continued economic resilience.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Blitz India Media / Centre</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Centre Launches PNG Connection Incentive Scheme from September 1 to Expand Domestic Piped Gas</div>
+      <div class="nsum">The central government has approved an Incentive Scheme for Promotion of Domestic PNG Connections, effective September 1, 2026, to boost India's 1.74 crore existing piped-gas connections. The scheme runs in two tranches over six months and compensates city gas distributors with 200 standard cubic metres of gas per additional billed connection rather than direct cash payouts.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Services PMI Rises to 54.1 in August as Jobs Hit 15-Month High</div>
+      <div class="nsum">The HSBC India Services PMI climbed to 54.1 in August from 53.3 in July, driven by stronger output, new business inflows, and employment growth that reached its fastest pace in 15 months. The Composite PMI held steady at 54.3, as faster services expansion offset a slowdown in manufacturing, though new business growth remained near a four-year low.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Coal India, Emcure Pharma Among Stocks Going Ex-Dividend on September 4; Sensex Hovers Near 24,000</div>
+      <div class="nsum">Shares of several companies including Coal India and Emcure Pharmaceuticals traded ex-dividend on September 4, 2026, marking the last day for retail investors to qualify for payouts. Indian equity markets opened cautiously, with the Sensex rising around 200 points and Nifty 50 testing the 24,000 mark, supported by banks, realty, and metals even as Nifty IT and FMCG faced selling pressure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Barawakar / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GST Collections Surge 15% YoY to Nearly ₹2 Lakh Crore in August; Mahindra Auto Sales Jump 42%</div>
+      <div class="nsum">India's GST collections rose 15% year-on-year to nearly ₹2 lakh crore in August 2026, with strong UPI activity and automobile sales pointing to continued areas of economic resilience. Mahindra &amp; Mahindra reported a 42% jump in August auto sales to 1.07 lakh units, while Maruti Suzuki slipped around 4% after its monthly volumes fell 10% month-on-month.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / IndianStartupNews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startup Funding Nears $1 Billion in August as UPI Logs Record 24.51 Billion Transactions</div>
+      <div class="nsum">Indian startup funding rebounded close to $1 billion in August 2026 after a slowdown in July, with notable deals including battery-swapping startup Yuma Energy raising $35 million and AI voice startup Wispr nearly tripling its valuation to $2 billion in a $280 million round. UPI simultaneously hit a new all-time record with 24.51 billion transactions in August, reinforcing India's digital payments dominance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Blog / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Announces 20-Startup AI Accelerator India 2026 Cohort on Programme's 10th Anniversary</div>
+      <div class="nsum">Google for Startups Accelerator India revealed its 2026 class of 20 AI-first startups, selected from approximately 2,500 applications, spanning sectors including healthcare, climate, legal tech, and finance. The cohort, marking the accelerator's 10th anniversary, will receive access to Google's AI stack, technical mentorship, and go-to-market support to scale from pilot to global deployment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Cyber Milo / MeitY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Policy 2026 Mandates Impact Assessments and Data Localisation for SaaS Vendors</div>
+      <div class="nsum">India's AI Policy framework for 2026 introduces three core compliance obligations for SaaS vendors operating in the country: mandatory AI impact assessments, data localisation for training datasets, and real-time audit logging of model decisions. Non-compliance can attract fines of up to 4% of global annual turnover or ₹10 crore, whichever is higher, and the rules apply to all foreign firms serving Indian users.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Britannica</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Xi Jinping Visits Egypt for First Time in a Decade, Deepening China's Middle East Influence</div>
+      <div class="nsum">Chinese President Xi Jinping arrived in Cairo on September 2, 2026 for his first visit to Egypt in ten years, meeting President Abdel-Fattah el-Sissi to strengthen bilateral ties. The trip underscores China's expanding diplomatic ambitions across the Middle East at a time when US influence in the region has been strained by its ongoing conflict with Iran.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Just Security / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-Iran Conflict Escalates as Trump Threatens Harder Strikes; Hormuz Shipping Traffic Drops Sharply</div>
+      <div class="nsum">President Trump warned the US would hit Iran 'hard' following Iranian attacks on American bases in Jordan, while shipping traffic through the Strait of Hormuz fell to just four commodity vessels in a single day, well below the 10-day average of around 13. Vice President Vance stated all options remain on the table, including further military pressure, as the conflict initiated on February 28, 2026 continues to reshape Middle East dynamics.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Just Security / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UN Security Council Set to Vote on Iran Sanctions Panel Mandate as Russia-China Veto Threat Looms</div>
+      <div class="nsum">France announced the UN Security Council will vote this month on renewing the mandate of its Iran sanctions monitoring panel, which is due to expire on September 26, 2026. Diplomats warn that both Russia and China may exercise their vetoes, as they argue the council no longer has standing to oversee the Iranian nuclear issue, creating a potential standoff at the UN.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 4 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
