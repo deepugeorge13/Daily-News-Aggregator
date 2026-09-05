@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 5, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 5 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 5 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Projects Monitor / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line's 7.5-km Elevated Stretch Targets End-September Opening, Awaits Final Safety Clearance</div>
+      <div class="nsum">The 7.5-km elevated section of Bengaluru Metro's Pink Line between Kalena Agrahara and Tavarekere is nearing commercial operations, with inauguration targeted by the end of September 2026, pending the remaining regulatory clearances from the Commissioner of Metro Railway Safety (CMRS). Karnataka Greater Bengaluru Development Minister Krishna Byre Gowda and senior BMRCL officials recently conducted a trial run on the stretch, with safety clearances expected within one to two weeks before the Union government confirms an official inauguration date.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Withdraws Controversial Parks Bill After Massive Lalbagh Protest, Plans Revised Version</div>
+      <div class="nsum">The Karnataka Cabinet, chaired by Chief Minister D.K. Shivakumar, withdrew a bill that would have allowed up to 5% of government park and garden land to be used for public utility and infrastructure projects, following widespread protests at Lalbagh Botanical Garden by citizens, environmentalists, and Resident Welfare Associations. Deputy CM G. Parameshwara announced that the government will put the proposed legislation in the public domain for discussion before reintroducing it with amendments in the next Assembly session.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Free Press Journal / Law Trend</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Extends Bengaluru GBA Civic Polls Deadline to December 31, Issues Stern Warning Against Further Delays</div>
+      <div class="nsum">The Supreme Court, in a bench led by CJI Surya Kant, extended the deadline for elections to the five Municipal Corporations under the Greater Bengaluru Authority (GBA) to December 31, 2026, citing the ongoing Special Intensive Revision of Karnataka's electoral rolls, and warned that no further extensions would be granted under any circumstances. The civic polls have remained pending since the erstwhile BBMP council's term ended in September 2020, and Chief Minister Shivakumar vowed to complete all pending local body elections — including Zilla Panchayat, Taluk Panchayat, and Gram Panchayat — by December.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Celebrates Teachers' Day 2026; President Murmu to Present National Awards to 48 Exemplary Educators</div>
+      <div class="nsum">Teachers' Day 2026 is being observed across India on Saturday, September 5, marking the birth anniversary of philosopher and former President Dr. Sarvepalli Radhakrishnan. President Droupadi Murmu will present the National Teachers' Awards to 48 exemplary school teachers at a ceremony in New Delhi, with recipients selected through a rigorous three-stage process at the district, state, and national levels.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Organiser / TechTimes</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ISRO Successfully Launches EOS-05 Aboard GSLV-F17, India's First Geostationary Imaging Satellite</div>
+      <div class="nsum">The Indian Space Research Organisation (ISRO) successfully launched the GSLV-F17/EOS-05 mission on September 4, 2026, at 2:55 AM IST from the Second Launch Pad at Satish Dhawan Space Centre, Sriharikota, placing the 2,367-kg satellite into a sub-geosynchronous transfer orbit. EOS-05 is India's first imaging satellite designed to operate from geosynchronous orbit, carrying a hyperspectral imager capable of near-continuous observation of the Indian subcontinent, and ISRO Chairman V. Narayanan confirmed the satellite is in perfect health, with six more launches planned before March 2027.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV Channel</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Commerce Minister Piyush Goyal Wraps Up Japan Visit, Highlights Growing Japanese Investment Interest in India</div>
+      <div class="nsum">Union Commerce and Industry Minister Piyush Goyal concluded a productive four-day visit to Japan, where he emphasised the growing interest of Japanese businesses in investing in India across sectors including semiconductors, clean energy, and infrastructure. The visit is seen as part of India's broader push to diversify its trade and investment partnerships in the Indo-Pacific amid shifting global supply chains.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Sentinel Assam</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SEBI Clears Long-Awaited NSE IPO; Listing Targeted Around September 25 in What Could Be India's Largest-Ever Public Issue</div>
+      <div class="nsum">Markets regulator SEBI issued its observation letter approving the National Stock Exchange's long-awaited IPO on September 4, 2026, with the price band expected to be announced around September 11 and the listing targeted around September 25. The IPO is structured as a pure Offer for Sale of approximately 148.9 million shares (~6% stake) with an estimated size of ₹30,000 crore, which could make it India's largest IPO ever, potentially surpassing Hyundai Motor India's ₹27,870 crore issue of 2024.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / RBI / Arthzo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI's 30-Day VRRR Auction Raises Market Odds of a Rate Hike at October Policy; Repo Rate Holds at 5.25%</div>
+      <div class="nsum">The Reserve Bank of India conducted a 7-day Variable Rate Reverse Repo (VRRR) auction of ₹6 lakh crore on September 1, 2026, signalling active liquidity management, with Business Standard reporting the subsequent 30-day VRRR auction raising market expectations of a potential rate hike at the October monetary policy meeting. The repo rate has been held steady at 5.25% since December 2025, but with inflation drifting upward, analysts are closely watching the RBI's next move.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / India Infoline</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Pharma Stocks Bleed as Dr. Reddy's Q1 FY27 Net Profit Plunges 69%, Glenmark and Biocon Slip on Trump Tariff Fears</div>
+      <div class="nsum">Dr. Reddy's Laboratories shares tanked nearly 9% to a 52-week low on the BSE after the company's Q1 FY27 net profit fell 69%, weighed down by a ₹240 crore semaglutide API inventory write-off and sharply lower lenalidomide sales, with brokerages including Citi, CLSA, JP Morgan, and Jefferies slashing earnings estimates. Separately, Glenmark, Biocon, and Aurobindo slipped around 3% on concerns over US President Trump's proposed tariffs on generic drug imports, further pressuring India's pharmaceutical sector.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechTimes / Organiser</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ISRO's EOS-05 Becomes World's First Hyperspectral Earth-Surface Imager in Geostationary Orbit, Ending Seven-Month Launch Hiatus</div>
+      <div class="nsum">ISRO's EOS-05, launched on September 4 aboard GSLV-F17, is the world's first hyperspectral Earth-surface imager placed in geostationary orbit, equipped with 414 spectral channels and a Hubble-class telescope capable of refreshing images of India's entire landmass every 30 minutes from an altitude of ~36,000 km. The successful mission marks a significant comeback for ISRO after two consecutive PSLV failures in 2025 and January 2026, and clears the path for the long-delayed NVS-03 navigation satellite launch now targeting November 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Elets CIO / Google Cloud</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 AI-First Indian Startups for 2026 Accelerator Cohort as India's AI Funding Hits Record Highs</div>
+      <div class="nsum">Google selected 20 AI-first startups from over 2,500 applications for the 2026 cohort of its Google for Startups Accelerator: India programme, which runs from June to September 2026 and culminates in a Demo Day where participating startups showcase solutions to investors and industry leaders. The programme focuses on helping Indian startups transition from experimentation to execution by integrating Agentic AI workflows, Multimodal AI capabilities, Sovereign AI solutions, and Physical AI and Edge Intelligence, reflecting the booming Indian AI ecosystem that raised $679.8 million in Q1 2026 alone.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Deep-Tech Startup Minimac Systems Raises ₹30 Crore from Zerodha's Rainmatter; AI Startup Creedom Closes Seed Round</div>
+      <div class="nsum">Pune-based industrial deep-tech firm Minimac Systems raised ₹30 crore in a round led by Rainmatter by Zerodha, with capital earmarked for R&amp;D in miniaturised treatment infrastructure, fluid analytics, and scaling its Recycling on Wheels hubs. In a separate development, AI growth coach startup Creedom raised ₹4.1 crore in a seed funding round, reflecting continued investor appetite for AI-driven startups across the Indian ecosystem heading into Q2 FY27.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CNN / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Germany Formally Blames Russia for Explosive Drone Attack on Leipzig Airport, Shuts Russian Consulate in Bonn</div>
+      <div class="nsum">Germany's Interior Minister Alexander Dobrindt formally accused Russia of responsibility for the August 4 drone attack at Leipzig/Halle Airport, where an explosive-laden drone was found near a Ukrainian cargo aircraft and defused by police, calling it a 'hybrid attack' fitting the known pattern of Russian operations in Europe. Germany expelled Moscow's ambassador, shut the Russian consulate in Bonn and the Russian House cultural centre in Berlin, while the EU announced additional sanctions and NATO allies backed Berlin's claims; Russia rejected the allegations as 'fabricated'.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Britannica / CNN / Convoy of Hope</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nepal Flood Death Toll Surpasses 1,287 as Recovery Operations Continue; Over 3,900 Still Missing After Glacier Collapse</div>
+      <div class="nsum">The catastrophic flash floods triggered by the partial collapse of the Langtang Lirung glacier in Nepal's Langtang National Park on August 26, 2026, have killed over 1,287 people and left more than 3,900 missing, according to the Kathmandu Post, with the combined flood flow travelling 100 km downstream along the Trishuli River and burying entire villages. The UN launched a four-month Humanitarian Flash Appeal for Nepal, with an estimated 84,270 people across 17 municipalities affected, and damaged roads and bad weather continuing to slow international aid efforts.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Kyiv Under Intensifying Drone Strikes as Ukraine Faces Critical Shortage of Interceptor Missiles</div>
+      <div class="nsum">Kyiv has been subjected to escalating Russian drone strikes, with a critical shortage of air-defence interceptor missiles making life in the Ukrainian capital increasingly deadly and crippling its economy, according to reports from September 2, 2026. The missile deficit is severely hampering Ukraine's ability to protect civilian infrastructure, with dark smoke rising over the city skyline following multiple strikes, even as Western allies continue to debate further military aid packages.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 5 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
