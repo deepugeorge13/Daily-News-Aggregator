@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 6, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 6 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 6 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Underground Section Targets September 2026 Commissioning</div>
+      <div class="nsum">BMRCL has set September 2026 as the deadline to commission the 13.76-km underground stretch of the Pink Line (Reach 6), running from Dairy Circle to Nagawara with 12 stations, after completing all tunnelling works. The 7.5-km elevated section from Kalena Agrahara to Tavarekere was already opened earlier in the year, completing the full 21.26-km corridor.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The News Minute / GBA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Greater Bengaluru Authority Corporations Finalise 2026-27 Budgets with ₹1,225 Crore Civic Push</div>
+      <div class="nsum">All five Greater Bengaluru Authority city corporations have completed their 2026-27 budget presentations, collectively focusing on road widening, traffic management, and khata reforms following the dissolution of the unified BBMP. Key projects include the long-pending Ejipura Elevated Corridor and feasibility studies for grade separators at major junctions such as Jayanagar and Vega City.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Urban Acres / Karnataka Govt</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Plans Five New Urban Centres to Ease Bengaluru's Growing Pressure</div>
+      <div class="nsum">The Karnataka government has announced plans to develop five cities beyond Bengaluru, targeting stronger infrastructure and economic growth to distribute the urban load away from the state capital. The initiative, reported on September 1, 2026, is part of a broader state strategy that also includes a ₹233 crore Science City and the ₹1,386 crore K-QUEST skilling project announced in the 2026 state budget.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / HelloRail</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Railways Deploys Over 6,000 Festival Special Trains for Dussehra, Diwali and Chhath</div>
+      <div class="nsum">The Ministry of Railways has announced more than 6,000 special train services for the festive season spanning Dussehra, Diwali, and Chhath Puja, with a 90-day operational schedule effective September 11 to December 7, 2026. Approximately 900 services are slated to operate in the three-day period beginning September 4, with key routes connecting Delhi-NCR to Uttar Pradesh and Bihar receiving priority attention.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / Next IAS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Coal Crisis Deepens: 50 Thermal Power Plants Left with Only 9 Days of Stock</div>
+      <div class="nsum">Central Electricity Authority data shows that 50 thermal power plants with a combined capacity of 224 GW had just 28.2 million tonnes of coal against a required 58.7 million tonnes as of September 2, 2026 — only 48% of normative requirements. The available stock is equivalent to approximately nine days of consumption, raising concerns about power supply stability as the monsoon disrupts mining and logistics.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Morgan Stanley</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Morgan Stanley and Citi Raise India GDP Forecast to 7.3% Amid Stock Market Underperformance</div>
+      <div class="nsum">Global brokerages Morgan Stanley and Citi have upgraded India's economic growth forecast to 7.3% for the fiscal year ending March 2027, citing strong domestic momentum that has consistently beaten quarterly estimates. However, the Nifty 50 has fallen over 8% since the start of 2026, with analysts noting that benchmark indices are poor proxies for domestic economic acceleration compared to midcap and smallcap stocks.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Free Press Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI's ₹7 Trillion VRRR Auction Raises Odds of First Rate Hike at October Policy Review</div>
+      <div class="nsum">The Reserve Bank of India's announcement of a 30-day Variable Rate Reverse Repo auction for ₹7 trillion — with the reversal date coinciding with the October 5-7 monetary policy review — has significantly heightened market expectations of an interest rate hike. Banking system liquidity surplus hit a record ₹10.3 trillion, driven by strong foreign currency inflows, with India's forex reserves climbing to an all-time high of $740.8 billion as of August 28.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr. Reddy's Shares Tank 9% to 52-Week Low; Glenmark, Biocon, Aurobindo Slip on Trump Tariff Plan</div>
+      <div class="nsum">Dr. Reddy's Laboratories shares plunged 9% to a 52-week low following a weak Q1 showing, while Glenmark, Biocon, and Aurobindo slipped around 3% amid concerns over US President Donald Trump's proposed tariffs on generic drugs. The pharmaceutical sector selloff adds to broader market pressure, with India's benchmark Nifty 50 remaining one of the worst-performing major indices globally in 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Standard Chartered</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Capex by Listed Companies More Than Doubles to ₹14.5 Trillion Over Six Years</div>
+      <div class="nsum">Capital expenditure by listed Indian companies has more than doubled to ₹14.5 trillion ($152.6 billion) over the six years ending March 2026, according to an Ambit Capital report, with midcap firms growing their share of investment from 14% to 20%. Standard Chartered has lowered India to a 'Core holding' from Overweight, citing stretched equity valuations and rangebound oil prices despite the country's strong macroeconomic performance.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / ISM</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi to Inaugurate SEMICON India 2026 on September 17 as Chip Ecosystem Hits New Milestones</div>
+      <div class="nsum">Prime Minister Narendra Modi is set to inaugurate the fifth edition of SEMICON India 2026 at Yashobhoomi, New Delhi, on September 17, themed 'Silicon to Systems: Building the Ecosystem,' with 500+ exhibitors from over 20 countries. The event comes as India's semiconductor programme reports 45,000+ GPUs deployed, 237 AI projects receiving subsidised compute support, and three chip projects under ISM 1.0 already in commercial production.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Hello Entrepreneurs / MeitY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Compute Capacity Crosses 45,000 GPUs with 20 Indigenous Foundation Models Selected</div>
+      <div class="nsum">India's shared AI compute capacity crossed 45,000 GPUs by June 2026, with 237 projects receiving subsidised compute covering over 93 lakh GPU hours by August, according to government data. The government has also selected 20 indigenous foundation-model proposals — including 12 large multimodal models and eight small language models — from 506 applications under the IndiaAI Mission.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Cyber Milo / MeitY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Policy 2026 Imposes Mandatory Assessments and Data Localisation on SaaS Vendors</div>
+      <div class="nsum">India's 2026 AI policy framework introduces three core obligations for SaaS vendors operating in the country: mandatory AI impact assessments, data localisation for training datasets, and real-time audit logging of model decisions. Non-compliance can attract fines of up to 4% of global turnover or ₹10 crore, whichever is higher, with the framework estimated to redirect $1.2 billion of venture capital toward compliant platforms.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / Washington Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Envoys Witkoff and Kushner Meet Putin in Moscow to Revive Stalled Ukraine Peace Talks</div>
+      <div class="nsum">US special representatives Steve Witkoff and Jared Kushner arrived in Moscow on September 5, meeting Russian President Vladimir Putin in a bid to revive Ukraine peace negotiations that have been frozen for nearly eight months. Putin ordered a three-day halt to Russian strikes on Kyiv to coincide with the envoys' planned visit to the Ukrainian capital on Sunday, though no wider ceasefire was agreed.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Strikes Three Iranian Oil Tankers in Gulf of Oman as Iran-US Conflict Escalates</div>
+      <div class="nsum">US Central Command struck three Iranian crude oil tankers in the Gulf of Oman on September 5 in retaliation after Iran's IRGC navy targeted two American warships and three other vessels near the Strait of Hormuz. The tit-for-tat exchange marks the latest escalation in the ongoing 2026 Iran-US conflict, which has created a global fuel crisis since major combat operations began in late February.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / KPBS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Philippine VP Sara Duterte Posts Bail After Arrest Warrant Over Alleged Marcos Assassination Plot</div>
+      <div class="nsum">Philippine Vice President Sara Duterte posted bail on September 5 at a Quezon City court after an arrest warrant was issued on charges she publicly threatened to arrange the assassination of President Ferdinand Marcos Jr. and two others. The charges stem from a 2024 press conference in which Duterte, who was already impeached by the House of Representatives in May, allegedly said she had hired a hitman to kill Marcos if she was killed first.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 6 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
