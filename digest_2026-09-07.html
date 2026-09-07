@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 7, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 7 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 7 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Withdraws Controversial Parks Bill After Mass Bengaluru Protests</div>
+      <div class="nsum">The Karnataka Cabinet withdrew the contentious Parks Bill — which would have allowed up to 5% of government park and garden land to be used for public utility projects — following widespread opposition from citizens, environmental activists, and RWAs. Deputy Chief Minister G. Parameshwara announced the government will open the proposed legislation for public discussion before reintroducing it with changes in the next Assembly session.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bengaluru Metro / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase-1 Elevated Stretch Inches Closer to Launch, ISA Certificate Still Pending</div>
+      <div class="nsum">The 7.5-km elevated section of Bengaluru's much-awaited Namma Metro Pink Line — running from Kalena Agrahara to Tavarekere along Bannerghatta Road — has completed its CMRS safety inspection and all six stations are physically ready, but the signalling system's Independent Safety Assessment (ISA) certificate is still pending. BMRCL expects to launch the elevated section in early September 2026 once the formal clearance comes through, with the 13.76-km underground section targeted for December 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / WeRIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Corporation Announces Vehicle and Goods Entry Fee at KR Market</div>
+      <div class="nsum">The Bengaluru city corporation has announced entry charges for vehicles and goods at the KR Market, a move intended to manage congestion and generate revenue for civic infrastructure. The fee structure is expected to affect traders, vendors, and logistics operators who depend daily on one of the city's largest wholesale produce hubs.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / IANS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">57th GST Council Meeting Postponed to October 7 Due to BRICS Summit Clash</div>
+      <div class="nsum">The 57th GST Council meeting, originally scheduled for September 12, has been postponed and is likely to be held on October 7 in New Delhi after its date clashed with the BRICS Leaders' Summit on September 12–13. The upcoming meeting will be the first GST Council sitting in over a year and is expected to address pending issues related to input tax credit, refunds, and GST compliance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / Manorama Yearbook</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Gears Up to Host 18th BRICS Summit at Bharat Mandapam on September 12–13</div>
+      <div class="nsum">India is finalising preparations to host the 18th BRICS Summit on September 12 and 13 at Bharat Mandapam in New Delhi, under the chairship theme 'Building for Resilience, Innovation, Cooperation and Sustainability.' Chinese President Xi Jinping, Russian President Vladimir Putin, and Iranian President Masoud Pezeshkian are among the top leaders expected to attend, with over 350 meetings and high-level engagements already held across 25 Indian cities this year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Careerindia / Sunday Guardian</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Delhi Building Collapse in Satya Niketan Leaves 3 Dead, Several Feared Trapped</div>
+      <div class="nsum">A building collapse in Delhi's Satya Niketan area — a locality known for student accommodation near Delhi University's South Campus — has left at least three people dead and several others feared trapped. Rescue teams have been conducting continuous operations at the site to locate and evacuate survivors.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / The Hindu Business Line</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FPIs Pull Out ₹7,443 Crore from Indian Equities in First Week of September</div>
+      <div class="nsum">Foreign Portfolio Investors (FPIs) resumed selling in the first week of September 2026, pulling out ₹7,443 crore from Indian equities — a stark reversal from the inflows seen in previous months. Contributing factors include rising crude oil prices and elevated US bond yields, which have weighed on investor sentiment toward emerging markets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Benzinga</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Pharma Stocks Remain Under Pressure as Trump's Generic Drug Tariff Roadmap Looms</div>
+      <div class="nsum">Shares of Dr. Reddy's Laboratories, Sun Pharma, Lupin, Cipla, and other Indian generic drugmakers continued to face headwinds following US President Donald Trump's July announcement of a phased tariff plan — starting at 0% through August 2028, then escalating to 100% for one year and 200% thereafter — on imported generic medicines. Dr. Reddy's reported Q1 FY27 earnings well below analyst estimates, with revenue declining to $853 million from $903 million a year earlier, as management acknowledged that relocating manufacturing to the US is not immediately practical.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Hi India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GST 2.0 Overhaul Impact Under Review as India's Tax Collections Hit ₹1.99 Lakh Crore</div>
+      <div class="nsum">India's GST collections reached ₹1.99 lakh crore as the post-GST 2.0 rate rationalisation — which moved most goods and services to two main slabs of 5% and 18% effective September 2025 — continues to stabilise. The upcoming 57th GST Council meeting in October is expected to address pending ITC relief, refunds under the inverted duty structure, and other compliance-related issues.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Newskart</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raised $676 Million in H1 2026, Nearly Four Times Year-Ago Levels</div>
+      <div class="nsum">Indian AI startups raised $676 million in the first half of 2026, nearly four times the amount raised in the same period the previous year, according to Inc42's Indian Tech Startup Funding Report. The funding wave is being driven by bets on agentic AI, deeptech healthcare, drone and spacetech — with standout names including Bengaluru-based Airbound, which raised nearly $50 million overall, and Ultrahuman, which closed a $70 million round to advance its smart-ring health computing platform.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Blog / Elets CIO</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 AI-First Indian Startups for Its 2026 Accelerator Cohort</div>
+      <div class="nsum">Google has announced the 20 AI-first startups joining the Google for Startups Accelerator: India 2026 class — selected from a highly competitive pool of approximately 2,500 applications — marking the 10th anniversary of its accelerator programmes in the country. The equity-free, three-month programme runs through September 2026 and covers sectors including agentic AI, healthcare, climate tech, developer tools, and digital infrastructure, with participants receiving mentorship, cloud resources, and go-to-market support.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India2040 / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru-Based Sarvam AI Emerges as India's Leading Sovereign AI Startup for Regional Languages</div>
+      <div class="nsum">Bengaluru-based Sarvam AI has quickly emerged as one of India's most important AI startups, focusing on building sovereign large language models trained specifically on India's multilingual ecosystem and diverse regional languages. The startup is widely recognised for advancing AI accessibility across regional languages, with its models being positioned as India's answer to Western AI infrastructure rather than adaptations of foreign models.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / CNN / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Envoys Witkoff and Kushner Hold Landmark Talks in Kyiv After Meeting Putin in Moscow</div>
+      <div class="nsum">US Special Envoy Steve Witkoff and Presidential son-in-law Jared Kushner held their first-ever talks in Kyiv with Ukrainian President Volodymyr Zelenskyy on Sunday — a day after a three-hour meeting with Russian President Vladimir Putin at the Kremlin — as part of Washington's renewed push to end more than four and a half years of Russia's full-scale invasion of Ukraine. Both Russia and Ukraine agreed to a temporary halt to aerial attacks on each other's capitals to enable the visit, though no broader ceasefire is in place, and Witkoff expressed confidence there would be 'a good resolution.'</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Germany's Far-Right AfD Scores Historic Landslide Win in Saxony-Anhalt State Election</div>
+      <div class="nsum">Germany's Alternative für Deutschland (AfD) party won the Saxony-Anhalt state election on September 6 with approximately 44.2–44.5% of the vote — more than double the 17–18% secured by incumbent Chancellor Friedrich Merz's CDU — marking the strongest result ever achieved by the far-right party in a German state election. It remains unclear whether the AfD will be able to form Germany's first far-right state government since World War II, as all mainstream parties have maintained a 'firewall' policy against coalition with it.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nepal Flash Floods Surge Through Bhote Koshi River, Devastating Border Districts</div>
+      <div class="nsum">Severe flash floods surged through the Bhote Koshi River in Nepal, heavily affecting the Rasuwa and Dhading districts bordering Tibet and causing significant destruction to homes and infrastructure in the region. The disaster is the latest in a series of deadly monsoon-season events across South Asia, drawing emergency response efforts from local authorities.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 7 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
