@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 11, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 11 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 11 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / One India / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Set for September 14 Inauguration Along 7.5-km Elevated Stretch</div>
+      <div class="nsum">Bengaluru's long-awaited Namma Metro Pink Line Phase 1, covering the 7.5-km elevated stretch from Kalena Agrahara to Tavarekere on Bannerghatta Road, is officially planned to open on September 14, 2026. All six elevated stations are physically complete, with the CMRS safety inspection concluded; only the signalling system's Independent Safety Assessment (ISA) certificate was the final pending hurdle before formal clearance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">One India / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Withdraws Controversial Parks Bill After Mass Bengaluru Protests, Pledges Revised Version</div>
+      <div class="nsum">The Karnataka Cabinet has withdrawn the contentious Parks Bill following large-scale public protests in Bengaluru, including a massive rally at Lalbagh where thousands demonstrated against the proposed 5% park-land diversion and tunnel road project. The government has stated it will bring back the bill with significant changes after broader public consultation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">One India / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Corporations Face December 2026 Election Deadline as All Mayor Posts Remain Vacant</div>
+      <div class="nsum">A year after the Bruhat Bengaluru Mahanagara Palike (BBMP) was dissolved and split into five new city corporations under the Greater Bengaluru Governance Act, all mayoral and deputy mayoral seats across the corporations remain vacant with no council yet elected. Elections for all five corporations — North, South, East, West, and Central — are mandated to be held by December 2026, with state-appointed administrators continuing to govern in the interim.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / The Tribune / India.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Putin Arrives in New Delhi Ahead of 18th BRICS Summit; Bilateral Talks With PM Modi on Defence and Energy Today</div>
+      <div class="nsum">Russian President Vladimir Putin landed in New Delhi early Friday morning for a three-day visit ahead of the 18th BRICS Summit, scheduled to formally open on September 12–13 under India's chairship. Putin is set to hold wide-ranging bilateral discussions with Prime Minister Narendra Modi covering defence, energy, technology, and pharmaceuticals, after which both leaders will jointly tour the India-Russia Innoprom industrial exhibition.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / INVC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nationwide Bank Strike on Sept 11 Disrupts Branch Services as UFBU Demands Five-Day Work Week</div>
+      <div class="nsum">The United Forum of Bank Unions (UFBU) called a nationwide strike on September 11, with branch-based banking services disrupted across India as employees demanded a five-day banking week, a review of the Performance-Linked Incentive (PLI) scheme, and improved pension terms. UPI, ATMs, and internet banking continued to function normally, but cheque clearances, cash counter transactions, and loan processing at public sector bank branches faced significant disruption.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY / The Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Delhi On High Alert With 15,000 Security Personnel Deployed, Airspace Restricted for BRICS Summit</div>
+      <div class="nsum">Delhi Police deployed approximately 15,000 personnel along with 200 paramilitary companies and installed over 500 high-resolution CCTV cameras across the national capital ahead of the BRICS Summit on September 12–13. The Airports Authority of India also imposed airspace restrictions around New Delhi, barring non-scheduled flight operations from 7am to 11pm from September 11–13, while the National Lok Adalat was rescheduled from September 12 to October 10 due to the security arrangements.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / Economic Times / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cabinet Clears 8 Railway Multitracking Projects Worth ₹20,804 Crore to Boost South India Rail Capacity</div>
+      <div class="nsum">The Union Cabinet approved eight railway multitracking projects worth approximately ₹20,804 crore, adding around 540 km to the Indian Railways network primarily across South India. The projects are expected to ease congestion, improve freight movement, and strengthen connectivity across the region over the coming years.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / The Hindu Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pranav Constructions IPO Allotment Finalised Today After Issue Oversubscribed 121 Times</div>
+      <div class="nsum">The ₹351.03-crore Pranav Constructions IPO, which was massively oversubscribed 121 times, is having its share allotment finalised on September 11, with the stock slated to list on both BSE and NSE on September 15, 2026. The IPO attracted substantial investor interest, reflecting continued buoyancy in India's primary market activity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">HSBC Raises 2026 Brent Crude Forecast to $90/Barrel on Strait of Hormuz Shipping Threats</div>
+      <div class="nsum">HSBC has revised upward its 2026 average Brent crude oil price forecast to $90 per barrel, citing escalating threats to shipping through the Strait of Hormuz. The revision signals growing concern over geopolitical risk to global energy supply chains, with potential knock-on effects for India's import bill and fuel prices.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Al Jazeera / OpenAI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">OpenAI Launches GPT-6 Astra, Hailed as Potential AGI Milestone With Record 100,000-GPU Training Run</div>
+      <div class="nsum">OpenAI released GPT-6 Astra on September 3–4, 2026, describing it as a 'generational leap' trained on over 100,000 GPUs at its Stargate facility in Texas — the company's largest training run ever. OpenAI president Greg Brockman suggested the model could be viewed as the arrival of artificial general intelligence (AGI), though experts cautioned that AI intelligence remains 'very jagged' and the model carries heightened cybersecurity risk warnings.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Martech.org / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Adobe Acquires Indian AI Startup Rilo to Boost Agentic Marketing Automation Capabilities</div>
+      <div class="nsum">Adobe has acquired Bengaluru-linked Indian AI startup Rilo, which automates marketing and go-to-market workflows using natural language, to expand its agentic AI capabilities. The deal includes Rilo's six-person team and a licence to its technology, though financial terms were not disclosed and Rilo's standalone product will be shut down post-acquisition.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Elets CIO / Google Cloud</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 AI-First Indian Startups from 2,500 Applications for 2026 Accelerator, Demo Day This Month</div>
+      <div class="nsum">Google has chosen 20 AI-first Indian startups from over 2,500 applications for the 2026 cohort of its Google for Startups Accelerator: India programme, which runs from June to September 2026. The programme, culminating in a Demo Day this month where startups will showcase solutions to investors and industry leaders, focuses on agentic AI workflows, multimodal AI, sovereign AI, and physical AI edge intelligence.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Canada.ca / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Canada's Retaliatory Tariffs on 700-Plus US Products Now in Force, Escalating US-Canada Trade War</div>
+      <div class="nsum">Canada's sweeping counter-tariffs of 15%, 25%, and 50% on over 700 American products — valued at roughly $19.9 billion USD — came into force on September 8, 2026, matching US duties dollar for dollar after trade talks collapsed. The retaliatory package targets steel, aluminium, dairy, electronics, appliances, and agricultural equipment, in what analysts are calling the sharpest escalation yet in a trade war building since early 2025.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia-North Korea Relations Flourish as New Bridge Opens and Military Cooperation Deepens</div>
+      <div class="nsum">A new bridge between Russia and North Korea — named after Soviet officer Yakov Novichenko — opened this week, symbolising flourishing ties between the two nations. North Korea has been supplying ammunition and troops to support Russia's war in Ukraine in return for economic and military assistance from Moscow, deepening a strategic partnership that has drawn sharp criticism from Western governments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / The Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">World Leaders Converge on New Delhi for 18th BRICS Summit; Xi Jinping, Leaders From 9+ Nations Attending</div>
+      <div class="nsum">New Delhi is hosting the 18th BRICS Summit on September 12–13 under India's chairship, with Chinese President Xi Jinping, Iranian President Masoud Pezeshkian, South African President Cyril Ramaphosa, Indonesian President Prabowo Subianto, and leaders from Egypt, Malaysia, UAE, Ethiopia, and Vietnam among those attending. US trade and tariff policies, the Russia-Ukraine conflict, and India-led multilateral initiatives are expected to dominate discussions at the high-profile summit.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 11 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
