@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 12, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 12 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 12 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BMRCL / bengalurumetro.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Phase 1 Inauguration Set for September 14 as BMRCL Awaits Final Signal Clearance</div>
+      <div class="nsum">The 7.5-km elevated stretch of Namma Metro's Pink Line, connecting Kalena Agrahara to Tavarekere along Bannerghatta Road, is planned for inauguration on September 14, 2026, with all six stations physically complete. The sole remaining hurdle is the Independent Safety Assessment (ISA) signalling certificate, which BMRCL is awaiting before CMRS grants formal operational clearance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Withdraws Controversial Parks Bill After Mass Bengaluru Protests, Promises Revised Version</div>
+      <div class="nsum">The Karnataka Cabinet formally withdrew the contentious Parks Bill following large-scale citizen protests in Bengaluru, including a major rally at Lalbagh by thousands opposed to the proposed 5% park-land diversion clause. The government has committed to reintroducing the bill with significant changes after broader stakeholder consultations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WeRIndia / OneIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Govt Directs Officials to Fast-Track Mekedatu Project, Warns of Action for Negligence</div>
+      <div class="nsum">Karnataka Water Resources Minister N. Cheluvarayaswamy directed officials on Friday to expedite all processes related to the Mekedatu dam project and asked district administrations to urgently identify alternative land for compensatory afforestation. The minister warned that negligence in execution would invite administrative action, signalling renewed political urgency around the long-delayed water project.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Print / Outlook India / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Hosts 18th BRICS Summit in New Delhi; PM Modi Holds Bilaterals with Putin, Xi and 13 World Leaders</div>
+      <div class="nsum">The two-day 18th BRICS Leaders' Summit opened in New Delhi on September 12, marking India's fourth chairmanship of the grouping on its 20th anniversary, with 13 heads of state in attendance including Russian President Vladimir Putin and Chinese President Xi Jinping. PM Modi addressed the BRICS Business Forum, urging member nations to support 100 BRICS startups annually and announcing cooperation frameworks in agriculture, health, skills and smart grids.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Flags Off Inaugural Namo Bharat RRTS Train, Marking Major Public Transport Milestone for UP</div>
+      <div class="nsum">Prime Minister Narendra Modi officially flagged off India's first Namo Bharat Regional Rapid Transit System train on September 11, including the Meerut Metro section, in a significant boost to inter-city connectivity in Uttar Pradesh. The project is seen as a landmark advancement in modernising public transportation and easing commuter congestion across the Delhi-NCR-Meerut corridor.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Actor-Politician Vijay Takes Oath as Tamil Nadu's 9th Chief Minister, Ending DMK-AIADMK Duopoly</div>
+      <div class="nsum">C. Joseph Vijay was sworn in as Tamil Nadu's 9th Chief Minister in May 2026 after his party Tamilaga Vettri Kazhagam (TVK) secured 108 seats and formed a coalition with 120 MLAs, decisively breaking the long-standing DMK-AIADMK dominance. His new Secretariat plan has since drawn fresh protests, with opposition parties including BJP criticising its estimated cost of ₹1,200 crore.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr. Reddy's Labs Shares Slide 9% to 52-Week Low After Disappointing Q1 FY27 Earnings</div>
+      <div class="nsum">Shares of Dr. Reddy's Laboratories tanked approximately 9% to touch a 52-week low following weak Q1 FY27 results, with net profit falling nearly 69% year-on-year to ₹435.60 crore for the quarter ended June 2026. The stock's decline reflects investor concern over rising costs, higher price erosion in generics, and elevated freight costs linked to ongoing Middle East conflict disruptions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pharma Stocks Glenmark, Biocon, Aurobindo Slip 3% on Trump's New Generic Drug Tariff Plan</div>
+      <div class="nsum">Indian pharmaceutical stocks including Glenmark, Biocon and Aurobindo Pharma fell up to 3% after the Trump administration unveiled a new tariff plan targeting generic drug imports, raising fears of significant revenue headwinds for India's US-facing pharma exporters. The development adds to sector-wide pressure already building from ongoing US price erosion and stricter FDA scrutiny.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BRICS 2026: Modi and Putin Agree on $100 Billion India-Russia Trade Target by 2030, Discuss Defence Ties</div>
+      <div class="nsum">On the sidelines of the BRICS Summit in New Delhi, PM Modi and Russian President Putin held wide-ranging bilateral talks, agreeing to push bilateral trade to a $100 billion target by 2030 while reviewing progress in defence, energy and space cooperation. PM Modi also told assembled industry leaders to identify ten trade obstacles to be removed under India's BRICS presidency.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $676 Million in H1 2026, Nearly Four Times the Year-Ago Figure</div>
+      <div class="nsum">Indian AI startups raised $676 million in the first half of 2026, almost four times the capital raised in the same period last year, according to Inc42's Indian Tech Startup Funding Report for H1 2026. Founders are channelling the capital into deeptech healthcare, enterprise productivity, education and AI-powered cinematic content, reflecting the maturing diversity of India's AI ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Elets CIO / Google Cloud</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 AI-First Indian Startups from 2,500 Applicants for Its 2026 Accelerator Programme</div>
+      <div class="nsum">Google has chosen 20 AI-first startups from over 2,500 applications for the 2026 cohort of the Google for Startups Accelerator: India programme, which runs from June to September 2026 and culminates in a Demo Day for investors and industry leaders. The programme focuses on helping startups transition from AI experimentation to execution, covering Agentic AI workflows, Multimodal AI, Sovereign AI and Physical AI.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">WeRIndia / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Teen Founder Naman Pushp Raises $37 Million Series A for Aerospace Drone Startup Airbound</div>
+      <div class="nsum">Naman Pushp, a 21-year-old Bengaluru-based entrepreneur who began experimenting with drones during the 2020 lockdown and won $500 at a hackathon, has grown his startup Airbound to nearly $50 million in total funding after closing a $37 million Series A round. The company is developing lightweight drone systems with defence and commercial logistics applications, emerging as one of India's most watched young aerospace ventures.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CNBC / WorldCargo News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthis Seize Yemen's Red Sea Port of Mokha and Perim Island, Threatening Global Shipping Chokepoint</div>
+      <div class="nsum">Iran-backed Houthi rebels captured the strategic Red Sea port city of Mokha on September 10 and subsequently moved onto Perim Island at the entrance to the Bab el-Mandeb Strait, one of the world's most critical maritime chokepoints. Energy analysts at ING warned that Saudi oil exports via the Red Sea are now increasingly at risk, and oil prices briefly spiked to $100 a barrel as shipping carriers who had only recently resumed Red Sea services face renewed disruption.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Foreign Policy</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Hong Kong Pro-Democracy Activists Sentenced to 5–7 Years in Prison in Case Seen as Barometer of Eroding Freedoms</div>
+      <div class="nsum">Multiple Hong Kong pro-democracy activists were sentenced to approximately five to seven years in prison in a case widely viewed internationally as a clear indicator of the city's rapidly eroding civil liberties as Beijing continues its clampdown on political dissent. The verdicts drew condemnation from human rights groups and Western governments who called the sentences disproportionate and politically motivated.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">World Today Journal / World Today Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Putin Warns European Military Deployment to Ukraine Would Mean Direct Conflict with Russia</div>
+      <div class="nsum">Russian President Vladimir Putin cautioned on the sidelines of the BRICS Summit that any deployment of European military personnel to Ukraine would constitute a direct conflict between Russia and European states, while maintaining that Moscow harbours no aggressive intentions towards Europe. Former Russian Prime Minister Dmitry Medvedev also dismissed circulating reports of a planned Russian offensive against European nations as entirely unfounded.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 12 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
