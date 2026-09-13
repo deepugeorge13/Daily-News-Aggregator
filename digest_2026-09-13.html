@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 13, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 13 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 13 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Metro Rail News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Underground Stretch Inches Toward Launch as BMRCL Floats Phase 3 Tenders</div>
+      <div class="nsum">BMRCL's highly anticipated 13.76-km underground Pink Line (Reach 6) connecting Dairy Circle to Nagawara, Bengaluru's longest metro tunnel, is in its final commissioning stages with station construction 91–97% complete. Separately, preparatory work for Phase 3 — a 44.65-km, 31-station expansion across two corridors — is now underway, with BMRCL floating demolition tenders for buildings along the alignment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Supreme Court / The South First</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Sets December 31 as Final Deadline for Greater Bengaluru Authority Civic Polls</div>
+      <div class="nsum">The Supreme Court, led by CJI Surya Kant, extended the deadline for elections to Bengaluru's five newly formed municipal corporations under the Greater Bengaluru Authority (GBA) to December 31, 2026, citing the ongoing Special Intensive Revision of Karnataka's voter rolls. The bench issued a stern warning that no further extension would be granted under any circumstances, marking the third deadline set since the erstwhile BBMP's council lapsed in 2020.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The News Minute / Karnataka Energy Dept</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Extends Gruha Jyothi Beneficiary Reverification Deadline to September 30 Amid Survey Delays</div>
+      <div class="nsum">The Karnataka government extended the door-to-door reverification deadline for its flagship Gruha Jyothi free-electricity scheme by one month to September 30, 2026, after only about 70% of the estimated 68.86 lakh BESCOM-area beneficiaries had been surveyed by the original August 31 cutoff. BESCOM Managing Director N. Shivashankara urged the remaining beneficiaries to cooperate with meter readers visiting their homes and keep documents ready for verification.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook India / News24Online / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BRICS Summit 2026 Concludes in New Delhi With Release of New Delhi Declaration; Modi Tells Xi Border Peace Is Essential</div>
+      <div class="nsum">India hosted the 18th BRICS Leaders' Summit at Bharat Mandapam on September 12–13, bringing together Presidents Xi Jinping, Vladimir Putin, Masoud Pezeshkian, Cyril Ramaphosa and other world leaders under the theme 'Building for Resilience, Innovation, Cooperation and Sustainability.' PM Modi told Xi Jinping that 'border peace is essential for ties' and called for honouring existing pacts, as the summit concluded with the release of the New Delhi Declaration covering trade, energy security, and global governance reform.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24Online / India.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Delhi's Satya Niketan PG Building Collapse Triggers MCD Crackdown; 67 Structures Demolished, 9 Sealed</div>
+      <div class="nsum">Following a deadly building collapse at a Satya Niketan paying-guest facility in Delhi, the Municipal Corporation of Delhi intensified its enforcement drive, demolishing 67 illegal structures and sealing 9 properties across the capital. The crackdown highlighted persistent concerns about unauthorised construction in Delhi's dense residential neighbourhoods, with officials vowing continued action against buildings that violate safety norms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India-China Issue Joint Commitment to Fair Boundary Settlement on Sidelines of BRICS; Modi Announces UNSC Reform Push</div>
+      <div class="nsum">On the final day of the New Delhi BRICS Summit, India and China issued a joint commitment to a 'fair, mutually acceptable boundary settlement,' signalling a measured thaw after years of LAC tensions. PM Modi also used the summit platform to announce that UNSC reform 'cannot be postponed,' calling for greater representation of the Global South in the United Nations Security Council.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook Money / Liquide Blog</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty Extends Losing Streak to Fifth Week, Closing at 23,398 as Middle East Tensions and FII Outflows Weigh</div>
+      <div class="nsum">Indian benchmark indices ended the week ending September 11 sharply lower, with Nifty 50 declining 499.60 points (–2.09%) to close at 23,398.10 and the Sensex shedding 1,733.67 points (–2.27%) to 74,781.76, marking a fifth consecutive weekly loss. Broad-based selling in IT, Metal, Realty and Auto sectors, surging crude oil prices driven by Houthi attacks on Red Sea shipping lanes, and continued foreign institutional investor outflows were the primary drags.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Pharma Stocks Remain Under Pressure as Trump's Proposed 200% Generic Drug Tariff Looms Over Sector</div>
+      <div class="nsum">Shares of major Indian pharmaceutical companies including Dr. Reddy's Laboratories, Glenmark, Biocon, Aurobindo Pharma, and Cipla have continued to face selling pressure after US President Donald Trump outlined a plan to impose a 100% tariff on imported generic medicines from August 2028, escalating to 200% by 2029. Analysts at Motilal Oswal noted the tariff is unlikely to cause an immediate earnings shock given the two-year window, but investor concerns about long-term US revenue exposure — which accounts for 30–50% of revenue for many Indian drugmakers — have kept the Nifty Pharma index under pressure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook Money / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Markets Eye BRICS New Delhi Declaration and Fed Rate Decision as Key Triggers for Week Starting September 15</div>
+      <div class="nsum">With Indian markets closed on Monday, September 14, for a public holiday, D-Street analysts flagged the BRICS Summit's New Delhi Declaration — particularly any joint trade or supply-chain agreements — and the upcoming US Federal Reserve rate decision as the two biggest geopolitical and macro catalysts for the truncated trading week. The Nifty has now breached the crucial 23,500 support zone, with analysts warning that a sustained break below current levels could push the index toward 23,000 in the near term.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Blog / Elets CIO</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google for Startups Accelerator India 2026 Cohort — 20 AI-First Startups Selected From 2,500 Applications — Heads to Demo Day</div>
+      <div class="nsum">Google selected 20 AI-first Indian startups from over 2,500 applications for its 2026 Google for Startups Accelerator: India programme, focused on Agentic AI, Multimodal AI, Physical AI, and Sovereign AI, with the three-month equity-free initiative beginning with a bootcamp in Bengaluru in June. The cohort — spanning healthcare, climate tech, developer tools, and manufacturing — is now heading toward its Demo Day in October, where participants will showcase solutions to investors and global tech leaders.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">EY India / Indian Infrastructure</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Data Centre Boom Accelerates: Mumbai to Surpass 1 GW Capacity by Year-End as IndiaAI Mission Deploys 34,000 GPUs</div>
+      <div class="nsum">India now ranks second in Asia-Pacific by operational data centre capacity at 1.6 GW, with Mumbai set to surpass 1 GW by end-2026 and a pipeline of 3.1 GW under construction or planned across emerging hubs including Chennai, Hyderabad, and Delhi-NCR. The IndiaAI Mission has deployed approximately 34,000 GPUs across domestic data centres, accessible to startups and researchers at roughly ₹65 per GPU-hour, with IT Minister Ashwini Vaishnaw targeting a total of 100,000 public GPUs by December 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tribune India / Microsoft India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Microsoft Expands India Cloud Footprint to Four Regions, Eyes Deeper IndiaAI Mission Partnership</div>
+      <div class="nsum">Microsoft has expanded its operational cloud regions in India to four following the general availability of its India South Central region in Hyderabad, building on its commitment to invest USD 17.5 billion in India's cloud and AI infrastructure between 2026 and 2029. Commerce Minister Piyush Goyal and Microsoft India's president recently met to discuss further data centre expansion and Microsoft's role in supporting the IndiaAI Mission, which was approved with a ₹10,371.92 crore outlay to develop India's sovereign AI ecosystem.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / NPR / Outlook India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthis Seize Perim Island at Bab el-Mandeb, Saudi Arabia Shuts East-West Oil Pipeline After Drone Strike</div>
+      <div class="nsum">Iranian-backed Houthi rebels captured the strategic island of Perim at the mouth of the Red Sea in the Bab el-Mandeb Strait, tightening their grip on one of the world's most critical shipping lanes at a time when the Strait of Hormuz remains disrupted by the US-Iran war. Simultaneously, Saudi Arabia shut down its 745-mile East-West oil pipeline as a precautionary measure after drones launched from Iraq — where Iranian-backed militias operate — struck pump stations in the Riyadh and Medina regions, deepening the global energy crisis.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / UPI / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Federal Judge Rules Trump Administration's Plan to Cut FEMA Workforce by 50% Was Unlawful</div>
+      <div class="nsum">US District Judge Susan Illston in San Francisco ruled that the Department of Homeland Security acted 'arbitrarily and capriciously' and violated the post-Hurricane Katrina law by directing FEMA to cut its workforce from roughly 23,000 employees to approximately 11,500, overriding the agency's own supervisors who objected to the plan. The ruling, a victory for a coalition of unions and local governments, also rebuked DHS officials for deleting Signal messages relevant to the lawsuit, with the judge stating she would presume those lost messages were unfavourable to the government.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Outlook India / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Putin and Pezeshkian Join Xi and Modi at BRICS as Iran-US War and Global Energy Crisis Dominate Summit Agenda</div>
+      <div class="nsum">Russian President Vladimir Putin and Iranian President Masoud Pezeshkian arrived in New Delhi for the BRICS Summit, with the ongoing US-Iran war and its cascading impact on global oil supplies — including the Strait of Hormuz blockade and now Houthi advances on the Red Sea — casting a long shadow over proceedings. Putin held bilateral talks with PM Modi covering trade, defence, and energy cooperation, while the BRICS Business Forum discussed local-currency trade mechanisms, alternative payment systems, and supply-chain resilience as BRICS nations push back against what the grouping called 'unilateral' tariffs and trade barriers.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 13 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
