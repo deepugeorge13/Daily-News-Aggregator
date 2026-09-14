@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 14, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 14 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 14 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BengaluruMetro.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section on Cusp of Launch as Safety Clearance Awaited</div>
+      <div class="nsum">BMRCL's 7.5-km elevated Pink Line corridor from Kalena Agrahara to Tavarekere along Bannerghatta Road has all six stations physically complete and is planned for inauguration around September 14, 2026, pending final CMRS signalling clearance. The CMRS safety inspection was conducted on August 14 and BMRCL received its Interim Speed Certificate from RDSO on August 12 after successful oscillation and emergency brake-distance trials.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UrbanAcres / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Directs Bengaluru Civic Polls Across Five New GBA Corporations by December 2026</div>
+      <div class="nsum">The Supreme Court of India has directed that elections to all five newly constituted city corporations under the Greater Bengaluru Authority must be completed by December 2026, ending an unprecedented 11-year gap since the last BBMP polls in 2015. Chief Minister DK Shivakumar has pledged no further delays, with 369 wards across 712 sq km of the city set to go to the polls under the new Greater Bengaluru Governance Act framework.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Withdraws Controversial Parks Bill After Bengaluru Protests, Promises Revised Version</div>
+      <div class="nsum">The Karnataka Cabinet withdrew a contentious parks bill following widespread protests from Bengaluru residents and civic groups who raised concerns about its impact on green spaces and public access. The government stated it would revisit the legislation and bring back an amended version after broader stakeholder consultation.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Kashmir Images / ANI / Travel And Tour World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">18th BRICS Summit Concludes in New Delhi; Modi Warns Against Weaponisation of Tech and Critical Minerals</div>
+      <div class="nsum">The 18th BRICS Summit, held under India's chairship in New Delhi from September 12–13, concluded with the adoption of the New Delhi Declaration covering resilience, innovation, cooperation and sustainability, alongside over 50 practical outcomes including an open-source AI ecosystem for the Global South. Prime Minister Modi warned member nations against the weaponisation of technology and critical minerals, and hosted a series of 15 bilateral meetings with leaders including those of Kazakhstan, Egypt and the Philippines.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Free Press Journal / NewsKarnataka</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's First Vande Bharat Freight Train Hits 130 Kmph in Trial Run on Ahmedabad-Mumbai Route</div>
+      <div class="nsum">India's first Vande Bharat Freight EMU rake successfully completed a 130 kmph Confirmatory Oscillograph Car Run on the Ahmedabad–Vadodara–Mumbai Central section of Western Railway on September 12–13, 2026, marking a landmark step toward high-speed cargo operations. The 16-coach rake, developed by the Integral Coach Factory in Chennai, is designed to carry time-sensitive goods including electronics, pharmaceuticals and e-commerce shipments, though commercial service awaits further safety certifications.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Amit Shah Says 21 NDA-Ruled States to Implement Uniform Civil Code by 2029, Outlines BJP Legal Reform Roadmap</div>
+      <div class="nsum">Union Home Minister Amit Shah announced that 21 states governed by the NDA are on course to implement the Uniform Civil Code by 2029, laying out a detailed legal reform roadmap for the ruling BJP government. The announcement signals a major push by the central government to advance one of its flagship policy commitments ahead of future electoral cycles.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Groww / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE and BSE Remain Closed Today for Ganesh Chaturthi; Markets Reopen Tuesday</div>
+      <div class="nsum">Indian stock markets — both the National Stock Exchange and the Bombay Stock Exchange — are closed on Monday, September 14, 2026, on account of the Ganesh Chaturthi public holiday, resulting in three consecutive days of market closure following the weekend. Trading across equity, equity derivatives and all other segments will resume on Tuesday, September 15.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / Equentis / Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE IPO Set to Open September 17 at Price Band of Rs 1,700–1,785; Issue Size ~Rs 22,562 Crore</div>
+      <div class="nsum">The long-awaited NSE IPO, one of the most closely watched capital-market events of 2026, will open for public subscription on September 17 and close on September 21, with anchor investor bidding on September 16. The entirely OFS-based issue at a price band of Rs 1,700–1,785 per share implies a valuation of approximately Rs 4.42 lakh crore for India's largest stock exchange, with listing on BSE expected around September 24.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / BusinessToday</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Pharma Stocks Under Pressure as Trump's Proposed Generic Drug Tariff Keeps Sector on Edge</div>
+      <div class="nsum">Shares of major Indian pharmaceutical companies including Dr Reddy's Laboratories, Sun Pharma, Biocon, Aurobindo and Cipla have remained under selling pressure after US President Donald Trump proposed a phased tariff structure that would impose a 100% duty on imported generic medicines from August 2028, rising to 200% the following year. Dr Reddy's shares hit a 52-week low after a weak Q1 result compounded sector anxiety, even as analysts note there is no immediate earnings impact given the two-year tariff-free window.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / Storyboard18 / LatestLY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google DeepMind AGI Safety Researcher Josh Engels Quits to Join METR, Warns of Terrifying AI Risk Within 5 Years</div>
+      <div class="nsum">Josh Engels, a researcher on Google DeepMind's AGI safety team, has left the company to join independent AI-evaluation nonprofit METR, warning that there is a 'terrifying chance' that AI systems could cause immense harm within the next five years if alignment research fails to keep pace with capability gains. His departure follows a similar high-profile resignation by Anthropic researcher Jacob Coxon, and comes as Anthropic CEO Dario Amodei publicly called for AI development to slow down to allow safety systems to catch up.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Elets CIO / Google Cloud</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 AI-First Indian Startups from 2,500 Applications for Its 2026 Accelerator Programme</div>
+      <div class="nsum">Google has chosen 20 AI-first startups from over 2,500 applications for the 2026 cohort of the Google for Startups Accelerator: India programme, aimed at helping Indian innovators build globally competitive products using advanced AI technologies. The accelerator, which ran from June to September 2026, is set to culminate in a Demo Day where participating startups will showcase their solutions to investors, industry leaders and ecosystem partners.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">mean.ceo / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Startup Ecosystem Crosses 200,000 Registered Startups in September 2026, AI and Fintech Lead Growth</div>
+      <div class="nsum">India now counts more than 200,000 startups by the government's official tally as of September 2026, with fintech, AI tools, deeptech and climate tech identified as the sectors attracting the most attention from investors and accelerators. Tier II and Tier III cities are increasingly central to startup activity, now accounting for a significant share of new venture formations as founders look beyond metro markets for distribution reach and customer trust.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indonesian Ferry Virgo Transport 8 Sinks in Java Sea; 6 Dead, 130 Still Missing After Carrying 243 People</div>
+      <div class="nsum">The Indonesian-flagged ferry Virgo Transport 8 capsized in the Java Sea on September 13, 2026, while travelling from Surabaya in East Java to Banjarmasin in South Kalimantan, carrying 243 people and 89 vehicles in rough weather with waves up to 3 metres high. Rescue teams recovered six bodies and saved 107 people, while approximately 130 passengers and crew remained missing as search operations involving ships and a helicopter continued from the vessel's last known position, about 150 km from Banjarmasin.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Michael West / Euronews / GB News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Announces Removal of Tariff on Irish Whiskey at Irish Open Trophy Ceremony, Closing Two-Day Ireland Visit</div>
+      <div class="nsum">US President Donald Trump surprised crowds at the Amgen Irish Open trophy ceremony at his Doonbeg golf resort in County Clare by pledging to remove the 15% EU tariff currently applied to Irish whiskey imports into the United States, at the close of a two-day visit to Ireland. Trump said he had discussed the matter with Irish Taoiseach Micheál Martin and tournament winner Shane Lowry, though no timeline or formal executive order details were immediately provided.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Algeria Cuts Diplomatic Ties With UAE, Bans Emirati Aircraft Over Hostile Acts as Regional Tensions Escalate</div>
+      <div class="nsum">Algeria severed diplomatic relations with the United Arab Emirates and banned Emirati civilian and military aircraft from its airspace, citing what it described as 'provocative and hostile acts' by the UAE against Algerian interests. Commercial flights to Algiers were granted an exemption until the end of 2026, while the diplomatic rupture adds fresh strain to an already turbulent period for North African and Gulf regional relations.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 14 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
