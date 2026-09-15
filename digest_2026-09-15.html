@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 15, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 15 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 15 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Bengaluru Metro (BMRCL)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Underground Section Clears Final Inspection, Set to Open This Month</div>
+      <div class="nsum">The 13.76-km underground section of Bengaluru's Pink Line (Nagawara–Kalena Agrahara corridor) has been cleared for inauguration, with its planned opening targeted for September 2026. The elevated section of the same line was commissioned earlier in the year, completing Phase 1 of the 21.25-km North–South Pink Line corridor with 18 stations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The News Minute / Urban Acres</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Plans Five New Urban Centres to Ease Bengaluru's Growing Civic Burden</div>
+      <div class="nsum">The Karnataka government has unveiled plans to develop five cities beyond Bengaluru, targeting stronger infrastructure and economic growth in other urban centres across the state. The initiative is aimed at decentralising pressure on Bengaluru, which has faced mounting challenges including traffic congestion and strained civic services under the newly formed Greater Bengaluru Authority.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News First Prime / Elets eGov</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Corporations Push Rs 1,225 Crore Infra Drive: Road Widening, Tunnels and Ejipura Corridor on Track</div>
+      <div class="nsum">Bengaluru's five city corporations under the Greater Bengaluru Authority are executing a ₹1,225-crore civic infrastructure programme covering road widening, drain upgrades, and white-topping across 500 km of roads. The long-pending Ejipura Elevated Corridor is confirmed for completion, while 170 km of tunnels and double-decker flyovers — including the Hebbal–Silk Board tunnel — are targeted for delivery between 2026 and 2027.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / CNBC / Fortune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Hosts 18th BRICS Summit in New Delhi; Modi Adopts New Delhi Declaration With Xi, Putin</div>
+      <div class="nsum">The 18th BRICS Summit concluded at Bharat Mandapam in New Delhi on September 13, with PM Narendra Modi chairing the two-day gathering of leaders including Chinese President Xi Jinping and Russian President Vladimir Putin, resulting in the adoption of the New Delhi Declaration by consensus. Modi warned against the 'weaponisation of technology and critical minerals' and called on BRICS nations to convert agreements into real-life impact for the Global South.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Wins 41% of Seats in Rajasthan Municipal Elections; PM Modi Hails Victory</div>
+      <div class="nsum">The BJP emerged as the dominant force in Rajasthan's urban local body elections, winning 4,179 wards — or about 41% of total seats — against Congress's 3,613 wards across 309 urban local bodies, with voting held on September 9 and 11. PM Modi called the outcome a 'triumph of truth over lies,' while the BJP's tally marked a near-57% jump from the previous election cycle, strengthening its position ahead of the 2028 state assembly polls.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Approves Extended Power Supply to Flood-Hit Nepal: 18 Hours of Electricity Daily Through December</div>
+      <div class="nsum">India has approved extended power supplies to Nepal following severe flooding that damaged the Himalayan country's power infrastructure last month, with Nepal set to receive electricity from India for up to 18 hours a day through December 31. The arrangement underscores India's role as Nepal's primary energy backup as Kathmandu works to rebuild its storm-damaged grid.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">INVC News / International News and Views</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex and Nifty Reopen After Ganesh Chaturthi Holiday; Markets Eye Positive Start Despite Rising Crude</div>
+      <div class="nsum">Indian equities returned to Dalal Street on September 15 after the Ganesh Chaturthi holiday, with GIFT Nifty trading around 80 points higher in early deals, indicating a Nifty 50 open above the 23,500 zone. However, investor sentiment faces headwinds from Brent crude near $107 a barrel, the US 10-year Treasury yield breaching 5%, a weakening rupee, and the Federal Reserve's commencement of a crucial two-day policy meeting.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ClearTax / Bajaj Finserv / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Holds Repo Rate Steady at 5.25%; Next MPC Decision Awaited Amid Global Rate Pressures</div>
+      <div class="nsum">The Reserve Bank of India has maintained its benchmark repo rate at 5.25% through 2026, with a neutral policy stance reflecting a balance between easing domestic inflation and global monetary uncertainty. Markets are closely watching the next MPC meeting cycle as rising US Treasury yields and elevated crude oil prices threaten to squeeze India's current account and restrict the RBI's room for further monetary easing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Standard Chartered India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Dr Reddy's and HDFC Bank Top Nifty Gainers as JSW Steel, Hindalco Lag; India Downgraded to Core Holding</div>
+      <div class="nsum">Dr Reddy's Laboratories and HDFC Bank were the top gainers among Nifty constituents in the most recent trading session, while JSW Steel and Hindalco Industries were the biggest laggards amid a volatile metals sector. Standard Chartered has lowered India's equity allocation to a 'Core' holding from Overweight, citing stretched valuations and rangebound oil prices, even as it remains bullish on Taiwan for AI-driven growth.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Google DeepMind</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Four Indian Climate-Tech Startups Selected for Inaugural Google DeepMind AI for the Planet Accelerator</div>
+      <div class="nsum">Google announced that four Indian startups — Terrastack, Varaha Climate, Farmers for Forests, and Climitra Carbon — have been selected for the inaugural Google DeepMind Accelerator: AI for the Planet (APAC), joining a cohort of 16 organisations across Asia-Pacific. Over the next three months, the startups will receive access to Google's full AI stack, technical mentorship, and tailored support to scale AI-driven environmental solutions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup Times / Global Fintech Fest 2026</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FM Sitharaman at GFF 2026: India's Tech Transformation Must Be Anchored in Responsible AI</div>
+      <div class="nsum">Speaking at the Global Fintech Fest 2026, Finance Minister Nirmala Sitharaman highlighted India's large-scale technological transformation and called for a responsibility-first approach to rapidly evolving technologies, particularly artificial intelligence. She emphasised that India's demographic strength — a large young population combined with expanding digital access — is becoming a critical engine of the country's technology and entrepreneurship ecosystem.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / ONDC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EV Startup Bounce Partners With ONDC to Build Sustainable Last-Mile Delivery Network Across India</div>
+      <div class="nsum">Electric mobility company Bounce has partnered with the Open Network for Digital Commerce (ONDC) to strengthen India's open logistics infrastructure through EV-led last-mile delivery, combining Bounce's fleet operations with ONDC's Open Delivery Protocol. ONDC's logistics network, which currently spans more than 50 service providers and 150,000 delivery partners enabling over 12,000 deliveries a day, will benefit from the collaboration's focus on interoperability and sustainability.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / BBC News / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indonesia Intensifies Search for 129 Missing After Ferry Virgo Transport 8 Capsizes in Java Sea</div>
+      <div class="nsum">Indonesian rescue authorities intensified search operations on September 14–15 for 129 people still missing after the ferry Virgo Transport 8, carrying 243 passengers and crew, capsized in rough seas in the Java Sea while travelling from Surabaya to Banjarmasin on September 13. At least six people have been confirmed dead and 108 rescued, with a joint task force of the Indonesian navy, maritime police and BASARNAS deploying ships and helicopters across the vessel's last known position.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / China's Foreign Ministry</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China Calls Anthropic CEO's AI Warning 'Fearmongering' as US-China Summit Looms</div>
+      <div class="nsum">China's Foreign Ministry labelled the Anthropic CEO's warning about the dangers of Chinese-developed AI as 'fearmongering,' escalating diplomatic tensions in the technology domain ahead of a planned meeting between Chinese President Xi Jinping and US President Donald Trump in Washington later this month. The exchange underscores deepening US-China rivalry over artificial intelligence as both nations compete for global technological dominance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / CNBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Post-BRICS, Xi Jinping Set for Washington State Visit With Trump on September 24 Amid Global Tensions</div>
+      <div class="nsum">Following the conclusion of the BRICS Summit in New Delhi, Chinese President Xi Jinping is expected to meet US President Donald Trump for a state visit on September 24 in what would be the second China-US summit of 2026. Analysts say the meeting comes at a critical juncture — amid the ongoing US-Israel-Iran conflict, the Russia-Ukraine war, and mounting trade and tariff disputes — testing whether Washington and Beijing can find common ground on global stability.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 15 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
