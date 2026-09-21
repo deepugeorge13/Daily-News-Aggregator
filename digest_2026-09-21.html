@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 21, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 21 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 21 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Three-Day Special Legislature Session Begins in Bengaluru, to Adopt Resolution Against Kasturirangan Report</div>
+      <div class="nsum">A three-day special legislature session commenced on Monday, September 21, 2026, in Bengaluru. The session is expected to adopt a resolution opposing the implementation of the K. Kasturirangan report and will also deliberate on the prevailing drought situation in the state.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Woman Dies After Car Plunges Off Bengaluru-Mysuru Expressway Flyover in Mandya</div>
+      <div class="nsum">A speeding car reportedly hit a divider and fell off the Bengaluru-Mysuru flyover on September 21, 2026, resulting in a woman being thrown out of the vehicle. The incident has raised fresh concerns about road safety on the busy expressway stretch.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Authorities Bust Major Fake Drug Racket, Public Health Drive Intensifies</div>
+      <div class="nsum">Authorities in Bengaluru busted a major fake drug racket on September 21, 2026, as part of an ongoing effort to combat counterfeit medicines across the city. Officials highlighted the operation as a key step in the city's commitment to safeguarding public health.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / The Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Shooters Clinch Third Silver at Asian Games 2026 in Aichi-Nagoya, Men's Air Rifle Team Podium</div>
+      <div class="nsum">India's medal run in shooting continued at the Asian Games 2026 as the trio of Rudrankksh Patil, Parth Mane and Himanshu Dhillon secured a silver medal in the men's 10m air rifle team event on Monday, with a combined score of 1890.1. President Murmu and PM Modi congratulated the Indian shooting contingent, as all three of India's medals at the Games so far have come from shooting.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Suryakiran Aerobatic Team Makes Historic Debut Over Meerut Skies in High-Precision Air Display</div>
+      <div class="nsum">The Indian Air Force's Suryakiran Aerobatic Team made its first-ever appearance over the Meerut skies on September 21, 2026, delivering a high-precision aerial display in a landmark debut. The event drew large crowds and was celebrated as a major milestone for the IAF's aerobatic programme.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nationwide Rashtriya Sankalp Samaroh Launched Across India to Fight Drug Abuse Among Youth</div>
+      <div class="nsum">The Rashtriya Sankalp Samaroh is being held across India today, September 21, 2026, aimed at raising awareness and strengthening the fight against drug abuse among the country's youth. The initiative forms part of a broader national campaign engaging civil society, schools and government bodies.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IPOji / Kotak Neo / International News &amp; Views</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE's Landmark ₹22,562 Crore IPO Closes Today; Listing Expected on September 24</div>
+      <div class="nsum">The National Stock Exchange of India's long-awaited ₹22,561.57 crore IPO, priced at ₹1,700–₹1,785 per share, closes today September 21, 2026, marking what is set to be one of India's biggest-ever stock market listings. The entirely Offer for Sale issue is expected to list on BSE and NSE on September 24, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Anand Rathi / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Head Into Monday After Sixth Straight Weekly Decline; Sensex at 74,295, Nifty at 23,346</div>
+      <div class="nsum">Indian equity markets ended the week of September 14–18, 2026, on a weak note, marking their sixth consecutive weekly decline — the longest losing streak since 2020 — with the Sensex at 74,294.96 and the Nifty at 23,346.40. Sentiment remained subdued amid crude oil prices above $100 a barrel driven by Middle East geopolitical tensions, continued FII outflows, and liquidity being diverted towards strong IPO demand.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / GlobalSecurity.org</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Strait of Hormuz Tensions Keep Brent Crude Above $100, Pressuring India's Trade and Fuel Bills</div>
+      <div class="nsum">Ongoing US-Iran hostilities in the Strait of Hormuz continue to keep Brent crude elevated above $100 a barrel, with a vessel struck in the strait on September 13 and Iran refusing to reopen international shipping lanes without conditions. The sustained energy-price shock is weighing heavily on India's import bill, market sentiment and rupee stability heading into the new trading week.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / YourStory / InShorts</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IT Minister Vaishnaw Warns India's Semiconductor Industry to Brace for Cyberattacks as Chip Ambitions Grow</div>
+      <div class="nsum">Union Minister Ashwini Vaishnaw cautioned India's semiconductor industry and deep-tech startups to remain constantly vigilant against cyberattacks, geopolitical risks and other disruptions from established global players who may view India's rising chip capabilities as a threat. The warning comes as the Cabinet's newly approved Semicon 2.0 mission carries an outlay of ₹1,27,500 crore to build domestic chip design, fabrication and packaging capacity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndianStartupNews / India Weekly / Newskart</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Spacetech Startup Pixxel Raises $100 Million Series C — India's Largest-Ever Space-Tech Funding Round</div>
+      <div class="nsum">Bengaluru-based hyperspectral satellite startup Pixxel raised $100 million in a Series C round led by Singapore's Temasek and British firm Seraphim Space, marking the single largest private funding round in India's space technology sector. The capital will accelerate Pixxel's next-generation Honeybee satellite constellation, its Aurora Earth-intelligence software platform, and a new Gigapixxel satellite manufacturing facility.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Artificialintelligence-news.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Anthropic CEO Dario Amodei Outlines 'Pace the Frontier' AI Safety Plan After Researcher Doomsday Warning</div>
+      <div class="nsum">Anthropic CEO Dario Amodei has publicly outlined his plan to 'pace the frontier' of AI development in response to a recent doomsday warning from one of the company's own researchers, proposing reliance on independent safety evaluators and coordination among AI labs in democratic nations. The proposal has received some industry backing but drawn pointed criticism from Nvidia's Jensen Huang, highlighting a growing debate over how to govern rapid AI advancement.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / USNI News / Britannica</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Refuses to Reopen Strait of Hormuz Without Conditions; Tehran Rejects Fresh US Talks</div>
+      <div class="nsum">Iran on September 21, 2026 reiterated its refusal to reopen the Strait of Hormuz to all international shipping without preconditions, even as a senior Iranian official acknowledged a separate Iran-Oman shipping route deal awaiting confirmation. The standoff follows the July collapse of the Islamabad Memorandum of Understanding, with the US continuing military operations against IRGC targets and diplomatic prospects remaining elusive.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Launches Largest-Ever Drone Attack on Moscow, Hitting Oil Refinery and Residential Building</div>
+      <div class="nsum">Moscow's mayor described a wave of Ukrainian drones on September 20, 2026, as the 'largest ever' attack on the Russian capital, with damage confirmed at a Moscow oil refinery and a residential building. The strike came as Russia simultaneously held parliamentary elections for the first time in Ukrainian territories it illegally annexed following its full-scale invasion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Strikes Deal with Denmark to Bolster US Military Presence in Greenland</div>
+      <div class="nsum">President Trump announced on September 19, 2026, that the United States has reached a deal with Denmark to significantly bolster American military presence in Greenland. The announcement follows months of Trump threatening to take the Arctic island by force from the NATO ally, marking a major geopolitical shift in the High North.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 21 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
