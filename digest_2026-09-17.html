@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 17, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 17 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 17 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / Bengaluru Metro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section on Verge of Inauguration, Underground Stretch Nears September Deadline</div>
+      <div class="nsum">BMRCL's Pink Line Phase 1 — a 7.5 km elevated stretch with 6 stations running along Bannerghatta Road from Kalena Agrahara to Tavarekere — is cleared for passenger operations this month after RDSO speed trials were completed in June 2026 and CMRS final inspection was conducted in August. The 13.76 km underground section from Dairy Circle to Nagawara, forming Phase 2 of the 21.26 km corridor, is targeted for completion by end of 2026, with the full Pink Line set to become Bengaluru's first driverless metro.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bengaluru Metro / Metro Rail News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Sets Record: Namma Metro Crosses 11 Lakh Daily Boardings for First Time</div>
+      <div class="nsum">Namma Metro recorded 11,19,815 boardings on August 10, 2026, shattering the previous record of 10.48 lakh set on Yellow Line launch day, with the Purple Line alone accounting for 4.66 lakh riders. The milestone reflects surging ridership since the Yellow Line to Electronic City was inaugurated by Prime Minister Modi in August 2025, and underlines growing demand for metro expansion across the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / NoBroker</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Identifies L1 Bidder for ₹64.82 Crore Contract as Metro Phase 3 Planning Advances</div>
+      <div class="nsum">Bangalore Metro Rail Corporation Limited has identified Milan Road Buildtech LLP as the lowest bidder for a ₹64.82 crore project, the latest in a series of contract awards as BMRCL advances infrastructure works across its network. Meanwhile, BMRCL's feasibility study for a 10.5 km Yellow Line extension beyond Bommasandra — connecting nine elevated stations along Hosur Road toward Attibele — has been completed, with early planning underway for Namma Metro Phase 3.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Outlook India / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Hosts 18th BRICS Summit in New Delhi; Modi Holds Bilaterals with Putin, Xi and Pezeshkian</div>
+      <div class="nsum">Prime Minister Narendra Modi chaired the 18th BRICS Summit at Bharat Mandapam in New Delhi on September 12–13, hosting Russian President Vladimir Putin, Chinese President Xi Jinping, Iranian President Masoud Pezeshkian and other bloc leaders amid the backdrop of the US–Iran war and rising US tariffs. The summit focused on trade, investment, local-currency payment systems, and supply chain resilience, with India seeking to balance its strategic ties with Russia and Iran while deepening relations with the West.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News on AIR / Tribune India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Election Results Awaited After Five-State Assembly Polls Concluded in May; Governments Being Formed</div>
+      <div class="nsum">Assembly elections in Tamil Nadu, West Bengal, Assam, Kerala, and the Union Territory of Puducherry were held in April–May 2026, with vote counting completed on May 4. Political parties across the five states are engaged in post-poll government formation talks, with the outcomes shaping the national opposition landscape and the BJP's push to make inroads in southern and eastern India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News on AIR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Parliament Passes Appropriation Bill 2026; Lok Sabha Debates Agriculture Ministry Demands</div>
+      <div class="nsum">Parliament passed the Appropriation Bill 2026, with the Rajya Sabha returning it to the Lok Sabha after debate, as the Budget Session concluded its second phase in early April. The Lok Sabha separately took up Agriculture and Farmer Welfare Ministry demands for grants, with opposition members pressing the government on rural distress and crop insurance coverage gaps.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / ICICI Direct</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Slides Below 74,000 as Defence and FMCG Stocks Drag; IT Sector Provides Lone Support</div>
+      <div class="nsum">India's benchmark Sensex closed flat near 74,004 points on September 15, 2026, down roughly 10% year-on-year, weighed down by Bharat Electronics slipping 6% after analysts flagged downside risks to defence sector valuations, while Titan, Bajaj Finserv, Adani Ports and SBI also featured among laggards. On the upside, IT majors were the lone bright spot, with HCL Tech jumping roughly 4%, Infosys climbing 3.6%, and TCS adding 2.2% as global technology sentiment improved.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Indmoney / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Pharma Stocks Remain Under Pressure Amid Trump's Phased 100–200% Generic Drug Tariff Plan</div>
+      <div class="nsum">Indian pharmaceutical counters including Dr. Reddy's Laboratories, Cipla, Sun Pharma, Biocon and Lupin continued to face selling pressure this week after US President Donald Trump announced a phased tariff structure imposing 100% duties on generic drug imports from August 2028, rising to 200% in 2029, unless manufacturers establish US-based production facilities. India supplies nearly half of all US generic drugs, and while the immediate earnings impact is limited, investors are concerned about the sector's long-term US revenue exposure and the feasibility of shifting manufacturing stateside.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News on AIR / DFS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's GDP Growth Projected at 6.8–7.2% in 2026, Remains Among World's Fastest-Growing Major Economies</div>
+      <div class="nsum">The Department of Financial Services Secretary M. Nagaraju reaffirmed that India remains one of the fastest-growing major economies globally, with GDP growth projected in the range of 6.8 to 7.2 percent for 2026. The outlook is supported by a US-India trade agreement, a supportive RBI monetary policy cycle, and strong domestic consumption, though global headwinds from the US–Iran conflict and elevated crude oil prices remain key risks.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Free Press Journal / Outlook Business / Yahoo Finance</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru's Pixxel Raises $100 Million in India's Largest-Ever Space-Tech Funding Round</div>
+      <div class="nsum">Bengaluru-headquartered space-tech startup Pixxel secured $100 million in a Series C round led by Singapore's Temasek and UK-based Seraphim Space, marking the largest single funding round raised by any space technology company in India and taking its total capital to $195 million. The funds will be deployed to expand Pixxel's Honeybee hyperspectral satellite constellation and its Aurora Earth-intelligence software platform, supporting both commercial and sovereign mission customers globally.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google / Elets CIO / Aryan Age</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google for Startups Accelerator India 2026 Concludes with Demo Day, Showcasing 20 AI-First Startups</div>
+      <div class="nsum">Google's three-month equity-free Accelerator India 2026 programme — which ran from June to September and was selected from over 2,500 applications — is concluding this month with a Demo Day where 20 AI-first startups will present innovations across agentic AI, healthcare, climate tech and enterprise software to investors and industry leaders. The cohort, which kicked off with an in-person bootcamp in Bengaluru, reflects India's transition from AI experimentation to scaled deployment, with startups receiving up to $350,000 in Google Cloud credits and access to the full Gemini AI stack.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TICE News / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise Over $412 Million in Week of September 7–12; Space, AI and Deep Tech Lead</div>
+      <div class="nsum">Indian startups raised over $412 million in the week of September 7–12, 2026, with Pixxel topping the list alongside space ventures GalaxEye securing a US patent for satellite imaging and Agnikul Cosmos expanding its reusable rocket infrastructure. The 2026 Hurun India Cheetah Index identified 110 startups — more than double the 54 counted in 2021 — as potential unicorns, with Bengaluru leading at 36, signalling that India's startup economy is broadening well beyond consumer internet into aerospace, defence, climate and AI.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / NPR / Times of Israel</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthis Complete Takeover of Bab el-Mandeb Strait, Seizing Perim Island and Threatening Global Shipping</div>
+      <div class="nsum">Yemen's Iran-backed Houthi rebels completed a rapid military offensive along the Red Sea coastline, capturing the port of Mokha and Perim (Mayyun) Island, which divides the Bab el-Mandeb Strait into two shipping lanes, giving them strategic control over a waterway that handles roughly 10% of global trade and 5–7% of global oil shipments. The seizure, coming alongside Iran's ongoing blockade of the Strait of Hormuz, threatens a dual chokepoint crisis for global energy markets, with Saudi Arabia forced to shut down a major oil pipeline as a precaution after strikes on its infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Eastern Herald / 6ABC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China Calls Anthropic CEO's AI Warning 'Fearmongering' as Trump-Xi AI Governance Summit Looms</div>
+      <div class="nsum">China's Ministry of Foreign Affairs sharply rebuked Anthropic CEO Dario Amodei after he published an essay warning that a Chinese lead in AI would pose grave danger to the US and the world, calling his proposals to restrict Chinese AI access to cutting-edge chips a form of fearmongering and tech protectionism. The diplomatic clash comes just days before US President Donald Trump and Chinese President Xi Jinping are expected to hold a leaders' summit in Washington on September 24, with AI governance, chip export controls and bilateral trade tensions all on the agenda.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indonesian Ferry Disaster in Java Sea Kills 6, Leaves 129 Missing as Search Intensifies</div>
+      <div class="nsum">Indonesian authorities intensified search operations on September 14, 2026 after the passenger ferry Virgo Transport 8 overturned in bad weather in the Java Sea, leaving at least six passengers dead and 129 still missing. Rescue teams and the national search-and-rescue agency deployed vessels and aircraft across the search zone, as families gathered at the command centre in Banjarmasin, South Kalimantan to check passenger manifests and await news of survivors.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 17 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
