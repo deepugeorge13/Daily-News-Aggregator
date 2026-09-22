@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 22, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 22 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 22 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsable / Asianet News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BWSSB Emergency Repairs Cause 6-Hour Cauvery Water Supply Shutdown Across Bengaluru</div>
+      <div class="nsum">The Bangalore Water Supply and Sewerage Board announced a temporary disruption to Cauvery water supply on September 22, as it undertakes emergency repair work on the Isolation Sluice Valve Bypass and Expansion Bellow of Pump No. 4 at the Phase 1 pumping station. The pumping station will be shut down from 6:00 am to 12:00 pm, affecting several areas across the city, with residents advised to store sufficient water in advance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bengaluru Metro / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Ready, BMRCL Awaits Centre's Inauguration Date for End-September Launch</div>
+      <div class="nsum">The 7.5-km elevated section of Bengaluru's Pink Line, spanning 6 stations from Kalena Agrahara to Tavarekere, has been verified as ready for service as of September 21, 2026, after completing CMRS safety inspections in August. BMRCL is targeting an inauguration by end of September 2026, but Greater Bengaluru Development Minister Krishna Byre Gowda has confirmed the state is still awaiting a formal date from the Union government.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Oneindia / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Withdraws Controversial Parks Bill Following Large-Scale Bengaluru Protests</div>
+      <div class="nsum">The Karnataka Cabinet withdrew its controversial Parks Bill after thousands of residents rallied at Lalbagh against the proposed 5% park land diversion and tunnel road plans, signalling a significant public victory for civic activists in Bengaluru. The government has stated its intent to reintroduce the bill with revisions after broader consultations.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD India / GK Today / Revoi</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Amit Shah Inaugurates 3rd National ANTF Conference in New Delhi, Lays Foundation for New NCB Complexes</div>
+      <div class="nsum">Union Home Minister Amit Shah inaugurated the 3rd National Conference of Anti-Narcotics Task Force Heads from all 36 States and Union Territories in New Delhi on September 22, focused on implementing the Vision Document on Narcotics Control (2026–29) under the theme 'United Resolve, Shared Responsibility.' Shah also laid the foundation stones for new Narcotics Control Bureau zone complexes in Lucknow and Dehradun, and released TV commercials to spread drug-abuse awareness.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / Olympics.com / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Women Cricket Team Bids for Asian Games Gold Against Sri Lanka in Aichi-Nagoya Final</div>
+      <div class="nsum">Harmanpreet Kaur's Indian women's cricket team faces Sri Lanka in the Asian Games 2026 gold medal final at Korogi Athletic Park on September 22 — a rematch of the 2023 Hangzhou final, which India won. The day also features medal opportunities in shooting, wushu, badminton, and boxing, with India's Elavenil Valarivan competing in the 10m air rifle mixed team final.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">APAC News / INVC / Newsonair</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India-New Zealand FTA Formally Ratified, Set to Enter Into Force on October 20 with 100% Duty-Free Access</div>
+      <div class="nsum">India and New Zealand formally ratified their Free Trade Agreement on September 21, 2026, clearing the final hurdle for the deal to take effect on October 20 — the auspicious occasion of Dussehra. Commerce Minister Piyush Goyal confirmed that 100% of Indian exports to New Zealand will be duty-free from day one, covering textiles, engineering goods, pharmaceuticals, and processed food.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE's Landmark ₹22,562 Crore IPO Closes Subscribed 5.71 Times; Allotment Due Today</div>
+      <div class="nsum">The National Stock Exchange of India's mega ₹22,562-crore IPO, which opened on September 17 and closed on September 21 with an overall subscription of 5.71 times, is set for share allotment on September 22 with listing expected on the BSE on September 24. The issue, priced between ₹1,700 and ₹1,785 per share, is an entirely Offer-for-Sale structure with selling shareholders including State Bank of India and Canada Pension Plan Investment Board.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">International News and Views / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Rebounds 564 Points on September 21, Ending a Six-Week Losing Streak as Crude Eases</div>
+      <div class="nsum">Indian benchmark indices staged a strong recovery on Monday, with the BSE Sensex climbing 564 points, or 0.76%, to close at 74,858.99, and the Nifty 50 settling above 23,400, snapping six consecutive weeks of losses — the longest weekly losing streak in about six years. Bargain buying, softer crude oil prices, and renewed interest in heavyweight large-cap stocks drove the rebound, though mid-cap and small-cap participation remained muted.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">APAC News / bdnews24 / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India-New Zealand FTA to Boost Exports; India Accelerates Trade Diversification Amid US Tariff Pressures</div>
+      <div class="nsum">The ratified India-New Zealand Free Trade Agreement, set to take effect October 20, will give Indian exporters zero-duty access across all tariff lines in New Zealand, covering sectors from textiles and footwear to automobiles and pharma. The deal comes as India actively diversifies its export markets away from the US, which is its largest destination, following the passage of legislation granting Washington authority to impose up to 100% tariffs on countries buying Russian oil.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nexperia / Business Standard / Tata Electronics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nexperia and Tata Electronics Forge Strategic Semiconductor Partnership Spanning Dholera Fab and Assam Packaging Plant</div>
+      <div class="nsum">Dutch chipmaker Nexperia and Tata Electronics announced a wide-ranging strategic partnership on September 17 covering semiconductor wafer fabrication at Tata's upcoming 300mm fab in Dholera, Gujarat, as well as assembly and testing of discrete products at the packaging facility in Jagiroad, Assam. The deal, unveiled at SEMICON India 2026, aims to build a globally competitive semiconductor manufacturing ecosystem in India across multiple stages of the chip value chain.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Cloud / Elets CIO</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 AI-First Indian Startups from 2,500 Applications for 2026 Accelerator Programme Demo Day</div>
+      <div class="nsum">Google has selected 20 AI-first startups from over 2,500 applications for the 2026 cohort of its Google for Startups Accelerator: India programme, which runs from June to September 2026 and culminates in a Demo Day where participants showcase solutions to investors and industry leaders. The programme focuses on helping startups transition from experimentation to execution using Agentic AI workflows, Multimodal AI, Sovereign AI, and Physical AI capabilities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">StartupTalky / APAC News Network</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startup Funding Momentum Continues in September: Navana.ai, Fundly.ai, and VerifAIX Close Key AI Rounds</div>
+      <div class="nsum">Indian AI startup Navana.ai raised $4.2 million in Series A funding in September 2026, while Fundly.ai secured a $4 million pre-Series A round led by Accel and Multiply to bring AI into financial services, reflecting sustained investor appetite for enterprise-focused AI applications. Earlier in the month, semiconductor AI verification startup VerifAIX closed a $5 million seed round, and Reliance Jio partnered with Canva to offer Canva Pro to subscribers with AI-powered Hindi-language content creation tools.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / Al Jazeera / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Putin's United Russia Wins Record 355 Duma Seats as Russia's First Post-Invasion Parliamentary Election Concludes</div>
+      <div class="nsum">President Vladimir Putin's United Russia party has won a record supermajority of 355 of 450 State Duma seats, taking nearly 58% of the party-list vote in Russia's first parliamentary election since the full-scale invasion of Ukraine in 2022, according to preliminary results. The election, held from September 18–20 amid major Ukrainian drone strikes on Moscow on the final day of voting, was condemned by the European Union as a 'sham,' with no genuine opposition parties permitted to participate.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Federal Reserve Raises Interest Rates for First Time Since 2023, Rattling Global Markets</div>
+      <div class="nsum">The US Federal Reserve raised interest rates for the first time since 2023 in its September 2026 meeting, reversing the easing cycle and triggering fresh uncertainty across global equity and bond markets. The hike comes amid elevated oil prices and persistent inflationary pressures, with analysts closely watching the ripple effects on emerging market economies including India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews / Outlook India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukraine Launches Largest-Ever Drone Attack on Moscow During Final Day of Russia's Parliamentary Polls</div>
+      <div class="nsum">Ukraine launched what Moscow's mayor described as the 'largest ever' drone attack on the Russian capital on September 20, the final day of Russia's parliamentary election, with drones striking a Moscow oil refinery and a residential building. Russia's defence ministry vowed to 'intensify' its strikes on Kyiv in response, accusing Ukraine of attempting to disrupt the democratic process during the vote.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 22 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
