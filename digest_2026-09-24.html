@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 24, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 24 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 24 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / New Indian Express</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Underground Section Targets September 2026 Opening, Tavarekere Station at 95%</div>
+      <div class="nsum">BMRCL's 13.76-km underground section of the Pink Line is targeted to open in September 2026, with key stations like Tavarekere now at 95% completion ahead of operations. The elevated section of the same line had already opened in March 2026, significantly expanding Bengaluru's metro network.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY / Urban Acres</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Records 99 mm Rainfall in 24 Hours, Ranks Among Karnataka's Wettest Spots</div>
+      <div class="nsum">Bengaluru's Singanayakanahalli recorded 99 mm of rainfall in a 24-hour period, placing the city among the most heavily affected locations in Karnataka according to the State Disaster Management Centre. Several other city locations including Arakere (79.5 mm) and KR Puram (53.25 mm) also received heavy downpours, raising urban flooding concerns.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Water Tunnel Project Faces Backlash Over Plan to Fell 1,128 Trees and Threaten 278 Bird Species</div>
+      <div class="nsum">A proposed 2.3-km water tunnel project in Bengaluru has drawn sharp environmental criticism, as it involves the felling of 1,128 trees and potentially endangers 278 bird species. Critics have also raised concerns that the project could significantly impact the city's water table.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bank Unions Launch Three-Day Strike from September 26, Indefinite Action from October 26 Over Five-Day Work Week Demand</div>
+      <div class="nsum">The United Forum of Bank Unions (UFBU) has called a three-day nationwide bank strike from September 28–30, with an indefinite strike to follow from October 26 if demands remain unresolved. At the heart of the dispute is the implementation of a five-day banking week, a commitment unions say was agreed upon in a March 2024 settlement but remains unfulfilled.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google News / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EAM Jaishankar Meets US Secretary Rubio at UNGA, Raises India's Concerns on Russia and Iran Sanctions Bill</div>
+      <div class="nsum">External Affairs Minister S. Jaishankar held talks with US Secretary of State Marco Rubio on the sidelines of the UN General Assembly in New York, conveying India's strong concerns over the proposed legislation sanctioning Russia and Iran. The meeting was part of Jaishankar's packed schedule of over 50 bilateral and multilateral engagements during his US visit.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">KEONICS Marks 50th Anniversary with Strategic Pivot Towards AI and Skill Development</div>
+      <div class="nsum">Karnataka's state electronics development corporation KEONICS celebrated its golden jubilee on September 22, announcing a major strategic shift towards artificial intelligence, skill development, and expanding the state's technology footprint. The move is seen as a key step in Karnataka's ambition to consolidate its position as India's leading technology hub.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Upstox / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE Makes Historic Stock Market Debut on BSE Today in India's Second-Largest IPO Ever</div>
+      <div class="nsum">Shares of the National Stock Exchange of India (NSE) listed on the BSE today, September 24, 2026, in a Rs 22,562-crore IPO that is India's second-largest ever after Hyundai Motor India's 2024 offering. The issue was subscribed 5.71 times overall, with the QIB category seeing 12.68 times subscription, while the grey market signalled a modest 2.4% listing gain at the upper price band of Rs 1,785.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Defence Ministry Signs Contract with Bharat Dynamics for Indian Air Force; Bajaj Finance, Waaree Energies Also in Focus</div>
+      <div class="nsum">The Defence Ministry has inked a fresh contract with Bharat Dynamics Limited for the Indian Air Force, making it a key stock to watch on September 24. Other market movers include Waaree Energies on fundraising plans, and Jagsonpal Pharmaceuticals, which has entered a Rs 46.7-crore business transfer agreement to acquire Group Pharmaceuticals' wellness portfolio.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SS Retail Shares Make Stellar Debut, Listing at 51% Premium on BSE at Rs 639.10</div>
+      <div class="nsum">SS Retail shares made a strong market debut on BSE, listing at Rs 639.10 per share — a 51% premium over its issue price — marking one of the stronger IPO listings of the season. The listing added to a busy day on Dalal Street, with both the Sensex and Nifty 50 trading in positive territory with gains of 0.40% and 0.50% respectively.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IAPP / Cyber Milo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Policy 2026 Framework Enters Formal Enforcement Phase, First Fines Levied on Fintech Platforms</div>
+      <div class="nsum">India's 2026 AI governance framework, which mandates AI impact assessments, data localisation for training sets, and real-time audit logging, moved into its formal enforcement phase in Q3 2026 with the first penalties levied on two fintech platforms for missing localisation requirements. The framework applies to all SaaS vendors processing personal data of Indian users, with non-compliance attracting fines of up to 4% of global turnover or Rs 10 crore, whichever is higher.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">APAC News Network</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Navana.ai and Fundly.ai Close Fresh Funding Rounds as Enterprise AI Wave Accelerates</div>
+      <div class="nsum">Bengaluru-based Navana.ai, which builds enterprise AI solutions for practical business applications, raised $4.2 million in a Series A round in September 2026. Simultaneously, fintech-AI startup Fundly.ai closed a $4 million pre-Series A round led by Accel and Multiply, reflecting strong investor appetite for specialised AI applications beyond general-purpose tools.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Autodesk / IAPP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Leads Asia-Pacific in Enterprise AI Adoption, With 91% of Organisations Increasing AI Spending in 2026</div>
+      <div class="nsum">Autodesk's 2026 AI Pulse report found that 91% of Indian organisations surveyed reported increasing AI spending over the past year, outpacing APAC (85%) and the global average (81%). India also recorded the highest AI chatbot and assistant adoption rate in the region at 63%, reinforcing the country's emergence as a front-runner in enterprise AI deployment.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PBS NewsHour / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">81st UNGA Convenes in New York as World Leaders Grapple With Wars in Iran, Gaza, Ukraine, Sudan and Yemen</div>
+      <div class="nsum">World leaders gathered in New York this week for the 81st session of the UN General Assembly, with the agenda dominated by active conflicts in Iran, Gaza, Ukraine, Sudan, Congo, and Myanmar. The session is also the final UNGA for outgoing UN Secretary-General António Guterres, raising urgent questions about the body's future direction and reform.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthi Forces Attempt Ballistic Missile Strike on Riyadh as Yemen Conflict Sharply Escalates</div>
+      <div class="nsum">Saudi Arabia reported that Yemen's Houthi rebels attempted to attack Riyadh with a ballistic missile — the first time the capital has been targeted since the latest escalation in fighting with the Iran-backed group. The UN Security Council held an emergency meeting on the Yemen situation, calling for urgent international action to prevent further escalation and protect freedom of navigation in the Bab al-Mandab Strait.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Charles Spencer Book Makes Damning Allegations Against King Charles III, Buckingham Palace Responds Firmly</div>
+      <div class="nsum">A newly released book by Charles Spencer, brother of the late Princess Diana, has sparked international headlines with serious allegations against King Charles III. Buckingham Palace issued a strongly-worded statement in response, intensifying scrutiny of the British royal family on the world stage.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 24 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
