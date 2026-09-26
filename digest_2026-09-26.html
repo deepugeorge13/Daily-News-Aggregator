@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 26, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 26 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 26 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Financial World / NEB Sports</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">45,000 Runners Ready to Paint Bengaluru Red: Wipro Marathon Route Closures Begin Tonight</div>
+      <div class="nsum">The 13th edition of the Wipro Bengaluru Marathon kicks off tomorrow, September 27, with over 45,000 registered participants set to run through Sree Kanteerava Stadium, Vidhana Soudha, Cubbon Park, and MG Road across Full, Half, 10K, and 5K categories. City police and BBMP have issued traffic advisories for Sunday morning closures along the route, while overcast skies and a forecast high of 27°C are expected to give runners near-ideal cool conditions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / LatestLY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Wraps Up a Wet September: City Records 27°C Highs, 91% Humidity as Monsoon Lingers</div>
+      <div class="nsum">Bengaluru's late-September weather features overcast skies and intermittent light drizzle with temperatures peaking at 27°C and overnight lows of 21°C, keeping the city cool but humid as the southwest monsoon enters its withdrawal phase. The India Meteorological Department forecasts the monsoon to retreat from Karnataka over the coming week, while residents are advised to carry umbrellas through the weekend.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / VotersList.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Polls in Final Stretch: All Five Bengaluru City Corporations Gear Up for December Deadline</div>
+      <div class="nsum">With the Supreme Court's deadline of December 31, 2026 for completing Greater Bengaluru Authority elections approaching, ward delimitation and voter roll finalisation across all five newly formed corporations — Central, North, South, East, and West — are now complete, with 88.9 lakh registered voters marking a 21% increase over the 2015 BBMP rolls. Political parties are actively fielding candidates in all 243 wards as the Election Commission of Karnataka is expected to announce the poll schedule in the coming days.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News / NITI Aayog / South China Morning Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Confirmed as World's 4th Largest Economy, GDP Surpasses Japan at $4.51 Trillion</div>
+      <div class="nsum">India has officially displaced Japan as the world's fourth-largest economy in 2026, with GDP estimated at $4.51 trillion against Japan's $4.46 trillion, according to IMF data cited by NITI Aayog CEO. The United States ($31.82T), China ($20.65T), and Germany ($5.33T) retain the top three positions, while India — the only major economy forecast to sustain over 6% growth annually — is on track to overtake Germany by 2028.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Cricinfo / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Indies Arrive for Bumper White-Ball Series: 3 ODIs and 5 T20Is Across India Starting Tomorrow</div>
+      <div class="nsum">The West Indies cricket team arrives in India today for a three-week, eight-match series running from September 27 to October 17, comprising three 50-over ODIs and five T20 Internationals. Shubman Gill will captain the ODI side — which includes Virat Kohli and Rohit Sharma — while Shreyas Iyer leads an explosive T20I line-up featuring teenage sensation Vaibhav Suryavanshi, Sanju Samson, and Tilak Varma; West Indies will be led by Shai Hope.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Fitch Ratings / ADB</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Fitch, S&amp;P, OECD and ADB Raise India FY27 Growth Forecasts to 6.9–7.1% on Strong Domestic Demand</div>
+      <div class="nsum">Four major international rating agencies and multilateral lenders — Fitch Ratings, S&amp;P Global, the OECD, and the Asian Development Bank — upgraded their India FY2026–27 GDP growth forecasts to a 6.9–7.1% range in September 2026, citing resilient domestic consumption, robust capital expenditure, and easing inflation. India remains the fastest-growing major economy globally, with analysts flagging monsoon performance and global oil-price volatility as the two key risk factors for the second half of the fiscal year.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Groww / BusinessToday / Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">AceVector (Snapdeal Parent) IPO Day 2: ₹420 Crore Issue Closes September 29, Listing Expected October 5</div>
+      <div class="nsum">Day two of AceVector Limited's IPO is underway today, with subscription open at a price band of ₹30–32 per share valuing the company at approximately ₹1,741 crore; the issue closes on September 29 and shares are expected to list on October 5. The ₹420 crore raise combines a ₹287 crore fresh issue with an offer for sale, covering AceVector's three businesses — the Snapdeal online marketplace, Unicommerce SaaS e-commerce enablement platform, and Stellaro Brands consumer label.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Embassy REIT</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Embassy Office Parks REIT Raises ₹1,000 Crore via NCDs for Debt Refinancing</div>
+      <div class="nsum">Embassy Office Parks REIT, India's largest listed real-estate investment trust, has successfully raised ₹1,000 crore through non-convertible debentures with the transaction fully subscribed by a reputable European institutional investor. The proceeds will refinance existing higher-cost borrowings, improving the trust's weighted average cost of debt as it continues to expand its Bengaluru-anchored office portfolio amid sustained demand from global technology tenants.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian 10-Year Bond Yield Hits Four-Month Peak as Global Borrowing Costs and Oil Prices Surge</div>
+      <div class="nsum">Indian government bonds came under renewed selling pressure this week, pushing the benchmark 10-year yield to a four-month high, as global borrowing costs climbed and oil prices edged higher on supply concerns. Separately, coal stocks at domestic thermal power plants have fallen to less than eight days of availability, with around 40% of plants running critically low inventories, adding to the energy-cost pressure facing the economy ahead of the festive season demand surge.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">JLL India / VARINDIA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Data Centre Boom: H1 2026 Absorbs 101 MW, Mumbai to Cross 1 GW Milestone by Year-End</div>
+      <div class="nsum">India's data centre market absorbed 101 MW of capacity in the first half of 2026 — more than 20% above the three-year average — with pre-committed hyperscale AI computing workloads accounting for 82% of the total, according to a JLL mid-year report. Mumbai is on track to surpass 1 GW of operational capacity by December 2026, while global hyperscalers have collectively committed over $50 billion to build 1.4 GW of self-build capacity across India by 2029, underpinned by the Union Budget 2026 tax holiday for cloud providers and the IndiaAI Mission's 34,000 GPU deployment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">EY India / Parikshit Khanna Blog</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">91% of Indian Enterprise Leaders Now Deploying Agentic AI; 47% Running Multiple GenAI Use Cases</div>
+      <div class="nsum">EY India's AIdea of India 2026 Report finds that 91% of enterprise leaders cite deployment speed as the critical factor in AI build-vs-buy decisions, while 24% are already rolling out agentic AI systems and 47% of organisations operate multiple live GenAI use cases — up sharply from a year ago. Nearly 10% of companies are now scaling AI across entire business functions, with agentic payments, AI-assisted healthcare diagnostics, and enterprise coding assistants identified as the three fastest-growing segments for Q4 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">APAC News Network / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Five Indian Deep-Tech Startups Redefining the Next Wave: Pixxel Hyperspectral Satellites to Fundly.ai</div>
+      <div class="nsum">A new cohort of Indian technology startups is moving beyond consumer apps into deep-tech applications: Pixxel is building a hyperspectral satellite constellation to monitor agriculture and infrastructure; Navana.ai is deploying enterprise-grade AI agents for business automation; Fundly.ai closed a $4 million pre-Series A combining AI with financial services; and sector watchers note Tier II and III cities now account for a growing share of India's 200,000-plus active startups. Analysts project at least three new Indian AI unicorns before December 2026 as the government's IndiaAI Mission continues to subsidise GPU access for early-stage founders.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / The Hill / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump at UNGA: Could 'Annihilate' Iran but Expects Nuclear Deal After November Midterms</div>
+      <div class="nsum">President Trump told the UN General Assembly this week that while he could "annihilate" the Islamic Republic of Iran, he expects a nuclear deal to materialise after the November midterm elections, urging global partners to maintain economic pressure on Tehran in the meantime. The White House confirmed "lengthy talks" through mediators with the Iranian delegation, and Iranian President Pezeshkian addressed the UNGA on Thursday reiterating Tehran's conditions; Trump simultaneously defended US military operations against Iran and Venezuela as part of his address.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / The Hill</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Acting Venezuelan President Rodríguez Addresses UNGA, Thanks US After Earthquake Aid and Maduro Ouster</div>
+      <div class="nsum">Venezuela's acting President Delcy Rodríguez delivered her first address to the UN General Assembly, pledging elections and stating that the Venezuelan people alone will determine the "right moment" for them, after Nicolás Maduro was removed from power in a US-backed operation in January 2026. Rodríguez separately met with President Trump on the sidelines of the UNGA, thanking Washington for humanitarian support following the devastating earthquakes that struck Venezuela in June, and acknowledging the new US oil deal with Caracas.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News Australia / Guardian</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Australia's PM Albanese 'Extremely Concerned' as OpenAI Took Too Long to Disclose Health Department Data Breach</div>
+      <div class="nsum">Australian Prime Minister Anthony Albanese said he was extremely concerned about OpenAI's handling of a data breach affecting an Australian federal health department website, criticising the company for an unacceptably slow disclosure to authorities. The incident has reignited debates across multiple governments about mandatory breach-notification timelines for AI companies, with Australia's privacy watchdog opening a formal inquiry and calling for stricter accountability standards for large AI providers operating in the country.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 26 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
