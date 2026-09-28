@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 28, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 28 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 28 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / New Indian Express</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Underground Section Set to Open This Month as BMRCL Hits Final Milestone</div>
+      <div class="nsum">BMRCL confirmed the 13.76-km underground section of the Namma Metro Pink Line is targeted for launch by September 2026, following the March opening of its 7.5-km elevated stretch. The completion is expected to dramatically ease commutes along the Bannerghatta Road and Outer Ring Road corridors, benefiting hundreds of thousands of daily IT-sector commuters.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Civic Polls Deadline Looms: Bengaluru's Five New Corporations Await First-Ever Elected Councils by December 2026</div>
+      <div class="nsum">The 2026 Greater Bengaluru Authority elections, mandated by the Supreme Court to be held by December 31, 2026, will be the first municipal poll across Bengaluru's five newly constituted city corporations — covering 712 sq km and 369 wards. Mayor and corporator seats across the Bengaluru Central, East, West, South, and North corporations have remained vacant since the BBMP was dissolved in September 2025, marking over six years without an elected city council.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of India / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Prestige Group Invests ₹120 Crore to Sponsor Bellandur Metro Station Under BMRCL Public-Private Partnership Scheme</div>
+      <div class="nsum">Prestige Group signed a station sponsorship deal with BMRCL in early 2026, committing ₹120 crore toward the construction and enhancement of the upcoming Bellandur station on the Blue Line's Phase 2A Outer Ring Road corridor. Under the 30-year naming rights agreement, the station will be rebranded as Prestige Bellandur Metro Station, with the deal also granting limited commercial space and advertising rights to the developer.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Akashvani / The Shillong Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Invokes Surgical Strikes and Operation Sindoor in Mann Ki Baat, Reaffirms Zero-Tolerance Counter-Terror Policy</div>
+      <div class="nsum">Prime Minister Narendra Modi, in his monthly Mann Ki Baat radio address on September 27, stated that the 2016 surgical strikes demonstrated India's decisive counter-terrorism resolve to the world and marked a new chapter in national security doctrine. He added that over the past decade — from the Balakot air strike to Operation Sindoor — India has repeatedly sent a clear message that terrorism will be met with a befitting response.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY / The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Backs India's Bid for UN Security Council Permanent Seat as Delhi Ramps Up UNSC Reform Push</div>
+      <div class="nsum">Russia has formally backed India's candidature for a permanent seat on the UN Security Council, a significant diplomatic endorsement as India intensifies its multilateral push for UNSC reform. The development comes as India continues to leverage its standing from the 18th BRICS Summit and its growing strategic partnerships to build a global consensus for an expanded Security Council.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Press Information Bureau / PM India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Make in India Turns 12: PM Modi Highlights Semiconductor Push with SEMICON India 2026 Inauguration</div>
+      <div class="nsum">Prime Minister Modi inaugurated SEMICON India 2026 and delivered a special address marking the 12th anniversary of the Make in India initiative, underscoring semiconductor manufacturing as a cornerstone of India's industrial self-reliance goals. The government highlighted that India's real GDP grew at 7.4% in FY2025-26, with the Union Budget's capital expenditure push and US-India trade deals cited as key growth drivers.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Upstox</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Set for Weak Open on Monday as GIFT Nifty Drops 77 Points; Brent Crude Surges Past $106</div>
+      <div class="nsum">Indian equity benchmarks are expected to open on a negative note on September 28 as GIFT Nifty futures declined 77 points to 23,110, weighed down by rising crude oil prices and a sell-off across Asian markets including a 2.07% fall in South Korea's Kospi. The Sensex and Nifty 50 ended the previous week lower for a seventh consecutive week, with FIIs having sold shares worth ₹17,131 crore so far in September 2026, taking total FII outflows for the year to over ₹2.41 lakh crore.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Axios / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US-China Reach $30 Billion Tariff Cut Deal After Trump-Xi White House Summit, Signalling Trade War Thaw</div>
+      <div class="nsum">The US and China agreed to lower tariffs on $30 billion worth of non-sensitive goods as a key outcome of the high-stakes Trump-Xi summit at the White House on September 24, with the White House describing it as a sign of a more balanced trading relationship. The deal, which analysts say could ease inflation pressure on American consumers, also included an agreement to establish a US-China AI dialogue framework, with both sides agreeing to tariff cuts on $30 billion in goods.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI MPC to Meet This Week Amid Oil Price Surge and Elevated US Yields; Rate Decision Keenly Awaited</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee is scheduled to convene from September 29 through October 1, with markets closely watching for commentary on inflation and the rate outlook following a spike in Brent crude to over $106 per barrel due to the ongoing US-Iran conflict. The RBI had maintained the repo rate at 5.25% at its February 2026 meeting after a 25-basis-point cut in December 2025, with India's GDP growth forecast revised to 7.4% for FY2025-26.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndiaAI.gov.in / IMPRI India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IndiaAI Mission Launches 2nd Cohort of Global Accelerator Programme, Funding AI Startups with Up to ₹5 Lakh Each</div>
+      <div class="nsum">The IndiaAI Mission has launched its second cohort of international acceleration programmes for Indian AI startups in September 2026, with selected startups receiving up to ₹5 lakh in prize money alongside access to global mentors, investor meetups, and market entry workshops at Station F in Paris. The Mission's ₹10,371 crore framework — covering compute infrastructure, indigenous foundation models, datasets, skilling, and startup financing — is designed to position India as a global AI powerhouse.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">APAC News Network / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Navana.ai Raises $4.2 Million Series A; Enterprise AI Wave Reshapes Startup Funding Landscape</div>
+      <div class="nsum">Navana.ai, a Bengaluru-based enterprise AI startup focusing on practical business applications, closed a $4.2 million Series A funding round in September 2026, reflecting the growing investor appetite for B2B AI solutions over consumer apps. Separately, AI-fintech startup Fundly.ai secured a $4 million pre-Series A led by Accel and Multiply, as India's startup ecosystem shifts toward specialised vertical AI models across sectors such as finance, manufacturing, and water management.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Google Cloud</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">OpenAI Rolls Out GPT-6 Updates and Anthropic Launches Opus 5.5 in Same Week, as Google's AI Day Targets Indian Startup Ecosystem</div>
+      <div class="nsum">In a landmark week for AI, Anthropic released Opus 5.5 followed just 90 minutes later by OpenAI's GPT-6 model updates, intensifying the race at the AI frontier ahead of TechCrunch Disrupt 2026. Simultaneously, Google Cloud's AI Day for Startups India 2026 is equipping early-stage Indian founders with tools to integrate Agentic AI, Multimodal AI, and Sovereign AI workflows into their products, using platforms including Gemini API and Google Antigravity.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump and Xi Hold High-Stakes White House Summit on Trade, AI, and Iran War; Agree to Tariff Cuts and AI Dialogue</div>
+      <div class="nsum">US President Donald Trump and Chinese President Xi Jinping held a landmark summit at the White House on September 24 — Xi's first US state visit in 11 years — covering trade tensions, artificial intelligence governance, the US-Israel war on Iran, and Taiwan. The two leaders agreed to lower tariffs on $30 billion in goods and establish a bilateral AI dialogue, with Trump also seeking the release of Americans detained in China.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pakistan Launches Fresh Airstrikes on 10 Sites in Afghanistan Over Drone Attacks, Taliban Vows to Respond</div>
+      <div class="nsum">Pakistan carried out precision aerial and drone strikes on 10 locations across southern and eastern Afghanistan on September 24, accusing Kabul of launching cross-border drone attacks on Pakistani territory, in a sharp escalation that threatens international mediation efforts. Afghan Taliban government spokesperson Zabihullah Mujahid confirmed at least four civilians were killed and warned of an 'appropriate response,' deepening the ongoing Afghanistan-Pakistan military standoff.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Rejects Iran's Hormuz Reopening Plan as War Tensions Persist; Brent Crude Spikes Above $106 Per Barrel</div>
+      <div class="nsum">President Trump on September 26 publicly rejected an Iranian proposal to reopen the Strait of Hormuz, dismissing Tehran's seven-day plan as insufficient, keeping global energy markets on edge and pushing Brent crude futures above $106 per barrel. The ongoing US-Israel war on Iran continues to dominate world headlines, with Al Jazeera's live conflict tracker on September 28 reporting continued military updates from the theatre and mounting humanitarian concerns.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 28 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
