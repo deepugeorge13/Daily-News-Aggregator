@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 29, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 29 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 29 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The South First / Free Press Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Sets December 31 as Final Deadline for Bengaluru GBA Civic Polls</div>
+      <div class="nsum">The Supreme Court extended the deadline for elections across Bengaluru's five city corporations under the Greater Bengaluru Authority to December 31, 2026, citing the ongoing Special Intensive Revision of Karnataka's electoral rolls. CJI Surya Kant issued a stern warning that no further extensions would be entertained, marking the third deadline set since the erstwhile BBMP's term lapsed in 2020.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / New Indian Express</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Launches Phase 3 Tender Drive as Pink Line Stations Near Launch</div>
+      <div class="nsum">BMRCL has floated tenders to demolish buildings as preparatory groundwork for Namma Metro Phase 3, which will span 44.65 km across 31 elevated stations in two new corridors. Simultaneously, multiple Pink Line stations including IIMB, JP Nagar 4th Phase, and Tavarekere are in their final stages before operations, with openings imminent this week.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LatestLY / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">J&amp;K Assembly Passes Statehood Resolution; Omar Abdullah Introduces New Bills</div>
+      <div class="nsum">The Jammu and Kashmir Legislative Assembly passed a resolution seeking restoration of full statehood, introduced by Chief Minister Omar Abdullah, who cited challenges to daily governance due to the absence of statehood. The move triggered a walkout by BJP legislators, who condemned it, while the Leader of the Opposition expressed support for the resolution.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News on AIR / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Home Minister Amit Shah Inaugurates Barapullah Phase-3 Corridor in Delhi</div>
+      <div class="nsum">Union Home Minister Amit Shah inaugurated the Barapullah Phase-3 elevated corridor and the Mukarba Chowk underpass today, providing a 5-km signal-free link between Mayur Vihar Phase I and Sarai Kale Khan and taking the combined Barapullah stretch to around 9 km. The project also includes a dedicated cycle track and pedestrian-friendly infrastructure to improve connectivity between east and south Delhi.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Olympics.com / News on AIR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Eyes Multiple Medals on Final Day of Athletics at Asian Games 2026 in Aichi-Nagoya</div>
+      <div class="nsum">Gulveer Singh, already a double silver medallist at the Aichi-Nagoya Asian Games, will contest the 5000m final today alongside Avinash Sable, as India targets a bumper athletics haul on the last day of track and field. Indian teams are also set to compete in three relay finals — the mixed 4x100m and the men's and women's 4x400m — in addition to boxing semi-finals and shooting events.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News on AIR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">President Murmu Reviews International Fleet Review 2026 in Andhra Pradesh</div>
+      <div class="nsum">President Droupadi Murmu reviewed the International Fleet Review 2026 held in Andhra Pradesh, a major naval event showcasing India's maritime strength and international naval partnerships. Prime Minister Modi also extended an invitation to Bangladesh PM Tarique Rahman to visit India, signalling a fresh diplomatic outreach to Dhaka.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">International News and Views / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Sheds Over 1,100 Points on Monday; Dalal Street Eyes Stabilisation on Tuesday</div>
+      <div class="nsum">Indian equity markets suffered a sharp sell-off on Monday, with the Sensex losing more than 1,100 points and the Nifty closing below 22,800, driven by elevated crude oil prices, overseas fund selling, and geopolitical uncertainty around the Strait of Hormuz. Analysts are watching Tuesday's session closely to determine whether domestic buying can offset continued foreign institutional outflows and stabilise sentiment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">RBI / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Bulletin Flags Global Headwinds but Reaffirms India's Domestic Resilience</div>
+      <div class="nsum">The RBI's latest bulletin noted that the global economy is confronting a fragile geopolitical environment and continuing trade-related uncertainties, while India's domestic economy has demonstrated notable resilience, supported by buoyant domestic demand and rising manufacturing and services activity. The central bank also confirmed that a CRR cut announced in June is now effective, intended to support banking system liquidity and credit growth.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tech Startups / VCCircle</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jaipur Agritech Firm Balwaan Krishi Raises ₹100 Crore in Series B Round</div>
+      <div class="nsum">Jaipur-based agritech startup Balwaan Krishi secured ₹100 crore (approximately $10.4 million) in a Series B funding round led by First Bridge India Growth Fund, with additional institutional investors participating. The financing takes Balwaan's total disclosed institutional funding to at least ₹156 crore, underscoring growing investor appetite for agricultural machinery and industrial technology ventures in India.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">MagTapp Rebuilds AI-First Browser, Expands to iOS After 6 Million Downloads</div>
+      <div class="nsum">Indian technology company MagTapp has rebuilt its browser around artificial intelligence, integrating Alpie AI models from partner 169Pi, enabling users to search, summarise documents, translate languages, and understand concepts without leaving a webpage. The company, a Top 8 finalist in the Government of India's Indian Web Browser Development Challenge, is now expanding to iOS after surpassing six million downloads and achieving a 4.2 Play Store rating across 106 countries.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google Cloud / Elets CIO</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google's AI Accelerator for Indian Startups Culminates in Demo Day After June–September Run</div>
+      <div class="nsum">Google's AI Day for Startups India 2026 programme, which selected 20 AI startups from over 2,500 applications, concludes this month with a Demo Day where participating startups will showcase their AI solutions to investors, industry leaders, and ecosystem partners. The accelerator focused on AI agents, multimodal AI, sovereign AI, and physical AI, reflecting Google's push to support the next generation of Indian AI innovators building globally competitive products.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">APAC News Network / blog.mean.ceo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Startup Ecosystem Pivots to Deep Tech — Satellites, Quantum Security, and Climate Ventures Lead New Wave</div>
+      <div class="nsum">India's startup ecosystem in September 2026 is moving decisively beyond consumer apps and fintech, with new ventures in satellite technology, quantum security, AI, financial services, and water management capturing investor attention. Analysts note that fintech, enterprise software, health technology, climate-focused businesses, and deep tech ventures are now competing across a country with immense digital reach, as funding increasingly demands proven revenue rather than growth-at-any-cost models.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NBC News / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Rejects Iran's Seven-Day Roadmap to Reopen Strait of Hormuz</div>
+      <div class="nsum">US President Donald Trump rejected Iran's proposal to reopen the Strait of Hormuz within seven days, which had called for the US to lift oil sanctions, release frozen Iranian funds, and end its naval blockade on Iranian ports. Iran closed the strait shortly after the US and Israel launched military operations in February 2026, and Tehran has continued to insist that only diplomacy can resolve the conflict, while Saudi Arabia has urged UN members to defend freedom of navigation in the critical waterway.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Fox News / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthi Missile Attack Targets Riyadh as Gulf States Demand International Response</div>
+      <div class="nsum">Saudi Arabia's air defences intercepted ballistic missiles over Riyadh launched by Yemen's Iran-backed Houthis over the weekend, with the Gulf Cooperation Council condemning the strikes as a &quot;grave escalation and threat to regional security.&quot; The GCC — comprising Saudi Arabia, the UAE, Bahrain, Kuwait, Oman, and Qatar — called for an international response as tensions involving the Houthi group continue to escalate amid the broader US-Iran conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / US News &amp; World Report</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">North Korea Uses UN Platform to Warn of Unprecedented Global Distrust and Confrontation</div>
+      <div class="nsum">North Korea used its annual address at the United Nations General Assembly to warn world leaders of what it called &quot;a harsh reality rampant with unprecedented mutual distrust and confrontation,&quot; signalling Pyongyang's increasingly adversarial posture on the global stage. The UN session this week also featured a US-China state dinner hosted by President Trump for President Xi Jinping, with tech industry leaders prominent among guests, as Washington seeks to manage its complex relationship with Beijing.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 29 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
