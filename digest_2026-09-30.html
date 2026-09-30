@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — September 30, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 30 September 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 30 September 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / ETV Bharat</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Sets December 2026 Deadline for GBA Civic Polls Across Bengaluru's Five Corporations</div>
+      <div class="nsum">The Supreme Court, led by Chief Justice Surya Kant, has directed that elections for all five city corporations under the Greater Bengaluru Authority (GBA) must be held by December 31, 2026, after granting yet another extension due to the ongoing Special Intensive Revision (SIR) of electoral rolls in Karnataka. All mayor, deputy mayor, and corporator seats across the five new corporations — Central, North, East, South, and West — have remained vacant since the BBMP was dissolved in September 2025.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NativePlanet / New Indian Express</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Awards ₹64.82 Crore Contract to Extend Namma Metro Purple Line Beyond Whitefield</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has awarded a contract worth approximately ₹64.82 crore to extend the Purple Line's Reach-1B by 482.80 metres beyond the existing Whitefield Metro station, with the contract recorded in September 2026. The project, which attracted seven bidders, has a scheduled completion period of 548 days and aims to improve connectivity at the eastern end of the corridor.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Extension Nears Launch: IIMB, Tavarekere and JP Nagar Stations at 95% Completion</div>
+      <div class="nsum">Multiple stations on Namma Metro's Pink Line — including IIMB, Tavarekere, and JP Nagar 4th Phase — have reached 95% completion and are in their final stages before commencing operations, with an opening targeted for September–October 2026. The Pink Line expansion, running along Bannerghatta Road, is set to significantly ease commute pressure for residents of south Bengaluru.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / Deccan Herald / NewsBytesApp</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NIA Arrests 13 Suspects Across Assam, West Bengal and Kerala in JMB-Linked Terror Conspiracy</div>
+      <div class="nsum">India's National Investigation Agency (NIA) conducted raids across 16 locations in Assam, West Bengal, and Kerala on September 29–30, 2026, arresting 13 suspects linked to Imam Mahmuder Kafila (IMK), an alleged offshoot of the banned Jamaat-ul-Mujahideen Bangladesh (JMB) terror group. Investigators allege the network operated an online radicalisation module through the 'Purva Akash' Telegram group, with digital devices including mobile phones and memory cards seized during the searches.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ESPN / Olympics.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Crosses 54-Medal Mark at Asian Games 2026 in Aichi-Nagoya with Athletics Leading the Haul</div>
+      <div class="nsum">India's contingent at the 2026 Asian Games in Aichi-Nagoya, Japan has accumulated 54 medals across 15 sports as of Day 12, with athletics contributing 24 of these and golds coming from kabaddi, shooting, cricket, and archery. The women's 4x400m relay team clinched India's first athletics gold of the games, while the country currently sits ninth in the overall medal table, which is led by China with 143 golds.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Think4Unity / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Forecasts Heavy Rainfall Over Interior Karnataka, Kerala and Northeastern States</div>
+      <div class="nsum">The India Meteorological Department (IMD) has issued heavy rainfall warnings for Interior Karnataka, Kerala, Mahe, Karaikal, and several northeastern states as of September 30, 2026, as the southwest monsoon continues its retreat phase. Authorities in the affected regions have been put on alert, with the forecast posing risks for ongoing infrastructure and agricultural activity.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's IPO Market Heads for Third Consecutive Blockbuster Year as Q3 Listing Proceeds Top $9 Billion</div>
+      <div class="nsum">India's primary market is on course for a third straight record year, with listing proceeds surpassing $9 billion in the July–September 2026 quarter — the most ever for that period — pushing total fundraising for 2026 past $13 billion, according to Bloomberg data. Despite the Nifty 50 index closing at its lowest level since early April and facing an eighth consecutive weekly decline driven by rising oil prices and foreign outflows, the IPO market continues to thrive on deep domestic liquidity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE Makes Historic Stock Market Debut at ₹1,800 Per Share After Landmark $2.4 Billion IPO</div>
+      <div class="nsum">The National Stock Exchange of India listed on rival BSE on September 24, 2026, with shares rising 0.8% to ₹1,800 in pre-market trade after the company raised $2.4 billion in one of the largest IPOs in India's history, valuing it at approximately ₹4.4 trillion ($46 billion). The offering — the second-biggest IPO ever in India — saw investors bid more than five times the shares available, underscoring sustained institutional appetite despite broader market weakness.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / IndianStartupNews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ola Electric Board Approves ₹1,000 Crore Rights Issue to Shore Up Capital Structure</div>
+      <div class="nsum">Ola Electric Mobility's board approved a plan on September 28, 2026 to raise up to ₹1,000 crore through a rights issue of partly paid-up equity shares, with key terms such as issue price, entitlement ratio, and timeline yet to be finalised. The fundraising follows the EV maker's June 2026 QIP that raised ₹780 crore, and comes as the company reported a narrowing net loss of ₹336 crore in Q1 FY27, though revenues fell 45% year-on-year.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">AI-Driven Edtech Startup Arivihan Raises $10.2 Million Series A to Scale Learning Platform</div>
+      <div class="nsum">AI-driven edtech startup Arivihan closed a $10.2 million (approximately ₹98 crore) Series A funding round as of September 30, 2026, signalling continued investor confidence in India's AI-powered education sector. The raise reflects a broader September trend of Indian AI startups attracting capital across fintech, edtech, and enterprise automation verticals.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IBM and Yotta Data Services Launch Sovereign Agentic AI Platform for Indian Enterprises</div>
+      <div class="nsum">IBM and Yotta Data Services jointly launched a Sovereign Agentic AI Platform powered by IBM watsonx Orchestrate and Yotta's Shakti Cloud, enabling Indian organisations to scale AI agents locally while keeping data, operations, and governance strictly within India. Available through Yotta's Panvel and Greater Noida data centres, the platform supports workflows including security operations, HR automation, and document processing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Anthropic Rolls Out Opus 5.5 as OpenAI and Meta Race to Lead AI Agent Revolution</div>
+      <div class="nsum">In a landmark week for generative AI, Anthropic released its Opus 5.5 model, followed 90 minutes later by OpenAI's GPT-6 updates, triggering intense competition at the frontier of large language models. Meta's personal AI agent Muse has emerged as an unexpected challenger, reportedly outpacing early ChatGPT user growth numbers and heading for integration into smart glasses and a new wearable device.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Alhurra / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iraq Softens September 30 Weapons Deadline as US-Led Coalition Completes Full Withdrawal</div>
+      <div class="nsum">September 30, 2026 marks the final, fixed date for the US-led Global Coalition to Defeat ISIS to complete its military withdrawal from Iraq, with the coalition's second phase ending its presence in the Kurdistan region. Baghdad, however, walked back the parallel hard deadline for pro-Iran armed factions to surrender an estimated 6 million weapons, with the government now treating the date as the start of a regulatory process after groups including Kataib Hezbollah refused to disarm.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Reuters / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump-Xi Summit Concludes With National Archives Visit and Talks on Iran War and Trade</div>
+      <div class="nsum">Chinese President Xi Jinping completed a high-profile state visit to the United States on September 25, 2026, capping talks with President Donald Trump at the White House with a symbolic tour of the US National Archives, where both leaders viewed the Declaration of Independence and the Constitution. The summit, heavy on ceremony but light on breakthroughs, saw discussions on tariff reductions, rare-earth exports, fentanyl precursor chemicals, and the ongoing Iran conflict, with Trump saying the two nations would 'do great' on the Strait of Hormuz situation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / AP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">North Korea's Kim Yo Jong Rejects South Korean Findings on DMZ Land Mine Incident</div>
+      <div class="nsum">Kim Yo Jong, the powerful sister of North Korean leader Kim Jong Un, rejected South Korea's conclusion that North Korea had planted land mines that injured three South Korean soldiers along the demilitarised zone last week. The denial escalates tensions on the peninsula as both sides trade accusations, with South Korea maintaining its findings and vowing to respond proportionally.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 30 September 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
