@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 1, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 1 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 1 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Orders Citywide Ban on Animal Slaughter and Meat Sale on October 2 for Gandhi Jayanti</div>
+      <div class="nsum">The Greater Bengaluru Authority (GBA) has issued a citywide directive banning animal slaughter and the sale of meat on October 2 in observance of Gandhi Jayanti. The order affects all meat traders and slaughterhouses across the five city corporations that now govern Bengaluru under the GBA framework.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Nativeplanet / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Nears Mid-October Launch as Safety Clearances Advance</div>
+      <div class="nsum">Bengaluru's long-awaited Pink Line metro is closing in on a mid-October inauguration after the Independent Safety Assessment for signalling was cleared, with CMRS authorisation the final hurdle remaining. The first 7.5-km elevated stretch from Kalena Agrahara to Tavarekere will serve six stations and create a key interchange with the Yellow Line at Jayadeva Hospital.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Monsoon Season Ends with 13% Deficit, State Among Worst Affected in South India</div>
+      <div class="nsum">The 2026 monsoon season has officially concluded in Karnataka with a 13% rainfall deficit, making it one of the worst-hit states in South India this year. The shortfall has raised concerns about water availability and crop output heading into the rabi season, with authorities assessing the impact on reservoirs and agriculture across the state.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / Observer Voice</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cabinet Approves Rs 2.79 Lakh Crore Package: Rabi MSP Hike, PM DHARA Green Energy, and Delhi AI Traffic System</div>
+      <div class="nsum">The Union Cabinet on September 30 approved a sweeping Rs 2.79 lakh crore package covering three major areas — a wheat MSP hike to Rs 2,610 per quintal for 2027-28, the Rs 1.86 lakh crore PM DHARA renewable energy scheme, and a Rs 1,789-crore AI-powered Intelligent Traffic Management System for Delhi. The MSP increases for rabi crops range from Rs 25 per quintal for wheat to Rs 675 for safflower, with margins over cost of production set at a minimum of 106% for wheat.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">INDIA Bloc Announces March to Election Commission on October 6 After Opposition Unity Meet</div>
+      <div class="nsum">The INDIA bloc opposition alliance held a high-level meeting and announced a joint march to the Election Commission of India on October 6 to raise concerns about electoral integrity. The gathering saw emotional calls for unity among constituent parties, with leaders reaffirming their commitment to what they described as a campaign to 'save the country'.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Five Killed in Tragic Bus-Truck Collision on Ahmedabad-Vadodara Expressway; PM Modi Condoles</div>
+      <div class="nsum">A fatal collision between a private bus and a truck on the Ahmedabad-Vadodara Expressway in Anand district, Gujarat, claimed five lives and left five others injured. Prime Minister Narendra Modi expressed his condolences to the bereaved families and prayed for the swift recovery of those hospitalised.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">International News and Views / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty Faces Cautious Start at 22,620 Before Three-Day Trading Break as Oil Prices Rebound</div>
+      <div class="nsum">Indian equity markets opened October 1 on a cautious note after Nifty closed September at 22,620.45 and Sensex at 72,480.29, following a month of selling pressure. Brokerages flagged restrained positioning in the new derivatives series, with a rebound in global oil prices adding uncertainty for fuel-sensitive sectors heading into the extended weekend.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Free Press Journal</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Traders Call Off 'No UPI Day' Protest After Meeting FM Sitharaman; 0.4% Merchant Fee Still Set for October 15</div>
+      <div class="nsum">Leading trade associations including AIMRA and AICPDF called off their planned October 2 'No UPI Day' protest after a delegation of around 20 trade leaders met Finance Minister Nirmala Sitharaman to voice concerns over the proposed 0.4% merchant discount rate on UPI transactions above Rs 2,000. Despite the protest being withdrawn, the fee remains on course to take effect from October 15, with traders saying they remain hopeful the government will reconsider before implementation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TPG Sells Additional Shadowfax Shares in Rs 114 Crore Bulk Deal After Weak Listing</div>
+      <div class="nsum">Private equity firm TPG offloaded more shares of logistics startup Shadowfax Technologies via a Rs 114 crore bulk deal on October 1, continuing its stake reduction in the Bengaluru-based company. Shadowfax had a subdued market debut earlier in 2026, with shares falling around 9% from the offer price amid investor concerns about client concentration risk.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Crawls Up Just 5% YoY in Q3 2026 as Investors Grow More Selective</div>
+      <div class="nsum">India's tech startup ecosystem saw AI funding inch up a modest 5% year-on-year in Q3 2026, a sharp deceleration from the record $676 million raised in H1 2026, as investors adopted a more selective approach to new bets. The slowdown reflects a broader shift toward favouring startups with clear revenue models and deep domain specialisation over general-purpose AI platforms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Free Press Journal / The Hawk</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UPI Merchant Fee Row Sparks Digital Policy Debate; 0.4% MDR on Transactions Over Rs 2,000 Confirmed for October 15</div>
+      <div class="nsum">India's proposed 0.4% merchant discount rate on UPI transactions exceeding Rs 2,000 — set to kick in on October 15 — has ignited a nationwide debate about the future of the country's digital payments infrastructure. Trader groups argue that the charge threatens small businesses operating on thin margins, while the government maintains the fee affects less than 4% of total UPI merchant transaction volume.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India AI Startup Funding Hit Record $676 Mn in H1 2026, Nearly 4X Year-on-Year Growth</div>
+      <div class="nsum">Indian AI startups raised $676 million in the first half of 2026, nearly four times the amount raised in the same period of the previous year, according to Inc42's Indian Tech Startup Funding Report. The surge has been driven by a new generation of founders building domain-specific AI tools, sovereign inference platforms, and multilingual AI systems tailored to Indian enterprises and consumers.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Republic World / Newsweek / Ynetnews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FlyDubai Flight Diverted to Saudi Arabia After Cockpit Brawl Triggers Hijacking Signal; 174 Passengers on Board</div>
+      <div class="nsum">A FlyDubai flight from Dubai to Tel Aviv carrying 174 passengers, including 27 children, was forced to divert to Tabuk Airport in Saudi Arabia after a physical altercation in the cockpit between pilots triggered emergency squawk codes 7700 and 7500, the latter indicating a possible hijacking. Israeli security sources confirmed a hijacking was ruled out, with the incident apparently caused by an assault by the co-pilot, and off-duty crew members onboard helped regain control of the aircraft.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Defence Secretary Hegseth Announces New Drone Command and 20% Cut in Top Military Ranks</div>
+      <div class="nsum">US Defence Secretary Pete Hegseth announced a sweeping military restructuring on October 1, including the creation of a new dedicated drone warfare command and a 20% reduction in the number of senior military officers. The announcement also revealed plans to study the future of warfare in consultation with Elon Musk and Newt Gingrich, and to establish a new Office of Religious Affairs within the Pentagon.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SBS News Korea / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South Korea Formally Announces $54 Billion Alaska LNG and Eight Nuclear Plant Investment in the United States</div>
+      <div class="nsum">US President Donald Trump officially announced South Korea's large-scale investment plan in the United States, which includes a $54 billion LNG development project in Alaska and the construction of eight large-scale nuclear power plants. The announcement also encompasses a previously finalised gas-combined cycle power plant in Texas, representing one of the largest bilateral economic commitments between the two countries.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 1 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
