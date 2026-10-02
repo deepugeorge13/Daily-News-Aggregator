@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 2, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 2 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 2 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Nativeplanet</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Set for Safety Inspection October 6–8, Mid-October Launch in Sight</div>
+      <div class="nsum">The Commissioner of Metro Railway Safety (CMRS) is scheduled to conduct a statutory safety inspection of Bengaluru's Namma Metro elevated Pink Line from October 6 to 8, covering the 7.5-km Kalena Agrahara–Tavarekere stretch with six stations along Bannerghatta Road. BMRCL has already secured Railway Board sanction and an independent safety assessment clearance, with officials eyeing a mid-October commercial opening pending the CMRS authorisation report.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DK Shivakumar Alleges BJP Workers Filed Bulk Form 7 Voter-Deletion Applications in Karnataka</div>
+      <div class="nsum">Karnataka Deputy CM D K Shivakumar held a sit-in protest and shared documents alleging that BJP workers filed thousands of Form 7 applications to delete voters from electoral rolls within just two days. The Karnataka Chief Electoral Officer subsequently directed action against false voter-deletion applications, while the row has triggered wider Opposition protests demanding accountability over the Special Intensive Revision (SIR) process.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Heavy Rainfall Warning for Karnataka on Gandhi Jayanti</div>
+      <div class="nsum">The India Meteorological Department issued a heavy-to-very-heavy rainfall warning for coastal and south interior Karnataka on October 2, accompanied by thunderstorms, lightning, and gusty winds of 30–40 kmph at isolated places. The monsoon season has ended with a 13% rainfall deficit, making Karnataka the worst-affected state in South India, and the government has directed an assessment of agricultural losses.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Observer Voice / The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Observes Gandhi Jayanti: PM Modi and President Murmu Lead Tributes at Raj Ghat</div>
+      <div class="nsum">India marked the 157th birth anniversary of Mahatma Gandhi on October 2, with schools, colleges, government offices, and banks closed nationwide as part of the gazetted public holiday. Prime Minister Narendra Modi and President Droupadi Murmu led floral tributes at Raj Ghat in New Delhi, urging citizens to uphold the values of truth and non-violence.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">INDIA Bloc Launches Save Democracy March; Mamata Backs Rahul as PM, Kharge Seeks Unity</div>
+      <div class="nsum">Congress president Mallikarjun Kharge announced a nationwide district-level protest programme called the Save Democracy March, launching October 2 through October 8, following an INDIA bloc coordination meeting in New Delhi. TMC chief Mamata Banerjee backed Rahul Gandhi as the Opposition's prime ministerial choice, while the Citizens for Justice and Peace also launched protests seeking the Chief Election Commissioner's resignation over voter-list deletions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Observer Voice / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jaishankar Calls US an Insensitive Partner as PM Modi Holds Productive Call with Trump on Tariffs</div>
+      <div class="nsum">External Affairs Minister S Jaishankar offered a candid public assessment that the US had been an insensitive partner and pursued self-centred trade policies disproportionately hurting the Global South, as the 100% US tariff threat on India linked to Russian oil purchases remains a major diplomatic flashpoint. Prime Minister Modi separately held a telephone call with President Trump that the Indian PM described as productive, even as the tariff decision remains pending.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Sinks 1,280 Points Intraday to 2026 Low; Nifty Falls to 22,200 on Crude and Bond Yield Fears</div>
+      <div class="nsum">Indian equities extended their decline sharply on October 2 as elevated crude oil prices and multi-year high bond yields intensified concerns over the 2026–27 economic outlook, with the Nifty falling 0.88% and the Sensex dropping 0.79% while the India VIX climbed sharply. Broader markets also weakened, with FIIs continuing to exit Indian stocks amid headwinds seen as not yet fully priced into valuations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Expected to Hike Repo Rate by 25 bps at October Policy Meeting, Signals Business Standard Poll</div>
+      <div class="nsum">A Business Standard poll of economists suggests the Reserve Bank of India may raise the repo rate by 25 basis points at its upcoming October monetary policy committee meeting, amid persistent inflationary pressures and global bond yield surge. The potential hike comes as markets are already dealing with a weak rupee and elevated crude oil prices squeezing corporate margins.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / IPO Watch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Moneyview Lists on BSE and NSE; Fintech Startup Posts 43% Revenue Growth in FY26</div>
+      <div class="nsum">Personal finance platform Moneyview made its stock market debut on October 1 on both the BSE and NSE, raising ₹1,091.68 crore through a combination of a fresh issue of ₹750 crore and an offer for sale of ₹341.68 crore at an issue price of ₹34 per share. The company reported revenue of ₹3,404 crore in FY2026, up 43% year-on-year, though profit growth remained flat due to higher provisioning and operational scaling costs.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Researchers Flag AI Overreach Concerns as Indian AI Startup Ecosystem Hits Record Funding Pace</div>
+      <div class="nsum">Academic and policy researchers flagged growing concerns over AI overreach in enterprise deployments as Indian AI startups continue a record-breaking funding run, having raised $676 million in H1 2026 alone — nearly four times the amount raised during the same period last year. The surge is led by Ola Krutrim ($524 million total funding), Wispr Flow ($361.6 million), and Sarvam AI ($275 million), with AI accounting for roughly 13% of all Indian startup capital raised.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Niyo FY26 Revenue Zooms 80% YoY to ₹158 Crore as Loss Narrows 58%</div>
+      <div class="nsum">Bengaluru-based neobanking startup Niyo reported an 80% year-on-year jump in revenue to ₹158 crore for FY2026, while its net losses narrowed by 58%, marking a significant step toward profitability. The strong performance comes as the Indian fintech sector sees consolidation, with several neobanks scaling revenue on the back of growing digital banking adoption among millennials and young professionals.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $2.9 Billion in Q3 2026, Driven by EV and AI Sectors</div>
+      <div class="nsum">India's startup ecosystem raised $2.9 billion in Q3 2026, with electric vehicle and artificial intelligence verticals driving the bulk of deal activity, according to Entrackr funding data. The strong quarterly figure continues a robust 2026 funding trend, as investor confidence recovers on the back of improving macro conditions, several successful IPOs, and global capital flows returning to emerging market tech.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / The Indian Eye</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Goyal Meets USTR Greer at G20 Milwaukee to Push India-US Interim Trade Deal</div>
+      <div class="nsum">Commerce Minister Piyush Goyal met US Trade Representative Jamieson Greer on the sidelines of the G20 Trade Ministerial in Milwaukee, Wisconsin, calling for the early conclusion of a mutually beneficial interim bilateral trade agreement. The meeting was the first between the two trade leaders since the US Congress authorised President Trump to impose tariffs of up to 100% on India over its energy purchases from Russia, with a final presidential decision still pending.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EU Confirms Ukraine's $27 Billion Deficit Fully Covered as Russia Faces New Nuclear Warnings</div>
+      <div class="nsum">The European Commission confirmed that Ukraine's $27 billion financial and military shortfall for 2026 has been fully covered, resolving uncertainty over Kyiv's funding as the war enters another critical phase. NATO Secretary General Mark Rutte separately warned Russia to stop nuclear threats at a Euronews defence summit, while Russia's President Putin reiterated that Moscow would use all weapons in its arsenal if any Russian territory were attacked.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UK PM Cites Strong Indications of Iran Involvement in Airbase Incident; flydubai Pilot Hailed a Hero</div>
+      <div class="nsum">UK Prime Minister stated there are strong indications that Iran was involved in a recent airbase incident, ratcheting up diplomatic tensions in the Middle East as the US-Israel-Iran standoff continues to escalate. Separately, flydubai pilot Smit Machchhar was widely praised — including by Indian President Murmu and PM Modi — for averting a crash on an Israel-bound flight, with US President Trump also calling him a hero.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 2 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
