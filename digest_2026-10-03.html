@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 3, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 3 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 3 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Nativeplanet</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Clears Safety Inspection Ahead of Mid-October Launch</div>
+      <div class="nsum">BMRCL received the Independent Safety Assessor certificate for the Pink Line's signalling system, clearing a critical hurdle for the Bannerghatta Road elevated stretch to open by mid-October 2026. The 7.5-km Kalena Agrahara–Tavarekere corridor will be served by six trains at peak-hour frequencies of six minutes, pending final Commissioner of Metro Railway Safety authorisation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka May Declare 91% of Taluks Drought-Hit as Rain Deficit Threatens Rs 46,000 Crore Loss</div>
+      <div class="nsum">Karnataka is bracing for one of its worst agricultural seasons, with the state government likely to declare nearly 91% of its taluks drought-affected following a severe monsoon deficit. Officials estimate that crop and livelihood losses could exceed Rs 46,000 crore, putting significant pressure on state relief coffers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">DK Shivakumar Stages Protest Over Bulk Voter Deletions in Karnataka, Shares 'BJP Worker' Documents</div>
+      <div class="nsum">Karnataka Deputy Chief Minister D.K. Shivakumar escalated the Special Intensive Revision (SIR) controversy by publicly sharing documents he alleges show BJP workers filing thousands of Form 7 voter-deletion applications in just two days. The Congress and AISA jointly held protests across Bengaluru demanding an immediate halt to what they described as systematic voter-list manipulation ahead of upcoming elections.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Olympics.com / The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Ends 44-Year Wait, Women's Hockey Team Wins Asian Games 2026 Gold Beating China 1-0</div>
+      <div class="nsum">The Indian women's hockey team defeated China 1-0 in the final of the 2026 Asian Games in Aichi-Nagoya, Japan, with Lalremsiami Hmarzote's 10th-minute strike proving decisive — ending a 44-year drought since India's last gold in 1982. The victory also secured India a coveted quota berth for the LA 2028 Olympics, with goalkeeper Savita Punia's crucial penalty-stroke save in the second quarter helping India hold on.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / Morning Star</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ECI Extends SIR Deadline for Andhra Pradesh and Meghalaya Amid Opposition Protests</div>
+      <div class="nsum">The Election Commission of India met for the second time in four days and extended the Special Intensive Revision dates for Andhra Pradesh and Meghalaya following mounting political pressure over alleged bulk voter deletions. Opposition parties including the CJP announced Gandhi Jayanti protests from Mumbai to Delhi's Jantar Mantar, demanding the Chief Election Commissioner's resignation over the contentious voter-list exercise.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">President Murmu and PM Modi Honour Indian Pilot Smit Machchhar for Foiling Israel-Bound Flight Hijack</div>
+      <div class="nsum">President Droupadi Murmu and Prime Minister Narendra Modi publicly praised Indian pilot Smit Machchhar for his heroic actions in helping avert a midair disaster on an Israel-bound flight that was targeted by a radicalised co-pilot. The incident drew international attention as passengers on the FlyDubai flight overpowered the attacker, with Israel initially assessing the suspect, an Omani national, likely acted alone before further investigations pointed to possible external radicalisation.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Goodreturns / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSE, NSE Shut for Gandhi Jayanti; Sensex Closed at 71,909 After Bruising Week of FII Selloff</div>
+      <div class="nsum">Indian stock markets remained closed on October 2 for Gandhi Jayanti, extending into a three-day weekend break, after the BSE Sensex shed 571 points on October 1 to close at 71,909.70 — its lowest level in 2026. The week-long decline of over 1,690 Sensex points was driven by aggressive FII outflows, surging crude oil prices above $100 per barrel, and anxiety ahead of the upcoming RBI monetary policy review.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Moneyview Makes Bumper Dalal Street Debut, Lists at 64% Premium as Fintech IPO Fever Grips Market</div>
+      <div class="nsum">Fintech unicorn Moneyview listed on the BSE and NSE on October 1 at ₹55.6 per share — a 64% premium over its issue price of ₹34 — giving it a market capitalisation of approximately ₹9,789 crore at listing. The ₹1,092 crore IPO, which closed on September 28 subscribed nearly 98.46 times overall, unlocked major gains for early backers including Ribbit Capital (11.85x return) and Tiger Global (3.42x return).</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $2.2 Bn in Q3 2026 as AI and Cleantech Overtake Fintech in Funding Charts</div>
+      <div class="nsum">India's startup ecosystem raised over $2.2 billion in Q3 2026, a 5% year-on-year increase, though deal count fell 13% YoY to 210 as investors turned more selective. AI and cleantech emerged as the top-funded sectors during the quarter, surpassing traditional favourites fintech and e-commerce, while the period also minted two new unicorns.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Three Indian Space Startups — TakeMe2Space, SatLeo, EON Space Labs — Launch Payloads on SpaceX Falcon 9</div>
+      <div class="nsum">Indian space-tech startups TakeMe2Space, SatLeo, and EON Space Labs successfully launched their payloads aboard a SpaceX Falcon 9 rocket, marking a significant milestone for India's commercial space sector. The launches underscore the growing momentum of India's private space ecosystem, which has been energised by the government's liberalisation of the space sector and ISRO's expanded co-operation with startups.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Drone Maker ideaForge Faces ₹109 Crore GST Demand Over Alleged Tax Underpayment</div>
+      <div class="nsum">Bengaluru-based defence drone manufacturer ideaForge disclosed it has received a ₹109 crore GST demand and penalty notice from authorities alleging tax underpayment on its transactions. The development comes at a sensitive time for the company, which has been expanding its order book for military-grade UAVs amid rising defence procurement budgets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $676 Mn in H1 2026, Nearly Four Times the Year-Ago Figure</div>
+      <div class="nsum">Indian artificial intelligence startups attracted $676 million in funding in the first half of 2026, nearly four times the amount raised in the same period of 2025, according to Inc42's Indian Tech Startup Funding Report. The surge reflects global and domestic investor confidence in India's AI capabilities, bolstered by the IndiaAI Mission's ₹10,300 crore outlay backing sovereign large language model development and subsidised GPU access for startups.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Just Security / FDD / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Warns Iran of 'Very Hard' Strike as FlyDubai Hijack Co-Pilot Linked to Islamic Radicalisation</div>
+      <div class="nsum">US President Donald Trump threatened Iran with severe military retaliation if links between Tehran and the co-pilot who attempted to crash an Israel-bound FlyDubai flight are confirmed, with Israeli PM Benjamin Netanyahu stating the initial probe found the co-pilot had undergone Islamic radicalisation. The Pentagon announced it is preparing to send a third carrier strike group to the Middle East as diplomatic tensions between Washington and Tehran continue to escalate.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Morning Star / Reuters / US News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Congo Ebola Outbreak Surpasses 4,000 Deaths in Fastest-Growing Outbreak in History</div>
+      <div class="nsum">The Democratic Republic of Congo's ongoing Ebola outbreak has now recorded more than 4,000 deaths from 8,300 confirmed cases, making it the fastest-growing Ebola outbreak ever recorded, according to the country's health ministry. Authorities are struggling to contain the spread, with the death toll representing nearly half of all confirmed cases — a fatality rate alarming global health officials.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Anadolu Agency / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ethiopia Severs Ties with Eritrea, Expels Diplomats as Drones Strike Addis Ababa</div>
+      <div class="nsum">Ethiopia announced the closure of Eritrea's embassy in Addis Ababa and expelled Eritrean diplomats as ties between the two Horn of Africa nations collapsed, while drones struck the Ethiopian capital amid the escalating crisis. The diplomatic rupture comes as Ethiopia also announced plans to withdraw troops from Somalia to redirect military resources to combat internal rebel activity on its own territory.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 3 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
