@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 5, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 5 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 5 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Civic Polls Now Scheduled by December 2026 After Years of Delay</div>
+      <div class="nsum">The Greater Bengaluru Authority (GBA) has finalised a final electoral roll covering 88.95 lakh voters across 369 wards, setting the stage for Bengaluru's first civic elections since 2020. The polls, which replace the dissolved BBMP structure with five new city corporations, are now scheduled to be held by 31 December 2026 after multiple Supreme Court deadlines and political tussles between senior Congress leaders delayed the process.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News Karnataka</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Over 11,000 Seized Vehicles to Be Shifted Out of Bengaluru Police Stations</div>
+      <div class="nsum">More than 11,000 seized vehicles are set to be relocated from Bengaluru police station premises to seven designated storage sites across the city to free up space and ease public inconvenience. The move comes as station yards have grown increasingly congested, affecting day-to-day functioning of police operations and public access.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News Karnataka</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Battered by Heavy Rain for Second Consecutive Day, Commuters Hit Hard</div>
+      <div class="nsum">Heavy rain lashed Bengaluru for the second consecutive day, leaving commuters stuck in traffic for hours and causing widespread waterlogging across several parts of the city. The evening downpour caught many office-goers off guard, with poor visibility, flooded roads, and slow-moving traffic turning routine journeys into lengthy commutes.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Career India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Anti-Election Commission Protests Intensify; 110 Detained at Jantar Mantar, Delhi</div>
+      <div class="nsum">Around 15 police personnel were injured and 110 protesters were detained during demonstrations at Jantar Mantar in New Delhi demanding changes to the functioning of the Election Commission of India. The controversy follows reports that Election Commissioners formally raised objections on at least 14 occasions over 10 months regarding decisions on electoral rolls, with opposition groups calling for greater accountability.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Career India / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Two Captive-Bred Great Indian Bustards Released in Rajasthan Under Conservation Project</div>
+      <div class="nsum">Union Environment Minister Bhupender Yadav, along with scientists from the Wildlife Institute of India, released two captive-bred male Great Indian Bustards into Rajasthan's Desert National Park under Project Great Indian Bustard. The initiative is aimed at supporting the recovery of one of India's most endangered bird species and strengthening conservation efforts in its natural habitat.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Career India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NEET PG 2026 Answer Key Released; IMA Approaches Supreme Court Seeking Transparency</div>
+      <div class="nsum">The National Board of Examinations in Medical Sciences released the answer key and candidates' response details for NEET PG 2026, a highly anticipated step in the postgraduate medical admissions cycle. However, some candidates have raised concerns about the level of information provided, and an Indian Medical Association representative has approached the Supreme Court seeking greater transparency in the evaluation process.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Goodreturns / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Enter Week on Weak Footing After 8th Consecutive Week of Losses</div>
+      <div class="nsum">Indian benchmark indices enter the October 5–9 trading week on a weak footing after extending their losing streak to the eighth consecutive week — the longest such decline in 25 years — with the NSE Nifty 50 falling 3.1% to 22,421.95 and the BSE Sensex declining 2.7% to 71,909.70. The sell-off has been driven by rising US 10-year Treasury yields, renewed geopolitical tensions in West Asia, elevated Brent crude prices above $100 per barrel, a weaker Indian rupee, and continued foreign institutional investor selling.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">INVC News / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Monetary Policy Committee Begins Three-Day Meeting; Rate Decision Awaited</div>
+      <div class="nsum">The Reserve Bank of India's Monetary Policy Committee has commenced its three-day meeting on October 5–7, with investors closely watching for signals on interest rates amid rising inflation and a volatile equity market. Market participants have increased bets on the probability of a rate hike as inflationary pressures mount, making banking shares, the rupee, and bond yields key indicators to watch before the decision.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $418 Mn in First Week of October as VC Momentum Holds Strong</div>
+      <div class="nsum">Venture capital inflow into Indian startups maintained solid momentum entering October 2026, with the first week recording $418 million across 22 deals, up from $382 million in the previous week. The funding wave was led by mega-rounds in Physical AI, EV manufacturing, and healthcare, building on a record Q3 2026 in which Indian startups raised $2.9 billion overall with EV and AI sectors leading the charge.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / SSBCrack News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">MeitY Orders Removal of Jack Dorsey's Bitchat App from India's App Store and Google Play</div>
+      <div class="nsum">Apple removed Jack Dorsey's offline Bluetooth messaging app Bitchat from the Indian App Store and Google Play following a takedown demand from India's Ministry of Electronics and Information Technology (MeitY) under Section 69A of the Information Technology Act, 2000. The app, which relays encrypted messages between nearby phones over Bluetooth without requiring an internet connection, had gained traction during recent protests, and the Internet Freedom Foundation has called the action unconstitutional, filing RTI applications demanding disclosure of the secret blocking order.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Banks Pivot to AI with Equity Stakes in AI Labs, Reshaping Fintech Landscape</div>
+      <div class="nsum">Indian banks are no longer content with merely buying AI tools and are now taking direct equity stakes in AI laboratories and startups as part of a broader strategic investment playbook, according to Inc42's latest in-depth analysis. The shift signals a fundamental change in how India's financial sector views AI — from a vendor relationship to a co-ownership model — as competition in the digital banking space intensifies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Surged Over 4X YoY in H1 2026, Driven by IndiaAI Mission</div>
+      <div class="nsum">Indian AI startups raised $676 million in funding during the first half of 2026, with deal count surging 90% year-on-year to 57 deals, marking a fresh six-month high, according to Inc42's Indian Tech Startup Funding Report. Around 66% of institutional investors surveyed said the IndiaAI Mission had influenced their AI investment thesis, while Sarvam became India's second AI unicorn after raising $234 million.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Houston Public Media (NPR)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Brazil Presidential Race Heads to October 25 Runoff as Flavio Bolsonaro Edges Lula in First Round</div>
+      <div class="nsum">Brazil's presidential election is heading to a runoff after right-wing Senator Flávio Bolsonaro outperformed expectations to finish Sunday's first round in the lead with roughly 47% of the vote, edging out leftist incumbent Luiz Inácio Lula da Silva who secured approximately 45%, with neither crossing the 50% threshold required to win outright. The two candidates will face off again on October 25 in an election defined by crime, corruption scandals, deep political polarisation, and Brazil's relationship with the Trump administration.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / Reuters (HuffPost)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Declares Strait of Hormuz Will Stay Closed Until US Fulfils Seven Conditions</div>
+      <div class="nsum">Iran's parliament speaker and top negotiators stated on Sunday that the Strait of Hormuz will not reopen until the United States meets seven conditions outlined in the Islamabad interim memorandum, even as US President Donald Trump has rejected Iran's latest roadmap for reopening the waterway. The prolonged closure of the strait — through which approximately one-fifth of global oil and natural gas is shipped during peacetime — has kept energy markets volatile and pushed Brent crude prices above $100 per barrel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Withdraws B-1 Bombers from UK's Fairford Base Amid Escalating Iran Tensions</div>
+      <div class="nsum">The United States has withdrawn its B-1 Lancer bomber aircraft from the Royal Air Force Fairford base in the United Kingdom, a move widely linked to the escalating military and diplomatic standoff with Iran over the ongoing Strait of Hormuz crisis. The redeployment comes as Washington and Tehran remain at an impasse over conditions for reopening the critical global shipping lane, with both sides issuing stern warnings about the consequences of further military escalation.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 5 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
