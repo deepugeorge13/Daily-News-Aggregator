@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 8, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 8 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 8 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Nativeplanet</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line CMRS Safety Inspection Concludes Today, Mid-October Launch Targeted</div>
+      <div class="nsum">The three-day Commissioner of Metro Railway Safety (CMRS) inspection of Bengaluru's Namma Metro Pink Line elevated section — spanning 7.5 km across six stations from Kalena Agrahara to Tavarekere along Bannerghatta Road — concludes today, October 8. If no snags are flagged, BMRCL expects to receive formal safety clearance within a week and open the corridor for passenger services by mid-October, pushing the network past the 100-km milestone.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Approves Bengaluru Police Split Into Five Units and Rs 8/Litre Nandini Milk Price Hike</div>
+      <div class="nsum">The Karnataka Cabinet approved a sweeping restructuring of the Bengaluru Police Commissionerate, dividing it into five separate units in a major administrative overhaul. The Cabinet also cleared an Rs 8 per litre increase in Nandini milk prices, set to take effect from November 1, impacting millions of households across the state.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Five Injured as Two Transformer Blasts Rock Bengaluru</div>
+      <div class="nsum">Two transformer explosions rocked separate localities in Bengaluru, leaving five people injured and causing widespread power disruptions in the affected neighbourhoods. Authorities have launched an investigation into the cause of the blasts, while BESCOM crews rushed to restore electricity supply.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Outlook India / Dawn.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Rahul Gandhi, Priyanka Detained for Second Day as INDIA Bloc Presses for CEC Gyanesh Kumar's Resignation</div>
+      <div class="nsum">Opposition Leader Rahul Gandhi and Congress MP Priyanka Gandhi Vadra were detained by Delhi Police for a second consecutive day as more than 300 INDIA bloc MPs marched from Parliament toward the Election Commission, demanding Chief Election Commissioner Gyanesh Kumar's resignation over alleged irregularities in the Special Intensive Revision (SIR) of electoral rolls. Rahul Gandhi was taken to Barakhamba Police Station before being released, vowing to continue protests until the CEC steps down.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GST Council Meets Today; RBI Rate Decision and Bypoll Results Due Tomorrow</div>
+      <div class="nsum">The GST Council is convening its rescheduled meeting on October 8 in New Delhi, with several key agenda items including rate rationalisation and sector-specific relief measures expected to be tabled. Separately, the counting of votes for Assembly and Lok Sabha bypolls held across West Bengal, Tamil Nadu, Assam, and Puducherry is scheduled for October 9.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Union Health Ministry to Launch JOSH Teams Across 55 Districts to Accelerate TB Elimination Drive</div>
+      <div class="nsum">The Union Ministry of Health and Family Welfare, in collaboration with the Ministries of Youth Affairs, Sports, and Defence, is launching JOSH (Joint Squad for Health) Teams today at Bharat Mandapam in New Delhi. In the first phase, the initiative will be rolled out across 55 districts in 11 states to boost tuberculosis awareness and strengthen India's TB elimination mission.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Drops 429 Points, Nifty Ends at 22,603 After RBI Hikes Repo Rate Amid Price Pressure</div>
+      <div class="nsum">Indian equity markets closed sharply lower on Wednesday as the RBI's Monetary Policy Committee, led by Governor Sanjay Malhotra, announced a repo rate hike amid persistent inflationary pressures, rattling investor sentiment. The Sensex fell 429 points and the Nifty 50 settled at 22,603, with the Nifty MidCap 100 declining 0.63%, while Titan and Shriram Finance were among the top losers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Analytics Insight</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TCS Q2FY27 Results Due Today; Street Eyes Modest 3.3% Profit Rise and Thin Revenue Growth</div>
+      <div class="nsum">Tata Consultancy Services is set to announce its Q2 FY2027 earnings today, October 8, with analysts expecting revenue to rise marginally to around Rs 73,152 crore and net profit to grow approximately 3.3% year-on-year. Weak global IT spending and a softer rupee are the key variables, as the Nifty IT index has already shed over 11% in September on concerns about US client budgets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE, Groww, BSE, Angel One Shares Rally on Report of SEBI CAS Regulation Rollback</div>
+      <div class="nsum">Shares of stock exchanges and broking platforms — including NSE, BSE, Groww, Angel One, MOFSL, and Nuvama — surged on reports that SEBI may roll back its proposed Centralised Application System (CAS) regulation, which had weighed heavily on the sector. Chemical stocks also saw strong gains of up to 20%, led by Balaji Amines, Alkyl Amines, Deepak Nitrite, and Aarti Industries amid renewed sectoral optimism.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Quanfluence Raises $10 Mn to Build Full-Stack Photonic Quantum Computer; Desible.ai Gets Rs 32 Cr for BFSI AI Layer</div>
+      <div class="nsum">Indian deep-tech startup Quanfluence has raised $10 million to develop a full-stack photonic quantum computer, signalling growing investor appetite for frontier hardware in India. On the same day, Desible.ai closed a Rs 32 crore round to build an AI operating layer tailored for India's banking, financial services, and insurance (BFSI) sector.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Surges 4X YoY to $676 Mn in H1 2026, Sarvam Becomes Second AI Unicorn</div>
+      <div class="nsum">Indian AI startups raised $676 million across 57 deals in the first half of 2026, a fourfold jump from the $162 million raised in H1 2025, according to Inc42's latest startup funding report. Sarvam AI, which raised $234 million, became India's second AI unicorn, while the IndiaAI Mission's subsidised GPU access and sovereign model funding are being credited as key catalysts for the funding surge.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Razorpay Partners with OpenAI to Enable Indian Brands to Run Ads on ChatGPT</div>
+      <div class="nsum">Payments and fintech giant Razorpay has announced a partnership with OpenAI that will allow Indian brands to place advertisements directly within ChatGPT, marking one of the first such integrations for the Indian market. The move is seen as a significant step in monetising AI-native platforms and opens a new digital advertising channel for Indian businesses.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of Israel / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Israel Marks Three Years Since October 7 Hamas Attack as Gaza Ceasefire Remains Fragile</div>
+      <div class="nsum">Israel solemnly commemorated the third anniversary of the October 7, 2023 Hamas attack, with memorials held across the country including at the Nova music festival site, amid a politically charged atmosphere as the fragile Gaza ceasefire continues to face pressure. Security authorities had also raised alerts about a potential Iranian attack on the anniversary, prompting the US to reportedly reposition military assets from a British airbase.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Kyiv Independent / FDD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Launches Massive Missile and Drone Barrage on Ukraine on Putin's 74th Birthday, at Least 28 Killed</div>
+      <div class="nsum">Russia unleashed a large-scale missile and drone assault on Ukraine on October 7, coinciding with President Vladimir Putin's 74th birthday, killing at least 28 people including five children and injuring more than 138 others. Fourteen of the fatalities occurred when a Russian cruise missile struck a residential building in Pryluky in Chernihiv Oblast, while Ukrainian drones simultaneously struck a major fuel depot in the Moscow region.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nobel Prize in Chemistry 2026 Awarded to Henri Kagan and Kenso Soai for Asymmetric Synthesis Work</div>
+      <div class="nsum">The 2026 Nobel Prize in Chemistry has been awarded to Henri Kagan and Kenso Soai for their groundbreaking research in asymmetric synthesis and autocatalytic chemical reactions, work that has had far-reaching implications for pharmaceutical development and understanding of molecular chirality. The announcement adds to this week's Nobel Prize season, which has drawn global attention across the sciences.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 8 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

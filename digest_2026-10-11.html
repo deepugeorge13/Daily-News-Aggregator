@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 11, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 11 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 11 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / TBO Academy</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Finalises Double-Decker Infrastructure Plan for Bengaluru's Upcoming Orange Line</div>
+      <div class="nsum">The Bangalore Metro Rail Corporation Limited (BMRCL) has finalised a new infrastructure plan for the upcoming 45-km Orange Line, which will connect Kempapura with JP Nagar IV Phase and Hosahalli with Kadabagere. The revised plan includes approximately 10 km of double-decker structures, road flyovers, and an underpass at Goraguntepalya, with fresh tenders expected soon and construction likely beginning next year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Approves Five-Way Split of Bengaluru Police Commissionerate</div>
+      <div class="nsum">The Karnataka Cabinet has given its approval to a landmark proposal that will divide the Bengaluru Police Commissionerate into five distinct administrative units, marking a major restructuring of the city's law enforcement. The move is aimed at improving policing efficiency across Bengaluru's rapidly expanding urban landscape.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ED Detains Former KPSC Chairman Amid Widening Recruitment Scandal Probe</div>
+      <div class="nsum">The Enforcement Directorate detained former Karnataka Public Service Commission (KPSC) chairman Shivashankarappa S Sahukar and KPSC member BV Geetha for questioning over alleged irregularities in the recruitment of 400 Veterinary Officers. The probe into the KPSC job scandal continues to widen, with authorities placing properties under scrutiny.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week / Metro Rail News / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Inaugurates Chennai Metro Phase II Poonamallee–Vadapalani Stretch Worth ₹4,900 Crore</div>
+      <div class="nsum">Prime Minister Narendra Modi today inaugurated the 14.6-km Poonamallee–Vadapalani stretch of Chennai Metro Phase II, built at an estimated cost of ₹4,900 crore, as part of a broader ₹13,000 crore package of development projects launched during his visit to Chennai. The new corridor, part of the Yellow Line's Corridor 4 and featuring 11 elevated stations with advanced driverless-ready signalling, is expected to significantly improve connectivity between Chennai's western suburbs and the city centre.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SFI Members Detained in Delhi Ahead of Planned Anti-CEC Protest</div>
+      <div class="nsum">Members of the Students' Federation of India (SFI), including Aishe Ghosh, were detained by Delhi Police ahead of a planned protest against the Chief Election Commissioner (CEC). The detentions drew sharp political reactions, with opposition parties calling the move an attempt to suppress democratic dissent.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / News on AIR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India to Host Its First World Landslide Forum in Faridabad from November 23</div>
+      <div class="nsum">India has announced it will host its first-ever World Landslide Forum starting November 23 in Faridabad, a significant milestone underlining the country's growing role in global disaster risk reduction efforts. The forum is expected to bring together international experts, scientists, and policymakers to address the escalating threat of landslides across Asia and beyond.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / IANS / Angel One</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Opens Special Dollar Window for IOC, HPCL and BPCL as Rupee Faces Pressure</div>
+      <div class="nsum">The Reserve Bank of India on Saturday announced a special foreign exchange window to meet the entire daily dollar requirements of three state-run oil marketing companies — Indian Oil Corporation, Hindustan Petroleum Corporation, and Bharat Petroleum Corporation — effective from October 12, 2026, until further notice. The move, aimed at stabilising the rupee which is trading close to its all-time low, will see the RBI sell US dollars to the OMCs through designated banks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian IT Stocks Surge, TCS Jumps 4.2% as D-Street Ends Eight-Week Losing Streak</div>
+      <div class="nsum">Indian IT stocks experienced a sharp rally on Friday, led by a 4.2% jump in Tata Consultancy Services shares, with HCL Technologies, Wipro, and Tech Mahindra also posting significant gains, helping the BSE Sensex break an eight-week losing streak. Analysts attributed the unexpected rally partly to OpenAI's upwardly revised revenue projections, which alleviated fears of AI disruption to traditional IT services.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Shriram Finance</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Shriram Finance Raises Fixed Deposit Rates to 7.85%, Effective October 11</div>
+      <div class="nsum">Shriram Finance has revised its fixed deposit interest rates upward to 7.85% per annum, with the new rates coming into effect from October 11, 2026, offering an additional 0.50 percentage points per annum for senior citizens. The rate hike comes amid volatility in global oil markets, with state-run oil marketing companies keeping retail fuel prices unchanged across major Indian cities.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Surges 265% YoY in Q3 2026, Riding a Year of Record Capital Inflows</div>
+      <div class="nsum">Indian AI startup funding surged 265% year-on-year in Q3 2026, continuing a record-breaking year that saw the sector raise $676 million in the first half of 2026 alone — nearly four times the amount raised in H1 2025. The boom has been driven by policy support from the IndiaAI Mission, with deal count for AI startups also soaring 90% YoY to 57 deals in H1 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Whalesbook / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise Across Deeptech, AI and Consumer Segments in Active Early-October Funding Week</div>
+      <div class="nsum">Indian startups secured multiple fresh funding rounds in early October 2026, with significant capital flowing into deeptech, smart hardware, and AI-driven enterprise solutions, including quantum computing startup Quanfluence ($10 million) and agentic AI startup Desible.ai (₹32 crore). Lifestyle-tech brand DailyObjects also raised ₹332 crore in a Series C round at a ₹1,050 crore valuation, reflecting sustained investor confidence in domestic tech and consumer segments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">OpenAI and Anthropic Brace for Backlash Over AI Safety Risks as Tighter Usage Rules Roll Out</div>
+      <div class="nsum">OpenAI and Anthropic are reportedly preparing contingency plans to handle public and regulatory backlash in the event of a significant AI-related catastrophe, according to a new report. Separately, Anthropic has tightened its usage policies, explicitly banning what it terms 'cruel' behaviour towards AI models and strengthening rules around AI misuse.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / Al Jazeera / CNN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Powerful 7.7-Magnitude Earthquake Rocks Panama, Triggering Tsunami Warnings Across Latin America</div>
+      <div class="nsum">A devastating magnitude 7.7 earthquake struck the Azuero Peninsula in southern Panama on October 9, collapsing buildings, damaging a historic cathedral in Penonomé, and prompting the US National Weather Service to issue tsunami warnings for Panama, Colombia, Ecuador, Nicaragua, Guatemala, and other nations. The quake was followed by a 6.6-magnitude aftershock and over 147 aftershocks, injuring at least 27 people, though the Panama Canal continued operating normally while Tocumen International Airport briefly suspended flights.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NPR / CP24 / Associated Press</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South Korea Test-Fires First Domestically Developed Hypersonic Weapon Amid Rising Korean Peninsula Tensions</div>
+      <div class="nsum">South Korea successfully flight-tested its first domestically developed hypersonic weapon on October 8, designed to travel at least five times the speed of sound and evade missile defence systems, with President Lee Jae Myung calling it a major step in strengthening the country's conventional defence capabilities. The test comes amid escalating tensions on the Korean Peninsula, following a North Korean hypersonic missile test on October 3 and recent landmine explosions near the inter-Korean border that injured three South Korean soldiers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News Australia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Man Dies After Tiger Attack at Yorkshire Wildlife Park in the UK</div>
+      <div class="nsum">A man died after being attacked by a tiger at Yorkshire Wildlife Park in the United Kingdom, with police confirming the fatal incident on Sunday, October 11. The attack has prompted authorities and wildlife park operators to conduct an urgent review of animal enclosure safety protocols at the facility.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 11 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

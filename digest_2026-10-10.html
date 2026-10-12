@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 10, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 10 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 10 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Approves Five-Way Split of Bengaluru Police Commissionerate</div>
+      <div class="nsum">The Karnataka Cabinet has approved a major restructuring that will divide the Bengaluru Police Commissionerate into five distinct units, marking a significant administrative overhaul for the city. The move aims to improve law enforcement efficiency across Bengaluru's rapidly expanding urban zones.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ED Detains Former KPSC Chairman in Veterinary Officer Recruitment Scandal</div>
+      <div class="nsum">The Enforcement Directorate detained former Karnataka Public Service Commission chairman Shivashankarappa S Sahukar and KPSC member BV Geetha for questioning over alleged irregularities in the recruitment of 400 Veterinary Officers. The probe has put several properties under the scanner as investigators continue to unravel the extent of the scandal.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of India / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Prestige Group Pumps Rs 120 Crore into Namma Metro Phase 2A Bellandur Station</div>
+      <div class="nsum">BMRCL signed a station sponsorship deal with Prestige Group, which has agreed to invest around Rs 120 crore to facilitate construction and enhance passenger facilities at the upcoming Bellandur metro station on the Blue Line Phase 2A. Under the agreement, the company secured naming rights for 30 years, with the station to be called Prestige Bellandur Metro Station.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / CareerIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CJP Protest Paralyses Delhi: Metro Closures, Traffic Snarls and Mass Detentions on October 10</div>
+      <div class="nsum">Thousands of police and paramilitary personnel were deployed across New Delhi on October 10 ahead of a major protest by the Cockroach Janta Party at Jantar Mantar, with authorities denying permission citing past breaches of undertakings. Extensive restrictions including traffic diversions at 30 key points, curbs on mobile internet, and closure of major markets like Connaught Place severely disrupted normal life in the capital.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / CareerIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Andhra Pradesh Declares Drought in 21 of 26 Districts After 53.4% Rainfall Deficit</div>
+      <div class="nsum">The Andhra Pradesh government officially declared drought conditions across 21 of its 26 districts following a substantial 53.4% rainfall deficit during the monsoon period. The declaration is expected to trigger relief measures and central assistance for millions of farmers and rural households affected by the prolonged dry spell.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Union Cabinet Approves Rs 10,000 Crore SME Growth Fund; IT Ministry Targets Manipulated Content Online</div>
+      <div class="nsum">The Union Cabinet cleared a Rs 10,000 crore SME Growth Fund aimed at boosting small and medium enterprises across India, signalling a push for broader economic inclusion. Separately, the IT Ministry directed social media platforms to proactively take down manipulated or deepfake content, escalating the government's digital content regulation drive.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Rebounds 879 Points as IT Stocks Surge; Nifty Closes at 22,520</div>
+      <div class="nsum">Indian benchmark indices snapped a two-day losing streak on October 9, with the Sensex rising 879 points to 72,472 and the Nifty50 climbing 288 points to 22,520, driven by broad-based buying and a rally in IT shares. The Nifty IT index was the top sectoral performer while the Nifty Oil and Gas index emerged as the worst hit, weighed down by declining crude sentiment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / SCC Online</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RBI Hikes Repo Rate by 25 bps to 5.50%, Shifts Stance to Calibrated Tightening</div>
+      <div class="nsum">The Reserve Bank of India raised its policy repo rate by 25 basis points to 5.50% at its October MPC meeting — the first hike since February 2023 — and shifted its stance from neutral to calibrated tightening amid rising inflationary pressures and global uncertainty. RBI Governor Sanjay Malhotra noted that retail inflation has been climbing for 10 consecutive months, while the central bank revised its GDP growth forecast upward to 7.1% for FY2026-27.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pine Labs, Paytm and MobiKwik Shares Slide Amid Reports of UPI MDR Delay</div>
+      <div class="nsum">Shares of Pine Labs, Paytm, and MobiKwik fell sharply after reports emerged that the government may delay the implementation of a Merchant Discount Rate on UPI transactions, a move that would defer a key revenue stream for payment companies. The development has dampened investor sentiment in the fintech sector, which had been anticipating the MDR rollout as a significant monetisation milestone.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMC 2026: Reliance Jio to Launch AI-Powered Wearables with Indian Language Support by Year-End</div>
+      <div class="nsum">At the India Mobile Congress 2026, Reliance Jio unveiled plans to launch AI-powered wearable devices — including smart glasses and audio devices — that will support live translation, AI note-taking, scan-and-pay, and hands-free calling, with a launch expected by November or December 2026. Assistive tech startup Torchit also showcased smart glasses for visually impaired users, while Qualcomm identified payments and education as the biggest wearables opportunities in India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Government to Release AI Regulation Consultation Paper; CoreWeave Enters India with 240 MW Data Centre</div>
+      <div class="nsum">Union Minister Ashwini Vaishnaw announced that the government will release a consultation paper on AI regulation, marking a formal step toward a national policy framework for artificial intelligence. In a parallel development, US cloud computing firm CoreWeave entered India by partnering with AdaniConneX to set up 240 MW of data centre capacity, signalling surging global confidence in India's AI infrastructure ambitions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Four India-Linked Startups Feature in Y Combinator Cohort, Targeting AI Across Enterprise and Pharma</div>
+      <div class="nsum">Four startups founded by alumni of Indian institutions — Waybill, Ressl AI, Ritivel, and Cardboard — are part of the latest Y Combinator cohort, developing AI-driven solutions spanning hardware procurement, enterprise software automation, pharmaceutical regulatory documentation, and video editing. Indian AI startup funding surged to $676 million in H1 2026, nearly four times the amount raised in the same period last year, reflecting rapidly growing investor appetite.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Al Jazeera / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Saudi-Led Coalition Launches Large-Scale Operation Against Houthis; Trump and Putin Discuss Iran</div>
+      <div class="nsum">A Saudi-led coalition launched a major military operation against Houthi forces in Yemen on October 9, as tensions in the region escalated with Houthi drone attacks targeting Saudi airports. US President Donald Trump and Russian President Vladimir Putin spoke by phone, with the Kremlin confirming their discussion touched on Iran, as Trump announced the US would not strike Iran before the midterm elections.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CareerIndia / The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South African Jurist Navi Pillay Named Winner of 2026 Nobel Peace Prize</div>
+      <div class="nsum">South African human rights jurist Navi Pillay was announced as the recipient of the 2026 Nobel Peace Prize, recognised for her decades of work championing international justice and accountability. The announcement, made on October 9, was widely celebrated by human rights organisations globally.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tribune India / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Zelenskyy Slams US-Russia Diesel Deal, Warns of Moscow Being Emboldened</div>
+      <div class="nsum">Ukrainian President Volodymyr Zelenskyy criticised the Trump administration's move to ease Russian fuel sanctions and allow US imports of Russian diesel, warning that the deal strengthened Moscow at a critical moment in the war. Zelenskyy simultaneously expressed hope that the diplomatic momentum achieved in Middle East peace efforts could be applied to end Russia's war against Ukraine.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 10 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
