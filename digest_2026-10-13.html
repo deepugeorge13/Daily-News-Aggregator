@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 13, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 13 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 13 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Splits Bengaluru Police Commissionerate Into Five Units</div>
+      <div class="nsum">The Karnataka Cabinet approved a major restructuring of Bengaluru's police administration, dividing the city's single Police Commissionerate into five separate units. The sweeping reform is aimed at improving law enforcement efficiency and response times across the rapidly expanding city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nandini Milk Prices to Rise by Rs 8 Per Litre From November 1</div>
+      <div class="nsum">The Karnataka Cabinet cleared an Rs 8 per litre hike in Nandini milk prices, set to take effect from November 1, impacting households across the state. Discussions around a potential bus fare revision were also held, raising concerns for daily commuters during the festive season.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of India / Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Multiple FIRs Filed in Bengaluru Over Alleged Voter Deletion Fraud Linked to BJP Booth Agents</div>
+      <div class="nsum">Several First Information Reports have been registered in Bengaluru against BJP-linked Booth Level Agents accused of submitting fraudulent Form-7 applications to illegally delete voters from electoral rolls. The Election Commission has been urged to take corrective action as the controversy intensifies ahead of upcoming polls.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / Sunday Guardian</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Delhi Removes Jantar Mantar From Protest Venues, Designates Three New Sites</div>
+      <div class="nsum">Delhi Police officially removed Jantar Mantar from its list of approved public protest locations, identifying Ramlila Ground, Burari Ground, and CBD Ground in East Delhi as alternative venues. The decision triggered a legal challenge, with the Delhi High Court scheduled to hear a petition on October 13 questioning the restrictions on the historic demonstration site.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CareerIndia / Sunday Guardian</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Retail Inflation Climbs to 5.54% in September 2026</div>
+      <div class="nsum">India's Consumer Price Index-based retail inflation rose to 5.54% in September 2026, reflecting sustained upward pressure on household budgets. The data comes as the Reserve Bank of India monitors price trends ahead of its next monetary policy review.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Kerala Assembly Passes Resolution Seeking Removal of Chief Election Commissioner Gyanesh Kumar</div>
+      <div class="nsum">The Kerala Legislative Assembly passed a resolution calling for the removal of Chief Election Commissioner Gyanesh Kumar, citing growing political tensions over the Election Commission's conduct. The move escalates an already charged national debate over the independence and functioning of India's election oversight body.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex and Nifty Slip 0.7% as Crude Oil Surge Erases Early Gains on Monday</div>
+      <div class="nsum">Indian equity benchmarks fell approximately 0.7% on Monday after a sharp surge in crude oil prices, triggered by recent attacks on Saudi Arabia, reversed early market gains. The NSE Nifty 50 and BSE Sensex both reversed their positive trajectories amid notable foreign institutional selling.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nobel Prize in Economics 2026 Awarded to Hall and Woodford for Reshaping Policy Frameworks</div>
+      <div class="nsum">The 2026 Nobel Prize in Economics was awarded to economists Hall and Woodford, recognised for their foundational contributions that transformed central bank policymaking worldwide. Markets and analysts are assessing the broader implications of their work on interest rate theory and inflation targeting frameworks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Crude Oil Falls to $105 as Traders Weigh Russian Supply and Middle East Attacks</div>
+      <div class="nsum">Global crude oil prices eased to around $105 per barrel on October 13 as traders assessed Russian supply dynamics alongside ongoing Houthi missile strikes targeting Saudi Arabia's capital airport. The volatility in oil markets is being closely watched by Indian importers and policymakers given its direct impact on domestic fuel prices and inflation.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Silicon India / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise Rs 1,037 Crore Across 23 Deals in Week of October 5-9</div>
+      <div class="nsum">Indian startups collectively raised approximately Rs 1,037 crore across 23 funding rounds in the week ending October 9, with investments spanning AI, consumer tech, healthcare, and education. DailyObjects led the week with the largest deal at Rs 332 crore, followed by Beyond Appliances' Rs 110 crore Series B and quantum computing startup Quanfluence's Rs 96.87 crore raise.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Zetwerk Sets IPO Price Band at Rs 143-151, Eyes Rs 5,012 Crore From Public Issue</div>
+      <div class="nsum">B2B manufacturing platform Zetwerk has fixed its IPO price band at Rs 143 to Rs 151 per share, aiming to raise Rs 5,012 crore from the offering. The listing is being closely tracked as a bellwether for Indian deeptech and industrial startup valuations in the current market cycle.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Whalesbook</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Deeptech and Agentic AI Startups Pull Long-Term Capital in Early October 2026 Funding Wave</div>
+      <div class="nsum">A fresh wave of capital deployment in early October 2026 saw deeptech and enterprise AI firms attracting significant investor interest, with quantum computing startup Quanfluence raising $10 million and Desible.ai securing Rs 32 crore to expand its agentic AI workflow platform for financial services. Analysts note that despite a cautious broader environment, domestic manufacturing and AI-focused startups continue to draw committed long-term backers.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SBS Korea News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthis Fire Ballistic Missile at Riyadh Airport, Warn of Retaliation Against US Intervention</div>
+      <div class="nsum">Houthi rebels launched a ballistic missile targeting the international airport in Riyadh, Saudi Arabia, while issuing a warning that they would retaliate if the United States intervenes militarily. The strike is the latest in a series of escalating Houthi attacks that have rattled global oil markets and raised alarm among Gulf states.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SBS Korea News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South Korea's KOSPI Plunges Over 6%, Falls Below 6,000 Mark on Semiconductor Sell-Off</div>
+      <div class="nsum">South Korea's benchmark KOSPI index plummeted more than 6% during intraday trading on October 13, breaking below the 6,000 level for the first time in approximately two months. The sharp decline was led by a heavy sell-off in semiconductor heavyweights Samsung Electronics and SK Hynix amid broader global tech stock pressure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Standard Hong Kong / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">China's Wang Yi Calls for Strengthened China-Russia Maritime Cooperation in Asia-Pacific</div>
+      <div class="nsum">China's senior diplomat Wang Yi urged stronger maritime cooperation between China and Russia to safeguard what Beijing describes as legitimate maritime rights, maintain regional security in the Asia-Pacific, and ensure smooth passage through key international shipping routes. The appeal comes amid heightened geopolitical tensions in regional waters and growing scrutiny of the two countries' strategic alignment.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 13 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
