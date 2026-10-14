@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 14, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 14 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 14 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka CM Orders Probe Into Police Action on Anti-SIR Electoral Roll Protesters in Bengaluru</div>
+      <div class="nsum">Karnataka Chief Minister D.K. Shivakumar sought a comprehensive report on police action against protesters and journalists during a demonstration against the Special Intensive Revision (SIR) of electoral rolls in Bengaluru, with around 80–100 protesters reportedly detained near the Chief Electoral Officer's office. The CM emphasised there would be no double standards on the right to peaceful protest, as booth-level officers shift focus to voter roll changes ahead of the October 22 deadline.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Hennur–Bagalur Road Conditions Worsen Amid Stalled Civic Repairs, Residents Fume</div>
+      <div class="nsum">The Hennur–Bagalur Road in north Bengaluru continues to deteriorate, with commuters and residents expressing frustration over the prolonged poor state of the arterial stretch connecting key residential and industrial zones. Civic authorities are yet to undertake comprehensive repairs, even as traffic volumes on the corridor remain high due to rapid urbanisation in the area.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / Karnataka High Court</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka HC Slaps Rs 1 Lakh Fine on Official for Delaying Justice to 102-Year-Old Bengaluru Landowner</div>
+      <div class="nsum">The Karnataka High Court directed a special land acquisition officer to pay Rs 1 lakh in compensation to a 102-year-old Bengaluru landowner after the officer failed to act on the owner's plea for enhanced compensation for land acquired for an airport road. The ruling was highlighted as a landmark rebuke of bureaucratic delay, underscoring judicial impatience with prolonged inaction in land dispute cases.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Secretary of State Marco Rubio to Visit Mumbai and Jamnagar From October 17–22 for Energy Talks</div>
+      <div class="nsum">US Secretary of State Marco Rubio will travel to Mumbai and Jamnagar between October 17 and 22, marking his second visit to India this year, to strengthen the US-India strategic partnership and discuss enhanced energy cooperation, the State Department confirmed. Rubio is expected to visit Reliance's Jamnagar refinery — the world's largest single-site facility processing 1.4 million barrels of crude per day — and meet senior government officials and business leaders.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">13 Children Dead After Boat Capsizes in Ganga River in Bihar's Vaishali; PM Modi Announces Ex-Gratia</div>
+      <div class="nsum">At least 13 children, all aged below 15, were killed after a boat capsized in the Ganga river in Bihar's Vaishali district on Tuesday evening while they were travelling to attend a feast in a village across the river. Prime Minister Narendra Modi announced an ex-gratia of Rs 2 lakh per deceased, while Bihar Chief Minister Samrat Choudhary announced an additional Rs 4 lakh compensation for each affected family.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CJP Leaders Placed Under Preventive Arrest After Trespassing Into Jantar Mantar Protest Zone</div>
+      <div class="nsum">Citizens for Justice and Peace (CJP) leaders Ashutosh Ranka, Saurav Das and Ajinkya Shinde were detained after allegedly breaching barricades and raising slogans demanding Chief Election Commissioner Gyanesh Kumar's resignation at the denotified protest site at Jantar Mantar in New Delhi. The arrests came amid a broader national controversy over the Election Commission's Special Intensive Revision of electoral rolls, which has triggered protests in multiple cities including Bengaluru.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Set for Weak Open as FIIs Extend Selling Streak to 13 Days Amid Rising Crude</div>
+      <div class="nsum">Indian benchmark indices were poised for a subdued opening on October 14 as GIFT Nifty signalled caution, with Foreign Institutional Investors offloading equities for 13 consecutive sessions and pulling out approximately Rs 1,300 crore recently. Brent crude crossing $106 a barrel added to pressure, though Domestic Institutional Investors absorbed selling with purchases exceeding Rs 2,439 crore, partially cushioning the market.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Crude Oil Climbs to $107 as Houthis Strike Saudi Aramco Building, Rattling Energy Markets</div>
+      <div class="nsum">Crude oil prices climbed sharply on October 14, with Brent futures rising to approximately $106.58 a barrel, as traders weighed rising supply risks after Yemen's Houthi movement attacked an administrative building belonging to Saudi Aramco in Dhahran, escalating fears of production disruptions across the Middle East. The spike in oil prices is exerting fresh inflationary pressure on India, which imports over 85% of its crude requirements.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Fusion CX Rs 702-Crore IPO Opens Today; Ashish Kacholia and Kotak Life Among Anchor Investors</div>
+      <div class="nsum">The Rs 702-crore IPO of customer experience firm Fusion CX opened for public subscription on October 14, after the company raised Rs 315 crore from anchor investors including marquee names such as Ashish Kacholia and Kotak Mahindra Life Insurance. Swastika Investmart assigned a Neutral rating to the issue, citing stretched valuations and limited scope for immediate re-rating in the near term.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Reliance Jio to Launch AI-Powered Wearables With Indian Language Support by November–December 2026</div>
+      <div class="nsum">At the India Mobile Congress (IMC) 2026 in New Delhi, Reliance Jio announced it is preparing to launch AI-powered wearable devices — including smart glasses and audio accessories — with support for Indian languages, targeting a launch around November or December 2026. US chipmaker Qualcomm, which has partnered with Jio on wearables, identified payments, education and productivity as the key domestic growth segments for the emerging wearables market.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $2.9 Bn in Q3 2026, Driven by EV and AI Funding Surge</div>
+      <div class="nsum">Indian startups raised $2.9 billion in Q3 2026, with electric vehicles and artificial intelligence emerging as the dominant funding categories for the quarter, according to data compiled by Entrackr. The momentum has carried into October, with deeptech firm Quanfluence raising $10 million for photonic quantum computing and Desible.ai securing Rs 32 crore to expand its agentic AI workflow platforms for financial services.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">YourStory Unveils Tech30 2026 at TechSparks, Spotlighting 30 Startups in Defence, Spacetech and Clean Energy</div>
+      <div class="nsum">YourStory unveiled its Tech30 2026 cohort at TechSparks 2026, presented by Zoho co-founder Sridhar Vembu, spotlighting 30 startups building next-generation technologies across spacetech, defence, clean energy and advanced materials. Among the standouts are Apollyon Dynamics, developing autonomous drones and counter-UAV systems, and CaliperAI, building AI infrastructure for robots and autonomous machines using sensor fusion and LiDAR.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CBS News / NPR / The Hill</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bipartisan Group of 12 US Senators Urges Trump to Rescind Russian Diesel Deal, Calling It a Betrayal of Ukraine</div>
+      <div class="nsum">Twelve US senators — six Republicans including Mitch McConnell and John Cornyn, and six Democrats — sent a joint letter to President Trump on Tuesday urging him to rescind his October 9 diesel arrangement with Russian President Vladimir Putin, calling it &quot;a gift to our adversary and a betrayal of our allies.&quot; The senators warned the deal, which allows Russian diesel into global markets, would provide Putin with revenue to finance his war machine and violates a 2022 Congressional ban on Russian energy imports.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Kyiv Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russian Ballistic Missiles Strike Kyiv Power Plant and Residential Building, Killing at Least One</div>
+      <div class="nsum">Russian ballistic missiles struck Kyiv's CHP-4 power plant and a nine-story residential building late on October 13, killing at least one person and injuring 13, as President Volodymyr Zelensky warned of further attacks and noted Ukraine received no advance warning from Western partners. The strike marked the second consecutive night that Russian ballistic missiles reached the Ukrainian capital without allied notification, deepening concerns about intelligence-sharing gaps.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Angel One / SBS Korea</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthis Attack Saudi Aramco Headquarters in Dhahran After Saudi-Led Coalition Strikes on Yemen Energy Facilities</div>
+      <div class="nsum">Clashes between the Saudi-led coalition and Yemen's Houthi movement intensified on October 14, with the Houthis attacking Saudi Aramco's headquarters building in Dhahran shortly after the coalition launched retaliatory airstrikes on Houthi energy infrastructure, sending Brent crude prices above $106 a barrel. The escalation has renewed global fears of a sustained disruption to Middle East oil production and shipping routes, with the IMF-World Bank annual meetings in progress this week adding urgency to energy-market stability concerns.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 14 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
