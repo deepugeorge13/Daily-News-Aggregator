@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 20, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 20 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 20 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Unveils Fresh Mobility Plan With Rs 1 Lakh Crore Infrastructure Pipeline</div>
+      <div class="nsum">The city administration has released a new urban mobility plan outlining major infrastructure investments worth Rs 1 lakh crore currently in the pipeline for Bengaluru. The announcement comes as Namma Metro's Pink Line stations near inauguration readiness, with the IIMB station set to open in November 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">GBA Elections Scheduled by December 2026 as Bengaluru Completes Historic Civic Restructuring</div>
+      <div class="nsum">The 2026 Greater Bengaluru Authority elections are scheduled to be held by 31 December 2026, replacing the long-dissolved BBMP with five new city corporations under the apex GBA body. The Greater Bengaluru Governance Act, which came into force in 2025, represents the biggest restructuring of Bengaluru's urban administration since BBMP's creation in 2007.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly / The Bengaluru Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka CM Shivakumar Seeks Report on Police Action Against Electoral Roll Protesters in Bengaluru</div>
+      <div class="nsum">Karnataka Chief Minister D.K. Shivakumar sought a comprehensive report on police action against protesters and journalists during an anti-Special Intensive Revision of electoral rolls demonstration in Bengaluru. Around 80–100 protesters were reportedly detained near the Chief Electoral Officer's office, with the CM emphasising that the right to peaceful protest must be upheld.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CareerIndia / The Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Directs States to File Compliance Reports on Menstrual Hygiene Facilities in Schools</div>
+      <div class="nsum">The Supreme Court of India has asked all states and Union Territories to submit compliance reports on the provision of menstrual hygiene facilities in schools across the country. The directive highlights ongoing concerns about student welfare and the adequacy of safe sanitation infrastructure in educational institutions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">hi INDiA / IANS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Extends Vijayadashami Greetings as India Celebrates Dussehra 2026</div>
+      <div class="nsum">Prime Minister Narendra Modi extended heartfelt greetings to citizens on the occasion of Vijayadashami, wishing the nation happiness, prosperity, and success. Grand Dussehra celebrations were held across India, including at Delhi's iconic Luv Kush Ramleela at Red Fort Ground, where actress Yami Gautam performed the symbolic Ravan Vadh.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CareerIndia / India Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Formally Rejects OIC References to Jammu and Kashmir; Manipur Violence Claims Two Lives</div>
+      <div class="nsum">India has firmly rejected references to Jammu and Kashmir in resolutions adopted by the Organisation of Islamic Cooperation, reiterating its longstanding position on the matter. Separately, two people were reportedly killed in an attack near the Imphal East–Kangpokpi border in Manipur, adding to ongoing security concerns in the state.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / CNBC / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms IPO Anchor Book Draws Record Rs 2.5 Trillion in Bids, Oversubscribed 30x</div>
+      <div class="nsum">Reliance Industries' telecom and digital arm Jio Platforms attracted over Rs 2.5 trillion in anchor investor bids — more than 30 times the anchor book — ahead of its record Rs 30,213 crore IPO opening for public subscription on October 21. Global heavyweights including BlackRock, Fidelity, GIC, and Abu Dhabi Investment Authority participated in the anchor round, which was priced at the upper band of Rs 1,119 per share.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE and BSE Remain Closed for Dussehra Holiday; MCX Evening Session to Resume</div>
+      <div class="nsum">Indian equity markets observed a trading holiday on Tuesday, October 20, on account of Dussehra, with regular trading suspended on both the National Stock Exchange and the Bombay Stock Exchange including equity derivatives. The Multi Commodity Exchange followed a separate schedule, with its morning session closed but evening trading set to resume later in the day.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UltraTech Cement Q2 Net Profit Jumps 21% YoY to Rs 1,494 Crore; HFCL Profit Soars 448%</div>
+      <div class="nsum">UltraTech Cement reported a 21% year-on-year rise in net profit to Rs 1,494 crore for Q2, with revenues climbing 19%, signalling strong momentum in the infrastructure and construction sector. In another standout result, HFCL posted a 448% YoY surge in profit to Rs 394 crore, sending its stock to the 5% upper circuit.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / MediaNama</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">MeitY Directs Meta to Overhaul Facebook and Instagram Recommendation Algorithms Over Public-Order Concerns</div>
+      <div class="nsum">India's Ministry of Electronics and Information Technology issued an advisory asking Meta to review the content recommendation and ranking systems on Facebook and Instagram to prevent disproportionate amplification of misleading or out-of-context material. The advisory, dated October 10, also calls on Meta to ensure users receive a diversity of credible information and to provide context for content depicting ongoing public events.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BusinessToday / Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Billionaire Family Offices Ramp Up AI Bets, Funding Rises 50% to $760 Million in 2026</div>
+      <div class="nsum">Indian billionaire family offices and wealthy angel investors have increased their AI startup investments by nearly 50% in 2026, committing approximately $760 million to homegrown artificial intelligence companies. Investors including Azim Premji's Premji Invest, Manipal Group's Claypond Capital, and QED Innovation Labs are among those backing the push to build Indian AI firms capable of competing globally.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Zetwerk IPO Closes at 3.06x Subscription as Indian Startup IPO Wave Continues in October</div>
+      <div class="nsum">Zetwerk's IPO closed with a 3.06x subscription, adding to a busy October for Indian startup listings that also saw Tonbo Imaging's IPO close with a record 135.9x oversubscription. The flurry of listings reflects robust investor appetite for new-age tech companies, with industry leaders at TechSparks 2026 projecting that AI could add up to $1 trillion to India's GDP by 2035.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SBS News / The Shillong Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthi Missile Strike on Yemen Military Base Kills at Least 53, Injures Over 200</div>
+      <div class="nsum">Iranian-backed Houthi rebels launched a missile strike on a Yemeni government military base in southern Yemen, killing at least 53 people and injuring more than 200 others. The attack marks the largest single-incident casualty toll since the Houthis resumed offensive operations in July 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SBS News / WorldBrief</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">France Imposes Nationwide Night Curfew as Inflation Protests Erupt Into Riots; Unrest Spreads to Italy</div>
+      <div class="nsum">The French government declared nighttime curfews in major cities including Paris and Lyon after protests against high inflation and the rising cost of living escalated into widespread violence, looting, and arson. The unrest has begun spreading to Italy, prompting an international response, with US President Donald Trump urging France to close its borders.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Pakistan Launches Airstrikes in Afghanistan, Killing Taliban Fighters; Kabul Reports Civilian Deaths</div>
+      <div class="nsum">Pakistan launched airstrikes in Afghanistan, claiming to have killed 22 Taliban fighters across two locations, in an escalation of cross-border tensions between the two countries. The Afghan government reported that nine women and children were killed in Kunar Province and Helmand Province as a result of the strikes.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 20 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
