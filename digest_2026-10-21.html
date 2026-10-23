@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 21, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 21 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 21 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BDA Publishes GIS-Based Road Grid for Outer Bengaluru, Invites 60-Day Public Feedback</div>
+      <div class="nsum">The Bangalore Development Authority has published a GIS-based road circulation network map on its official website, proposing a new road grid for rural and agricultural areas along the city's outer limits. The authority has invited written comments and suggestions within 60 days of the notification published on October 8, 2026, with submissions accepted in person, by post, or via email.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Lawbeat / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Defers GBA Municipal Elections to December 2026 Amid Ongoing SIR Process</div>
+      <div class="nsum">The Supreme Court has extended the deadline for elections to all five city corporations under the Greater Bengaluru Authority (GBA) to December 31, 2026, accepting the state's plea that the Special Intensive Revision of electoral rolls made the earlier August 31 deadline impossible to meet. All mayor, deputy mayor, and corporator seats across the five corporations remain vacant, with state-appointed IAS officers continuing to administer civic functions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Latestly</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CM Shivakumar Seeks Report on Police Action Against Bengaluru Anti-SIR Protesters</div>
+      <div class="nsum">Karnataka Chief Minister D.K. Shivakumar sought a comprehensive report on police action against protesters and journalists during an anti-Special Intensive Revision demonstration near the Chief Electoral Officer's office in Bengaluru, where 80–100 protesters were reportedly detained. The Chief Minister emphasised that there would be no double standards regarding the right to peaceful protest, as booth-level officers focused on voter roll changes ahead of the October 22 deadline.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">RSS Chief Mohan Bhagwat Calls for National Unity, Warns Against Divisive Agitations in Vijayadashami Address</div>
+      <div class="nsum">RSS Chief Mohan Bhagwat delivered his annual Vijayadashami address warning against agitations that divide society, urging unity rooted in what he described as the 'Hindu spirit.' PM Modi, Home Minister Amit Shah, and other senior leaders also extended Vijayadashami wishes, sharing messages on the triumph of good over evil.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal CM Meets Families of Durga Puja Stampede Victims, Announces Rs 25 Lakh Ex Gratia</div>
+      <div class="nsum">West Bengal Chief Minister met the families of the three people who died in a Durga Puja stampede and announced Rs 25 lakh in ex gratia assistance to each affected family as the state government responded to the tragedy. The incident has triggered fresh scrutiny of crowd management protocols at large public festivals across the country.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tiger Shroff Firing Case: Mumbai Police Team Returns from Kota with Three Alleged Assailants</div>
+      <div class="nsum">A Mumbai Police team left Kota with three alleged assailants in connection with the firing incident involving Bollywood actor Tiger Shroff, as investigations into the shooting continued. Security has also been stepped up at the residences of actors Salman Khan, Aamir Khan, and filmmaker Rohit Shetty in the wake of the incident.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Telecom Talk / Business Standard / Angel One</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms IPO Opens Today at Price Band of Rs 1,065–1,119; Aims to Raise Rs 30,213 Crore</div>
+      <div class="nsum">Jio Platforms Limited, the telecom and digital arm of Reliance Industries, opened its landmark IPO for public subscription today, October 21, 2026, with the issue set to close on October 23 and listing expected on BSE and NSE on October 28. The IPO, priced at Rs 1,065–1,119 per share with a fresh issue of 27 crore shares, seeks to raise approximately Rs 30,213 crore, with the bulk of proceeds earmarked for debt repayment at Reliance Jio Infocomm.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Rises 500 Points at Pre-Open as Nifty Tops 22,800; Asian Markets Advance</div>
+      <div class="nsum">Indian equity benchmarks opened higher on Wednesday, with the Sensex rising nearly 500 points at pre-open and the Nifty 50 crossing the 22,800 mark, tracking gains across Asian markets. Market sentiment was buoyed by the Jio Platforms IPO opening and reports that the US and India are close to signing a trade deal, although rising Brent crude near $110 per barrel tempered broader gains.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Crude Oil Crosses $110 a Barrel Amid Middle East Supply Concerns, Putting Pressure on India's Import Bill</div>
+      <div class="nsum">Brent crude futures surged past $110 per barrel on October 21, with WTI also climbing to around $99 per barrel, as supply concerns stemming from Middle East tensions continued to rattle energy markets. The spike raises fresh concerns for India's current account deficit and could exert upward pressure on domestic fuel prices and inflation in the coming weeks.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Telecom Talk / Angel One / IPO Watch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms IPO Grey Market Premium Hits 22% as India's Largest Telecom Operator Eyes Rs 30,213 Crore Debut</div>
+      <div class="nsum">Ahead of its IPO opening today, Jio Platforms recorded a grey market premium of Rs 247 per share — a 22% premium over the upper price band of Rs 1,119 — signalling strong investor appetite for what is set to be one of India's biggest-ever public listings. Jio Platforms, with over 500 million mobile users, filed its Red Herring Prospectus on October 14 and plans to list on BSE and NSE on October 28, 2026.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tech-Insider / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $50 Million in a Single Week as Funding Momentum Builds Across Sector</div>
+      <div class="nsum">Between October 12 and 17, 2026, four Indian AI startups — RapidCanvas, Clueso, Parallel Loop, and Shamrock AI — collectively raised approximately $50.6 million, led by RapidCanvas's $29 million Series B, as part of a broader $302.85 million funding week for Indian startups overall. The surge underscores applied AI and AI-agent companies emerging as a defining theme in India's venture capital market, even as deep-tech semiconductor bets command the largest individual cheques.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Open The Magazine</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Economy Could Add $1 Trillion to GDP by 2035, Say Panelists at TechSparks 2026</div>
+      <div class="nsum">Panelists at YourStory's TechSparks 2026 summit argued that India's artificial intelligence opportunity could extend well beyond $100 billion and potentially add $1 trillion to the country's GDP by 2035, with the biggest prize lying in converting India's consumer scale and technology talent into globally competitive AI products. Simultaneously, a new analysis warned that Silicon Valley AI startups are aggressively moving into services delivery, challenging India's traditional IT outsourcing dominance.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Secretary Rubio Meets Jaishankar in Mumbai; India-US Trade Deal Said to Be Imminent</div>
+      <div class="nsum">U.S. Secretary of State Marco Rubio held talks with External Affairs Minister S. Jaishankar in Mumbai on October 20–21, with Rubio telling reporters the two countries are 'about as close as you can be' to finalising a trade deal, with only a small number of items left to resolve. The two leaders also discussed Middle East energy security in a trilateral meeting with UAE Foreign Minister Sheikh Abdullah bin Zayed Al Nahyan, as part of Rubio's three-day India visit focused on energy trade, defence cooperation, and critical technologies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Standard HK / SBS Korea</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">France Deploys Troops and Imposes Curfews as Violent Protests Escalate Across the Country</div>
+      <div class="nsum">The French government ordered the deployment of military troops and imposed overnight curfews in parts of Paris and other cities after widespread riots and looting over the weekend, acknowledging failures in its initial response to the unrest. Italy also announced a hardline stance, deciding to deploy 500 troops to protests in Milan, as European governments grappled with a wave of civil unrest.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / AFP via France 24</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">At Least 139 Killed as Migrant Boat Shipwrecks Off Coast of Djibouti</div>
+      <div class="nsum">A catastrophic boat sinking off the coast of Djibouti killed at least 139 people, with 84 more missing and over 80 rescued, in one of the deadliest migrant shipwreck incidents of the year. The tragedy has renewed international calls for urgent action on migration routes through the Horn of Africa and the Gulf of Aden.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 21 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

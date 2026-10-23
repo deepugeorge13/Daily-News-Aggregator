@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 22, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 22 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 22 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Forecasts Heavy Rain for Bengaluru on October 22 as Extended Monsoon Lingers</div>
+      <div class="nsum">The IMD's Bengaluru Meteorological Centre has forecast heavy rain for south interior Karnataka, including Bengaluru, through October 22 as the extended monsoon season continues to bring widespread showers. Residents and commuters have been advised to exercise caution, with the city having recorded 32 mm of rainfall in a single 24-hour period earlier this month.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Stations Readied for Imminent Inauguration as Blue Line Construction Accelerates</div>
+      <div class="nsum">BMRCL's Pink Line stations, including the IIMB station near Bannerghatta Road, are in final pre-operations stages and are slated for inauguration in November 2026, while several Blue Line stations along the Outer Ring Road corridor are on track for a December 2026 opening. The network has seen record single-day ridership of over 11 lakh passengers, underlining growing commuter demand across the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Directs Greater Bengaluru Authority Corporation Elections to Be Held by December 2026</div>
+      <div class="nsum">The Supreme Court of India has directed that elections to the five newly constituted City Corporations under the Greater Bengaluru Authority (GBA) must be completed by December 2026, marking the first civic polls in the city since 2015. Bengaluru has been without an elected city council since the previous BBMP council's term lapsed in September 2020, over 11 years ago.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / The Print / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">West Bengal Sets Up SIT to Probe Kolkata Durga Puja Stampede That Killed 19</div>
+      <div class="nsum">The West Bengal government has constituted a six-member Special Investigation Team (SIT), headed by retired Justice Anindita Roy Saraswati, to investigate the October 17 stampede at the Chorbagan Durga Puja pandal in north Kolkata that killed 19 people and injured 25 others. The SIT, formed in consultation with the Calcutta High Court, has been directed to submit its report within three months and will examine crowd management lapses, CCTV footage, and possible administrative failures.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Opinion / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi and Amit Shah Mark Police Commemoration Day, Set December 2029 Drug-Free India Target</div>
+      <div class="nsum">Prime Minister Narendra Modi paid tribute to police martyrs on Police Commemoration Day, while Home Minister Amit Shah honoured police personnel for their sacrifices and set a December 2029 deadline for achieving a drug-free India. J&amp;K leadership also used the occasion to warn terror supporters, with DGP Nalin Prabhat stating that the days of those backing terrorism are numbered.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / Fortune / US News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jaishankar and Rubio Hold Mumbai Talks; India-US Bilateral Trade Deal on Verge of Closure</div>
+      <div class="nsum">U.S. Secretary of State Marco Rubio held high-level talks with External Affairs Minister S. Jaishankar in Mumbai, with Rubio declaring the two countries are 'about as close as you can be' to finalising a bilateral trade agreement. Jaishankar confirmed the discussions spanned trade, energy, technology, and defence, and Commerce Minister Piyush Goyal separately confirmed the first tranche of the deal is in its final stages.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Falls 200 Points, Nifty Slips Below 22,700 as Global AI-Trade Concerns Weigh on Markets</div>
+      <div class="nsum">Indian equity benchmarks opened lower on Thursday, with the Sensex declining around 200 points and the Nifty50 slipping below 22,700 at pre-open, as GIFT Nifty indicated a negative start amid concerns over global AI trade sentiment. The Nifty had already shed 77.60 points to close at 22,811 on Wednesday, dragged by heavy selling in banking stocks, with analysts flagging the 22,650–22,700 zone as a critical support level.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Groww / ICICI Direct / IPO Watch</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Biggest-Ever IPO: Jio Platforms' ₹30,213 Crore Issue Enters Day 2 of Subscription</div>
+      <div class="nsum">Reliance-backed Jio Platforms Limited's landmark ₹30,213 crore IPO, priced at ₹1,065–₹1,119 per share, entered its second day of subscription on Thursday, with the QIB category already subscribed over 4 times on Day 1. The issue closes on October 23 and is tentatively set to list on BSE and NSE on October 28, 2026, making it India's largest public offering to date.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Tech-Insider.org</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $302.85 Million in a Single Week, With AI Firms Claiming $50 Million</div>
+      <div class="nsum">A total of 28 Indian startups raised a combined $302.85 million between October 12 and 17, 2026, according to Entrackr's weekly tally, with AI-focused companies including RapidCanvas, Clueso, Parallel Loop, and Shamrock AI collectively pulling in around $50.6 million. The week's single largest cheque — $75 million — went to semiconductor services firm Tessolve Semiconductor, underlining the continued dominance of deep-tech bets in India's venture market.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Peak XV-Backed AI Startup Blacksmith Reaches Unicorn Valuation After $66 Million Raise</div>
+      <div class="nsum">Bengaluru-based AI startup Blacksmith, backed by Peak XV Partners, has secured $66 million in a fresh funding round that values the company at over $1 billion, making it one of India's newest unicorns. The raise underscores the accelerating momentum in India's enterprise AI space, with the country having minted 8 new unicorns so far in 2026, two more than in the same period last year.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Analytics India Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">eMudhra Security Key Flaw Prompts Google and Mozilla Intervention, Raising Digital Trust Concerns</div>
+      <div class="nsum">A significant security vulnerability discovered in eMudhra, a digital certificate authority used widely by Indian government agencies and PSUs, has prompted Google and Mozilla to step in, raising alarm about the integrity of India's chain of digital trust. The incident is being closely watched as it coincides with a separate report that eight web security keys of a firm used by the Government and PSUs were leaked and surfaced on the dark web.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Analytics India Mag</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 Indian AI Startups for Its India Accelerator, Spotlighting Agentic and Physical AI</div>
+      <div class="nsum">Google has chosen 20 Indian AI startups for its latest India Accelerator cohort from over 2,500 applications, with the programme focusing on agentic AI, multimodal systems, and physical AI across sectors including legal tech, healthcare, climate, and manufacturing. Notable selections include Adalat AI, which automates processes in Indian courts, and Aurassure, which uses AI with modular sensors to deliver hyperlocal climate intelligence.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Reuters / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Envoy Witkoff Meets Putin in St. Petersburg to Advance Ukraine Peace Proposals; American Prisoner Freed</div>
+      <div class="nsum">U.S. Special Envoy Steve Witkoff met Russian President Vladimir Putin at the Constantine Palace in St. Petersburg on October 21, urging Russia to consider resuming US-mediated three-way peace talks with Ukraine, a day after holding talks with President Zelenskyy in Oslo. A key outcome of the meeting was Russia's announcement that it would release wrongfully detained 74-year-old American Stephen Hubbard, and a U.S. official confirmed that Russia and Ukraine have agreed to resume trilateral technical-level talks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">UNEP / The Hill / UPI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">UNEP's 2026 Emissions Gap Report Declares 1.5°C Paris Goal Effectively Out of Reach</div>
+      <div class="nsum">The UN Environment Programme's Emissions Gap Report 2026, titled 'The Point of Return,' concluded that the global effort to hold warming to 1.5°C above pre-industrial levels has failed, with current policies projected to lead to 2.8°C of warming within the century. However, the report argues that urgent emissions cuts of 18% by 2030 and 45% by 2035 could still minimise the overshoot and return temperatures to 1.5°C by 2100.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Straits Daily Brief / Hellenic Shipping News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Brent Crude Tops $110 as Strait of Hormuz Remains Effectively Closed to Normal Commercial Traffic</div>
+      <div class="nsum">Brent crude oil prices rose to $109.99 per barrel as the Strait of Hormuz remained effectively closed to normal commercial shipping, though Middle East oil volumes continued to hold near pre-war levels through alternative routes. A tanker was struck by an unknown projectile off Bukha, Oman on October 21, sparking a fire onboard, with the vessel now at anchor, adding to regional shipping tensions.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 22 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
