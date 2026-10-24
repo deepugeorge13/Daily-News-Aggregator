@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 24, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 24 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 24 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IMD Issues Yellow Alert for Bengaluru South as Cyclonic Circulation Batters Karnataka</div>
+      <div class="nsum">A cyclonic circulation over the Bay of Bengal, intensifying into a low pressure system, has triggered moderate to heavy rains across Karnataka since Thursday night. The India Meteorological Department has issued a yellow warning for Bengaluru South, Dakshina Kannada, Kodagu, and Mysuru, and has advised fishermen not to venture into the sea along the Karnataka coast until October 26.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line ORR Stations on Track for December 2026 Launch</div>
+      <div class="nsum">Multiple Namma Metro Blue Line stations along the Outer Ring Road corridor — including Bellandur, HSR Layout, and Kadubeesanahalli — remain under construction and are slated to open in December 2026. In a notable public-private partnership, Prestige Group signed a sponsorship deal investing around ₹120 crore for the Bellandur station, securing naming rights for 30 years.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Asianet News / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">19-Year-Old B.Com Student Stabbed to Death Near College in West Bengaluru</div>
+      <div class="nsum">A first-year B.Com student was stabbed to death near a private college in the Palya locality of West Bengaluru's Annapoorneshwari Nagar police station limits. Bengaluru DCP West N. Yatish confirmed the incident occurred at around 2:30 PM after the student received a phone call asking him to step outside the college premises.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / Google News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Anti-CEC Protesters Detained in Delhi as Opposition Marches on Election Commission</div>
+      <div class="nsum">Students, farmers, politicians, and civil society groups marched toward the Election Commission in New Delhi on Saturday, demanding the resignation of Chief Election Commissioner Gyanesh Kumar over the controversial Special Intensive Revision of electoral rolls. Delhi Police detained a large number of protesters before they could reach the Election Commission offices.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">hi INDiA / IANS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Maharashtra ATS Arrests Suspected Jaish-e-Mohammed Operative in Mumbai's Mahim Area</div>
+      <div class="nsum">The Maharashtra Anti-Terrorism Squad arrested a 33-year-old man suspected of having links with the banned terrorist organisation Jaish-e-Mohammed from the Mahim area of Mumbai. The arrest is part of ongoing counter-terrorism operations by the ATS targeting individuals with alleged ties to proscribed militant groups.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / Google News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India to Host 12th BRICS Parliamentary Forum on October 26-27; Chhattisgarh's Sirpur Added to UNESCO List</div>
+      <div class="nsum">India is set to host the 12th BRICS Parliamentary Forum on October 26 and 27, marking a significant diplomatic engagement as the country strengthens multilateral ties. Separately, Chhattisgarh's ancient archaeological site of Sirpur has been added to UNESCO's Tentative World Heritage List, boosting India's cultural heritage profile globally.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Upstox</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Infosys Q2 FY27 Net Profit Rises 6.2% to ₹7,828 Crore but FY27 Revenue Guidance Cut</div>
+      <div class="nsum">Infosys reported a 6.2% year-on-year rise in net profit to ₹7,828 crore for Q2 FY27, with revenues up 10.7% to ₹49,244 crore, aided by financial services and energy verticals. However, the company trimmed its full-year FY27 revenue growth guidance to 1–2% in constant currency, down from the earlier 1.5–3%, citing weakening US growth and AI-driven deflationary pressure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Upstox</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata Motors Swings to Q2 FY27 Profit of ₹1,257 Crore on Strong Commercial Vehicle Demand</div>
+      <div class="nsum">Tata Motors reported a consolidated net profit of ₹1,257 crore in Q2 FY27, reversing a loss of ₹867 crore in the year-ago period, driven by a 36% rise in commercial vehicle revenue. Commercial vehicle wholesales surged 42% year-on-year, though commodity costs continued to weigh on overall margins.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty MidCap and SmallCap Indices Post Worst Weekly Decline in Two Years</div>
+      <div class="nsum">India's Nifty MidCap 150 and SmallCap 250 indices recorded their worst weekly falls in two years, reflecting a sharp shift in market sentiment. Rising oil prices, fiscal deficit concerns, and broader global uncertainty driven by AI-related stock losses rattled domestic markets, even as retail investors attempted to cushion the fall through increased mutual fund contributions.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Tech-Insider</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Secure $50 Million of $302.85 Million Funding Week Led by RapidCanvas</div>
+      <div class="nsum">Four Indian AI startups — RapidCanvas, Clueso, Parallel Loop, and Shamrock AI — collectively raised approximately $50.6 million during the week of October 12–17, 2026, with RapidCanvas leading the pack via a $29 million Series B round. Overall, 28 Indian startups raised a combined $302.85 million that week, with the single largest check of $75 million going to semiconductor firm Tessolve Semiconductor.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Local Samosa / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Binny Bansal-Backed Sloosh.ai Launches AI Creative Platform; TravClan Raises $5 Million</div>
+      <div class="nsum">Sloosh.ai, a new AI creative platform backed by Flipkart co-founder Binny Bansal's ShopOS, launched this week, reflecting the growing adoption of AI tools in creative production across Indian industries. In parallel funding news, travel-tech startup TravClan raised $5 million from Flipkart and other investors to expand its digital travel distribution platform and deepen partnerships with travel agents.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / TechSparks 2026</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">YourStory Unveils Tech30 2026 Cohort at TechSparks, Spotlighting Spacetech, Defence and AI Startups</div>
+      <div class="nsum">YourStory unveiled its annual Tech30 2026 list at TechSparks, featuring 30 startups building technologies across spacetech, defence, clean energy, and AI, with Zoho co-founder Sridhar Vembu presenting the cohort. Vembu emphasised the need for India to develop homegrown technologies that address its own challenges, coining the theme 'Prosperity cannot be imported: The road to tech independence.'</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Straits Daily Brief / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Strait of Hormuz Closed to Commercial Traffic as Iran Claims Two Supertankers Hit Mines</div>
+      <div class="nsum">The Strait of Hormuz remains closed to commercial shipping after Iran's Revolutionary Guard claimed two supertankers struck naval mines and are adrift carrying 4.5 million barrels of oil, a claim that has not been confirmed by maritime authorities. Reuters separately reported that ship attacks in the Strait hit a record high in October, with the US warning of potential strikes on Iran and Saudi Arabia intercepting a ballistic missile launched from Yemen toward Riyadh.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inquirer Global Nation / WHO</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">First Ebola Vaccine Clinical Trial Begins in DR Congo as WHO Responds to Active Outbreak</div>
+      <div class="nsum">The World Health Organization confirmed the start of the first clinical trial of an Ebola vaccine in the Democratic Republic of Congo, which is currently in the grip of an active outbreak. The development marks a significant milestone in global health emergency response as international efforts intensify to contain the spread of the disease.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google News / Jerusalem Post</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Gunmen Open Fire at Church in Jordan in Terrorist Attack; Paris Shooting Declared Racist Terror Incident</div>
+      <div class="nsum">Seven people were killed after gunmen opened fire at a church in Jordan in what Jordanian authorities described as a terrorist attack, sending shockwaves across the Middle East. Separately in France, one person was killed in a shooting on the outskirts of Paris that the Élysée Palace called a racist and terrorist attack, prompting the French government to deploy 70,000 police officers ahead of large-scale weekend protests.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 24 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
