@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 25, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 25 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 25 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Public TV Karnataka / IMD</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bay of Bengal Low-Pressure System to Bring Heavy Rain to Bengaluru and Karnataka for Next 3–4 Days</div>
+      <div class="nsum">A low-pressure system developing in the Bay of Bengal is expected to trigger heavy rainfall across Karnataka over the next three to four days, with Bengaluru forecast to see partly cloudy skies and showers by afternoon and evening. The weather alert comes as northeast monsoon activity intensifies across the state, with coastal districts including Mangaluru and Udupi recording significantly higher temperatures alongside rain.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / New Indian Express / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Phase 2A Stations — Including Bellandur, HSR Layout, and Marathahalli — on Track for December 2026 Opening</div>
+      <div class="nsum">Multiple stations along BMRCL's 18.2-km Blue Line Phase 2A corridor, stretching from Central Silk Board to Krishnarajapura along the Outer Ring Road, are now slated to open in December 2026, after earlier targets of mid-2026 were missed. The Prestige Group has invested around ₹120 crore in a station-naming sponsorship deal for Bellandur station, part of BMRCL's push to fund metro infrastructure through public-private partnerships.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Asianet News / Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cyclone Develops Over Bay of Bengal; Heavy Rain Warning Issued for Coastal Karnataka and Parts of South India from October 28</div>
+      <div class="nsum">The India Meteorological Department has issued alerts for heavy rainfall in coastal Karnataka and several southern states starting October 28, as a cyclonic system organises in the Bay of Bengal. President Droupadi Murmu's scheduled visit to the region has been postponed in view of the severe weather outlook.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Asianet News / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Attends IAF Day 'Wings Over Ganges' Aerial Display in Varanasi as Chief Guest</div>
+      <div class="nsum">Prime Minister Narendra Modi attended the 94th Indian Air Force Day aerial display event, themed 'Wings Over Ganges', held in Varanasi on October 25, with the Surya Kiran Aerobatic Team (SKAT) performing over the city. The showcase featured frontline fighter aircraft including Rafale and Sukhoi jets, with Modi also set to inaugurate key development projects in both Varanasi and Bhubaneswar on the same day.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Daily Jagran / PTI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms IPO Becomes First Public Issue Globally to Cross 1 Crore Applications</div>
+      <div class="nsum">The Jio Platforms IPO, which closed for subscription on October 23, has crossed one crore investor applications — a global first — surpassing the previous world record of approximately 97 lakh applications set by Waaree Energies. The ₹30,213-crore issue, India's largest-ever IPO, was subscribed over 20 times overall, with grey market indicators pointing to a strong listing expected on October 28.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Daily Jagran / MEA</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">EAM Jaishankar Visits Azerbaijan; India and Uzbekistan Hold Bilateral Talks on Deepening Ties</div>
+      <div class="nsum">External Affairs Minister S. Jaishankar, during his visit to Azerbaijan, held bilateral discussions with Uzbek counterparts to further strengthen India-Uzbekistan diplomatic and economic relations. The visit is part of India's broader Central Asia outreach as New Delhi continues to diversify strategic partnerships across the region.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The420.in / PTI / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms IPO Breaks 12 Market Records, Draws Bids Worth Over ₹4.5 Lakh Crore</div>
+      <div class="nsum">Jio Platforms' ₹30,213-crore IPO concluded subscription on October 23, 2026 with bids exceeding ₹4.5 lakh crore and more than 1.25 crore applications — shattering twelve separate primary market records in India and globally. The IPO, backed by Reliance Industries, was subscribed over 20 times overall, with Qualified Institutional Buyers alone subscribing 14.46 times their reserved quota.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / The Hindu Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Kotak Mahindra Bank Q2 Net Profit Rises 26% on Higher Income and Improved Asset Quality</div>
+      <div class="nsum">Kotak Mahindra Bank reported a 26% year-on-year rise in net profit for Q2 FY27, driven by higher net interest income and a sharp improvement in asset quality. Gross non-performing assets declined to 1.04% from 1.39% a year ago, signalling robust portfolio health as India's banking sector navigates a challenging global macro environment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Trading Economics / Zerodha Pulse</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSE Sensex Slips to 73,124 on October 23 as New-Age Tech Stocks Tumble; Swiggy Leads Sell-Off with 24.5% Fall This Week</div>
+      <div class="nsum">India's benchmark BSE Sensex fell to 73,124 points on October 23, 2026, down 13.17% year-on-year, as a broad sell-off in new-age listed tech companies dragged indices lower. Swiggy led declines with a 24.5% weekly drop, while the combined market capitalisation of new-age tech stocks shed over $11 billion, reflecting sustained foreign institutional investor outflows and global risk-off sentiment.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Analytics India Magazine / Google India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Selects 20 AI-First Startups for 2026 India Accelerator Cohort From 2,500 Applications</div>
+      <div class="nsum">Google has unveiled its 2026 cohort for the Google for Startups Accelerator: India, selecting 20 AI-first companies from nearly 2,500 applications to mark the programme's 10th anniversary in the country. The three-month accelerator focuses on agentic AI, multimodal systems, and physical AI, spanning sectors such as legal tech, healthcare, climate intelligence, manufacturing, fintech, and cybersecurity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Soared Over 4X Year-on-Year in H1 2026, Hitting $676 Million Across 57 Deals</div>
+      <div class="nsum">Indian AI startups raised $676 million in the first half of 2026, a more than four-fold jump year-on-year from $162 million in H1 2025, with deal count surging 90% to a fresh six-month high of 57 transactions. Sarvam AI became India's second AI unicorn after raising $234 million, while the IndiaAI Mission was cited by 66% of institutional investors as having directly influenced their investment thesis.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $2.9 Billion in Q3 2026 as EV and AI Sectors Drive Funding Surge</div>
+      <div class="nsum">Indian startups collectively raised $2.9 billion in funding during Q3 2026, with electric vehicle and artificial intelligence verticals emerging as the primary growth engines of investor interest. Meanwhile, new-age listed tech stocks faced pressure on bourses, with Myntra slipping into the red in FY26 and Swiggy leading a broad market sell-off among consumer internet companies this week.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tempo.co / Wikipedia / SCMP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Typhoon Champi Kills 1 and Injures 527 in Taiwan, Now Tracking Toward China and Japan</div>
+      <div class="nsum">Super Typhoon Champi, one of the strongest storms of the 2026 Pacific typhoon season with peak winds of 295 km/h, battered Taiwan on October 24–25, killing at least one person, injuring over 527, and knocking out power to 280,000 households while causing nearly 1,000 flight cancellations at its peak. The storm is now weakening as it moves toward eastern China — triggering Level III emergency responses in two Chinese provinces — before making landfall in Japan on Sunday.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Statesman / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Denies Fresh Strait of Hormuz Deal via Pakistan as Trump Threatens New US Military Strike</div>
+      <div class="nsum">Iran has called reports of a new proposal to reopen the Strait of Hormuz through Pakistan a 'fabrication', even as an earlier seven-day plan to ease the US naval blockade remains under active consideration. US President Donald Trump raised the prospect of another American military operation, with Washington insisting that nuclear issues must be addressed in any formal negotiations.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ViewStorys / Daily Jagran</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Paris Suburbs Shooting Leaves 1 Dead and 5 Wounded Including a 12-Year-Old Girl; Anti-Terror Prosecutor Takes Over</div>
+      <div class="nsum">A gunman opened fire from his vehicle in Trappes and La Verrière in the Yvelines area near Paris on Friday morning, killing one person and wounding five others, including a 12-year-old girl who was shot eight times and remained in serious condition. The suspect, identified only as Kevin T., 39, was arrested within 20 minutes, and France's national anti-terrorism prosecutor's office has taken over the investigation into whether victims were targeted on the basis of race, ethnicity, or religion.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 25 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
