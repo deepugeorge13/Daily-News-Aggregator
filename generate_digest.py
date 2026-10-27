@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Bangalore Morning Digest for October 26, 2026."""
+"""Generate the Bangalore Morning Digest for October 27, 2026."""
 
 import anthropic
 import json
@@ -22,14 +22,14 @@ TWILIO_FROM  = os.environ.get("TWILIO_FROM")
 WHATSAPP_TO  = os.environ.get("WHATSAPP_TO")
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT = os.path.join(DIR, "digest_2026-10-26.html")
+OUTPUT = os.path.join(DIR, "digest_2026-10-27.html")
 
-DATE_LONG  = "Monday, 26 October 2026"
+DATE_LONG  = "Tuesday, 27 October 2026"
 TIME_IST   = "9:00 AM IST"
-TITLE_DATE = "October 26, 2026"
+TITLE_DATE = "October 27, 2026"
 
 SYSTEM = """\
-You are a news curator for the Bangalore Morning Digest. Today is Monday, 26 October 2026.
+You are a news curator for the Bangalore Morning Digest. Today is Tuesday, 27 October 2026.
 
 Use the web_search tool to find 3 real, current news stories for EACH of these 5 categories:
   1. local    – Bangalore / Karnataka city news (BBMP, BMRCL, metro, infrastructure, civic)

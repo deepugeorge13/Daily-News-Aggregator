@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 27, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 27 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 27 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MSN India / Wikipedia (BMRCL)</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka CM Backs Residents Demand to Rename IIMB Metro Station to Bilekahalli</div>
+      <div class="nsum">Chief Minister D. K. Shivakumar acknowledged a long-standing petition by local residents to rename the Namma Metro Pink Line station from IIMB to Bilekahalli, citing the historical significance of the neighbourhood's original name. The CM has written to BMRCL requesting the renaming, giving official weight to a community-driven campaign.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Urban Acres / Prajavani</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Greater Bengaluru Authority Set for Major Boundary Expansion After October 27 Vote Count</div>
+      <div class="nsum">The Karnataka government is preparing to absorb up to 86 gram panchayat areas into the Greater Bengaluru Authority and create new municipalities in rapidly urbanising localities including Anekal, Bommasandra, and Attibele. The final list of areas to be brought under the GBA is expected to be announced after the October 27 Legislative Council election vote count is completed.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ETV Bharat / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP-JD(S) Alliance Announced for Bengaluru's Five-Corporation GBA Elections Due by December 2026</div>
+      <div class="nsum">In October 2026, the BJP and Janata Dal (Secular) announced a pre-poll alliance ahead of the first-ever elections to Bengaluru's five new city corporations under the Greater Bengaluru Authority, which must be held by December 31 per Supreme Court directive. The elections, covering 369 wards and nearly 8.9 million registered voters, will be conducted using ballot papers rather than Electronic Voting Machines.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week / WION News / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cyclone Arnab Intensifies Over Bay of Bengal; Andhra and Odisha on High Alert Ahead of October 28 Landfall</div>
+      <div class="nsum">Cyclone Arnab intensified into a cyclonic storm on the morning of October 26 and is forecast to cross the Andhra Pradesh coast near Yanam as a very severe cyclonic storm on October 28, with wind gusts of up to 140 kmph. The IMD issued red and orange alerts for Odisha, which shut schools in five southern districts and deployed 225 fire service teams and NDRF personnel for rescue preparedness.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / Legacy IAS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Operation Trident: 18 Arrested, ₹100 Crore Hawala Network Busted in Northeast Drug Raids</div>
+      <div class="nsum">Central enforcement agencies and state police conducted simultaneous raids across 38 locations in Assam, Mizoram, and Manipur under Operation Trident, arresting 18 accused and freezing 1,424 bank accounts linked to an international narco-hawala network trafficking drugs from Myanmar. Investigators traced ₹100 crore in hawala transactions connected to the cross-border narcotics pipeline.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / Legacy IAS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Warns of Cybersecurity Threat to Financial Institutions at RBI Data Centre Launch in Bhubaneswar</div>
+      <div class="nsum">Prime Minister Narendra Modi inaugurated the Reserve Bank of India's new data centre and Cybersecurity Training Institute in Bhubaneswar, warning that attacks on a nation's economy could weaken it as surely as conventional warfare. The PM emphasised the urgent need to shield financial institutions against cybercriminals and cyberterrorists amid the rapidly evolving threat landscape.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India TV News / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Sheds 133 Points, Nifty Near 22,500 as Elevated Crude and Global Uncertainty Weigh on Markets</div>
+      <div class="nsum">Indian equity indices opened in the red on October 26, with the BSE Sensex falling 133 points to 72,990 and the Nifty 50 shedding 75 points to 22,524, pressured by elevated crude oil prices, geopolitical tensions, and uncertainty ahead of Fed, ECB, and Bank of Japan policy decisions. IT stocks led the decline with Infosys falling over 3%, while markets later recovered partially on value buying in metals, power, and healthcare.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Paytm Q2 FY27 Profit Skyrockets Nearly 10x to ₹225 Crore, Revenue Up 28% YoY</div>
+      <div class="nsum">Fintech major Paytm's parent One97 Communications reported a near ten-fold jump in net profit to ₹225 crore for the September 2026 quarter, marking its sixth consecutive profitable quarter, with operating revenue rising 28% year-on-year to ₹2,648 crore. EBITDA hit a record ₹270 crore with margins reaching double digits for the first time, driven by strong merchant subscriptions, AI adoption, and expanded financial services distribution.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Ventura Securities / Investment Guru India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FII Selling in October Tops ₹51,500 Crore Even as DIIs Record Strong Net Inflows of ₹3,235 Crore</div>
+      <div class="nsum">Foreign Institutional Investors turned marginal net buyers on October 23 but their cumulative October selling remains elevated at around ₹51,500 crore, keeping overall market sentiment fragile. Domestic Institutional Investors continued to provide support with net inflows of ₹3,235 crore, though broad-market weakness persisted with the Smallcap 50 and Nifty Metal indices declining over 3%.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ather Energy Turns Profitable in Q2 FY27 with Revenue Jumping 63% to ₹1,464 Crore</div>
+      <div class="nsum">EV two-wheeler maker Ather Energy reported its first profitable quarter in Q2 FY27, with revenue surging 63% year-on-year to ₹1,464 crore as demand for electric scooters accelerated during the festive season. The turnaround marks a significant milestone for the Bengaluru-based startup, which competes directly with Ola Electric in India's rapidly growing EV market.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tata Communications / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata Communications to Invest Up to $450 Million to Build AI Connectivity Infrastructure</div>
+      <div class="nsum">Tata Communications announced plans to pour up to $450 million into building dedicated AI connectivity infrastructure, positioning the company as a key enabler of enterprise AI workloads across India and global markets. The investment underscores accelerating private-sector commitment to AI infrastructure as India's government simultaneously scales its IndiaAI Mission with a ₹10,372 crore public compute programme.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News / The420.in</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Unacademy Founders Gaurav Munjal and Roman Saini Launch ₹700 Crore VC Fund After Edtech Exit</div>
+      <div class="nsum">Following the sale of Unacademy, co-founders Gaurav Munjal and Roman Saini have pivoted to venture capital, launching a ₹700 crore fund to back early-stage Indian startups. The move signals a broader trend of second-generation Indian tech founders reinvesting their exits into the next wave of the startup ecosystem.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Havana Times / World Radio</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Serbia's Vučić Concedes Defeat to Student-Led Anti-Corruption Movement in Landmark Election</div>
+      <div class="nsum">Longtime Serbian leader Aleksandar Vučić conceded defeat after an election in which a student-led movement campaigning against corruption, mass surveillance, and democratic backsliding secured a historic victory. The result marks a major political shift in the Western Balkans and is being closely watched by EU observers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Havana Times / World Radio</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">France Police Arrest Over 1,300 as Mass Protests Over Schools and Cost of Living Spread Across Europe</div>
+      <div class="nsum">French police arrested more than 1,300 people on Saturday as hundreds of thousands demonstrated across the country demanding better schools and relief from soaring living costs, defying President Macron's decree restricting public protests. The unrest spread across Europe, with thousands also marching in Italy, Spain, Portugal, and Albania over housing and cost-of-living grievances.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Just Security / Wikipedia Current Events</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Puts Middle East Embassies on Heightened Alert Over Intelligence of Advanced Iranian Attack Planning</div>
+      <div class="nsum">The US government placed employees at Middle East embassies and consulates on heightened alert and began reducing staff levels after intelligence indicated Iran is in the advanced stages of planning attacks against American citizens, US officials confirmed. Director of National Intelligence Jay Clayton raised alarms to Secretary of State Marco Rubio in a classified memo, further escalating tensions amid the ongoing US-Iran standoff.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 27 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
