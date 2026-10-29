@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 29, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 29 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 29 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Clears BMRCL to Resume Namma Metro Blue Line Construction</div>
+      <div class="nsum">The Supreme Court on October 26 allowed the Bangalore Metro Rail Corporation (BMRCL) to resume construction on the Blue Line corridor, lifting a status quo order that had been in place since May 2026. BMRCL stated that approximately 84% of work on the corridor is already complete, with a trial run between KR Puram and Marathahalli expected by October-end.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / News First Prime</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP-JD(S) Ward-Sharing Dispute Clouds NDA Unity Ahead of Greater Bengaluru Authority Polls</div>
+      <div class="nsum">In October 2026, the BJP and Janata Dal (Secular) announced election preparations for the first-ever Greater Bengaluru Authority (GBA) civic polls, which cover 369 wards across five city corporations with nearly 8.9 million registered voters. However, a major ward-sharing rift has emerged within the NDA alliance, with JD(S) demanding 120 of 369 wards — a demand that has not gone down well with BJP legislators in Bengaluru.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Stations Near Inauguration as Blue Line Phase 2B Construction Advances</div>
+      <div class="nsum">Several stations on Namma Metro's Pink Line, including the IIMB station near Bannerghatta Road, are now ready for inauguration and expected to open in November 2026. Meanwhile, Blue Line Phase 2B stations such as HBR Layout and Kalyan Nagar remain under active construction, with girder installation work ongoing as of October 2026.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Opinion / ETV Bharat / News Karnataka</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">22 Indians, Including 14 Seafarers, Killed in Ongoing West Asia Conflict: MEA</div>
+      <div class="nsum">The Ministry of External Affairs confirmed on October 28 that 22 Indian nationals, including 14 seafarers, have been killed in the ongoing West Asia conflict, with three deaths reported in Saudi Arabia. MEA spokesperson Randhir Jaiswal said India is 'deeply concerned' and that diplomatic missions are maintaining close contact with the Indian community across the Gulf region.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Opinion / Sunday Guardian Live</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Union Cabinet Approves Rs 7,395 Crore Viksit Gram Swaraj Yojana; Cyclone Arnab Weakens After Andhra Landfall</div>
+      <div class="nsum">The Union Cabinet approved the Pradhan Mantri Viksit Gram Swaraj Yojana for 2026–31 with an outlay of Rs 7,395.55 crore, set to cover over 2.55 lakh panchayats and benefit around 32 lakh elected representatives annually. Separately, Cyclone Arnab weakened after making landfall along the Andhra Pradesh coast, with the IMD issuing heavy rainfall alerts across Bihar, Chhattisgarh, eastern Uttar Pradesh, Jharkhand, and Delhi-NCR.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Opinion / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP Names Hardeep Singh Puri for Rajya Sabha Bypoll in Madhya Pradesh</div>
+      <div class="nsum">The BJP announced Union Minister Hardeep Singh Puri as its candidate for the Rajya Sabha bypoll in Madhya Pradesh, a move seen as a strategic consolidation of the party's upper-house strength. The nomination comes as part of ongoing Rajya Sabha election activity, with the NDA maintaining its majority in the upper house following the 2026 election cycle.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NDTV Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms Makes Blockbuster Stock Market Debut, Closes 26.66% Above Issue Price</div>
+      <div class="nsum">Jio Platforms Ltd listed on the BSE and NSE on October 28, 2026, following India's largest-ever IPO worth Rs 30,213 crore, which was subscribed 22.19 times at an issue price of Rs 1,119 per share. Shares closed at Rs 1,417.35 on debut day, reflecting a 26.66% premium over the issue price, making it the 3,138th company to list on the NSE.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty 50 Faces Resistance at 22,800; Markets Open Lower on October 29 Amid IT and Oil Sector Sell-Off</div>
+      <div class="nsum">Indian equities ended lower on Wednesday as the Nifty 50 settled at 22,699, down 51 points, driven by selling in IT and oil &amp; gas stocks, which fell more than 2%. On Thursday morning, GIFT Nifty futures were quoted at 22,685, indicating a further negative open, with Brent crude trading around $114 per barrel.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Indian Opinion</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Adani Group Explores €3 Billion Acquisition of Dutch Energy Storage Firm VTTI</div>
+      <div class="nsum">The Adani Group is reportedly in exploratory talks to acquire VTTI, a Dutch independent energy storage company, in a deal estimated at approximately €3 billion. The move signals Adani's continued international expansion into energy infrastructure, following its recent activities in the ports and renewables sectors.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jio Platforms' Bumper IPO Debut Spotlights India's Booming Digital Ecosystem</div>
+      <div class="nsum">The blockbuster listing of Jio Platforms on October 28 — with a market capitalisation of approximately Rs 12.5 lakh crore — has drawn fresh attention to India's expanding tech and digital services landscape. Inc42 noted that Delhi-NCR has now overtaken Bengaluru in the combined market value of listed startups, reflecting a broader shift in India's startup geography.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">YourStory / Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">QwikBuild Raises $2.3 Million in Pre-Seed Round, Enters Japan via JV with Globalway</div>
+      <div class="nsum">Enterprise AI startup QwikBuild secured $2.3 million in pre-seed funding and simultaneously announced a joint venture with publicly listed Japanese firm Globalway to enter Japan's enterprise market. QwikBuild uses autonomous AI agents to build bespoke enterprise software in days, enabling businesses to automate workflows and modernise legacy systems.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">StartupTalky / Tech-Insider</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise $50 Million in a Single Week as Sector Funding Hits $302 Million</div>
+      <div class="nsum">Between October 12–17, 2026, 28 Indian startups collectively raised $302.85 million, with AI-focused firms — including RapidCanvas, Clueso, Parallel Loop, and Shamrock AI — pulling in approximately $50.6 million of that total. The largest single check of the week went to Hero Electronix company Tessolve Semiconductor, which raised $75 million from Vector Line Capital, underscoring continued deep-tech investment momentum.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC / CBS News / NPR</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">At Least 68 Dead in Second High-Speed Train Crash in Spain This Year</div>
+      <div class="nsum">A high-speed Renfe AVE train slammed into the rear of a stationary Iryo train near Urda station in Toledo province, Spain, on October 28, 2026, killing at least 68 people and injuring dozens more. Spanish Prime Minister Pedro Sánchez announced three days of national mourning, while Transport Minister Óscar Puente called it 'inexplicable' that one train was allowed to restart after a signal failure halted six trains on the Madrid–Seville line.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SBS Korea / The AsiaN</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South Korea Marks 4th Anniversary of Itaewon Tragedy as US Federal Reserve Pauses Rate Hikes</div>
+      <div class="nsum">South Korean President Lee Jae-myung attended the fourth-anniversary memorial for the Itaewon crowd crush at Gwanghwamun on October 29, pledging that citizens would never again face 'unfair sacrifices due to the absence of the state.' Separately, the US Federal Reserve kept its benchmark interest rate on hold, though Chair Kevin signalled that the inflation rate remains too high and an additional hike in December remains a possibility.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Global Nation Inquirer / SBS Korea</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Spain Train Disaster Injures Filipino National; Bolsonaro Claims He Is Brazil's True Leader After US Exile</div>
+      <div class="nsum">A Filipino national was among those injured in Spain's deadly high-speed train crash that killed at least 68 people, the Philippine Embassy in Madrid confirmed on October 29. Meanwhile, former Brazilian President Jair Bolsonaro, who has fled to the United States, claimed he remains Brazil's true leader, deepening a political crisis in South America's largest nation.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 29 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
