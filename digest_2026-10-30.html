@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 30, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 30 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 30 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Clears BMRCL to Resume Namma Metro Blue Line Construction</div>
+      <div class="nsum">The Supreme Court on October 26 permitted the Bangalore Metro Rail Corporation (BMRCL) to proceed with construction of its Blue Line corridor, lifting an earlier status quo order that had stalled the project. The apex court expressed hope that the resumed work would further ease Bengaluru's chronic traffic congestion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia / Indian Opinion</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka High Court Backs GBA Crackdown: Over 3,500 Bengaluru PGs Face Sealing</div>
+      <div class="nsum">The Karnataka High Court upheld a Greater Bengaluru Authority audit that found 3,597 paying guest facilities operating in the city without valid licences, with East Bengaluru topping the list. Authorities are now authorised to seal non-compliant PGs, a move that could displace thousands of tenants across the city.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OneIndia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">JD(S) Wrests Bengaluru Teachers' MLC Seat from Congress as Nikhil Targets Rahul Gandhi</div>
+      <div class="nsum">JD(S) secured a victory in the Bengaluru Teachers' constituency in the Karnataka MLC elections held on October 28, wresting the seat from the ruling Congress party. JD(S) leader Nikhil Kumaraswamy used the occasion to launch sharp political attacks targeting Congress leader Rahul Gandhi.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Global Governance News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Releases ₹18,690 Crore PM-Kisan 24th Instalment for 9.34 Crore Farmers</div>
+      <div class="nsum">Prime Minister Narendra Modi on October 30 released the 24th instalment of the PM-Kisan Samman Nidhi scheme at a national-level event in Gujarat, directly transferring over ₹18,690 crore into the bank accounts of more than 9.34 crore farmer families. With this payout, total disbursements under PM-Kisan since inception have crossed ₹4.47 lakh crore.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Opinion</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ED Probes Rs 5,000 Crore Crypto-Linked Cross-Border Transfers; Searches Conducted in Bengaluru</div>
+      <div class="nsum">The Enforcement Directorate announced on October 29 that it is investigating alleged cross-border financial transactions using cryptocurrency, particularly stablecoins, amounting to approximately Rs 5,000 crore. The agency conducted searches on October 27 at three locations in Bengaluru and one in Madhya Pradesh under the Foreign Exchange Management Act (FEMA).</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Opinion</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Rules High Courts Cannot Extend Arbitrator Mandates Under Section 29A</div>
+      <div class="nsum">The Supreme Court on October 28 ruled that a High Court cannot extend an arbitrator's mandate under Section 29A of the Arbitration and Conciliation Act, 1996, simply because it had appointed the arbitrator under Section 11. The landmark ruling is expected to significantly streamline commercial arbitration timelines across India.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NDTV Business / Pulse by Zerodha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges 905 Points, Nifty Rises 238 Points as Fed Rate Pause Lifts Sentiment</div>
+      <div class="nsum">Indian equity markets rallied sharply on October 29, with the BSE Sensex gaining 905 points and the Nifty rising 238 points, adding nearly ₹5 lakh crore in market capitalisation, after the US Federal Reserve held interest rates steady. Investors on October 30 are monitoring elevated crude oil prices and a global tech stock sell-off following a major Binance hack as key headwinds heading into the trading session.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrackr / Tech-Insider</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Startups Raise $2.9 Billion in Q3 2026, Led by EV and AI Sectors</div>
+      <div class="nsum">Indian startups collectively raised $2.9 billion in the third quarter of 2026, with electric vehicles and artificial intelligence emerging as the dominant funding themes, according to a quarterly report by Entrackr. In the week of October 12–17 alone, 28 startups raised a combined $302.85 million, with AI-focused firms accounting for roughly $50.6 million of that total.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Freshworks Acquires AI Startup Robusta to Strengthen IT Operations Platform</div>
+      <div class="nsum">Nasdaq-listed Indian-origin SaaS major Freshworks announced on October 29 the acquisition of AI startup Robusta, aimed at bolstering its IT operations and service management platform with advanced automation capabilities. The deal underscores the growing trend of established Indian tech firms using acquisitions to accelerate their AI integration strategies.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Raise Over $1.1 Billion in Nine Months of 2026 as Founders Eye Silicon Valley</div>
+      <div class="nsum">Indian AI startups raised more than $1.1 billion in the first nine months of 2026, even as founders increasingly look toward the US for enterprise customers, capital, and global expansion, according to a new Google × Inc42 Bharat AI Startups Report. The report found that 90% of funded Indian AI startups operate at the application layer, raising questions about India's capacity to build foundational AI models.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India Observers</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startups Showcase Homegrown Innovations at Dubai AI Festival 2026</div>
+      <div class="nsum">Indian companies demonstrated a wide range of home-grown artificial intelligence solutions at the Dubai AI Festival 2026 on October 28, highlighting capabilities in enterprise automation, AI infrastructure, cybersecurity, and intelligent digital solutions. The showcase underscored India's growing global stature in practical AI application development.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ather Energy Turns Profitable in Q2 FY27 as Revenue Jumps 63% to Rs 1,464 Crore</div>
+      <div class="nsum">Ola Electric rival Ather Energy reported its first-ever quarterly profit in Q2 FY27, with revenue surging 63% year-on-year to Rs 1,464 crore, signalling a major inflection point for India's electric two-wheeler market. The profitability milestone comes as competition in the EV segment intensifies amid rising consumer adoption and expanding charging infrastructure.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / Associated Press</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Spain's Second High-Speed Train Disaster of 2026 Kills at Least 74 Near Toledo</div>
+      <div class="nsum">Rescuers on October 30 continued to search the wreckage of two high-speed trains that collided near Urda in Toledo province on October 28, with the death toll rising to a provisional 74, making it Spain's second fatal high-speed rail disaster this year. Spanish Prime Minister Pedro Sánchez visited the crash site, vowed accountability, and called the twin disasters within a year 'unacceptable' for a country of Spain's standing.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India Blooms / Wikipedia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Netanyahu Leads Israel Election but Falls Short of Majority, Coalition Talks Loom</div>
+      <div class="nsum">Israeli Prime Minister Benjamin Netanyahu's Likud bloc led the October 27 legislative election with 32 seats but fell well short of the 61-seat majority needed to form a government in the 120-seat Knesset. With no clear winner emerging from exit polls and partial results, complex coalition negotiations are expected, with Arab-led parties potentially emerging as kingmakers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Malay Mail / Iran International</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Houthi Attacks on Saudi Arabia Fuel Oil Price Surge as UN Biodiversity Summit Stalls</div>
+      <div class="nsum">Yemen's Houthi rebels on October 30 claimed attacks on Saudi Arabia's Ras Tanura and Rabigh oil refineries as well as an Aramco facility in Abqaiq, sending oil prices higher and raising fresh supply concerns for energy-importing nations like India. Separately, the UN COP17 Biodiversity Summit in Yerevan, Armenia entered its final day with nations still far from a deal to halt nature destruction, with major breakthroughs described as 'scarce' since negotiations began on October 19.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 30 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
