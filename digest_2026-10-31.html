@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — October 31, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 31 October 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 31 October 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Metro Pink Line Safety Clearance Awaited as BMRCL Meets Compliance Conditions</div>
+      <div class="nsum">The Bannerghatta Road metro corridor is still awaiting commercial operations clearance from the metro safety commissioner, more than two weeks after the statutory inspection. BMRCL has moved to comply with all outstanding requirements and expects the authorisation to be granted imminently.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Newsable / Asianet News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Clears BMRCL to Resume Hebbal Metro Work; ₹20.31 Crore Deposited for Land Acquisition</div>
+      <div class="nsum">The Supreme Court on October 27 allowed BMRCL to resume construction on the Blue Line extension in Hebbal after approximately 1 acre 26.5 guntas of land was formally handed over. The agency has deposited ₹20.31 crore toward land acquisition compensation, unblocking a section that had been stalled by legal disputes.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Metro Completes City's Seventh Organ Transit, Moving Kidney Across Town in 37 Minutes</div>
+      <div class="nsum">BMRCL coordinated the rapid transport of a kidney from Benniganahalli (Tin Factory) station to Attiguppe, covering the corridor in just 37 minutes to support an urgent transplant. The milestone marks the seventh time Namma Metro has been used for life-saving organ logistics in the city.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">PIB / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Leads Rashtriya Ekta Diwas Celebrations in Kevadia on 151st Birth Anniversary of Sardar Patel</div>
+      <div class="nsum">Prime Minister Narendra Modi attended the National Unity Day observances at Ekta Nagar in Gujarat's Narmada district, paying tribute to Sardar Vallabhbhai Patel on what would have been his 151st birthday. The government is also running the Bharat Parv 2026 festival at the venue, which continues through November 15.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / TRAI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TRAI Releases Draft Guidelines on Responsible AI Use in Telecom Networks for Public Comment</div>
+      <div class="nsum">The Telecom Regulatory Authority of India published draft guidelines on October 30 covering ethical and responsible use of artificial intelligence across telecom networks, opening them for stakeholder feedback. The framework addresses transparency, accountability and safety requirements for AI-driven systems deployed by carriers and service providers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hindu / Live Law</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Supreme Court Collegium Approves Appointment of 11 High Court Judges Across Multiple States</div>
+      <div class="nsum">The Supreme Court Collegium, chaired by Chief Justice Surya Kant, cleared proposals to elevate 11 judges to high courts in different states, adding to a series of recent judicial appointments aimed at reducing vacancies. The approvals span several benches that have been operating below full strength for an extended period.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Investing.com</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Closes at 74,460 and Nifty Gains 0.51% as IT Stocks Power Friday's Market Recovery</div>
+      <div class="nsum">The BSE Sensex advanced 0.42% to close at approximately 74,460 on Friday, extending a multi-session recovery, while the Nifty 50 gained 0.51% with IT, technology, and green energy shares leading the rally. Resilient corporate earnings and AI-driven demand for outsourcing lifted Infosys, HCL Tech and Tech Mahindra, though declining stocks still outnumbered advances on the NSE.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sun Pharma Wins US FDA Approval for ILUMYA to Treat Adults with Active Psoriatic Arthritis</div>
+      <div class="nsum">Sun Pharmaceutical Industries received clearance from the US Food and Drug Administration for ILUMYA (risankizumab) as a treatment for adults with active psoriatic arthritis, expanding the drug's approved indications in the United States. The approval is expected to strengthen the company's dermatology and immunology portfolio and boost its US revenue stream.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Mint / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Reliance Q2 Results, Oil Prices and Global Cues Set to Guide Market Sentiment Next Week</div>
+      <div class="nsum">Analysts say Reliance Industries' second-quarter earnings release and the trajectory of global crude oil prices will be the principal drivers of Indian equity markets in the coming week. Foreign institutional outflows, which have weighed on sentiment in recent sessions, remain a watch factor alongside any surprise in Reliance's refining and retail margins.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">LocalSamosa / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Signs Defence Agreement with HQ IDS to Drive AI Adoption Across Army, Navy and Air Force</div>
+      <div class="nsum">Bengaluru-based Sarvam AI has formalised a partnership with Headquarters Integrated Defence Staff to accelerate artificial intelligence deployment across all three branches of the Indian armed forces. The deal comes as Cognizant is reportedly in advanced talks to invest in the startup at a valuation of $3.5–4 billion, signalling strong institutional confidence in the company.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Analytics Insight / IvyCap</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Live2.ai Closes ₹130 Crore Pre-Series B Round Led by IvyCap Ventures for Its AI Agent Platform</div>
+      <div class="nsum">Indian AI startup Live2.ai has raised ₹130 crore in a Pre-Series B funding round led by IvyCap Ventures, with proceeds earmarked to scale its agentic AI platform and expand enterprise sales. The round reflects a broader investor pivot toward agentic AI over general-purpose large language models, a trend backed by Peak XV Partners, Lightspeed, and General Catalyst.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India AI Pulse / Prime Venture Partners</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Voice AI Startup Desible.ai Raises ₹32 Crore Seed Round Led by Prime Venture Partners</div>
+      <div class="nsum">Desible.ai, a Bengaluru-based startup building conversational voice AI solutions, has secured ₹32 crore in a seed funding round anchored by Prime Venture Partners. The company plans to use the capital to deepen its natural-language processing stack and expand into new verticals including healthcare and financial services.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Global News / AP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Spain High-Speed Train Collision Kills at Least 68, Triggers Safety Protests in Madrid</div>
+      <div class="nsum">Two high-speed passenger trains collided in Spain, leaving at least 68 people dead and dozens more injured in one of the country's worst rail disasters in years. The tragedy has sparked street protests in Madrid and a national debate over whether human error or systemic failures in the rail network were responsible.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Netanyahu Bloc Leads Israeli Election but Falls Short of Governing Majority, Leaving Country in Deadlock</div>
+      <div class="nsum">Results from Israel's latest general election show Benjamin Netanyahu's right-wing bloc winning the most seats but failing to secure the majority needed to form a government without further negotiations. The outcome has renewed fears of a prolonged political impasse in a country already grappling with regional security pressures.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">AP / Euronews</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia and Ukraine Agree Short Truce for Humanitarian Aid Convoy into Oleshky; Russia's Novaya Gazeta Shuts Down</div>
+      <div class="nsum">Moscow and Kyiv reached a limited ceasefire agreement to allow a humanitarian aid operation in the southern Ukrainian city of Oleshky, marking a rare moment of cooperation amid the ongoing conflict. Separately, Novaya Gazeta, Russia's leading independent newspaper, announced it is ceasing publication and cited sustained pressure from Russian authorities as the reason.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 31 October 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
