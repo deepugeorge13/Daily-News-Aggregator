@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — November 4, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Wednesday, 4 November 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Wednesday, 4 November 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / Construction World</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Metro Pink Line Gets Safety Clearance; PM Modi Inauguration Eyed for November 15</div>
+      <div class="nsum">BMRCL has received safety clearance from the Commissioner for Metro Railway Safety (CMRS) for the elevated Pink Line section between Kalena Agrahara and Tavarekere. Once the section enters service, the active Namma Metro network will cross 100 km, adding to the existing Purple, Green and Yellow lines.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Technical Glitch Disrupts Announcement Systems on Namma Metro Yellow Line</div>
+      <div class="nsum">Announcement systems and electronic display boards on the Namma Metro Yellow Line went dark from 4:55 PM to 5:50 PM on Tuesday due to a technical fault. Train operations continued unaffected and services ran on schedule throughout the disruption.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Awards ₹64.82 Crore Contract for Whitefield Metro Extension</div>
+      <div class="nsum">Milan Road Buildtech LLP has been declared the lowest bidder (L1) for a Whitefield metro extension contract worth ₹64.82 crore, covering elevated track and civil works. The award is part of BMRCL's accelerated push to extend the Namma Metro network through Bengaluru's IT corridor on the east side of the city.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of India / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Inaugurates Pune Pink Line Metro via Video Link, Lays Foundation for Four New Corridors</div>
+      <div class="nsum">Prime Minister Narendra Modi inaugurated the 23-km Pune Pink Line metro via video conference, expanding the city's public transit network to new areas. He also laid the foundation stones for four additional metro corridors across Indian cities, underscoring the Centre's push to accelerate urban infrastructure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Proposes DEPA Framework to Unlock Government Data for AI Training</div>
+      <div class="nsum">The government has proposed the Data Empowerment and Protection Architecture (DEPA) for AI Training, a national framework to enable secure sharing of data held by hospitals, banks and public agencies with AI developers and researchers. Officials say the framework could unlock up to $500 billion in AI-driven economic value by 2030 while protecting citizens' privacy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsonAir / India TV News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bihar Teacher Eligibility Test Rescheduled; BSEB Cites Logistical Concerns</div>
+      <div class="nsum">The Bihar School Examination Board (BSEB) has postponed the Secondary Teacher Eligibility Test originally scheduled for November 4 to November 21, 2026, citing administrative and logistical reasons. Candidates have been directed to download revised admit cards from the official BSEB portal.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Zee Business</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges 1,225 Points to 76,918 for Fourth Straight Session; FMCG Leads Gains</div>
+      <div class="nsum">The BSE Sensex closed at 76,917.85 on Tuesday, logging its fourth consecutive session of gains with a rise of 1,225 points or 1.62 per cent. NSE Nifty 50 settled at 23,810.85, up 370 points, powered by FMCG stocks and steady buying by foreign institutional investors (FIIs).</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zee Business / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FM Sitharaman Addresses Investor Concerns Over Taxation and FII Outflows</div>
+      <div class="nsum">Finance Minister Nirmala Sitharaman met market participants and addressed concerns about capital-gains tax structures and the recent wave of foreign institutional investor outflows from Indian equities. She reaffirmed the government's commitment to maintaining a stable and predictable tax environment to attract sustained foreign investment.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / StartupFeed</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Surges 4X Year-on-Year in H1 2026, Topping $676 Million</div>
+      <div class="nsum">Indian artificial intelligence startups raised $676 million across 57 deals in the first half of 2026, a fourfold increase year-on-year that signals surging investor confidence in the sector. The growth was driven by enterprise AI, generative AI tools and deep-tech applications as the ecosystem matures beyond early-stage experiments.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's DEPA for AI Training Framework Aims to Unlock $500 Billion in Data-Driven Value</div>
+      <div class="nsum">India's proposed DEPA for AI Training framework will create a consent-based mechanism for sharing sensitive public datasets — from health records to financial data — with AI builders in a privacy-safe way. Experts say that without such a framework, domestic AI startups will remain at a disadvantage relative to global peers who benefit from richer proprietary datasets.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Inc42 / StartupFeed</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam Becomes India's Second AI Unicorn After $234 Million Fundraise</div>
+      <div class="nsum">Sarvam, an AI startup specialising in large language models for Indian languages, has crossed the $1 billion valuation mark after securing a $234 million funding round, making it the country's second AI unicorn. The milestone highlights India's growing ambition to develop sovereign AI capabilities tailored to its diverse linguistic landscape.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechStartups / Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Simplismart Closes $14M Series B with NVIDIA and Dallas Venture Capital</div>
+      <div class="nsum">Simplismart, a Bengaluru-based AI infrastructure startup, has closed a $14 million Series B round with strategic investment from chipmaker NVIDIA and Dallas Venture Capital. The funding will accelerate Simplismart's AI compute and deployment stack as enterprise demand for cost-efficient inference solutions continues to grow.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SBS Korea / The Standard HK</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">US Midterm Elections Underway; Results to Determine Congress Balance at Trump's Halfway Mark</div>
+      <div class="nsum">Voters across the United States are casting ballots in midterm elections that will decide whether President Donald Trump's party retains control of both chambers of Congress. Early results are expected later today, with both the House and Senate races considered highly competitive based on pre-election polling.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Standard HK / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South Korea's Appellate Court Issues Ruling in Yoon Suk Yeol Election Law Case</div>
+      <div class="nsum">South Korea's appellate court is set to deliver its verdict today in the election law violation case against former President Yoon Suk Yeol, who faces charges of making false statements during his presidential campaign. The ruling is being closely watched for its potential impact on Yoon's political future and the broader South Korean political landscape.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / Gulf News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Kazakhstan Resumes Oil Exports via Atyrau-Samara Pipeline After Drone Strike Halted Pumping</div>
+      <div class="nsum">Kazakhstan resumed oil exports through the Atyrau-Samara pipeline on November 3 after a drone attack on a Russian transit facility temporarily halted pumping. The resumption brings relief to Kazakh producers who depend on the route to deliver crude to European markets.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Wednesday, 4 November 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
