@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — November 7, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Saturday, 7 November 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Saturday, 7 November 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TV9 Kannada / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Seven Family Members Found Dead in Bengaluru in Suspected Premeditated Attack</div>
+      <div class="nsum">Seven members of a single family were killed in Bengaluru in what Karnataka Minister Priyank Kharge described as a premeditated act, with bodies reportedly disposed of across multiple districts. Police have launched a manhunt and state authorities have called for a swift investigation into the grisly case.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Asianet Newsable</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">SpiceJet Flight Cancellation Sparks Confrontation Between Passengers and CISF at Kempegowda Airport</div>
+      <div class="nsum">A last-minute SpiceJet flight cancellation left over 35 passengers stranded at Kempegowda International Airport, triggering a heated altercation that was caught on video and went viral. Irate travellers were seen confronting both airline staff and CISF personnel on the tarmac, raising fresh questions about passenger redressal mechanisms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Asianet Newsable / Bangalore Milk Union</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Residents Bear the Brunt of Steep Dairy Price Hikes Ahead of Festive Season</div>
+      <div class="nsum">The Bengaluru Milk Union revised prices effective November 4, with unsalted butter (500 g) jumping from Rs 330 to Rs 390 and a 200 g paneer pack rising from Rs 96 to Rs 115. The hike — compounding recent increases to milk and curd prices — is hitting household budgets just as demand peaks for the festive cooking season.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN India / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Education Minister Resigns as Youth-Led &apos;Cockroach&apos; Protests Over Exam Paper Leaks Intensify</div>
+      <div class="nsum">India&apos;s Education Minister stepped down amid sustained pressure from student-led demonstrations that erupted over allegations of paper leaks in competitive examinations. The movement, dubbed the &apos;Cockroach&apos; protests by its organisers, has drawn thousands of young people to the streets demanding systemic reform of the examination process.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Print / Indian Opinion</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">INDIA Bloc Stages Large Rally at Ramlila Maidan Over Alleged CEC Irregularities in SIR Exercise</div>
+      <div class="nsum">Opposition parties under the INDIA bloc convened a mass rally at Ramlila Maidan in Delhi, demanding accountability over alleged irregularities in the Special Intensive Revision (SIR) exercise overseen by Chief Election Commissioner Gyanesh Kumar. Leaders accused the ruling dispensation of manipulating the electoral rolls ahead of upcoming state elections.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">OpIndia / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran to Allow Indian Ships Through Strait of Hormuz After Fee Agreement, Easing Maritime Tensions</div>
+      <div class="nsum">Iran has agreed to permit Indian-flagged vessels to transit the strategically vital Strait of Hormuz, subject to a fee arrangement worked out through diplomatic channels. The deal provides relief to Indian exporters and crude importers who had been rerouting shipments due to heightened Persian Gulf security concerns.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / Trading Economics</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BSE Sensex Extends Rally to Seven Sessions, Touches Highest Level Since Early March</div>
+      <div class="nsum">The BSE Sensex rose approximately 0.7% to close at 79,853 on Friday, capping a seven-session winning streak and reaching its highest level since early March 2026. The index also logged a weekly gain of around 7.1%, buoyed by a sharp surge in foreign institutional investor inflows.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NSDL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIIs Pour Rs 15,000 Crore into Indian Equities in Single Day — Largest Net Purchase in Six Years</div>
+      <div class="nsum">Foreign institutional investors (FIIs) net purchased approximately Rs 15,000 crore ($1.6 billion) of Indian equities on Thursday, their biggest single-day buying figure in nearly six years. Analysts attributed the inflow surge to improving global risk sentiment following clarity on the US midterm outcomes and easing crude oil prices.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Mint</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Brent Crude Slips Below $100, Offering India Relief on Inflation and Current Account Deficit</div>
+      <div class="nsum">Brent crude oil prices eased to below $100 a barrel this week, providing India with breathing room on its import bill and offering the RBI scope to hold interest rates steady at its December review. Economists noted the development could shave up to 20 basis points off headline retail inflation in the near term.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru AI Startup Simplismart Raises $14M Series B with NVIDIA and Accel Participation</div>
+      <div class="nsum">Simplismart, a Bengaluru-based AI inference optimisation startup, closed a $14 million Series B round led by Dallas Venture Capital, with NVIDIA, Accel, and Shastra VC also participating. The company claims its software cuts GPU serving costs by up to 56% and has seen its annualised revenue run rate grow 14-fold over the past six months.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Analytics India Magazine / IndiaAI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NPCI Sets Up AI and Blockchain Technology Subsidiary as India Doubles Down on Payments Innovation</div>
+      <div class="nsum">The National Payments Corporation of India (NPCI) has incorporated a dedicated technology subsidiary to accelerate its work in artificial intelligence and blockchain applications for the payments ecosystem. The move comes alongside the launch of indigenous AI foundation models by startups Soket Labs and ZenteiQ under the IndiaAI Mission.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TRAI / DSCI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TRAI Launches Consultation on AI Guidelines for Telecom; DSCI Issues Agentic AI Liability Guidance</div>
+      <div class="nsum">The Telecom Regulatory Authority of India (TRAI) opened a public consultation on draft guidelines governing the use of artificial intelligence across telecom networks, covering aspects such as data privacy and algorithmic accountability. Separately, the Data Security Council of India (DSCI) released a guidance note on liability frameworks for agentic AI deployments.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia and Ukraine Trade Airstrikes Even as US Envoy Reports Renewed Ceasefire Talks Making Progress</div>
+      <div class="nsum">Russian and Ukrainian forces exchanged aerial attacks overnight despite a US special envoy describing renewed diplomatic talks as productive and signalling cautious optimism about a potential ceasefire framework. Ukraine&apos;s President Zelenskyy simultaneously pressed Western allies for concrete post-war security guarantees before any deal is finalised.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bomb Threats Against European Airliners Force Emergency Diversions and Tarmac Searches Across Three Countries</div>
+      <div class="nsum">A coordinated wave of bomb threats targeting at least three European airlines prompted emergency landings, diversions, and exhaustive tarmac searches across multiple airports in the continent. No explosive devices were found, but authorities are treating the incidents as a serious security breach and have opened a joint terrorism investigation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / AP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South Africa&apos;s ANC Faces Historic Vote Collapse in Early Election Results, Opposition Gains Ground</div>
+      <div class="nsum">Early results from South Africa&apos;s elections showed the ruling African National Congress suffering one of its steepest declines in support since the end of apartheid, with opposition parties making significant inroads. Political analysts said the outcome could force the ANC into an unprecedented coalition arrangement to retain national governance.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Saturday, 7 November 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
