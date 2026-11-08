@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — November 8, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Sunday, 8 November 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Sunday, 8 November 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi to Inaugurate Bengaluru Metro Pink Line on Nov 13, Expanding Network to 103.6 km</div>
+      <div class="nsum">Prime Minister Narendra Modi is scheduled to open the elevated Pink Line section connecting Kalena Agrahara with Tavarekere on November 13, pushing the Namma Metro network past the 100 km milestone. The 21.26 km Pink Line will eventually link south Bengaluru's Kalena Agrahara to Nagawara in the north, significantly improving cross-city connectivity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CXO Today / PNI News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Signs 30-Year Naming Rights MoU with InMobi for Ibbaluru Metro Station Worth ₹65 Crore</div>
+      <div class="nsum">Bengaluru Metro Rail Corporation Ltd (BMRCL) and technology company InMobi signed a Memorandum of Understanding on November 6, granting InMobi naming rights to Ibbaluru Metro Station for 30 years at a total commitment of ₹65 crore (excluding GST). The deal is part of BMRCL's strategy to generate non-fare revenue to offset operational costs and infrastructure expenditure.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Metro Phase II Cost Revised Upward to ₹40,425 Crore; Phase 3 Orange Line Planning Begins</div>
+      <div class="nsum">The estimated cost of Bengaluru Metro Phase II has risen from the original ₹30,695 crore to ₹40,425 crore, reflecting inflation in construction materials and civil works. Simultaneously, BMRCL has invited consultants to plan the upcoming 44.65 km Orange Line, and the state government issued a fresh land acquisition notice for Phase 3 Package 1.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Chronicle / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sonia Gandhi Memoir Release on Nov 10 Sparks BJP-Congress Controversy</div>
+      <div class="nsum">Sonia Gandhi's upcoming memoir, set for release on November 10, has triggered a sharp political exchange as she alleged in pre-release interviews that the BJP-led government has weakened democratic institutions, controlled mainstream media and exploited religion for political gain. BJP leader Tarun Chugh fired back urging her to account for the Bofors scandal, the 1984 anti-Sikh riots and the Bhopal gas tragedy before levelling charges against the current administration.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News on Air / The Tribune</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BJP-Congress Row Over Special Intensive Revision of Electoral Rolls Heats Up</div>
+      <div class="nsum">Union Minister Pralhad Joshi accused Rahul Gandhi of being ill-prepared on the government's Special Intensive Revision (SIR) of electoral rolls, saying Gandhi relied on a cropped and out-of-context video clip of Home Minister Amit Shah to make his point. Joshi reiterated that Shah had openly invited Gandhi to debate the matter in Parliament and had offered a special session to discuss electoral reforms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Rahul Gandhi Slams Centre Over E20 Ethanol Blending; Calls Policy 420 Fraud on Farmers and Consumers</div>
+      <div class="nsum">Congress leader Rahul Gandhi described the government's E20 (20% ethanol blending in petrol) programme as a fraud, claiming it has diverted food crops away from consumers and suppressed farmers' incomes while inflating fuel prices. The opposition demanded a rollback of the blending mandate until a comprehensive study on its effects on food security and engine performance is completed.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Angel One / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">NSE and BSE Open for Special Diwali Muhurat Session Today, 2:20–3:30 PM IST; Samvat 2083 Begins</div>
+      <div class="nsum">On the auspicious occasion of Diwali and Laxmi Pujan, the National Stock Exchange (NSE) and Bombay Stock Exchange (BSE) will host a one-hour Muhurat trading session from 2:20 PM to 3:30 PM IST today, marking the start of the new Hindu financial year Samvat 2083. Regular full-day trading resumes on Monday, November 9.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / Mint</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Surges ~1,400 Points; Nifty 50 Closes Samvat 2082 Above 24,900 After Seven-Day Rally</div>
+      <div class="nsum">Indian equity markets wrapped up Samvat 2082 on a strong note, with the BSE Sensex rising approximately 1,400 points and the Nifty 50 reclaiming 25,000 during a seven-session rally fuelled by robust FII inflows and improving corporate earnings. Large-cap and pharma stocks led the surge, with broader midcap and smallcap indices also ending in the green.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Angel One / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IFC and SBI Sign $150 Million Loan Deal to Expand Agricultural Credit to Rural Women</div>
+      <div class="nsum">The International Finance Corporation (IFC) and State Bank of India (SBI) signed a $150 million loan agreement aimed at scaling up agricultural credit access for rural women across India. The facility will channel funds through SBI's rural branch network to support women-led farm enterprises, promoting financial inclusion and improving livelihood security in underserved districts.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndianStartupNews / AIM</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Soket Labs and ZenteiQ Launch Indigenous AI Foundation Models Under IndiaAI Mission</div>
+      <div class="nsum">Indian AI firms Soket Labs and ZenteiQ have unveiled home-grown large language models — EKA-1 and the Dhir 2B/5B series respectively — developed under the government's IndiaAI Mission to build sovereign AI infrastructure. The models are designed for Indian language tasks and enterprise deployment, reducing dependence on US and Chinese AI platforms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndianStartupNews / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Simplismart Raises $14 Million Series B Backed by NVIDIA to Scale AI Inference in India</div>
+      <div class="nsum">Bengaluru-based AI infrastructure startup Simplismart closed a $14 million Series B round with participation from NVIDIA, targeting rapid expansion of its cloud-based AI inference platform catering to enterprises and startups. The company plans to use the funds to triple its GPU cluster capacity and deepen integrations with major cloud providers operating in India.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TRAI / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">TRAI Opens Public Consultation on Draft AI Guidelines for Telecom Networks and Services</div>
+      <div class="nsum">The Telecom Regulatory Authority of India (TRAI) has released a consultation paper on draft guidelines governing the use of artificial intelligence in telecom network operations, customer service and fraud detection. Industry and civil-society stakeholders have been invited to submit comments by November 30, with final regulations expected to shape how telcos deploy AI-driven automation and decision-making tools.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">At Least 6 Killed in Shooting at Polish Market Square; Police Launch Manhunt</div>
+      <div class="nsum">A gunman opened fire on a crowded market square in Poland, killing at least six people and injuring several others before fleeing the scene, according to Polish police. Authorities have launched a large-scale manhunt and increased security at public spaces across the country as the investigation continues.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Brazil and South Korea Hold High-Stakes Elections in Dead-Heat Contests</div>
+      <div class="nsum">Brazilian voters headed to the polls for a presidential runoff election described as too close to call, while South Koreans simultaneously voted in an early presidential election following months of political upheaval. Both races are being closely watched internationally as bellwethers for democratic resilience amid rising populist pressures.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Russia Strikes Power Facilities Near Kyiv, Damages Major Bridge; Iran Eyes New Military Targets</div>
+      <div class="nsum">Russian forces launched a fresh wave of missile and drone attacks targeting energy infrastructure in and around Kyiv, damaging a major bridge and triggering widespread power outages as winter approaches. Separately, NBC News reports that Iran is repositioning its military strategy, eyeing new targets in preparation for a potential resumption of hostilities in the Middle East.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Sunday, 8 November 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
