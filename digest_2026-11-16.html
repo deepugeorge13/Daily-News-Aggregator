@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — November 16, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 16 November 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 16 November 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Wikipedia / Kannada Prabha</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line Elevated Section Opens to Passengers in Bengaluru</div>
+      <div class="nsum">The elevated section of Namma Metro's Pink Line was inaugurated on November 13 and opened to passengers on November 14, 2026, connecting key corridors across the city. The underground section remains under construction, with BMRCL targeting March 2027 for its commissioning, as Bengaluru's metro network grows to 103.6 km.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TV9 Kannada</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Blue Line Test Run Completed on Outer Ring Road Stretch</div>
+      <div class="nsum">BMRCL conducted a successful test run of the Blue Line between Baiyappanahalli depot and Doddanekkundi on November 10, 2026, to assess train performance and systems ahead of regulatory trials. The milestone signals progress on Bengaluru's Outer Ring Road metro corridor that serves major IT parks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / News24</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">D K Shivakumar Sworn in as Karnataka Chief Minister After Siddaramaiah Steps Down</div>
+      <div class="nsum">D K Shivakumar has taken charge as Karnataka Chief Minister following Siddaramaiah's resignation, with the Congress party orchestrating the leadership transition ahead of the 2028 State Assembly elections. The Governor accepted Siddaramaiah's resignation and dissolved the existing cabinet before swearing in the new administration.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Hans India / Daily Prabhat</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Flies to Manila for 23rd ASEAN-India and 21st East Asia Summits</div>
+      <div class="nsum">Prime Minister Narendra Modi departed for Manila on November 16 for the 23rd ASEAN-India Summit and 21st East Asia Summit, describing ASEAN as central to India's Act East Policy. The agenda covers maritime security cooperation, review of the ASEAN-India Trade in Goods Agreement, and the 2026-2030 Comprehensive Strategic Partnership action plan.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNBC India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Weighs Tax Cuts to Win Foreign Investors as US-India Trade Deal Talks Intensify</div>
+      <div class="nsum">India is considering targeted tax cuts to attract foreign investors as bilateral trade negotiations with the United States gain momentum amid signals of a potential deal by year-end. Analysts say Trump's recent political headwinds have created an opening for a faster-than-expected trade agreement between the two economies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News24 / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Congress Completes Karnataka Leadership Transition; Shivakumar Takes Charge</div>
+      <div class="nsum">The Congress party completed its long-anticipated leadership change in Karnataka, with Siddaramaiah submitting his resignation and D K Shivakumar being sworn in as the new Chief Minister. The reshuffle is aimed at consolidating the party's base in the state ahead of the 2028 assembly elections and 2029 Lok Sabha polls.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Bloomberg</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Stock Market Rebounds 11% from Six-Month Low as AI Trade Unwinds and FIIs Return</div>
+      <div class="nsum">India's MSCI India gauge surged 11% from an October six-month low, adding over $400 billion in market value as global funds rotate out of AI-linked assets where India has limited exposure. Bloomberg reports that lower oil prices and faster earnings growth are reinforcing the bullish outlook for India's $5.4 trillion equity market.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Kotak Neo</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Foreign Investors Pour Over ₹84,000 Crore into Indian Equities in First Half of November</div>
+      <div class="nsum">Foreign institutional investors bought equities worth more than ₹84,000 crore in the first two weeks of November 2026, reversing two straight months of net selling. The reversal is driven by falling crude oil prices, improving corporate earnings, and India's perceived insulation from the global AI-stock correction.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">RBI / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Retail Inflation Rises to 6.09% in October, Overshooting RBI's Upper Tolerance Limit</div>
+      <div class="nsum">India's consumer price inflation climbed to 6.09% in October, exceeding the Reserve Bank of India's 6% upper tolerance band for the first time since mid-year. The overshoot is expected to put the December monetary policy meeting on hold, dashing near-term hopes for further interest rate cuts.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">TechCrunch / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Chip Startup Bharat Semi Raises $24M Seed Round to Build AI Sensor Platform</div>
+      <div class="nsum">Bengaluru-based Bharat Semi closed a $24 million seed round led by Info Edge, South Park Commons, and Indus Bridge Ventures to develop intelligent image sensors that embed AI processing at the edge. The startup, which is building sensors for autonomous systems and robotics, plans to begin commercial production in 2027 and targets the global AI sensor market.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MeitY / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">MeitY Probes Home Services Platforms Over Physical-World Data Collection for AI Training</div>
+      <div class="nsum">India's Ministry of Electronics and IT is scrutinising how domestic home services platforms collect physical-world data—including video and sensor feeds—for training AI models, raising privacy and consent concerns. The probe reflects widening regulatory attention to embodied AI and the use of consumer environments as data sources.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndiaAI / Entrackr</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Crosses 4,500 Active AI Startups, Ranks Third Globally After US and China</div>
+      <div class="nsum">India now hosts more than 4,500 active AI startups, cementing its position as the world's third-largest AI startup ecosystem after the United States and China. Despite the milestone, Indian startup funding fell sharply in October, dropping 47.5% month-on-month to $678 million amid global market volatility and tighter venture capital conditions.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">MercoPress / Careerindia</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ASEAN Summit Opens in Manila; South China Sea Code of Conduct Still Unresolved</div>
+      <div class="nsum">Southeast Asian leaders convened in Manila for the annual ASEAN summit, with US President Trump and PM Modi among the attending world leaders. The Philippines is handing over the ASEAN chairmanship, while the long-awaited South China Sea Code of Conduct remains unfinalized amid continued maritime tensions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Careerindia / Substack Daily News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ebola Outbreak in DR Congo Surpasses 11,000 Cases with Near-50% Fatality Rate</div>
+      <div class="nsum">Authorities in the Democratic Republic of Congo have recorded over 11,000 Ebola cases, with roughly half of those infected having died, in one of the deadliest outbreaks in recent years. International health agencies are struggling to contain the crisis amid logistical challenges and ongoing security issues in affected regions.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Substack Daily News / The Shillong Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump, Putin and Xi Set for Historic First Three-Way Summit at APEC in Shenzhen</div>
+      <div class="nsum">The leaders of the United States, Russia, and China are scheduled to meet for the first time in a trilateral format on November 19 on the sidelines of the APEC summit in Shenzhen, China. The unprecedented meeting is expected to address global economic cooperation, geopolitical flashpoints, and the evolving structure of great-power relations.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 16 November 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
