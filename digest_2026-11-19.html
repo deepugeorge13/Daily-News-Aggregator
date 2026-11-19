@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — November 19, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Thursday, 19 November 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Thursday, 19 November 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Metro Rail News / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Metro Blue Line Begins Trial Runs on Outer Ring Road Section</div>
+      <div class="nsum">BMRCL commenced test runs on the 6-km Outer Ring Road stretch from the Baiyappanahalli depot to Doddanekundi, marking a key milestone for the Blue Line expansion. The trial run programme is expected to extend further toward Marathahalli as commissioning work advances across Phase 2 corridors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / BMRCL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Inaugurates Pink Line Stretch, Bengaluru Metro Network Crosses 103 km</div>
+      <div class="nsum">Prime Minister Narendra Modi inaugurated the elevated Kalena Agrahara–Tavarekere section of Bengaluru Metro's Pink Line, taking the total operational network to 103.6 km. The new stretch adds direct connectivity through South Bengaluru and is expected to ease peak-hour traffic on Bannerghatta Road.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald / The Hindu</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BMRCL Signs ₹65-Crore Deal with InMobi to Rename Ibbaluru Metro Station</div>
+      <div class="nsum">Bengaluru Metro Rail Corporation signed a naming-rights agreement with tech giant InMobi, under which the Ibbaluru station on the Green Line will be rebranded InMobi Ibbaluru Metro Station. The ₹65-crore, multi-year deal is part of BMRCL's drive to generate non-fare revenue to fund Phase 3 construction.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsonAir / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Jaishankar, Rubio Hail Progress on India-US Bilateral Trade Deal</div>
+      <div class="nsum">External Affairs Minister S. Jaishankar and US Secretary of State Marco Rubio expressed satisfaction over the pace of negotiations and called for an early conclusion to the India-US trade agreement. Commerce Minister Piyush Goyal separately said bilateral ties spanning trade, defence, technology and supply-chain resilience are on a strong growth trajectory.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Space Startups Demand AI Standards and Re-entry Framework at Bengaluru Tech Summit</div>
+      <div class="nsum">Founders of Indian space-tech companies called on the government to establish AI and edge-computing standards for satellites and to frame rules for spacecraft re-entry at the Bengaluru Tech Summit 2026. They also flagged dependence on imported semiconductors and unregulated deployment of AI in space missions as risks that could hamper India's growing commercial-launch sector.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">News Karnataka / Times of India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">CM Shivakumar Puts Bengaluru Roads, Flood Control at Centre of Urban Agenda</div>
+      <div class="nsum">Karnataka Chief Minister D.K. Shivakumar directed officials to accelerate road-widening, stormwater-drain upgrades and pothole-repair drives across Bengaluru, linking the city's urban quality to the state's investment-attraction goals. The push comes as Greater Bengaluru Authority begins its first full year of operations, consolidating oversight of civic services previously split across five agencies.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsBytesApp / DBS Research</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Rupee Ends Flat at 93.44 as Dollar Firms Despite Strong Foreign Equity Inflows</div>
+      <div class="nsum">The Indian rupee closed nearly unchanged at 93.44 per US dollar, paring earlier gains after the greenback strengthened globally on expectations of a faster Federal Reserve tightening cycle. DBS Bank noted that RBI's measures to curb dollar demand have provided a floor for the currency even as the dollar index rises.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / NSDL</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Foreign Investors Pour $10 Billion into Indian Equities in November, Nifty Recovers</div>
+      <div class="nsum">Overseas portfolio investors have channelled over $10 billion into Indian equity markets this month, one of the strongest November inflows on record, lifting the Nifty 50 index after a sell-off in October. Analysts attribute the surge to India's resilient GDP growth, moderating inflation and an improving corporate earnings outlook.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Zerodha Pulse / BSE</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Sheds 400 Points, Nifty Slips Below 25,300 on Global Cues</div>
+      <div class="nsum">India's benchmark indices fell sharply in intraday trade, with the BSE Sensex losing around 400 points and the Nifty 50 briefly dipping below 25,300, as geopolitical tensions in the Middle East and a firmer dollar weighed on sentiment. Banking and IT stocks led the decline, though selective buying in auto and pharma counters cushioned losses.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / The AI Insider</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Humyn Labs Raises $47 Million Series A to Scale Physical AI Training Services</div>
+      <div class="nsum">Bengaluru-based Humyn Labs has closed a $47-million Series A round, with a $26-million equity tranche led by Accel, to expand its physical-AI data-collection and robot-deployment testing platforms. The company provides annotated real-world training data for robotics and autonomous-systems companies operating in warehouses, factories and logistics hubs.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Six Indian Startups Selected for Hub71 Abu Dhabi Immersion Programme After Record Applications</div>
+      <div class="nsum">Six Indian technology companies, including Bengaluru-based Forthcode and Flo Mobility, were chosen from more than 11,000 applicants for Hub71's Abu Dhabi Immersion Programme following the UAE-India Start-Up Series 2.0. The programme gives participants access to Gulf-region investors, mentors and regulatory sandboxes to accelerate international expansion.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">IndiaAI / TechCrunch India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Crosses 4,500 Active AI Startups, Ranks Third Globally Behind US and China</div>
+      <div class="nsum">India's AI startup ecosystem has surpassed 4,500 active companies, cementing its position as the third-largest globally after the United States and China, according to the IndiaAI Mission's quarterly tracker. Sarvam AI reached a $1.5-billion valuation this month, becoming one of the country's most valuable foundation-model companies.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">SBS News / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Historic US-China-Russia Trilateral Summit Opens in Shenzhen on Sidelines of APEC</div>
+      <div class="nsum">Leaders of the United States, China and Russia convened for an unprecedented trilateral summit in Shenzhen today, using the margins of the APEC Economic Leaders Meeting for direct talks on trade, nuclear stability and regional security. The meeting is widely seen as a significant diplomatic shift after years of frayed relations between Washington and both Beijing and Moscow.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of Israel / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Iran Widens Gulf Attacks; US Targets in Kuwait and Bahrain Hit as Tensions Escalate</div>
+      <div class="nsum">Iran-aligned forces have expanded their campaign in the Persian Gulf, striking American military assets in Kuwait and Bahrain in what US officials described as an escalatory move. Houthi forces separately claimed cruise-missile strikes near Riyadh's international airport, as regional diplomacy efforts intensified to prevent a broader conflict.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NewsBytesApp / AFP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bangladesh Imposes Dawn-to-Dusk Lockdown as Awami League Protests Turn Violent</div>
+      <div class="nsum">Bangladeshi authorities enforced a nationwide dawn-to-dusk lockdown after supporters of the banned Awami League staged mass rallies and blockades, clashing with police and attacking BNP leaders' properties, particularly in former Prime Minister Hasina's home district of Gopalganj. The government said the restrictions would remain until public order is restored.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Thursday, 19 November 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
