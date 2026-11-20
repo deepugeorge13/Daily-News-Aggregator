@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — November 20, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Friday, 20 November 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Friday, 20 November 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BESCOM / Newsable</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BESCOM Announces Up to 7-Hour Power Cut Across Multiple Bengaluru Areas on Nov 20</div>
+      <div class="nsum">BESCOM has announced emergency maintenance outages affecting localities including Rajanakunte, Chikkabanavara, Bagalagunte, Mallasandra, and Malleswaram from 10 AM to 5 PM. Residents are advised to store water and charge devices before the outage begins.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Karnataka Cabinet Approves Rs 2,321 Crore White-Topping Project for 131 km of Bengaluru Roads</div>
+      <div class="nsum">The state cabinet cleared a major road infrastructure project to white-top 131 kilometres of roads across Bengaluru, aimed at improving durability and reducing waterlogging. The cabinet also withdrew a property tax rebate previously extended to star hotels across the city's five corporation zones, affecting around 42 properties.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrepreneur India / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Ranked Asia's No. 2 AI Startup Hub; Karnataka Plans 1,000-Acre Startup Park</div>
+      <div class="nsum">The Bengaluru Innovation Report 2026, released at the Bengaluru Tech Summit, ranked the city second among Asia's AI-native startup clusters, accounting for 36.3% of India's AI startup funding at USD 2.28 billion. The state's Industries Minister also announced plans for a model startup park spanning 1,000 acres near Bengaluru to attract next-generation tech companies.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">India.com / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Cyclone Akvan Set to Make Landfall Near Odisha's Gopalpur; Over 3 Lakh Evacuated, 69 Trains Cancelled</div>
+      <div class="nsum">Cyclone Akvan is expected to cross the Odisha coast near Gopalpur today, bringing heavy rainfall and strong winds to the region. The East Coast Railway has cancelled 69 trains and rescheduled 29 others, while authorities have evacuated over three lakh people from vulnerable coastal areas.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Dainik Jagran / Indian Opinion</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Launches Indigenous H5N1 Bird Flu Vaccine; PM SVANidhi Awards and IFFI Goa Open Today</div>
+      <div class="nsum">India's first indigenously developed H5N1 avian influenza vaccine was launched in Bhopal today, marking a significant step in domestic biodefence capability. Separately, the 57th International Film Festival of India opened in Goa, while PM SVANidhi Samman Awards were conferred in New Delhi recognising street vendors.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / MSN India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Crude Oil Imports Hit Record High in October; Saudi Arabia Reclaims Second-Supplier Spot</div>
+      <div class="nsum">India's crude oil imports touched a record level in October 2026, driven by strong refinery throughput and strategic reserve builds. Saudi Arabia has overtaken the UAE to reclaim its position as India's second-largest crude supplier, following a period of discounted pricing under OPEC+ arrangements.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Investing.com / Benzinga</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nifty 50 Surges 1.14% to 6-Month High; Sensex Gains 1.21% on Strong Auto and Banking Rally</div>
+      <div class="nsum">Indian equity markets closed sharply higher on Thursday with the Nifty 50 touching a fresh six-month high, driven by broad-based gains across auto, consumer durables, and banking sectors. Maruti Suzuki was the top Nifty gainer, surging 7.30%, while the BSE Sensex 30 added 1.21% to close comfortably above 84,000.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Markets Poised for Flat-to-Positive Open; Nifty Consolidates Near 25,300–25,400 Band</div>
+      <div class="nsum">After Thursday's strong rally, analysts expect Indian markets to open flat to marginally positive on Friday as investors book partial gains ahead of the weekend. The Nifty is expected to consolidate in the 25,300–25,400 range, with global cues from US futures and crude oil prices providing a cautious backdrop.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Economic Times / MSN India</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Tata Trusts Listing Battle Heads to Key Hearing on November 26 Amid Governance Dispute</div>
+      <div class="nsum">The long-running dispute over listing requirements for Tata Trusts is set to reach a critical legal hearing on November 26, drawing scrutiny over governance and transparency norms for large charitable trusts in India. The case has implications for how India regulates the financial disclosures of major philanthropic entities linked to publicly listed conglomerates.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sarvam AI Faces Backlash for Hosting Chinese DeepSeek Models on Its Token Factory Platform</div>
+      <div class="nsum">Bengaluru-based Sarvam AI, one of India's flagship frontier model startups backed by the government's IndiaAI Mission, has drawn sharp criticism for making Chinese AI models including DeepSeek accessible via its new Token Factory API platform. Critics argue the move undermines India's AI sovereignty goals and the spirit of the IndiaAI Mission's public funding mandate.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Indian Startup News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">IndiaAI Mission Startup Soket AI Raises $4 Million from Bajaj Finance and Pennant for On-Premise LLMs</div>
+      <div class="nsum">Soket AI, an IndiaAI Mission grantee focused on domain-specific language models, has closed a $4 million funding round led by Bajaj Finance and Pennant Technologies. The capital will be used to build coding, math, and reasoning models tailored for financial-services clients who prefer on-premise AI deployments.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Entrepreneur India / Karnataka Govt</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Accounts for 36% of India's AI Startup Funding; State Eyes 1,000-Acre Innovation Park</div>
+      <div class="nsum">According to the Bengaluru Innovation Report 2026 released at the Bengaluru Tech Summit, the city contributes USD 2.28 billion, or 36.3%, of India's total AI startup funding, ranking it second only to Beijing among Asia's AI hubs. Karnataka is now planning a 1,000-acre dedicated startup park near Bengaluru to anchor the next wave of deep-tech and AI ventures.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Times of Israel / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">ICJ Rules Myanmar Guilty of Genocide Against Rohingya in Historic Judgment</div>
+      <div class="nsum">The International Court of Justice delivered a landmark ruling finding Myanmar responsible for genocide against the Rohingya Muslim minority, marking the first time the world's top court has held a state accountable under the 1948 Genocide Convention for crimes against that community. The United States pushed back against the ruling, warning against the perceived politicisation of the court's jurisdiction.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Daily Jagran / AP</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">49th ASEAN Summit Opens in Manila Amid South China Sea Tensions and Regional Security Talks</div>
+      <div class="nsum">Leaders and foreign ministers from across the Asia-Pacific region have gathered in Manila for the 49th ASEAN Summit, where South China Sea territorial disputes, Myanmar's ongoing civil conflict, and economic integration are atop the agenda. US President Trump confirmed he was "too busy" during his Asia tour to meet North Korean leader Kim Jong Un on the sidelines.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">World Brief / Reuters</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">COP31 Climate Talks Stall as Draft Deal Leaves Out Fossil Fuel Phase-Out Language</div>
+      <div class="nsum">Negotiations at the COP31 climate summit have hit a deadlock after a draft agreement circulated among delegations omitted any binding commitments to phase out fossil fuels, drawing fierce opposition from island nations and climate-vulnerable states. The International Energy Agency warned that the Middle East energy crisis represents the largest threat to global energy security on record, adding urgency to the stalled talks.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Friday, 20 November 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
