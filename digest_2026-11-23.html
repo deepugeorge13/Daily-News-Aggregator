@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — November 23, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Monday, 23 November 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Monday, 23 November 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">BMRCL / RailwayPro</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Pink Line's New 7.5 km Elevated Stretch Makes Network India's Second-Largest at 103.6 km</div>
+      <div class="nsum">The 7.5 km elevated section of Namma Metro's Pink Line, inaugurated by PM Modi on November 13 and open to commuters from November 14, extends the network to 103.6 km — making Bengaluru's metro India's second-largest after Delhi. The six-station stretch, running from Tavarekere to IIM Bangalore with an interchange to the Yellow Line, significantly boosts south Bengaluru's connectivity.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">14th Edition of Bengaluru's Inclusion Summit Returns with Art Exhibition, Talks, and Live Performances</div>
+      <div class="nsum">Bengaluru's annual Inclusion Summit, now in its 14th year, returns this week featuring a multi-day programme of art exhibitions, keynote talks, and live performances centred on disability, diversity, and social inclusion. The event draws participation from corporates, NGOs, and government bodies, reinforcing the city's growing reputation as a hub for accessibility advocacy.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Bengaluru Startup Converts Restaurant Waste Oil into Biofuel, Targets City's Fleet Operators</div>
+      <div class="nsum">A Bengaluru-based startup has launched a commercial operation converting waste cooking oil from restaurants and cloud kitchens into biodiesel, pitching its product to the city's large fleet of delivery vehicles and auto-rickshaws. The venture highlights the city's growing cleantech ecosystem and addresses Bengaluru's mounting urban waste challenge.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / NDTV</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Education Minister Resigns After Nationwide 'Cockroach' Youth Protests Over Exam Paper Leaks</div>
+      <div class="nsum">India's Education Minister has stepped down following days of intense student-led protests dubbed the 'Cockroach Movement', triggered by widespread anger over leaked question papers in national competitive exams. The resignation marks a significant political setback for the central government and has reignited demands for a thorough overhaul of India's examination system.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Tribune / Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Congress: 100 Days Since Monsoon Session, Modi Govt Still Short of Two-Thirds Majority for Delimitation Bill</div>
+      <div class="nsum">The Congress party has marked 100 days since the Monsoon session of Parliament was adjourned sine die without passing the constitutional amendment needed for the upcoming delimitation exercise, alleging the ruling BJP lacks the required two-thirds majority. The unprorogued status of the session has fuelled speculation about a possible special sitting to also address the pending Women's Reservation implementation.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">CNN / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India Opens New Mega Airport; Modi Administration Highlights Infrastructure Push Ahead of Year-End</div>
+      <div class="nsum">India has inaugurated a new large-scale international airport, adding to the country's rapidly expanding aviation infrastructure as passenger traffic surges past pre-pandemic highs. The opening is part of the government's broader infrastructure thrust, with several greenfield and brownfield airport projects under various stages of completion across Tier-2 and Tier-3 cities.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ANI / Economic Times</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's Economy Growing Above 7%, World Bank Projects 7.1% — Union Minister Shekhawat Citing Trump Praise</div>
+      <div class="nsum">Union Minister Gajendra Singh Shekhawat cited the World Bank's latest estimate of over 7.1% GDP growth for India, speaking on November 22 after US President Donald Trump praised India's growth trajectory and low RBI policy rates. India's economy continues to outpace most major economies, with the government pointing to strong investment and manufacturing activity as key drivers.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">State-Run Banks Post Record Rs 1.09 Lakh Crore Combined Profit in First Half of FY27; NPAs at New Low</div>
+      <div class="nsum">India's public sector banks collectively reported a record net profit of Rs 1.09 lakh crore in the first six months of FY2026–27, surpassing all previous half-year benchmarks, with non-performing assets falling to a fresh multi-year low. The robust performance reflects years of balance sheet clean-up and improved credit quality, boosting investor confidence in the PSB sector.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / NewsDrum</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Poised for Strong Monday Open as GIFT Nifty Surges; Index Closed at 83,919 on Friday</div>
+      <div class="nsum">The Sensex closed at 83,919.71 on Friday — up nearly 898 points on the day — and GIFT Nifty futures indicate a bullish Monday opening despite a global market wobble, buoyed by continued foreign institutional inflows and positive macro data. The Nifty 50 ended Friday's session at 25,800.60, its highest close in several weeks.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today / MeitY</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Modi Opens ₹60 Crore AI Centre of Excellence at IIT Patna; Lays Foundation for ₹400 Crore Research Park</div>
+      <div class="nsum">Prime Minister Modi virtually inaugurated a ₹60 crore AI Centre of Excellence at IIT Patna on November 21, backed by MeitY, the Bihar government, and Tiger Analytics, alongside laying the foundation stone for a ₹400 crore research park at the institute. Speaking at the National Skill Convocation in Lucknow the following day, Modi stressed that no one with skills need fear displacement by AI, underscoring the government's dual focus on AI advancement and workforce upskilling.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / iDEX</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian Armed Forces Turn to Startups for Battlefield AI at Bengaluru Tech Summit; Human Oversight Stressed</div>
+      <div class="nsum">Officials from the Army, Navy, Air Force, and iDEX (Innovation for Defence Excellence) gathered at the Bengaluru Tech Summit to discuss how defence startups can accelerate the development of battlefield AI and dual-use technologies at speed. While enthusiasm for AI-enabled defence systems was high, senior officials were emphatic that human oversight must remain central to any deployment of autonomous systems.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Google / YourStory</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Pledges $5 Million to IIT Kharagpur for AI Research; IndiaAI Mission Adds Two Homegrown Foundation Models</div>
+      <div class="nsum">Google has committed $5 million to IIT Kharagpur to fund AI research, education, and talent development as part of its broader India-focused AI investment drive. Separately, the government-backed IndiaAI Mission has added two new homegrown AI foundation models to its portfolio, as India accelerates its push to build sovereign AI capabilities alongside global partnerships.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">COP31 in Antalya Ends Without a Deal — First Failed Climate Summit Since 2009 Copenhagen</div>
+      <div class="nsum">The COP31 United Nations Climate Change Conference in Antalya, Turkey, has concluded without a binding agreement, marking the first failed COP since the 2009 Copenhagen summit and deepening alarm among scientists and climate campaigners. Negotiators were unable to bridge divisions over fossil fuel phase-out timelines, climate finance for developing nations, and loss-and-damage funding mechanisms.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / ANI</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Nepal PM Balendra Shah Holds First Foreign Bilateral in New Delhi; Energy and Trade Top Agenda with Modi</div>
+      <div class="nsum">Nepal's Prime Minister Balendra Shah is in New Delhi for his first foreign bilateral talks since taking office in March 2026, with energy cooperation, trade facilitation, and hydropower exports to India expected to dominate the agenda in his meetings with PM Narendra Modi. The visit signals an early effort by the new Kathmandu government to reset and strengthen ties with India after a period of diplomatic turbulence.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Reuters / BBC</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">South Korea's Education Minister Quits Over AI Exam-Cheating Scandal; Calls Grow for National Policy Response</div>
+      <div class="nsum">South Korea's Education Minister has resigned after an AI-assisted exam-cheating scandal exposed systemic vulnerabilities in the country's high-stakes examination system, triggering a national debate about the use of generative AI by students. The fallout has prompted calls for emergency legislation on AI use in academic settings, with parallels being drawn to India's own recent exam integrity crisis.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Monday, 23 November 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
