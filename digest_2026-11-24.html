@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangalore Morning Digest — November 24, 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f3;
+    --color-background-tertiary: #eeede8;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-background-warning: #faeeda;
+    --color-background-danger: #fcebeb;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #5f5e5a;
+    --color-text-tertiary: #888780;
+    --color-text-info: #0c447c;
+    --color-text-success: #27500a;
+    --color-text-warning: #633806;
+    --color-text-danger: #791f1f;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --color-border-secondary: rgba(0,0,0,0.22);
+    --color-border-primary: rgba(0,0,0,0.32);
+    --color-border-info: #b5d4f4;
+    --color-border-success: #c0dd97;
+    --color-border-warning: #fac775;
+    --color-border-danger: #f7c1c1;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1e1e1c;
+      --color-background-secondary: #2a2a28;
+      --color-background-tertiary: #242422;
+      --color-background-info: #042c53;
+      --color-background-success: #173404;
+      --color-background-warning: #412402;
+      --color-background-danger: #501313;
+      --color-text-primary: #f0efe8;
+      --color-text-secondary: #b4b2a9;
+      --color-text-tertiary: #888780;
+      --color-text-info: #b5d4f4;
+      --color-text-success: #c0dd97;
+      --color-text-warning: #fac775;
+      --color-text-danger: #f7c1c1;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+      --color-border-secondary: rgba(255,255,255,0.18);
+      --color-border-primary: rgba(255,255,255,0.28);
+      --color-border-info: #0c447c;
+      --color-border-success: #3b6d11;
+      --color-border-warning: #854f0b;
+      --color-border-danger: #a32d2d;
+    }
+  }
+  body { font-family: var(--font-sans); background: var(--color-background-tertiary); min-height: 100vh; padding: 1.5rem 1rem; }
+  .app { max-width: 680px; margin: 0 auto; padding: 1.5rem 0; }
+  .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:12px;flex-wrap:wrap}
+  .brand-row{display:flex;align-items:center;gap:10px}
+  .brand-icon{width:38px;height:38px;border-radius:var(--border-radius-md);background:var(--color-background-info);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-title{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+  .brand-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+  .date-col{text-align:right;flex-shrink:0}
+  .ist-date{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+  .ist-time{font-size:12px;color:var(--color-text-tertiary);margin-top:2px}
+  .sources{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .src{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-tertiary)}
+  .status-bar{display:flex;align-items:center;background:var(--color-background-secondary);border:0.5px solid var(--color-border-success);border-radius:var(--border-radius-md);padding:10px 14px;margin-bottom:1rem;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#639922;flex-shrink:0}
+  .status-txt{font-size:13px;color:var(--color-text-secondary)}
+  .tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+  .tab{font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);background:transparent;color:var(--color-text-secondary);cursor:pointer;white-space:nowrap;font-family:var(--font-sans)}
+  .tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent;font-weight:500}
+  .cat-section{display:none;flex-direction:column;gap:10px}
+  .cat-section.visible{display:flex}
+  .ncard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;transition:border-color .15s}
+  .ncard:hover{border-color:var(--color-border-secondary)}
+  .nmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .nsrc{font-size:11px;font-weight:500;color:var(--color-text-info);text-transform:uppercase;letter-spacing:.05em}
+  .ntime{font-size:11px;color:var(--color-text-tertiary)}
+  .nhead{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:5px}
+  .nsum{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+  .footer{margin-top:1.5rem;text-align:center;font-size:11px;color:var(--color-text-tertiary);padding:12px 0;border-top:0.5px solid var(--color-border-tertiary)}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div>
+      <div class="brand-row">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-info)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="brand-title">Bangalore Morning Digest</div>
+          <div class="brand-sub">3 headlines per category · Powered by Claude + Web Search</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-col">
+      <div class="ist-date">Tuesday, 24 November 2026</div>
+      <div class="ist-time">9:00 AM IST</div>
+    </div>
+  </div>
+
+  <div class="sources">
+    <span class="src">Times of India</span>
+    <span class="src">The Hindu</span>
+    <span class="src">Deccan Herald</span>
+    <span class="src">InShorts</span>
+    <span class="src">NDTV</span>
+    <span class="src">Economic Times</span>
+    <span class="src">MSN India</span>
+    <span class="src">Google News</span>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot"></div>
+    <span class="status-txt">Digest loaded &nbsp;·&nbsp; Tuesday, 24 November 2026 &nbsp;·&nbsp; 9:00 AM IST</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('local',this)">Local Bangalore</button>
+    <button class="tab" onclick="switchTab('national',this)">National India</button>
+    <button class="tab" onclick="switchTab('business',this)">Business &amp; Finance</button>
+    <button class="tab" onclick="switchTab('tech',this)">Technology</button>
+    <button class="tab" onclick="switchTab('intl',this)">International</button>
+  </div>
+
+  <!-- LOCAL BANGALORE -->
+  <div class="cat-section visible" id="cat-local">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">BWSSB Schedules 12-Hour Water Supply Cut Across Bengaluru on November 25</div>
+      <div class="nsum">BWSSB has announced a 12-hour citywide water supply disruption on Wednesday, November 25, from 6 am to 6 pm, to carry out emergency maintenance work. Repairs and replacement works will be conducted at the TK Halli, Harohalli, and Tataguni pumping stations during the shutdown.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Namma Metro Losses Widen as Foreign-Currency Debt Costs Mount Despite Revenue Crossing Rs 1,000 Crore</div>
+      <div class="nsum">BMRCL's annual revenue surpassed Rs 1,000 crore for the first time in 2024-25, driven by ridership recovery and a fare hike, but net losses widened to Rs 623.93 crore. Unhedged foreign-currency borrowings and a depreciating rupee continue to push up interest and debt repayment costs.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Deccan Herald</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Customs Seize 39.63 kg of Hydroponic Cannabis Worth Rs 13.9 Crore at Kempegowda International Airport</div>
+      <div class="nsum">Air Intelligence Unit officers at Bengaluru's Kempegowda International Airport intercepted a large consignment of hydroponic cannabis, seizing 39.63 kg of the high-potency drug valued at approximately Rs 13.9 crore. The seizure is among the largest drug hauls recorded at the city airport and investigations are ongoing.</div>
+    </div>
+  </div>
+
+  <!-- NATIONAL INDIA -->
+  <div class="cat-section" id="cat-national">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">The Week</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Gold Prices Crash Nearly 9% in a Week After PM Modi's Appeal to Reduce Gold Purchases</div>
+      <div class="nsum">Global gold prices fell approximately 9 percent over five consecutive trading sessions, with PM Modi claiming credit for his earlier appeal urging Indians to buy less gold. The central government had also raised the import duty on gold and silver from 6 percent to 15 percent, compounding the pressure on domestic prices.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">PM Modi Announces IIT Offshore Campus, Startup Incubator and Innovation Hub in Nepal to Strengthen Bilateral Ties</div>
+      <div class="nsum">Prime Minister Narendra Modi announced a package of institutional and economic initiatives for Nepal, including an IIT offshore campus, a startup incubator, and an innovation hub, aimed at deepening the two countries' development partnership. A new Nepal-India train service connecting Ayodhya and Janakpur was also scheduled for joint inauguration as part of the engagement.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">DD News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Amit Shah Declares Northeast Development and Youth Employment Top Priorities for Modi Government</div>
+      <div class="nsum">Union Home Minister Amit Shah reaffirmed the Modi government's commitment to accelerating development across northeastern states and creating employment for young people in the region. Shah highlighted ongoing infrastructure and connectivity projects as cornerstones of the government's strategy to integrate the Northeast into India's growth story.</div>
+    </div>
+  </div>
+
+  <!-- BUSINESS & FINANCE -->
+  <div class="cat-section" id="cat-business">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ETV Bharat / IANS</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Sensex Sheds ~1.8% to Close Near 82,436 as Banking Stocks Lead Broad Market Decline</div>
+      <div class="nsum">Indian benchmark indices fell sharply on Monday, with the Sensex closing near 82,436 and the Nifty ending around 25,350, as profit booking erased recent gains and banking stocks including HDFC Bank, ICICI Bank and Axis Bank came under pressure. A weakening rupee against the dollar added to the negative sentiment, though the Nifty IT index bucked the trend with a gain of about 2 percent.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Today</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">FIIs Pump Over Rs 1 Lakh Crore Into Indian Equities in November, Reversing Months of Net Selling</div>
+      <div class="nsum">Foreign Portfolio Investors have net-bought more than Rs 1 lakh crore worth of Indian equities so far this month, marking a sharp reversal after months of sustained outflows that totalled over Rs 2.95 lakh crore for the year. Analysts attribute the buying surge to declining crude oil prices, strong corporate earnings and attractive valuations in large-cap stocks.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tracxn / Business Standard</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Indian AI Startup Funding Doubles to Record $1.6 Billion in January-September 2026</div>
+      <div class="nsum">India's artificial intelligence sector attracted $1.6 billion in equity funding in the first nine months of 2026, up 96 percent from $822 million in the same period of 2025, according to a Tracxn report. Mumbai's Neysa raised the largest round — a $600 million Series B — accounting for 37 percent of total AI funding and helping Mumbai overtake Bengaluru as the country's top AI investment hub.</div>
+    </div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="cat-section" id="cat-tech">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Business Standard / Storyboard18</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Google Launches Momentum Initiative to Accelerate India's AI Startup Ecosystem</div>
+      <div class="nsum">Google unveiled its Momentum programme, designed to support Indian startups with access to its advanced AI models, cloud infrastructure and hands-on engineering assistance to help them build products and scale globally. The initiative signals Google's deepening commitment to India's burgeoning AI ecosystem amid record investment flows into the sector.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">Tracxn / NewsBytesApp</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Three New AI Unicorns and $1.6B in Funding Mark India's Strongest AI Startup Year on Record</div>
+      <div class="nsum">India minted three new AI unicorns in January to September 2026 — compared with just one in the same period of 2025 — as the sector set a funding record and drew interest from global investors seeking alternatives to overpriced US and China AI plays. The 87 rounds that raised the $1.6 billion represent fewer deals than last year, suggesting investors are concentrating larger cheques in breakout companies.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / Al Jazeera</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">India's AI Impact Summit in New Delhi Drew Over 5 Lakh Visitors and Pledges of $210 Billion in Investment</div>
+      <div class="nsum">India's global AI Impact Summit in New Delhi — the fourth in a worldwide series following Bletchley Park, Seoul and Paris — attracted over five lakh visitors and saw domestic conglomerates Reliance and Adani collectively pledge $210 billion toward AI and data infrastructure. The event positioned India as the first Global South nation to host the summit, with PM Modi and tech leaders including Sundar Pichai and Brad Smith in attendance.</div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL -->
+  <div class="cat-section" id="cat-intl">
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News / ABC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Ukrainian Drones Sink Russian Warship at Libya's Benghazi Port, Zelenskyy Confirms Strike</div>
+      <div class="nsum">Ukraine confirmed that its naval drones reached and sank a Russian warship docked at Benghazi port in Libya, marking one of the most distant strikes of the war. President Volodymyr Zelenskyy confirmed the sinking and said it demonstrated Ukraine's expanding long-range capabilities.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">Trump Hails 'Historic' US-China-Russia Summit in Shenzhen; Poland to Receive NATO Early-Warning Aircraft</div>
+      <div class="nsum">US President Trump described a trilateral summit with Chinese President Xi and Russian President Putin in Shenzhen as a historic diplomatic milestone, though detailed outcomes were not immediately disclosed. Separately, Poland announced it would receive NATO early-warning aircraft after Russian missiles struck Polish territory, escalating tensions with the alliance.</div>
+    </div>
+    <div class="ncard">
+      <div class="nmeta"><span class="nsrc">ABC News / NBC News</span><span class="ntime">Today · 9:00 AM IST</span></div>
+      <div class="nhead">34 Workers Missing After Deadly Candy Factory Fire in Indonesia; Rescuers Comb Through Rubble</div>
+      <div class="nsum">Emergency responders in Indonesia are racing to locate 34 workers who went missing after a catastrophic fire tore through a candy factory, killing several people and causing the structure to collapse. Rescue teams are working through rubble under difficult conditions as authorities launch an investigation into the cause of the blaze.</div>
+    </div>
+  </div>
+
+  <div class="footer">Bangalore Morning Digest &nbsp;·&nbsp; Tuesday, 24 November 2026 &nbsp;·&nbsp; 9:00 AM IST &nbsp;·&nbsp; Powered by Claude + Web Search</div>
+
+</div>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.cat-section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('visible');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
