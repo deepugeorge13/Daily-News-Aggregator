@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Bangalore Morning Digest for November 25, 2026."""
+"""Generate the Bangalore Morning Digest for November 28, 2026."""
 import anthropic
 import json
 import os
@@ -21,14 +21,14 @@ TWILIO_FROM  = os.environ.get("TWILIO_FROM")
 WHATSAPP_TO  = os.environ.get("WHATSAPP_TO")
 
 DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT = os.path.join(DIR, "digest_2026-11-25.html")
+OUTPUT = os.path.join(DIR, "digest_2026-11-28.html")
 
-DATE_LONG  = "Wednesday, 25 November 2026"
+DATE_LONG  = "Saturday, 28 November 2026"
 TIME_IST   = "9:00 AM IST"
-TITLE_DATE = "November 25, 2026"
+TITLE_DATE = "November 28, 2026"
 
 SYSTEM = """\
-You are a news curator for the Bangalore Morning Digest. Today is Wednesday, 25 November 2026.
+You are a news curator for the Bangalore Morning Digest. Today is Saturday, 28 November 2026.
 Use the web_search tool to find 3 real, current news stories for EACH of these 5 categories:
   1. local    – Bangalore / Karnataka city news (BBMP, BMRCL, metro, infrastructure, civic)
   2. national – National India news (central govt, elections, policy, major domestic events)
@@ -74,7 +74,7 @@ def fetch_news() -> dict:
     client = _make_client()
     tools  = [{"type": "web_search_20250305", "name": "web_search"}]
     msgs   = [{"role": "user", "content": (
-        "Search for the top news stories for November 25, 2026 across all five categories "        "(Local Bangalore, National India, Business & Finance, Technology, International) "
+        "Search for the top news stories for November 28, 2026 across all five categories "        "(Local Bangalore, National India, Business & Finance, Technology, International) "
         "and return the results as a JSON object exactly as instructed."
     )}]
 
@@ -138,10 +138,10 @@ def _cards(items: list) -> str:
     parts = []
     for item in items[:3]:
         parts.append(f"""\
-    <div class="ncard">
-      <div class="nmeta"><span class="nsrc">{_esc(item['src'])}</span><span class="ntime">Today · {TIME_IST}</span></div>
-      <div class="nhead">{_esc(item['headline'])}</div>
-      <div class="nsum">{_esc(item['summary'])}</div>
+    <div class=\"ncard\">
+      <div class=\"nmeta\"><span class=\"nsrc\">{_esc(item['src'])}</span><span class=\"ntime\">Today · {TIME_IST}</span></div>
+      <div class=\"nhead\">{_esc(item['headline'])}</div>
+      <div class=\"nsum\">{_esc(item['summary'])}</div>
     </div>""")
     return "\n".join(parts)
 
